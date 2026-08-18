@@ -1,0 +1,177 @@
+[
+  {
+    "file": "CM-OLTC-Technical-Data--HM0-154-301.pdf",
+    "title": "CM OLTC technical data HM0.154.301",
+    "products": ["cm"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "CM2-Vacuum-OLTC-Technical-Data-HM0-154-5701.pdf",
+    "title": "CM2 vacuum OLTC technical data HM0.154.5701",
+    "products": ["cm2"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "CMD-OLTC-Technical-Data-HM0-154-1901.pdf",
+    "title": "CMD OLTC technical data HM0.154.1901",
+    "products": ["cmd"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "CV-SV-OLTC-Technical-Data-HM0.154.001.pdf",
+    "title": "CV & SV OLTC technical data HM0.154.001",
+    "products": ["cv", "sv"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "CV2-OLTC-Technical-Data-HM0.154.4101-2025.pdf",
+    "title": "CV2 OLTC technical data HM0.154.4101 (2025)",
+    "products": ["cv2"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "CV2-Leaflet-2024.pdf",
+    "title": "CV2 leaflet 2024",
+    "products": ["cv2"],
+    "kind": "leaflet",
+    "lang": "en"
+  },
+  {
+    "file": "OLTC-CV2-OI-HM0.460.5601-2026.pdf",
+    "title": "CV2 operating instructions HM0.460.5601 (2026)",
+    "products": ["cv2"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "CM2-Operating-Instruction_2021.10.13.pdf",
+    "title": "CM2 operating instructions 2021-10-13",
+    "products": ["cm2"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "CVT-Vacuum-OLTC-Technical-Data-HM0.154.3301.pdf",
+    "title": "CVT vacuum OLTC technical data HM0.154.3301",
+    "products": ["cvt"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "CZ-vacuum-OLTC-technical-data-HM0-154-1102.pdf",
+    "title": "CZ vacuum OLTC technical data HM0.154.1102",
+    "products": ["cz"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "HWV-Technical-Data.pdf",
+    "title": "HWV technical data",
+    "products": ["hwv"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "SHZV-Vacuum-OLTC-Technical-Data-HM0.154.3901-2025.pdf",
+    "title": "SHZV vacuum OLTC technical data HM0.154.3901 (2025)",
+    "products": ["shzv"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "OLTC-SHZV-OI-HMO.460.3901-EN.pdf",
+    "title": "SHZV operating instructions HMO.460.3901",
+    "products": ["shzv"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "SHZVG-Vacuum-OLTC-Technical-Data-2025.pdf",
+    "title": "SHZVG vacuum OLTC technical data 2025",
+    "products": ["shzvg"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "WD-L-S-G-Drum-Type-OCTC-Technical-Data-HM0.154.6001.pdf",
+    "title": "WDG drum-type OCTC technical data HM0.154.6001",
+    "products": ["wdg"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "MDU-CMA7-OM-HM0.460.302-EN-2025.pdf",
+    "title": "CMA7 motor drive OM HM0.460.302 (2025)",
+    "products": ["cma7"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "MDU-SHM-D-OI-HM0-460-1381-ENG-2025.pdf",
+    "title": "SHM-D motor drive OI HM0.460.1381 (2025)",
+    "products": ["shm-d"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "Controller-SHM-KX-HM.0.460.5901-ENG.pdf",
+    "title": "SHM-KX controller HM.0.460.5901",
+    "products": ["shm-kx"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "contact-electrical-life--SY.pdf",
+    "title": "Contact electrical life",
+    "products": [],
+    "kind": "leaflet",
+    "lang": "en"
+  },
+  {
+    "file": "Retrofit-Leaflet-En.pdf",
+    "title": "Retrofit leaflet",
+    "products": [],
+    "kind": "leaflet",
+    "lang": "en"
+  },
+  {
+    "file": "SHM-XE-type-test-report-EN.pdf",
+    "title": "SHM-XE type-test report (EN)",
+    "products": ["shm-x"],
+    "kind": "type-test",
+    "lang": "en"
+  },
+  {
+    "file": "SHM-XE-type-test-report-ZH.pdf",
+    "title": "SHM-XE type-test report (ZH)",
+    "products": ["shm-x"],
+    "kind": "type-test",
+    "lang": "zh"
+  },
+  {
+    "file": "SHM-XE-type-test-certificate-EN.pdf",
+    "title": "SHM-XE type-test certificate (EN)",
+    "products": ["shm-x"],
+    "kind": "type-test",
+    "lang": "en"
+  },
+  {
+    "file": "SHM-XE-EMC-certificate-EN.pdf",
+    "title": "SHM-XE EMC certificate (EN)",
+    "products": ["shm-x"],
+    "kind": "type-test",
+    "lang": "en"
+  },
+  {
+    "file": "SHM-XE-EMC-certificate-ZH.pdf",
+    "title": "SHM-XE EMC certificate (ZH)",
+    "products": ["shm-x"],
+    "kind": "type-test",
+    "lang": "zh"
+  }
+]

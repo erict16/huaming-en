@@ -1,0 +1,59 @@
+[
+  {
+    "id": "shanghai",
+    "name": "Shanghai Huaming Power Equipment Co., Ltd.",
+    "role": "Headquarters / factory",
+    "lines": ["No. 977 Tongpu Road, Putuo District", "Shanghai 200333, China"],
+    "web": "https://www.huaming.com",
+    "creditCode": "913101076076323035",
+    "email": "intl@huaming.com"
+  },
+  {
+    "id": "singapore",
+    "name": "Huaming Power Equipment Singapore Pte. Ltd",
+    "role": "International headquarters",
+    "lines": ["Tai Seng Exchange (TSX) Tower A #03-13", "1 Tai Seng Ave, Singapore 536464"],
+    "web": null,
+    "email": "intl@huaming.com",
+    "note": "Opened 29 April 2025 (company news)."
+  },
+  {
+    "id": "turkey",
+    "name": "Huaming Turkey",
+    "role": "Plant / office",
+    "lines": ["Organize Sanayi Bölgesi 9. Cad. No.13/2", "10020 Merkez Balıkesir, Türkiye"],
+    "web": "https://huaming.com.tr",
+    "email": "info@huaming.com.tr"
+  },
+  {
+    "id": "indonesia",
+    "name": "PT Huaming Power Indonesia",
+    "role": "Sales / service",
+    "lines": [
+      "JL.Kenari Blok G1 28L Kawasan Delta Silicon 5",
+      "Desa Cicau, Cikarang Pusat, Kabupaten Bekasi, 17530, Indonesia"
+    ],
+    "email": "sujicheng@huaming.com",
+    "phone": "+62 852 1528 6730"
+  },
+  {
+    "id": "brazil",
+    "name": "Huaming Latino American",
+    "role": "Office",
+    "lines": ["Gelásio Pimenta, 171 - Vila Antonina", "São Paulo - SP, 03412-000, Brazil"],
+    "web": "https://huaming.com.br"
+  },
+  {
+    "id": "usa",
+    "name": "Huaming USA Corporation",
+    "role": "Office",
+    "lines": ["4981 Irwindale Ave Ste 800", "Irwindale, CA 91706-2183, USA"]
+  },
+  {
+    "id": "shandong-fin",
+    "name": "Shandong FIN CNC Co., Ltd.",
+    "role": "Affiliate / CNC",
+    "lines": ["No. 2222, Century Avenue, High-tech Development Zone", "Jinan, China"],
+    "web": "https://www.fincncmachine.com"
+  }
+]

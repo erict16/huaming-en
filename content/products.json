@@ -1,0 +1,364 @@
+{
+  "families": [
+    {
+      "id": "oltc-oil",
+      "name": "OLTC, oil arc",
+      "blurb": "On-load tap changer. The arc breaks in transformer oil. Classic in-tank types."
+    },
+    {
+      "id": "oltc-vacuum",
+      "name": "OLTC, vacuum",
+      "blurb": "On-load tap changer. The arc breaks in a vacuum interrupter. Less oil carbon, longer contact life."
+    },
+    {
+      "id": "oltc-dry",
+      "name": "OLTC, air / dry",
+      "blurb": "On-load tap changer for dry-type or air-insulated transformers."
+    },
+    {
+      "id": "oltc-gas",
+      "name": "OLTC, gas",
+      "blurb": "On-load tap changer for SF6 / gas-insulated transformers."
+    },
+    {
+      "id": "oltc-reactive",
+      "name": "OLTC, reactive / compartment",
+      "blurb": "Compartment or reactor-type on-load tap changer, including North America styles."
+    },
+    {
+      "id": "regulator",
+      "name": "Step voltage regulator",
+      "blurb": "Tap changer built for a step-voltage regulator, not a power-transformer in-tank OLTC."
+    },
+    {
+      "id": "octc",
+      "name": "OCTC / DETC",
+      "blurb": "De-energized tap changer. Change taps only with the transformer off."
+    },
+    {
+      "id": "mdu",
+      "name": "Motor drive / MDU",
+      "blurb": "The motor cabinet that turns the tap changer. HWV already includes a drive on the commercial list — do not add CMA7 twice."
+    },
+    {
+      "id": "monitor",
+      "name": "Monitor / oil filter",
+      "blurb": "Online monitoring and oil-filter plant."
+    },
+    {
+      "id": "other",
+      "name": "Other",
+      "blurb": "Listed on the live shop. Page + PDF only when we have real copy."
+    }
+  ],
+  "types": [
+    {
+      "slug": "cm",
+      "name": "CM",
+      "family": "oltc-oil",
+      "oneLiner": "Classic in-tank OLTC: diverter switch plus tap selector. Arc in oil.",
+      "fromLive": "Type CM is a classic on-load tap changer composed by a diverter switch & tap selector.",
+      "ratings": ["In-tank", "Diverter + selector", "Oil arc", "III currents 500 / 600 A (catalogue)"],
+      "siblings": ["cm2", "cmd", "cv"],
+      "downloads": ["CM-OLTC-Technical-Data--HM0-154-301.pdf"],
+      "livePath": "/products-page/product/1-cm"
+    },
+    {
+      "slug": "cmd",
+      "name": "CMD",
+      "family": "oltc-oil",
+      "oneLiner": "Larger oil OLTC, same family idea as CM, higher current steps.",
+      "fromLive": "Type CMD is designed with state-of-the-art technology and concept.",
+      "ratings": ["In-tank", "Oil arc", "III currents 400 / 600 / 1000 A (catalogue)"],
+      "siblings": ["shzv", "cm"],
+      "downloads": ["CMD-OLTC-Technical-Data-HM0-154-1901.pdf"],
+      "livePath": "/products-page/product/14-cmd"
+    },
+    {
+      "slug": "cv",
+      "name": "CV",
+      "family": "oltc-oil",
+      "oneLiner": "Selector-switch oil OLTC. The oil ancestor of CV2.",
+      "fromLive": "Type CV is a typical selector switch structure tap changer.",
+      "ratings": ["Selector switch", "Oil arc", "III 350 A; compound volume (catalogue)", "Um 40.5 / 72.5 kV"],
+      "siblings": ["cv2", "sv"],
+      "downloads": ["CV-SV-OLTC-Technical-Data-HM0.154.001.pdf"],
+      "livePath": "/products-page/product/15-cv"
+    },
+    {
+      "slug": "sv",
+      "name": "SV",
+      "family": "oltc-oil",
+      "oneLiner": "Oil compound selector switch, 500 A. Not a CV2.",
+      "fromLive": "Listed with CV in the CV & SV technical data.",
+      "ratings": ["Oil arc", "500 A (catalogue)", "Do not call this CV2-500"],
+      "siblings": ["cv", "cv2"],
+      "downloads": ["CV-SV-OLTC-Technical-Data-HM0.154.001.pdf"],
+      "livePath": null
+    },
+    {
+      "slug": "cv2",
+      "name": "CV2",
+      "family": "oltc-vacuum",
+      "oneLiner": "Vacuum version of CV. Selector-switch OLTC for primarily-delta transformers up to 132 kV.",
+      "fromLive": "Type CV2 is of selector switch structure, a vacuum version of type CV on-load tap changer. Mechanical backup contacts. Most economic solution for primarily-delta transformer up to 132kV system.",
+      "ratings": ["Vacuum interrupter", "Selector switch", "III 350 A and 600 A only — no CV2-500", "Um 40.5 / 72.5 / 126 / 145 kV", "Positions 12 without change-over, 23 with"],
+      "siblings": ["cv", "cm2", "shzv"],
+      "downloads": [
+        "CV2-OLTC-Technical-Data-HM0.154.4101-2025.pdf",
+        "CV2-Leaflet-2024.pdf",
+        "OLTC-CV2-OI-HM0.460.5601-2026.pdf"
+      ],
+      "livePath": "/products-page/product/4-cv2"
+    },
+    {
+      "slug": "cm2",
+      "name": "CM2",
+      "family": "oltc-vacuum",
+      "oneLiner": "Vacuum version of CM. Diverter + selector, vacuum bottles.",
+      "fromLive": "Type CM2 on-load tap changer perfectly integrates the proven reliability of type CM and vacuum switching technology.",
+      "ratings": ["Vacuum interrupter", "Diverter + selector", "III 500 / 600 A (catalogue)"],
+      "siblings": ["cm", "cv2", "shzv"],
+      "downloads": [
+        "CM2-Vacuum-OLTC-Technical-Data-HM0-154-5701.pdf",
+        "CM2-Operating-Instruction_2021.10.13.pdf"
+      ],
+      "livePath": "/products-page/product/16-cm2"
+    },
+    {
+      "slug": "shzv",
+      "name": "SHZV",
+      "family": "oltc-vacuum",
+      "oneLiner": "Vacuum version of CMD. Higher current than CM2 when CM2 does not cover Iᵤ.",
+      "fromLive": "Type SHZV is a vacuum version of type CMD on-load tap changer.",
+      "ratings": ["Vacuum interrupter", "III 400 / 600 / 1000 A", "Um 72.5–252 kV (300 / 363 in brochure)"],
+      "siblings": ["cmd", "shzvg", "cm2"],
+      "downloads": [
+        "SHZV-Vacuum-OLTC-Technical-Data-HM0.154.3901-2025.pdf",
+        "OLTC-SHZV-OI-HMO.460.3901-EN.pdf"
+      ],
+      "livePath": "/products-page/product/17-shzv"
+    },
+    {
+      "slug": "shzvg",
+      "name": "SHZVG",
+      "family": "oltc-vacuum",
+      "oneLiner": "Larger vacuum OLTC after SHZV max current (1300 / 1500 A III).",
+      "fromLive": "Listed on the live shop as SHZVG.",
+      "ratings": ["Vacuum interrupter", "III 1300 / 1500 A (catalogue)"],
+      "siblings": ["shzv"],
+      "downloads": ["SHZVG-Vacuum-OLTC-Technical-Data-2025.pdf"],
+      "livePath": "/products-page/product/33-shzvg"
+    },
+    {
+      "slug": "chvt",
+      "name": "CHVT",
+      "family": "oltc-vacuum",
+      "oneLiner": "Vacuum OLTC for converter / HVDC transformers. Longdong ±800 kV, May 2025.",
+      "fromLive": "CHVT commissioned at Longdong ±800 kV HVDC converter station, 28 May 2025.",
+      "ratings": ["Converter transformer OLTC", "Vacuum", "UHV project reference: Longdong ±800 kV (May 2025)"],
+      "siblings": ["shzv", "hwv"],
+      "downloads": [],
+      "livePath": "/products-page/product/18-chvt"
+    },
+    {
+      "slug": "hwv",
+      "name": "HWV",
+      "family": "oltc-vacuum",
+      "oneLiner": "On-tank / external vacuum OLTC. Commercial type already includes the motor drive.",
+      "fromLive": "Listed under vacuum / on-tank types.",
+      "ratings": ["On-tank (bolt-on)", "Vacuum", "400 / 800 / 1000 A", "Um 17.5 / 40.5 / 72.5 kV", "Do not add CMA7 twice"],
+      "siblings": ["hwdk", "cma7"],
+      "downloads": ["HWV-Technical-Data.pdf"],
+      "livePath": "/products-page/product/19-hwv"
+    },
+    {
+      "slug": "hwdk",
+      "name": "HWDK",
+      "family": "oltc-reactive",
+      "oneLiner": "Compartment / reactor-type OLTC used on North American styles.",
+      "fromLive": "Listed on the live shop.",
+      "ratings": ["Compartment / reactive", "North America application"],
+      "siblings": ["hwv"],
+      "downloads": [],
+      "livePath": "/products-page/product/20-hwdk"
+    },
+    {
+      "slug": "cvt",
+      "name": "CVT",
+      "family": "oltc-dry",
+      "oneLiner": "Vacuum OLTC for dry-type / air-insulated transformers. Low Um.",
+      "fromLive": "Dry type family on the live shop.",
+      "ratings": ["Air insulated", "Vacuum", "160 / 200 A", "Um 12 kV"],
+      "siblings": ["cz"],
+      "downloads": ["CVT-Vacuum-OLTC-Technical-Data-HM0.154.3301.pdf"],
+      "livePath": "/products-page/product/5-cvt"
+    },
+    {
+      "slug": "cz",
+      "name": "CZ",
+      "family": "oltc-dry",
+      "oneLiner": "Vacuum dry / air OLTC at distribution voltages.",
+      "fromLive": "Dry type family on the live shop.",
+      "ratings": ["Air insulated", "Vacuum", "500 / 600 A", "Um 40.5 / 72.5 kV"],
+      "siblings": ["cvt"],
+      "downloads": ["CZ-vacuum-OLTC-technical-data-HM0-154-1102.pdf"],
+      "livePath": "/products-page/product/21-cz"
+    },
+    {
+      "slug": "shgv",
+      "name": "SHGV",
+      "family": "oltc-gas",
+      "oneLiner": "OLTC for SF6 / gas-insulated transformers.",
+      "fromLive": "Gas insulated type on the live shop.",
+      "ratings": ["Gas insulated"],
+      "siblings": [],
+      "downloads": [],
+      "livePath": "/products-page/product/29-shgv"
+    },
+    {
+      "slug": "hmdk",
+      "name": "HMDK",
+      "family": "regulator",
+      "oneLiner": "Tap changer for a step voltage regulator.",
+      "fromLive": "Regulator family on the live shop.",
+      "ratings": ["Step voltage regulator"],
+      "siblings": [],
+      "downloads": [],
+      "livePath": "/products-page/product/22-hmdk"
+    },
+    {
+      "slug": "wsl",
+      "name": "WSL / WDL",
+      "family": "octc",
+      "oneLiner": "Cage-type de-energized tap changer. Transformer must be off.",
+      "fromLive": "Live slug W_L. Cage type.",
+      "ratings": ["De-energized only", "Cage"],
+      "siblings": ["wdg", "zwc"],
+      "downloads": [],
+      "livePath": "/products-page/product/7-w_l",
+      "note": "No cage OCTC PDF in the OneDrive technical-brochure folder as of 2026-08-19."
+    },
+    {
+      "slug": "wdg",
+      "name": "WDG",
+      "family": "octc",
+      "oneLiner": "Drum-type de-energized tap changer.",
+      "fromLive": "Live slug W_G. Drum type.",
+      "ratings": ["De-energized only", "Drum"],
+      "siblings": ["wsl", "zwc"],
+      "downloads": ["WD-L-S-G-Drum-Type-OCTC-Technical-Data-HM0.154.6001.pdf"],
+      "livePath": "/products-page/product/6-w_g"
+    },
+    {
+      "slug": "zwc",
+      "name": "ZWC",
+      "family": "octc",
+      "oneLiner": "Linear de-energized tap changer.",
+      "fromLive": "Linear type on the live shop.",
+      "ratings": ["De-energized only", "Linear"],
+      "siblings": ["wsl", "wdg"],
+      "downloads": [],
+      "livePath": "/products-page/product/8-zwc"
+    },
+    {
+      "slug": "shm-d",
+      "name": "SHM-D",
+      "family": "mdu",
+      "oneLiner": "Motor drive unit for in-tank OLTCs.",
+      "fromLive": "Motor drive unit on the live shop.",
+      "ratings": ["Motor drive"],
+      "siblings": ["cma7", "shm-x", "shm-kx"],
+      "downloads": ["MDU-SHM-D-OI-HM0-460-1381-ENG-2025.pdf"],
+      "livePath": "/products-page/product/11-shm-d"
+    },
+    {
+      "slug": "cma7",
+      "name": "CMA7",
+      "family": "mdu",
+      "oneLiner": "Motor drive unit. Not required a second time on HWV.",
+      "fromLive": "Motor drive unit on the live shop.",
+      "ratings": ["Motor drive", "Do not double-count on HWV"],
+      "siblings": ["shm-d", "hwv"],
+      "downloads": ["MDU-CMA7-OM-HM0.460.302-EN-2025.pdf"],
+      "livePath": "/products-page/product/9-cma7"
+    },
+    {
+      "slug": "shm-x",
+      "name": "SHM-X",
+      "family": "mdu",
+      "oneLiner": "Intelligent motor-drive mechanism.",
+      "fromLive": "Motor drive / controller family.",
+      "ratings": ["Motor drive"],
+      "siblings": ["shm-kx", "cma7"],
+      "downloads": [],
+      "livePath": "/products-page/product/13-shm-x"
+    },
+    {
+      "slug": "shm-kx",
+      "name": "SHM-KX",
+      "family": "mdu",
+      "oneLiner": "Controller / drive cabinet. Type-test pack on file for SHM-XE.",
+      "fromLive": "Controller on the live shop.",
+      "ratings": ["Controller"],
+      "siblings": ["shm-x"],
+      "downloads": ["Controller-SHM-KX-HM.0.460.5901-ENG.pdf"],
+      "livePath": "/products-page/product/34-shm-kx"
+    },
+    {
+      "slug": "hmjk-ii",
+      "name": "HMJK-II",
+      "family": "monitor",
+      "oneLiner": "Online monitoring device for the tap changer.",
+      "fromLive": "Monitoring on the live shop.",
+      "ratings": ["Monitor"],
+      "siblings": ["zxjy"],
+      "downloads": [],
+      "livePath": "/products-page/product/27-hmjk-ii"
+    },
+    {
+      "slug": "zxjy",
+      "name": "ZXJY",
+      "family": "monitor",
+      "oneLiner": "Online oil filter plant.",
+      "fromLive": "Online oil filter on the live shop.",
+      "ratings": ["Oil filter"],
+      "siblings": ["hmjk-ii"],
+      "downloads": [],
+      "livePath": "/products-page/product/28-zxjy"
+    },
+    {
+      "slug": "hmiet",
+      "name": "HMIET",
+      "family": "other",
+      "oneLiner": "Listed on the live shop. Keep if the product page has real copy; else list + PDF only.",
+      "fromLive": "Accessories / other.",
+      "ratings": [],
+      "siblings": [],
+      "downloads": [],
+      "livePath": "/products-page/product/24-hmiet"
+    },
+    {
+      "slug": "et-sz6",
+      "name": "ET-SZ6",
+      "family": "other",
+      "oneLiner": "Listed on the live shop.",
+      "fromLive": "Accessories / other.",
+      "ratings": [],
+      "siblings": [],
+      "downloads": [],
+      "livePath": "/products-page/product/25-et-sz6"
+    },
+    {
+      "slug": "hmc-3c",
+      "name": "HMC-3C",
+      "family": "other",
+      "oneLiner": "Listed on the live shop.",
+      "fromLive": "Accessories / other.",
+      "ratings": [],
+      "siblings": [],
+      "downloads": [],
+      "livePath": "/products-page/product/26-hmc-3c"
+    }
+  ]
+}

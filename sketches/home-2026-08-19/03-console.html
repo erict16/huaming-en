@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>03 Console — Huaming</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg:#121417; --panel:#1C2024; --line:#2E343B; --text:#E8EAED; --amber:#D97706; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font:15px/1.45 "IBM Plex Sans", sans-serif; }
+    header { display:flex; gap:16px; align-items:center; padding:14px 20px; border-bottom:1px solid var(--line); }
+    header input { flex:1; background:var(--panel); border:1px solid var(--line); color:var(--text); padding:10px 12px; font:14px "IBM Plex Mono", monospace; }
+    .cta { background:var(--amber); color:#111; padding:10px 14px; text-decoration:none; font-weight:600; }
+    main { padding:28px 20px 60px; max-width:1100px; margin:0 auto; }
+    h1 { font-size:28px; font-weight:600; margin:0 0 8px; }
+    .def { color:#9aa3ad; max-width:40rem; }
+    table { width:100%; border-collapse:collapse; margin-top:28px; font-size:14px; }
+    th, td { text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); }
+    th { color:#9aa3ad; font-weight:500; }
+    code { font-family:"IBM Plex Mono", monospace; }
+    a { color:var(--amber); }
+    @media (max-width:640px) { .hide { display:none; } }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>HUAMING</strong>
+    <input placeholder="Search CV2, SHZV, CMA7…" />
+    <a href="#">Downloads</a>
+    <a class="cta" href="#">Contact</a>
+  </header>
+  <main>
+    <h1>Find a tap changer</h1>
+    <p class="def">A tap changer is the moving switch in a transformer that picks a winding tap. On-load types work while the transformer is live.</p>
+    <table>
+      <thead>
+        <tr><th>Type</th><th>Family</th><th class="hide">Iᵤ (III)</th><th class="hide">Mounting</th><th>PDF</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>CV2</code></td><td>Vacuum OLTC</td><td class="hide">350 / 600 A</td><td class="hide">In-tank</td><td><a href="#">Technical data</a></td></tr>
+        <tr><td><code>CM2</code></td><td>Vacuum OLTC</td><td class="hide">500 / 600 A</td><td class="hide">In-tank</td><td><a href="#">Technical data</a></td></tr>
+        <tr><td><code>SHZV</code></td><td>Vacuum OLTC</td><td class="hide">400 / 600 / 1000 A</td><td class="hide">In-tank</td><td><a href="#">Technical data</a></td></tr>
+        <tr><td><code>HWV</code></td><td>Vacuum OLTC</td><td class="hide">400 / 800 / 1000 A</td><td class="hide">On-tank</td><td><a href="#">Technical data</a></td></tr>
+        <tr><td><code>WSL</code></td><td>OCTC cage</td><td class="hide">—</td><td class="hide">De-energized</td><td><a href="#">Ask</a></td></tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
