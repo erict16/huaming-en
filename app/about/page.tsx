@@ -45,6 +45,33 @@ export default function AboutPage() {
         writes that quality and after-sales service are what the company is for.
       </p>
 
+      <h2 className="font-serif mt-12 text-2xl">Films</h2>
+      <p className="mt-3 text-sm text-muted">
+        Official channel. Links only — we did not download the files.
+      </p>
+      <ul className="mt-3 space-y-2 text-sm">
+        <li>
+          <a className="underline" href="https://www.youtube.com/watch?v=IgUMQ0CWYMI">
+            Overview of Huaming SHZV
+          </a>
+        </li>
+        <li>
+          <a className="underline" href="https://www.youtube.com/watch?v=32KVEqQRI7w">
+            SHM-D motor drive
+          </a>
+        </li>
+        <li>
+          <a className="underline" href="https://www.youtube.com/watch?v=OtqYPlLWBgQ">
+            Turkey factory
+          </a>
+        </li>
+        <li>
+          <a className="underline" href="https://www.youtube.com/@hmtcusa8262">
+            Channel
+          </a>
+        </li>
+      </ul>
+
       <p className="mt-10 text-sm">
         <Link href="/about/history/" className="underline">
           History

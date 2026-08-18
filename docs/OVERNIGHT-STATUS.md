@@ -1,7 +1,7 @@
 # Overnight status
 
-Updated: 2026-08-19 01:15 CST
-SHA: 53a4144
+Updated: 2026-08-19 01:20 CST
+SHA: pending
 
 ## Clock
 
@@ -27,18 +27,16 @@ SHA: 53a4144
 
 ## Done this fire
 
-- Rechecked live CHVT page: no PDF, only shop text + `chvt.png`
-- CHVT note on the type page; conflict recorded
-- Home plate uses the CV2 photograph
-- Assert script now checks every `downloads.json` row exists and CHVT has honest empty copy
+- Replaced truncated urllib HTML with complete curl copies (0 files still at 192/256 KiB)
+- Full `mirror/MANIFEST.md` (54 HTML + 62 PDF checksums)
+- Product index shows type photos
+- About: official YouTube films, links only
 
 ## Not finished
 
 - CHVT technical PDF (does not exist on the live shop)
-- Full `/images/` tree
+- Full `/images/` decorative tree (product stills are in)
 - Chinese huaming.com still 500
-- Some mirrored HTML still truncated from the first urllib pass
-- YouTube: links only
 
 ## Blockers
 

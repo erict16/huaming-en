@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { families, products } from "@/lib/catalog";
+import { productImageSrc } from "@/lib/product-image";
 
 export const metadata: Metadata = { title: "Products" };
 
@@ -34,14 +35,25 @@ export default function ProductsPage() {
             <h2 className="font-serif text-2xl">{family.name}</h2>
             <p className="mt-1 text-sm text-muted">{family.blurb}</p>
             <ul className="mt-4 divide-y divide-rule border-y border-rule">
-              {rows.map((p) => (
-                <li key={p.slug} className="flex flex-col gap-1 py-3 md:flex-row md:items-baseline md:justify-between">
-                  <Link href={`/products/${p.slug}/`} className="font-mono underline">
-                    {p.name}
-                  </Link>
-                  <span className="max-w-2xl text-sm">{p.oneLiner}</span>
-                </li>
-              ))}
+              {rows.map((p) => {
+                const photo = productImageSrc(p.slug);
+                return (
+                  <li
+                    key={p.slug}
+                    className="flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between"
+                  >
+                    <div className="flex items-center gap-4">
+                      {photo ? (
+                        <img src={photo} alt="" className="h-14 w-14 object-contain" />
+                      ) : null}
+                      <Link href={`/products/${p.slug}/`} className="font-mono underline">
+                        {p.name}
+                      </Link>
+                    </div>
+                    <span className="max-w-2xl text-sm">{p.oneLiner}</span>
+                  </li>
+                );
+              })}
             </ul>
           </section>
         );

@@ -1,30 +1,129 @@
 # Mirror manifest
 
-Files on disk under mirror/raw: 24. Crawl ok rows: 24.
+Generated 2026-08-19. Good HTML is the curl set, not the first urllib cut.
 
-| path | bytes |
-|---|---:|
-| `mirror/raw/huaming.com.br/index.html` | 65536 |
-| `mirror/raw/huaming.com.tr/index.html` | 40012 |
-| `mirror/raw/www.huaming.com/index.html` | 6847 |
-| `mirror/raw/www.intl-huaming.com/about/history/index.html` | 270982 |
-| `mirror/raw/www.intl-huaming.com/about/introduction/index.html` | 361962 |
-| `mirror/raw/www.intl-huaming.com/about/why-us/index.html` | 262144 |
-| `mirror/raw/www.intl-huaming.com/career/index.html` | 262144 |
-| `mirror/raw/www.intl-huaming.com/contact-us/index.html` | 196608 |
-| `mirror/raw/www.intl-huaming.com/images/00_HuaMing/logo/LOGO-01.png` | 14722 |
-| `mirror/raw/www.intl-huaming.com/images/00_HuaMing/product/Retrofit Leaflet En.pdf` | 9289699 |
-| `mirror/raw/www.intl-huaming.com/index.html` | 374869 |
-| `mirror/raw/www.intl-huaming.com/investor-relations/index.html` | 196608 |
-| `mirror/raw/www.intl-huaming.com/newsroom/index.html` | 262144 |
-| `mirror/raw/www.intl-huaming.com/products-page-for-categories-listing/index.html` | 262144 |
-| `mirror/raw/www.intl-huaming.com/products-page/index.html` | 196608 |
-| `mirror/raw/www.intl-huaming.com/products-page/product/1-cm/index.html` | 270244 |
-| `mirror/raw/www.intl-huaming.com/products-page/product/14-cmd/index.html` | 269956 |
-| `mirror/raw/www.intl-huaming.com/products-page/product/15-cv/index.html` | 270101 |
-| `mirror/raw/www.intl-huaming.com/products-page/product/16-cm2/index.html` | 270110 |
-| `mirror/raw/www.intl-huaming.com/products-page/product/17-shzv/index.html` | 269693 |
-| `mirror/raw/www.intl-huaming.com/products-page/product/4-cv2/index.html` | 269985 |
-| `mirror/raw/www.intl-huaming.com/renewable-energy/general-introduction/index.html` | 196608 |
-| `mirror/raw/www.intl-huaming.com/renewable-energy/project-references/index.html` | 291880 |
-| `mirror/raw/www.intl-huaming.com/tap-changer/index.html` | 262144 |
+## HTML (54)
+
+| path | bytes | sha256 |
+|---|---:|---|
+| `mirror/raw/huaming.com.br/index.html` | 65536 | `fe08e31505377df7…` |
+| `mirror/raw/huaming.com.tr/index.html` | 40012 | `8c9c9aa9be655c70…` |
+| `mirror/raw/www.huaming.com/index.html` | 6847 | `8096e49522c8cc8b…` |
+| `mirror/raw/www.intl-huaming.com/about/history/index.html` | 270982 | `ccd6af9e8fc238ae…` |
+| `mirror/raw/www.intl-huaming.com/about/introduction/index.html` | 361962 | `8ecf271c96a8ae62…` |
+| `mirror/raw/www.intl-huaming.com/about/why-us/index.html` | 331334 | `4166c943b544adb1…` |
+| `mirror/raw/www.intl-huaming.com/career/index.html` | 325829 | `6fa609db1bff80a5…` |
+| `mirror/raw/www.intl-huaming.com/contact-us/index.html` | 300144 | `1e3452a2a241a405…` |
+| `mirror/raw/www.intl-huaming.com/index.html` | 374869 | `2da3879d591a95ba…` |
+| `mirror/raw/www.intl-huaming.com/investor-relations/index.html` | 246085 | `77e2d2ee9fa7a966…` |
+| `mirror/raw/www.intl-huaming.com/news-articles/course-on-load-tap-changers-oltc-free-basic-level---brought-to-you-by-transforme.html` | 1070648 | `90ab40194545a8ba…` |
+| `mirror/raw/www.intl-huaming.com/news-articles/huaming-awarded-distinguished-municipal-level-enterprise-technology-center.html` | 272524 | `d18bde456073f62e…` |
+| `mirror/raw/www.intl-huaming.com/news-articles/huaming-chvt-converter-transformer-on-load-tap-changer-has-successfully-commissi.html` | 1370891 | `d06b883b644b883c…` |
+| `mirror/raw/www.intl-huaming.com/news-articles/huaming-in-action.html` | 273017 | `80af3f2f2731e64e…` |
+| `mirror/raw/www.intl-huaming.com/news-articles/huaming-power-awarded-outstanding-supplier-of-2023.html` | 271831 | `6fdbd1742f5aee66…` |
+| `mirror/raw/www.intl-huaming.com/news-articles/huaming-power-equipment-opens-international-headquarters-in-singapore-to-leverag.html` | 962598 | `ba6395f0b4c59862…` |
+| `mirror/raw/www.intl-huaming.com/news-articles/huaming-technical-seminar-on-tap-changer-successfully-held-in-pakistan.html` | 274188 | `b4a3cb824482437e…` |
+| `mirror/raw/www.intl-huaming.com/news-articles/huaming-technical-seminar-successfully-held-in-nigeria-for-tcn.html` | 274875 | `973b6460707fc81c…` |
+| `mirror/raw/www.intl-huaming.com/news-articles/milestone-achievement.html` | 273891 | `f801b5b70ef1b877…` |
+| `mirror/raw/www.intl-huaming.com/news-articles/not-familiar-with-tap-changers-this-comic-will-make-it-easy-to-understand-5.html` | 275329 | `55f17883ac5ee244…` |
+| `mirror/raw/www.intl-huaming.com/news-articles/shanghai-huaming-twenty-years-of-deep-engagement-in-indonesia-building-a-trusted.html` | 281743 | `873f5584544b396d…` |
+| `mirror/raw/www.intl-huaming.com/newsroom/index.html` | 269358 | `edd378e2005668e7…` |
+| `mirror/raw/www.intl-huaming.com/products-page/index.html` | 307930 | `c4ee8a6fee0c3950…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/1-cm/index.html` | 270244 | `15218662e6507abc…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/11-shm-d/index.html` | 269577 | `b5252c8c73a8112f…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/13-shm-x/index.html` | 269507 | `5ff7da48c0f3f24d…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/14-cmd/index.html` | 269956 | `2925510bf9f73d6e…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/15-cv/index.html` | 270101 | `d6c66b7402cbfa36…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/16-cm2/index.html` | 270110 | `b5224e3a055c7593…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/17-shzv/index.html` | 269693 | `8b75722a00d47d2e…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/18-chvt/index.html` | 269238 | `3808f416e3aa33ab…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/19-hwv/index.html` | 270345 | `43d780035c3300f5…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/20-hwdk/index.html` | 269759 | `5c8422c33c1c320c…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/21-cz/index.html` | 270124 | `62e6e5e07285e48a…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/22-hmdk/index.html` | 269384 | `1d8647a6e5943629…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/24-hmiet/index.html` | 269778 | `cb9abab566ad1170…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/25-et-sz6/index.html` | 269633 | `60757dfde127a27b…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/26-hmc-3c/index.html` | 270871 | `542cfedc3460a01f…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/27-hmjk-ii/index.html` | 270257 | `81be88d901ed4248…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/28-zxjy/index.html` | 269863 | `8a780f5df8f0ec7d…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/29-shgv/index.html` | 270445 | `3157456b9df3b844…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/32-shzv/index.html` | 270051 | `72f94b54a91baa60…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/33-shzvg/index.html` | 270632 | `47f3e2bcc358cf72…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/34-shm-kx/index.html` | 270284 | `63f518031125c640…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/4-cv2/index.html` | 269985 | `2d130e61bd5f5bf6…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/5-cvt/index.html` | 270445 | `0a59666997ab35d5…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/6-w_g/index.html` | 272301 | `86e57bd5c24f81c1…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/7-w_l/index.html` | 272641 | `85d3e3df027b2e62…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/8-zwc/index.html` | 269968 | `5d2a7d23b092a6cb…` |
+| `mirror/raw/www.intl-huaming.com/products-page/product/9-cma7/index.html` | 269874 | `50e51c39b4dd9695…` |
+| `mirror/raw/www.intl-huaming.com/products-page-for-categories-listing/index.html` | 301159 | `a10873c3000101e7…` |
+| `mirror/raw/www.intl-huaming.com/renewable-energy/general-introduction/index.html` | 290004 | `6c0ea8937479240e…` |
+| `mirror/raw/www.intl-huaming.com/renewable-energy/project-references/index.html` | 291880 | `955b55d8b92c341e…` |
+| `mirror/raw/www.intl-huaming.com/tap-changer/index.html` | 341419 | `c8a2115c475a5c2d…` |
+
+## Downloads (62)
+
+| file | bytes | sha256 |
+|---|---:|---|
+| `CM-Leaflet.pdf` | 249046 | `a83c5da9b9ad3e70c313a1e3caf13165e7c85a8c5cb8e606a4cd32a10df3cf82` |
+| `CM-OLTC-Technical-Data--HM0-154-301.pdf` | 2374251 | `d436c64d2c1cc87535e6310e36d1dafffb3bded72ae5a6fa10052f8c2c505805` |
+| `CM-Operating-Instruction_2021.09.01.pdf` | 7831945 | `8507135a7b0a5952cef2621a8ed15b7d2cba44146995cb5d95612c25bf897396` |
+| `CM2-Operating-Instruction_2021.10.13.pdf` | 6842322 | `95fadc5c1a8313be074c48d63701f0bd6664b0e76b24f99c8677898d63f6cec6` |
+| `CM2-Vacuum-OLTC-Technical-Data-HM0-154-5701.pdf` | 2091913 | `5b1e040385482d9ca2567a2a35a1c313e58f7e7402333ba8f98a34896b2a1da4` |
+| `CMA7MDUOperatingInstruction-HM0.460.302-EN.pdf` | 1252719 | `f35c7018e18f85f732a6df6076020336c4c32e4da8afda751f66bc4510cfad2a` |
+| `CMD-OLTC-Operation-instructions-HM0.460.1901.pdf` | 2587368 | `15424e355d3c2f853c0ba3609a58414e6b51f3386e0a43ec13243b21715e86e8` |
+| `CMD-OLTC-Technical-Data-HM0-154-1901.pdf` | 2179687 | `f4773949234af1a0ec7ad1d0fd1e407c58908f2bef6ad963b92f37e1162d3a28` |
+| `CV-Leaflet.pdf` | 289184 | `97062af190403bacc6a7f788a999ae4745bc68d31cbc8debd7dd11a0833f8989` |
+| `CV-SV-OLTC-Technical-Data-HM0.154.001.pdf` | 1237687 | `ca45664f4dd507ecebfe76a01cc7e1f91cee4de5ba2e0452a621b53886c00df5` |
+| `CV2-Leaflet-2024.pdf` | 3758782 | `aac24cea585f311d04c33950b8d01568f5e643ddc9075f768a8363d888f31349` |
+| `CV2-OLTC-Technical-Data-HM0.154.4101-2025.pdf` | 10941673 | `4500344b3455e1cb4f1fbe60fdb92f9aa69d7b2d4e2c3aa8161a4b6ee480a2ab` |
+| `CV2600-OI-2023.pdf` | 2567741 | `d398777e32e99e1691e80b5473abb37bd7bcac2f9f605dceb7b44724cff213e2` |
+| `CVSV-Operating-Instruction_2023.08.pdf` | 6959117 | `0813f0f6685868677dd0e724045098da210d5a0d8920eaef67f86e6c6016bd14` |
+| `CVT-Leaflet.pdf` | 254145 | `5dcbcb1d084eec9dac377d9f264cf2f58a56245bb068e9bb7fbe72fa29e25a8f` |
+| `CVT-Vacuum-OLTC-Technical-Data-HM0.154.3301.pdf` | 746783 | `d990961507784b57a44dbb39c4e1f04cd426cc94ccb4c41526e75cbe89563559` |
+| `CVT-Vacuum-OLTC-operating-instructions-HM0.460.3301-EN.pdf` | 431067 | `bbe89385a6e3747db3c9c4030db9404b599d93a2c9bdbe7adafad8816af159ea` |
+| `CZ-Leaflet.pdf` | 172418 | `c1502696abc84b92f4b73abc0c58e91432893653ab22b56754aae06a25020085` |
+| `CZ-vacuum-OLTC-technical-data-HM0-154-1102.pdf` | 2182857 | `b0a1fbf5fe90b028434bbf72573145fa5b22dc9806ebfd30a4eb5223c361730e` |
+| `Controller--ET-SZ6-HM0.460.555-ENG-2024.pdf` | 284971 | `b71f00442eca75f75f0f06de2e6b8c4ab87f2d0a10070ba08d19ea5b6cdebcb1` |
+| `Controller--HMC-3--HM.460.305-EN2024.pdf` | 1252552 | `260cba8f7bf0338a3eaf288715ef19a05e801df1f4fa4df92c938c883bdf2224` |
+| `Controller-SHM-KX-HM.0.460.5901-ENG.pdf` | 3878201 | `e59718a2ea78011fc100f088701d4a0c9cd9d27ed4bfbcc3c03a691d6ee08637` |
+| `HMDK-OI-ENG.pdf` | 2477120 | `ba100ad5f2fdf86079788399de5f9d0bc05d87287b9cbc5d97942e0e51fa9de5` |
+| `HMIET-I-AVR-.pdf` | 1299245 | `07e8bc3d836d18f580986e13655238d5b0312da88c783a2ed42f19c5d2d62c20` |
+| `HMJK-II-TAP-Monitor-LEAFLET.pdf` | 3581338 | `6bbf6cb5baa1ee9483dba8721228d4f910bcf217936f54612f18977687f12764` |
+| `HMJK-II-Tap-Monitor-OI-ENG.pdf` | 2877833 | `ce8f80c97b199cae2ef05b3ec95aed1f530b3865a18d103f9560d57543964b24` |
+| `HWDK-Leaflet.pdf` | 959322 | `04501976f956f80e63c8d9937a31c64b4921a5351104f5efc2d3dc9d143aa5e2` |
+| `HWV-Leaflet.pdf` | 4705026 | `2014295c510913c421b18405836279fec2d3b1578a9f38f16d27ef11936f9af4` |
+| `HWV-OI-ENG.pdf` | 2164459 | `aa107e10201368dea6d7978dab6d57e12fec0f558ef7e3414ed6c00b06cab2a7` |
+| `HWV-Technical-Data-ENG.pdf` | 5093447 | `1a02fa93a44acb16bbe0a95b139d8d4d6139552b599f0c8165ae799353cc346d` |
+| `HWV-Technical-Data.pdf` | 5093447 | `1a02fa93a44acb16bbe0a95b139d8d4d6139552b599f0c8165ae799353cc346d` |
+| `MDU-CMA7-OM-HM0.460.302-EN-2025.pdf` | 4597881 | `cbc65ea0af00439214ee212f5ccf81c8ba5fccb28c86d2306483319b5df41e99` |
+| `MDU-SHM-D-OI-HM0-460-1381-ENG-2025.pdf` | 4260969 | `d22592b7e25ee4bddc5131ba416e8dac9e838fb0632196bbc501f88fee035192` |
+| `OLTC-CV2-OI-HM0.460.5601-2026.pdf` | 18817396 | `64670e4b890e4ecc6d6bf3ca24ac8cd815c12db9f4c4b3266323f2149bff0c67` |
+| `OLTC-CZ-OI-HM0.460.1101-EN.pdf` | 3450413 | `cfa2f87a3a3d89031c9faa0b322c23ab37a0735121b1ee195d3d34eab59fada5` |
+| `OLTC-HWDK-OI-HM-0.460.5801-EN.2025.pdf` | 5045321 | `0146d537fda001b618024cf0fbd237c56e80c381bf6044d267593b4842c643aa` |
+| `OLTC-SHZV-OI-HMO.460.3901-EN.pdf` | 6761608 | `8ad5beb60210b98179af4eda8f87dcf198a9306684e129cc8835b7b0d17b771b` |
+| `OLTC-SHZVG-OI-HMO.460.7202-EN-2024.pdf` | 6409737 | `3cc5e82b7609a2bf1f1983bc6996d3f85661a010e5b4237dd9d4e11f614a56a5` |
+| `Retrofit-Leaflet-En.pdf` | 9781688 | `1a01f7da6dbcdde8ba0dbd88b5620320155be5978c2b397e30ec23c4979dd75c` |
+| `SHGV-Operation-Installation-Instruction-V0.9.pdf` | 2812056 | `ea7306ba4f80da727d131e2e848e494fd2f63ce9625d4dfa19e02c0fcc74dd51` |
+| `SHM-D-MDU-Operation-instruction-HM0-460-1381-0908.pdf` | 2513225 | `4d8741addf903fbd2a794ba90714fbba711ea693b7d0ed9cd9daa37ec91bee85` |
+| `SHM-X-operating-instruction.pdf` | 1634996 | `d6f28b4328d0da339215d3b1485c6ca11eda5b73e8baca7ac8d184879ab2a342` |
+| `SHM-XE-EMC-certificate-EN.pdf` | 1727406 | `e7b685fd364a20612e982f100d42d8704a4fca6920af4b35f013a0efa10ecc0d` |
+| `SHM-XE-EMC-certificate-ZH.pdf` | 2151178 | `3fbac059fa0851c274168233e3afc8f87e152886fa5592522d6df9c6db1701da` |
+| `SHM-XE-type-test-certificate-EN.pdf` | 3451989 | `f70ea93fcd8f266e4ef43da9cd153f3515258c7e8c7a7add6917708a76c87974` |
+| `SHM-XE-type-test-report-EN.pdf` | 3200973 | `6b1b130bfeeb6e461b4f10e68c18306cd10bc5995d69950ff45b7b185eaff060` |
+| `SHM-XE-type-test-report-ZH.pdf` | 13525241 | `3f5489613ba52bf940c59054af3722bcaa4d847e3744025f12e91f3fce064700` |
+| `SHZV-Vacuum-OLTC-Technical-Data-HM0.154.3901-2025.pdf` | 14306663 | `fab73724a46fbc3142e7b0e61eddc4b50b7ca04566b5a15cab792595af4ef970` |
+| `SHZV-Vacuum-OLTC-Technical-Data.pdf` | 10119387 | `6c02dc7c6ed6935c65b8a7b80e1024bd7977251d9cef8328ca59a115e72ad308` |
+| `SHZVG-Vacuum-OLTC-Technical-Data-2025.pdf` | 4061265 | `39f2c4b27475af4895ae6413566e307b2d7e65798796865f0c0e565c7e3e2df8` |
+| `SHZVG-leaflet-20241.pdf` | 3449803 | `bb87c617d7740808cf50c9970b19633b72c03ec5e5c367801fd1bf0c2b12825f` |
+| `W-LDETCOperationinstruction1-compressed.pdf` | 6073466 | `6f3fd1cfd5aa69cb3c504ab9b4912144e67345ed32106c6fa80649b2b41098e7` |
+| `W-LDETCTechnicalInstruction_2021.07.pdf` | 5395776 | `6aea9a0c469a4875f8203a7f6d0c848bad5acb32346ab164a1986a159fc8afa0` |
+| `WD-L-S-G-Drum-Type-OCTC-Technical-Data-HM0.154.6001.pdf` | 1675782 | `3fe8b90ba40bd9a998985f47179216aac5566d5072d45c5ea992b394b5df7d5c` |
+| `WG-Drum-Type-OCTC-Technical-Data-ENG.pdf` | 1201011 | `2106973f62dfec0bc0bdd588e3e08751317c89f27a793ebbc9f08bce78c3660b` |
+| `WG-Leaflet.pdf` | 207693 | `61fa9431625fa51c587b29d91ff06ca583292255867be02a68494a9ecf48d386` |
+| `WGOff-CircuitTapChangerOperatingInstrutions-HM0.460.6001.pdf` | 11407220 | `49708f82c84c0ca9e0f0a1bdb6d6d1b25fd4bc3b9e76f3ce9bae7685d65e869b` |
+| `WSL-Leaflet.pdf` | 315782 | `5783661936ea612f20538b023ee3d69c9ba81edfb569091f053e0b6d30f8ea15` |
+| `ZWC-Leaflet-2020.02.03.pdf` | 1715412 | `3d2efd1eae4c01b3e7a2910fd8eaa0805bacc7ad9dd6ddefc9d3243a80522fba` |
+| `ZWC-operation-instruction-2020.02.03.pdf` | 9247643 | `5bfe1912ef687ff20425e89ed9fe31eb5d4849cf091c014220c1927450fe928b` |
+| `ZXJY-II-OI-ENG.pdf` | 1224159 | `532b094633db6ccb4518ea0855c2b125638bbddd170611e0d9efce968093f504` |
+| `contact-electrical-life--SY.pdf` | 46909 | `226263a45a6c6fe4d2cb61623bc42a80fb30537079cafcfce40d25cc94f90d4c` |
