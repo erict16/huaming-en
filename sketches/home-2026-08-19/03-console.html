@@ -1,50 +1,322 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>03 Console — Huaming</title>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    :root { --bg:#121417; --panel:#1C2024; --line:#2E343B; --text:#E8EAED; --amber:#D97706; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:var(--bg); color:var(--text); font:15px/1.45 "IBM Plex Sans", sans-serif; }
-    header { display:flex; gap:16px; align-items:center; padding:14px 20px; border-bottom:1px solid var(--line); }
-    header input { flex:1; background:var(--panel); border:1px solid var(--line); color:var(--text); padding:10px 12px; font:14px "IBM Plex Mono", monospace; }
-    .cta { background:var(--amber); color:#111; padding:10px 14px; text-decoration:none; font-weight:600; }
-    main { padding:28px 20px 60px; max-width:1100px; margin:0 auto; }
-    h1 { font-size:28px; font-weight:600; margin:0 0 8px; }
-    .def { color:#9aa3ad; max-width:40rem; }
-    table { width:100%; border-collapse:collapse; margin-top:28px; font-size:14px; }
-    th, td { text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); }
-    th { color:#9aa3ad; font-weight:500; }
-    code { font-family:"IBM Plex Mono", monospace; }
-    a { color:var(--amber); }
-    @media (max-width:640px) { .hide { display:none; } }
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Huaming Types — Find a tap changer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0E1114;
+    --panel: #161A1E;
+    --line: #2A3036;
+    --ink: #E8EDF2;
+    --muted: #9AA3AD;
+    --amber: #C9842A;
+    --amber-ink: #1A1208;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+    font-size: 15px; line-height: 1.45;
+  }
+  a { color: var(--ink); }
+  a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 2px solid var(--amber); outline-offset: 2px;
+  }
+  .skip {
+    position: absolute; left: -999px; top: 8px; z-index: 20;
+    background: var(--amber); color: var(--amber-ink); padding: 10px 16px;
+  }
+  .skip:focus { left: 8px; }
+  .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+  header.site {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line);
+  }
+  .brand {
+    font-weight: 600; letter-spacing: -0.03em; text-decoration: none;
+    font-size: 18px; min-height: 44px; display: inline-flex; align-items: center;
+  }
+  .brand span { color: var(--muted); font-weight: 400; margin-left: 8px; font-size: 13px; }
+  nav.primary { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; }
+  nav.primary a {
+    text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500;
+    min-height: 44px; display: inline-flex; align-items: center;
+  }
+  nav.primary a:hover, nav.primary a[href="#types"] { color: var(--ink); }
+  .cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; padding: 0 14px;
+    background: var(--amber); color: var(--amber-ink);
+    text-decoration: none; font-weight: 600; font-size: 13px;
+  }
+  .hero { padding: 28px 0 18px; }
+  h1 {
+    font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.035em;
+    margin: 0 0 8px; font-weight: 600;
+  }
+  .job { color: var(--muted); margin: 0 0 18px; max-width: 58em; }
+  .search-row {
+    display: grid; grid-template-columns: 1fr auto; gap: 10px;
+    margin-bottom: 12px;
+  }
+  label.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  input[type="search"] {
+    width: 100%; min-height: 48px; padding: 0 14px;
+    background: var(--panel); color: var(--ink);
+    border: 1px solid var(--line); font: inherit; font-size: 16px;
+  }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .filters button {
+    min-height: 44px; padding: 0 12px;
+    background: transparent; color: var(--muted);
+    border: 1px solid var(--line); font: inherit; cursor: pointer;
+  }
+  .filters button[aria-pressed="true"] {
+    color: var(--amber-ink); background: var(--amber); border-color: var(--amber);
+  }
+  .define {
+    border: 1px solid var(--line); background: var(--panel);
+    padding: 12px 14px; color: var(--muted); margin: 0 0 18px; font-size: 14px;
+  }
+  .define strong { color: var(--ink); font-weight: 500; }
+  table.grid {
+    width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums;
+    font-size: 13.5px;
+  }
+  table.grid th, table.grid td {
+    text-align: left; padding: 10px 10px; border-bottom: 1px solid var(--line);
+    vertical-align: middle;
+  }
+  table.grid th {
+    color: var(--muted); font-weight: 500; font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  table.grid tbody tr:hover { background: #14181C; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13px; }
+  .type-link {
+    color: var(--ink); text-decoration: none; font-weight: 600;
+    min-height: 44px; display: inline-flex; align-items: center;
+  }
+  .type-link:hover { color: var(--amber); }
+  .pdf {
+    color: var(--amber); text-decoration: none; font-weight: 600;
+    min-height: 44px; display: inline-flex; align-items: center;
+  }
+  .count { color: var(--muted); font-size: 12px; margin: 10px 0 0; }
+  section { padding: 28px 0; }
+  h2 { font-size: 16px; margin: 0 0 12px; font-weight: 600; letter-spacing: -0.02em; }
+  .dl a, .offices a {
+    color: var(--ink); text-decoration: none;
+    display: flex; justify-content: space-between; gap: 12px;
+    min-height: 44px; align-items: center;
+    border-bottom: 1px solid var(--line);
+  }
+  .dl a span:last-child, .pdf { color: var(--amber); }
+  footer.site {
+    border-top: 1px solid var(--line); padding: 22px 0 40px;
+    color: var(--muted); font-size: 12px;
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  }
+  address { font-style: normal; color: var(--ink); font-size: 14px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  @media (max-width: 640px) {
+    .shell { width: calc(100% - 24px); }
+    header.site { flex-direction: column; align-items: flex-start; }
+    .search-row, .two { grid-template-columns: 1fr; }
+    table.grid thead { display: none; }
+    table.grid tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    table.grid td { display: block; border: 0; padding: 2px 0; }
+    h1 { font-size: 28px; }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <strong>HUAMING</strong>
-    <input placeholder="Search CV2, SHZV, CMA7…" />
-    <a href="#">Downloads</a>
-    <a class="cta" href="#">Contact</a>
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell">
+  <header class="site">
+    <a class="brand" href="03-console.html">Huaming <span>Types</span></a>
+    <nav class="primary" aria-label="Primary">
+      <a href="#types">Products</a>
+      <a href="#downloads">Downloads</a>
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#q">Search types</a>
+    </nav>
   </header>
-  <main>
-    <h1>Find a tap changer</h1>
-    <p class="def">A tap changer is the moving switch in a transformer that picks a winding tap. On-load types work while the transformer is live.</p>
-    <table>
-      <thead>
-        <tr><th>Type</th><th>Family</th><th class="hide">Iᵤ (III)</th><th class="hide">Mounting</th><th>PDF</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><code>CV2</code></td><td>Vacuum OLTC</td><td class="hide">350 / 600 A</td><td class="hide">In-tank</td><td><a href="#">Technical data</a></td></tr>
-        <tr><td><code>CM2</code></td><td>Vacuum OLTC</td><td class="hide">500 / 600 A</td><td class="hide">In-tank</td><td><a href="#">Technical data</a></td></tr>
-        <tr><td><code>SHZV</code></td><td>Vacuum OLTC</td><td class="hide">400 / 600 / 1000 A</td><td class="hide">In-tank</td><td><a href="#">Technical data</a></td></tr>
-        <tr><td><code>HWV</code></td><td>Vacuum OLTC</td><td class="hide">400 / 800 / 1000 A</td><td class="hide">On-tank</td><td><a href="#">Technical data</a></td></tr>
-        <tr><td><code>WSL</code></td><td>OCTC cage</td><td class="hide">—</td><td class="hide">De-energized</td><td><a href="#">Ask</a></td></tr>
-      </tbody>
-    </table>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Find a tap changer</h1>
+      <p class="job">Huaming makes tap changers for transformers. Search CV2, CM2, SHZV, HWV, WSL, CMA7. Filter on-load / de-energized / vacuum. Download the same technical data the factory uses. Standard lead time about 4–6 weeks.</p>
+      <div class="search-row">
+        <label class="sr" for="q">Search types</label>
+        <input id="q" type="search" placeholder="CV2, CM2, SHZV, HWV…" autocomplete="off"/>
+        <a class="cta" href="#types">Open results</a>
+      </div>
+      <div class="filters" role="group" aria-label="Filter family">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="oltc" aria-pressed="false">On-load</button>
+        <button type="button" data-filter="vacuum" aria-pressed="false">Vacuum</button>
+        <button type="button" data-filter="octc" aria-pressed="false">De-energized</button>
+        <button type="button" data-filter="drive" aria-pressed="false">Drive / control</button>
+      </div>
+      <p class="define"><strong>A tap changer</strong> is the moving switch in a transformer that picks a winding tap. On-load types work while the transformer is live. De-energized types only when it is off. <a href="#learn" style="color:var(--amber)">Learn</a></p>
+    </section>
+
+    <section id="types" aria-labelledby="types-title">
+      <h2 id="types-title">Type table</h2>
+      <table class="grid">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Family</th>
+            <th>Iᵤ / notes</th>
+            <th>Mounting</th>
+            <th>File</th>
+          </tr>
+        </thead>
+        <tbody id="rows">
+          <tr data-keys="cv2 vacuum oltc selector">
+            <td><a class="type-link mono" href="../product-2026-08-19/03-console-cv2.html">CV2</a></td>
+            <td>Vacuum OLTC</td>
+            <td>III 350 A · 600 A · Um 40.5–145 kV</td>
+            <td>In-tank</td>
+            <td><a class="pdf" href="#downloads">PDF</a></td>
+          </tr>
+          <tr data-keys="cm2 vacuum oltc diverter">
+            <td><a class="type-link mono" href="../product-2026-08-19/03-console-cv2.html">CM2</a></td>
+            <td>Vacuum OLTC</td>
+            <td>Vacuum diverter · sibling of CV2</td>
+            <td>In-tank</td>
+            <td><a class="pdf" href="#downloads">PDF</a></td>
+          </tr>
+          <tr data-keys="shzv vacuum oltc diverter cmd">
+            <td><a class="type-link mono" href="../product-2026-08-19/03-console-cv2.html">SHZV</a></td>
+            <td>Vacuum OLTC</td>
+            <td>Vacuum version of CMD</td>
+            <td>In-tank</td>
+            <td><a class="pdf" href="#downloads">PDF</a></td>
+          </tr>
+          <tr data-keys="chvt vacuum oltc hvdc converter">
+            <td><span class="mono">CHVT</span></td>
+            <td>Vacuum OLTC</td>
+            <td>Converter · Longdong ±800 kV May 2025</td>
+            <td>In-tank</td>
+            <td>—</td>
+          </tr>
+          <tr data-keys="hwv vacuum oltc compartment">
+            <td><span class="mono">HWV</span></td>
+            <td>Vacuum OLTC</td>
+            <td>Externally mounted vacuum</td>
+            <td>On-tank</td>
+            <td><a class="pdf" href="#downloads">PDF</a></td>
+          </tr>
+          <tr data-keys="cv sv conventional oltc oil">
+            <td><span class="mono">CV / SV</span></td>
+            <td>Conventional OLTC</td>
+            <td>Oil selector-switch</td>
+            <td>In-tank</td>
+            <td><a class="pdf" href="#downloads">PDF</a></td>
+          </tr>
+          <tr data-keys="cm cmd conventional oltc oil diverter">
+            <td><span class="mono">CM / CMD</span></td>
+            <td>Conventional OLTC</td>
+            <td>Oil diverter + selector</td>
+            <td>In-tank</td>
+            <td><a class="pdf" href="#downloads">PDF</a></td>
+          </tr>
+          <tr data-keys="wsl wdl wdg zwc octc detc">
+            <td><span class="mono">WSL / WDG / ZWC</span></td>
+            <td>DETC / OCTC</td>
+            <td>Cage · drum · linear</td>
+            <td>In-tank</td>
+            <td><a class="pdf" href="#downloads">PDF</a></td>
+          </tr>
+          <tr data-keys="shm cma7 drive mdu">
+            <td><span class="mono">SHM / CMA7</span></td>
+            <td>Motor drive</td>
+            <td>MDU for in-tank types</td>
+            <td>Tank wall</td>
+            <td><a class="pdf" href="#downloads">PDF</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="count" id="count"></p>
+      <p class="count">Need a designation? <a href="https://erict16.github.io/oltc-selector/" style="color:var(--amber)">Open the type selector</a>.</p>
+    </section>
+
+    <section id="learn">
+      <h2>What you are specifying</h2>
+      <p class="job" style="margin:0">The tap changer is the only moving assembly in the transformer tank. Vacuum types interrupt in a bottle; conventional types interrupt in oil. Compound (selector-switch) types such as CV2 combine selection and diversion in one column. Diverter types (CM2, SHZV) separate those jobs.</p>
+    </section>
+
+    <section id="downloads">
+      <h2>Downloads</h2>
+      <div class="dl">
+        <a href="https://www.intl-huaming.com/images/00_HuaMing/product/PDF/Vacuum%20Type/CV2/"><span class="mono">CV2 OLTC Technical Data HM0.154.4101</span><span>PDF</span></a>
+        <a href="https://www.intl-huaming.com/images/00_HuaMing/product/PDF/Vacuum%20Type/CM2/"><span class="mono">CM2 Vacuum OLTC Technical Data HM0 154 5701</span><span>PDF</span></a>
+        <a href="https://www.intl-huaming.com/images/00_HuaMing/product/PDF/Vacuum%20Type/SHZV/"><span class="mono">SHZV Vacuum OLTC Technical Data HM0.154.3901</span><span>PDF</span></a>
+        <a href="https://www.intl-huaming.com/images/00_HuaMing/product/Retrofit Leaflet En.pdf"><span>Retrofit leaflet</span><span>PDF</span></a>
+      </div>
+    </section>
+
+    <section id="about" class="two">
+      <div>
+        <h2>Plant facts</h2>
+        <p class="job" id="news">Shanghai factory. Singapore international HQ (29 Apr 2025). Service in 140+ countries. ISO 9001 / 14001 / 18001. CNAS lab, IEC/ISO 17025. CHVT at Longdong ±800 kV, 28 May 2025.</p>
+      </div>
+      <div id="contact">
+        <h2>Contact</h2>
+        <address>
+          Singapore · Tai Seng Exchange, Tower A #03-13, 1 Tai Seng Ave 536464<br/>
+          Shanghai · 977 Tongpu Road, Putuo, 200333 · +86 21 5270 8966
+        </address>
+        <p><a class="cta" href="/contact" style="margin-top:14px">Talk to us</a></p>
+      </div>
+    </section>
   </main>
+  <footer class="site">
+    <span>Shanghai Huaming Power Equipment Co., Ltd.</span>
+    <span>No prices on this desk. Specs from published technical data.</span>
+  </footer>
+</div>
+<script>
+  const q = document.getElementById("q");
+  const rows = [...document.querySelectorAll("#rows tr")];
+  const count = document.getElementById("count");
+  let family = "all";
+  function apply() {
+    const term = (q.value || "").trim().toLowerCase();
+    let n = 0;
+    rows.forEach((tr) => {
+      const keys = tr.getAttribute("data-keys") || "";
+      const text = tr.textContent.toLowerCase();
+      const famOk = family === "all" || keys.includes(family);
+      const qOk = !term || keys.includes(term) || text.includes(term);
+      const show = famOk && qOk;
+      tr.hidden = !show;
+      if (show) n += 1;
+    });
+    count.textContent = n + " types shown";
+  }
+  q.addEventListener("input", apply);
+  document.querySelectorAll(".filters button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".filters button").forEach((b) => b.setAttribute("aria-pressed", "false"));
+      btn.setAttribute("aria-pressed", "true");
+      family = btn.getAttribute("data-filter");
+      apply();
+    });
+  });
+  apply();
+</script>
 </body>
 </html>

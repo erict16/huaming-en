@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CV2 — Huaming</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet"/>
+<style>
+  :root { --bg: #fff; --ink: #111; --muted: #5C5C5C; --line: #D8D8D8; --rust: #8C3A22; --photo: #1A1C1E; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+    font-size: 17px; line-height: 1.5;
+  }
+  a { color: inherit; }
+  a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: #fff; padding: 10px 16px; }
+  .skip:focus { left: 8px; }
+  header.site {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 20px 40px;
+  }
+  .brand {
+    font-family: "Newsreader", Georgia, serif; font-size: 26px; font-weight: 500;
+    text-decoration: none; min-height: 44px; display: inline-flex; align-items: center;
+  }
+  nav.primary { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 22px; }
+  nav.primary a {
+    text-decoration: none; font-size: 14px; font-weight: 500;
+    min-height: 44px; display: inline-flex; align-items: center;
+  }
+  .cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; padding: 0 16px; background: var(--ink); color: #fff;
+    text-decoration: none; font-size: 14px; font-weight: 500;
+  }
+  .hero {
+    display: grid; grid-template-columns: 1.05fr 0.95fr; min-height: calc(100vh - 88px);
+  }
+  .copy { padding: 8vh 40px 56px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .family { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+  h1 {
+    font-family: "Newsreader", Georgia, serif; font-size: clamp(64px, 10vw, 120px);
+    line-height: 0.85; margin: 0 0 18px; font-weight: 500; letter-spacing: -0.04em;
+  }
+  .one { font-size: 20px; max-width: 26em; margin: 0 0 24px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .textlink { min-height: 44px; display: inline-flex; align-items: center; border-bottom: 1px solid var(--ink); text-decoration: none; font-size: 14px; font-weight: 500; }
+  .photo { background: var(--photo); position: relative; min-height: 480px; }
+  .photo svg { width: 100%; height: 100%; display: block; }
+  .cap { position: absolute; left: 20px; bottom: 16px; color: #ddd; font-size: 13px; }
+  .strip {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .strip div { padding: 22px 24px; border-right: 1px solid var(--line); }
+  .strip div:last-child { border-right: 0; }
+  .strip dt { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+  .strip dd { margin: 0; font-family: "Newsreader", Georgia, serif; font-size: 22px; }
+  section { padding: 64px 40px; }
+  h2 { font-family: "Newsreader", Georgia, serif; font-size: 36px; font-weight: 500; margin: 0 0 16px; }
+  .more { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+  .more a { text-decoration: none; display: block; min-height: 44px; }
+  .more strong { font-family: "Newsreader", Georgia, serif; font-size: 28px; display: block; margin-bottom: 6px; }
+  footer.site { padding: 32px 40px 56px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+  @media (max-width: 640px) {
+    header.site, .copy, section, footer.site { padding-left: 18px; padding-right: 18px; }
+    header.site { flex-direction: column; align-items: flex-start; }
+    .hero { grid-template-columns: 1fr; }
+    h1 { font-size: 72px; }
+    .strip, .more { grid-template-columns: 1fr; }
+    .strip div { border-right: 0; border-bottom: 1px solid var(--line); }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <a class="brand" href="../home-2026-08-19/02-editorial.html">Huaming</a>
+  <nav class="primary" aria-label="Primary">
+    <a href="../home-2026-08-19/02-editorial.html#range">Products</a>
+    <a href="#download">Downloads</a>
+    <a href="../home-2026-08-19/02-editorial.html#about">About</a>
+    <a href="../home-2026-08-19/02-editorial.html#news">News</a>
+    <a href="/contact?product=CV2">Contact</a>
+    <a class="cta" href="#download">Download PDF</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="t">
+    <div class="copy">
+      <p class="family">Vacuum OLTC</p>
+      <h1 id="t">CV2</h1>
+      <p class="one">In-tank vacuum compound on-load tap-changer. Selector-switch. The vacuum version of type CV — built for primarily-delta transformers up to 132 kV systems.</p>
+      <div class="actions">
+        <a class="cta" id="download" href="https://www.intl-huaming.com/images/00_HuaMing/product/PDF/Vacuum%20Type/CV2/">Download technical data (PDF)</a>
+        <a class="textlink" href="https://erict16.github.io/oltc-selector/">Type selector</a>
+        <a class="textlink" href="/contact?product=CV2">Talk to us</a>
+      </div>
+    </div>
+    <div class="photo" role="img" aria-label="CV2 in-tank vacuum compound OLTC">
+      <svg viewBox="0 0 600 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="m" x1="0" x2="1"><stop offset="0" stop-color="#6A7076"/><stop offset=".5" stop-color="#C8CED3"/><stop offset="1" stop-color="#4A5056"/></linearGradient>
+          <radialGradient id="s" cx=".4" cy=".2" r=".8"><stop offset="0" stop-color="#2C3136"/><stop offset="1" stop-color="#0E1012"/></radialGradient>
+        </defs>
+        <rect width="600" height="760" fill="url(#s)"/>
+        <ellipse cx="300" cy="710" rx="150" ry="16" fill="#000" opacity=".4"/>
+        <rect x="236" y="80" width="128" height="26" fill="url(#m)"/>
+        <rect x="218" y="106" width="164" height="32" fill="#8A9096"/>
+        <rect x="246" y="188" width="108" height="420" fill="url(#m)"/>
+        <circle cx="300" cy="320" r="30" fill="#1C1F22" stroke="#C8CED3" stroke-width="3"/>
+        <circle cx="300" cy="320" r="10" fill="#8C3A22"/>
+      </svg>
+      <p class="cap">In-tank · flange to cover · SHM or CMA7 drive</p>
+    </div>
+  </section>
+
+  <dl class="strip">
+    <div><dt>Iᵤ</dt><dd>III 350 A · 600 A</dd></div>
+    <div><dt>Uₘ</dt><dd>40.5 / 72.5 / 126 / 145 kV</dd></div>
+    <div><dt>Positions</dt><dd>12 / 23</dd></div>
+    <div><dt>Life</dt><dd>1.5 million ops</dd></div>
+  </dl>
+
+  <section>
+    <h2>Ratings from the sheet</h2>
+    <p style="max-width:40em;color:var(--muted)">Frequency 50 / 60 Hz. Connections Y, D, or single-phase. Maintenance-free interval 300 000 operations. IEC 60214-1:2014 and GB/T 10230.1-2019. No mid-current rating between 350 A and 600 A.</p>
+  </section>
+
+  <section class="more" aria-label="Siblings">
+    <a href="02-editorial-cv2.html"><strong>CM2</strong> Vacuum diverter. When the job outgrows a selector-switch.</a>
+    <a href="02-editorial-cv2.html"><strong>SHZV</strong> Vacuum CMD. Grid and industrial duty.</a>
+    <a href="https://erict16.github.io/oltc-selector/"><strong>Selector</strong> Build the designation string.</a>
+  </section>
+</main>
+<footer class="site">Huaming · Talk to us about CV2 via Singapore or Shanghai.</footer>
+</body>
+</html>

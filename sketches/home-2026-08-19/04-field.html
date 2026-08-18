@@ -1,37 +1,258 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>04 Field — Huaming</title>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,500&display=swap" rel="stylesheet" />
-  <style>
-    body { margin:0; background:#0B1C2C; color:#F5F0E6; font:16px/1.5 Geist, sans-serif; }
-    header { display:flex; justify-content:space-between; padding:20px 28px; }
-    a { color:#E6D7B8; }
-    .hero { min-height:88vh; padding:12vh 28px 40px; background:linear-gradient(180deg,#0B1C2C 0%, #16324a 100%); }
-    h1 { font-family:"Source Serif 4", serif; font-size:clamp(32px,6vw,68px); line-height:1.05; max-width:18ch; }
-    .cap { font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:#E6D7B8; }
-    .cta { display:inline-block; margin-top:24px; background:#B45309; color:#fff; padding:12px 18px; text-decoration:none; }
-    @media (max-width:640px) { .hero { padding-top:8vh; } }
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Huaming Field — Longdong ±800 kV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0B1C2C;
+    --navy-2: #12283C;
+    --sand: #E6D7B8;
+    --ink: #F4F1EA;
+    --muted: #C9C0AD;
+    --rust: #B45309;
+    --line: rgba(230,215,184,0.28);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--navy); color: var(--ink);
+    font-family: "Schibsted Grotesk", "Helvetica Neue", sans-serif;
+    font-size: 16px; line-height: 1.5;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--sand); outline-offset: 3px;
+  }
+  .skip {
+    position: absolute; left: -999px; top: 8px; z-index: 30;
+    background: var(--sand); color: var(--navy); padding: 10px 16px;
+  }
+  .skip:focus { left: 8px; }
+  header.site {
+    position: absolute; left: 0; right: 0; top: 0; z-index: 5;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 18px 36px;
+  }
+  .brand {
+    font-weight: 700; letter-spacing: -0.03em; text-decoration: none;
+    font-size: 20px; min-height: 44px; display: inline-flex; align-items: center;
+  }
+  nav.primary { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px; }
+  nav.primary a {
+    text-decoration: none; font-size: 14px; font-weight: 500;
+    min-height: 44px; display: inline-flex; align-items: center;
+  }
+  .cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; padding: 0 16px;
+    background: var(--rust); color: #fff; text-decoration: none; font-weight: 600; font-size: 14px;
+  }
+  .cta-ghost {
+    display: inline-flex; align-items: center; min-height: 44px;
+    border-bottom: 1px solid var(--sand); text-decoration: none; font-weight: 600; font-size: 14px;
+  }
+  .hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: flex-end;
+    padding: 120px 36px 48px;
+    overflow: hidden;
+  }
+  .sky {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      linear-gradient(180deg, rgba(11,28,44,0.15) 0%, rgba(11,28,44,0.55) 48%, rgba(11,28,44,0.92) 100%),
+      linear-gradient(90deg, #1A3348 0%, #2A4A62 40%, #C47A3A 72%, #6A3A28 100%);
+  }
+  .yard { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; }
+  .hero-copy { position: relative; z-index: 2; max-width: 820px; }
+  h1 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: clamp(40px, 6.5vw, 76px);
+    line-height: 0.98; font-weight: 600; letter-spacing: -0.03em;
+    margin: 0 0 16px;
+  }
+  .job { font-size: 18px; max-width: 36em; margin: 0 0 12px; color: var(--sand); }
+  .caption {
+    font-size: 14px; color: var(--muted); max-width: 40em; margin: 0 0 22px;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  section { padding: 72px 36px; }
+  h2 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: clamp(28px, 3.4vw, 40px); margin: 0 0 14px; font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+  .story {
+    display: grid; grid-template-columns: 160px 1fr 220px;
+    gap: 28px; padding: 28px 0; border-top: 1px solid var(--line);
+  }
+  .when { color: var(--sand); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .pull {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 26px; line-height: 1.25; margin: 0 0 12px;
+  }
+  .types-rail { font-size: 13px; color: var(--muted); }
+  .types-rail a { color: var(--sand); }
+  .strip {
+    display: flex; flex-wrap: wrap; gap: 10px 22px; padding-top: 8px;
+  }
+  .strip a {
+    min-height: 44px; display: inline-flex; align-items: center;
+    text-decoration: none; border-bottom: 1px solid var(--sand);
+  }
+  .files a {
+    display: flex; justify-content: space-between; gap: 16px;
+    min-height: 52px; align-items: center; text-decoration: none;
+    border-top: 1px solid var(--line);
+  }
+  footer.site {
+    padding: 40px 36px 64px; border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 24px;
+    font-size: 14px; color: var(--muted);
+  }
+  address { font-style: normal; color: var(--ink); }
+  @media (max-width: 640px) {
+    header.site, .hero, section, footer.site { padding-left: 16px; padding-right: 16px; }
+    header.site { position: relative; }
+    .hero { min-height: auto; padding-top: 24px; }
+    h1 { font-size: 38px; }
+    .story, footer.site { grid-template-columns: 1fr; gap: 10px; }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <strong>Huaming</strong>
-    <nav>
-      <a href="#">Projects</a>
-      <a href="#">Products</a>
-      <a href="#">Downloads</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
-  <section class="hero">
-    <div class="cap">May 2025 · Longdong · CHVT</div>
-    <h1>Longdong ±800 kV. North Sea platforms. 150 countries.</h1>
-    <p>This is a tap changer on a converter transformer. It changes winding taps so the voltage stays in range while the line is live.</p>
-    <a class="cta" href="#">See projects</a>
-    &nbsp; <a href="#">Find a product</a>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <a class="brand" href="04-field.html">Huaming</a>
+  <nav class="primary" aria-label="Primary">
+    <a href="#products">Products</a>
+    <a href="#downloads">Downloads</a>
+    <a href="#about">About</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a class="cta" href="#projects">See projects</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="sky" aria-hidden="true"></div>
+    <svg class="yard" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <rect x="0" y="620" width="1440" height="280" fill="#0A1622"/>
+      <g fill="#0E1A26" stroke="#C9C0AD" stroke-opacity="0.25" stroke-width="1">
+        <rect x="180" y="430" width="220" height="190"/>
+        <rect x="430" y="400" width="240" height="220"/>
+        <rect x="720" y="420" width="200" height="200"/>
+        <rect x="980" y="390" width="260" height="230"/>
+      </g>
+      <g stroke="#E6D7B8" stroke-opacity="0.55" stroke-width="2" fill="none">
+        <line x1="290" y1="430" x2="290" y2="280"/>
+        <line x1="550" y1="400" x2="550" y2="240"/>
+        <line x1="820" y1="420" x2="820" y2="260"/>
+        <line x1="1110" y1="390" x2="1110" y2="220"/>
+        <path d="M290 280 C 420 200, 550 200, 550 240"/>
+        <path d="M550 240 C 690 160, 820 180, 820 260"/>
+        <path d="M820 260 C 960 140, 1110 150, 1110 220"/>
+      </g>
+      <circle cx="290" cy="268" r="6" fill="#E6D7B8"/>
+      <circle cx="550" cy="228" r="6" fill="#E6D7B8"/>
+      <circle cx="820" cy="248" r="6" fill="#E6D7B8"/>
+      <circle cx="1110" cy="208" r="6" fill="#E6D7B8"/>
+    </svg>
+    <div class="hero-copy">
+      <h1 id="hero-title">Longdong ±800 kV. North Sea platforms. 140 countries.</h1>
+      <p class="job">Huaming makes tap changers for transformers. They sit in converter transformers, offshore wind, and utility fleets.</p>
+      <p class="caption">28 May 2025 — CHVT converter-transformer on-load tap-changer commissioned at Longdong ±800 kV HVDC converter station, China. This is a tap changer on a converter transformer. It changes winding taps so the voltage stays in range while the line is live.</p>
+      <div class="hero-actions">
+        <a class="cta" href="#projects">See projects</a>
+        <a class="cta-ghost" href="#products">Find a product</a>
+      </div>
+    </div>
   </section>
+
+  <section id="projects" aria-labelledby="projects-title">
+    <h2 id="projects-title">Field notes</h2>
+    <article class="story">
+      <p class="when">China · May 2025</p>
+      <div>
+        <p class="pull">Longdong–Shandong ±800 kV. CHVT entered commercial service on the converter transformers.</p>
+        <p>Ultra-high-voltage DC needs a tap changer that can live with converter duty. Huaming’s CHVT is that type — not a distribution selector dressed up for a press release.</p>
+      </div>
+      <p class="types-rail"><strong>Types on this job</strong><br/>CHVT<br/><a href="../product-2026-08-19/01-handbook-cv2.html">Related vacuum family: CV2</a></p>
+    </article>
+    <article class="story">
+      <p class="when">Singapore · Apr 2025</p>
+      <div>
+        <p class="pull">International headquarters opened at Tai Seng Exchange, 29 April 2025.</p>
+        <p>The factory stays in Shanghai. The desk that answers export type questions is now in Singapore.</p>
+      </div>
+      <p class="types-rail"><strong>Talk to</strong><br/>Huaming Power Equipment Singapore Pte. Ltd</p>
+    </article>
+    <article class="story">
+      <p class="when">North Sea · ongoing</p>
+      <div>
+        <p class="pull">Tap changers on North Sea platforms, and now beside offshore wind.</p>
+        <p>Chairman’s letter: Huaming types have run in this climate since the export years. Cold, wet, no easy outage window — on-load duty.</p>
+      </div>
+      <p class="types-rail"><strong>Duty</strong><br/>On-load · vacuum or oil, specified per transformer</p>
+    </article>
+    <article class="story" id="news">
+      <p class="when">Indonesia · 20 years</p>
+      <div>
+        <p class="pull">Twenty years of service in Indonesia. Plant at Bekasi now in production (2025).</p>
+        <p>PT Huaming Power Indonesia, Delta Silicon 5, Bekasi. Spare parts and site work without routing every crate through Shanghai.</p>
+      </div>
+      <p class="types-rail"><strong>Office</strong><br/>sujicheng@huaming.com</p>
+    </article>
+  </section>
+
+  <section id="learn" aria-labelledby="learn-title">
+    <h2 id="learn-title">In one breath</h2>
+    <p class="pull" style="max-width:22em">A transformer changes voltage. A tap changer picks the live winding tap so that voltage stays in range. On-load, while the line is live. Off-circuit, only when the transformer is isolated.</p>
+  </section>
+
+  <section id="products" aria-labelledby="products-title">
+    <h2 id="products-title">If you already know the type</h2>
+    <div class="strip">
+      <a href="../product-2026-08-19/01-handbook-cv2.html">CV2</a>
+      <a href="../product-2026-08-19/01-handbook-cv2.html">CM2</a>
+      <a href="../product-2026-08-19/01-handbook-cv2.html">SHZV</a>
+      <a href="#downloads">CHVT</a>
+      <a href="#downloads">CV / CM / CMD</a>
+      <a href="#downloads">WSL / WDG</a>
+      <a href="https://erict16.github.io/oltc-selector/">Type selector</a>
+    </div>
+  </section>
+
+  <section id="downloads" aria-labelledby="dl-title">
+    <h2 id="dl-title">Downloads</h2>
+    <div class="files">
+      <a href="https://www.intl-huaming.com/images/00_HuaMing/product/PDF/Vacuum%20Type/CV2/"><span>CV2 technical data — HM0.154.4101</span><span>PDF</span></a>
+      <a href="https://www.intl-huaming.com/images/00_HuaMing/product/PDF/Vacuum%20Type/CM2/"><span>CM2 technical data</span><span>PDF</span></a>
+      <a href="https://www.intl-huaming.com/images/00_HuaMing/product/PDF/Vacuum%20Type/SHZV/"><span>SHZV technical data</span><span>PDF</span></a>
+      <a href="https://www.intl-huaming.com/images/00_HuaMing/product/Retrofit Leaflet En.pdf"><span>Retrofit leaflet</span><span>PDF</span></a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>Who sent the crate</h2>
+    <p style="max-width:42em">Huaming Power Equipment, Shanghai. Tap changers since the early 1990s. Listed 002270.SZ. Standard lead time about 4–6 weeks. ISO 9001, 14001, 18001. CNAS type-test laboratory.</p>
+  </section>
+</main>
+
+<footer class="site" id="contact">
+  <div>
+    <a class="cta" href="/contact">Talk to us</a>
+    <p style="margin:14px 0 0">Projects do not bury the type. Every story keeps a types rail.</p>
+  </div>
+  <address>Singapore · Tai Seng Exchange, Tower A #03-13, 1 Tai Seng Ave 536464</address>
+  <address>Shanghai · 977 Tongpu Road, Putuo 200333 · +86 21 5270 8966</address>
+</footer>
 </body>
 </html>

@@ -1,43 +1,282 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>02 Editorial — Huaming</title>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet" />
-  <style>
-    :root { --ink:#111; --muted:#3D5A73; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:#fff; color:var(--ink); font:16px/1.5 "IBM Plex Sans", sans-serif; }
-    header { display:flex; justify-content:space-between; padding:20px 32px; }
-    nav a { margin-left:20px; font-size:14px; color:inherit; text-decoration:none; }
-    .hero { display:grid; grid-template-columns:1fr 1fr; min-height:86vh; }
-    .copy { padding:8vh 48px 48px; }
-    h1 { font-family:Newsreader, serif; font-size:clamp(44px,7vw,88px); line-height:.95; font-weight:600; margin:0 0 20px; }
-    .photo { background:#111; color:#fff; display:flex; align-items:flex-end; padding:24px; font-size:13px; letter-spacing:.08em; }
-    .btn { display:inline-block; margin-top:24px; border-bottom:1px solid #111; padding-bottom:4px; text-decoration:none; color:inherit; }
-    @media (max-width:640px) { .hero { grid-template-columns:1fr; } .copy { padding:32px 20px; } }
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Huaming — The switch inside the transformer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --ink: #111111;
+    --muted: #5C5C5C;
+    --line: #D8D8D8;
+    --rust: #8C3A22;
+    --steel: #3D5A73;
+    --photo: #1A1C1E;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; }
+  }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+    font-size: 17px; line-height: 1.5;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--ink); outline-offset: 3px;
+  }
+  .skip {
+    position: absolute; left: -999px; top: 8px; z-index: 20;
+    background: var(--ink); color: #fff; padding: 10px 16px;
+  }
+  .skip:focus { left: 8px; }
+  header.site {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; padding: 22px 40px;
+  }
+  .brand {
+    font-family: "Newsreader", "Times New Roman", serif;
+    font-size: 26px; font-weight: 500; letter-spacing: -0.03em;
+    text-decoration: none; min-height: 44px;
+    display: inline-flex; align-items: center;
+  }
+  nav.primary { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 26px; }
+  nav.primary a {
+    text-decoration: none; font-size: 14px; font-weight: 500;
+    min-height: 44px; display: inline-flex; align-items: center;
+  }
+  .cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; padding: 0 18px;
+    background: var(--ink); color: #fff; text-decoration: none;
+    font-size: 14px; font-weight: 500;
+  }
+  .cta-text {
+    display: inline-flex; align-items: center; min-height: 44px;
+    font-size: 14px; font-weight: 500; text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+  }
+  .hero {
+    min-height: calc(100vh - 88px);
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+  .hero-copy {
+    padding: 8vh 40px 64px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    max-width: 640px;
+  }
+  h1 {
+    font-family: "Newsreader", Georgia, serif;
+    font-size: clamp(44px, 6.4vw, 84px);
+    line-height: 0.95; font-weight: 500; letter-spacing: -0.035em;
+    margin: 0 0 22px;
+  }
+  .job {
+    font-size: 19px; max-width: 28em; margin: 0 0 28px; color: var(--ink);
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+  .hero-photo {
+    background: var(--photo);
+    position: relative; min-height: 520px;
+    overflow: hidden;
+  }
+  .hero-photo svg { width: 100%; height: 100%; display: block; }
+  .cap {
+    position: absolute; left: 24px; bottom: 20px; right: 24px;
+    color: #E8E8E8; font-size: 13px; letter-spacing: 0.02em;
+  }
+  section { padding: 88px 40px; }
+  .narrow { max-width: 720px; }
+  h2 {
+    font-family: "Newsreader", Georgia, serif;
+    font-size: clamp(32px, 4vw, 48px); font-weight: 500;
+    letter-spacing: -0.03em; margin: 0 0 18px; line-height: 1.1;
+  }
+  .thirty {
+    font-size: 22px; line-height: 1.4; max-width: 28em; margin: 0 0 16px;
+    font-family: "Newsreader", Georgia, serif;
+  }
+  .range { padding-top: 0; }
+  .typelist { list-style: none; margin: 0; padding: 0; }
+  .typelist li {
+    border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: 140px 1fr auto;
+    gap: 24px; align-items: baseline; padding: 22px 0;
+  }
+  .typelist a {
+    font-family: "Newsreader", Georgia, serif;
+    font-size: 36px; text-decoration: none; letter-spacing: -0.03em;
+    min-height: 44px; display: inline-flex; align-items: center;
+  }
+  .typelist a:hover { color: var(--rust); }
+  .family { font-size: 14px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .files { display: flex; flex-direction: column; gap: 0; max-width: 760px; }
+  .files a {
+    display: flex; justify-content: space-between; gap: 16px;
+    min-height: 56px; align-items: center;
+    text-decoration: none; border-top: 1px solid var(--line);
+    padding: 8px 0;
+  }
+  .files a:last-child { border-bottom: 1px solid var(--line); }
+  footer.site {
+    padding: 48px 40px 64px; border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 32px;
+    font-size: 14px;
+  }
+  address { font-style: normal; }
+  @media (max-width: 640px) {
+    header.site, section, footer.site { padding-left: 18px; padding-right: 18px; }
+    header.site { flex-direction: column; align-items: flex-start; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-copy { padding: 36px 18px 40px; }
+    .hero-photo { min-height: 360px; }
+    h1 { font-size: 42px; }
+    .typelist li { grid-template-columns: 1fr; gap: 6px; }
+    .typelist a { font-size: 30px; }
+    footer.site { grid-template-columns: 1fr; }
+    section { padding: 56px 18px; }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <strong>Huaming</strong>
-    <nav>
-      <a href="#">Products</a>
-      <a href="#">Downloads</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
-  <section class="hero">
-    <div class="copy">
-      <h1>The switch inside the transformer</h1>
-      <p>Huaming builds on-load and de-energized tap changers. Vacuum and conventional. Used in 150+ countries.</p>
-      <a class="btn" href="#">See the range</a>
-      &nbsp;&nbsp;
-      <a class="btn" href="#">Talk to us</a>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <a class="brand" href="02-editorial.html">Huaming</a>
+  <nav class="primary" aria-label="Primary">
+    <a href="#range">Products</a>
+    <a href="#downloads">Downloads</a>
+    <a href="#about">About</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a class="cta" href="#range">See the range</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <h1 id="hero-title">The switch inside the transformer</h1>
+      <p class="job">Huaming makes tap changers for transformers. On-load and de-energized. Vacuum and conventional. In service in 140+ countries.</p>
+      <div class="hero-actions">
+        <a class="cta" href="#range">See the range</a>
+        <a class="cta-text" href="#contact">Talk to us</a>
+      </div>
     </div>
-    <div class="photo">CV2 · VACUUM SELECTOR SWITCH · NO OVERLAY</div>
+    <div class="hero-photo" role="img" aria-label="Studio photograph of an in-tank vacuum on-load tap-changer">
+      <svg viewBox="0 0 640 820" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#2A2E32"/>
+            <stop offset="1" stop-color="#121416"/>
+          </linearGradient>
+          <linearGradient id="metal" x1="0" x2="1">
+            <stop offset="0" stop-color="#6D7378"/>
+            <stop offset="0.45" stop-color="#C5CBD0"/>
+            <stop offset="1" stop-color="#4E555B"/>
+          </linearGradient>
+          <radialGradient id="spot" cx="0.35" cy="0.2" r="0.7">
+            <stop offset="0" stop-color="#3A4046"/>
+            <stop offset="1" stop-color="#0E1012"/>
+          </radialGradient>
+        </defs>
+        <rect width="640" height="820" fill="url(#spot)"/>
+        <ellipse cx="320" cy="760" rx="180" ry="18" fill="#000" opacity="0.45"/>
+        <rect x="250" y="90" width="140" height="28" fill="url(#metal)"/>
+        <rect x="230" y="118" width="180" height="36" fill="#8A9096"/>
+        <rect x="244" y="154" width="152" height="48" fill="url(#metal)"/>
+        <rect x="262" y="202" width="116" height="430" fill="url(#metal)"/>
+        <rect x="274" y="220" width="92" height="390" fill="#3A4046" opacity="0.35"/>
+        <circle cx="320" cy="340" r="34" fill="#1C1F22" stroke="#B8BEC4" stroke-width="3"/>
+        <circle cx="320" cy="340" r="12" fill="#8C3A22"/>
+        <rect x="286" y="420" width="68" height="80" fill="#2C3136"/>
+        <rect x="276" y="640" width="88" height="36" fill="#8A9096"/>
+      </svg>
+      <p class="cap">CV2 · in-tank vacuum compound OLTC · selector-switch</p>
+    </div>
   </section>
+
+  <section id="learn" class="narrow" aria-labelledby="learn-title">
+    <h2 id="learn-title">The only moving part in the tank</h2>
+    <p class="thirty">A tap changer picks which winding tap is live so the voltage stays in range as load and system voltage move. On-load types work while the transformer is energised. Off-circuit types wait for an outage.</p>
+    <p><a class="cta-text" href="#range">That is the whole job.</a></p>
+  </section>
+
+  <section id="range" class="range" aria-labelledby="range-title">
+    <h2 id="range-title">The range</h2>
+    <ol class="typelist">
+      <li>
+        <span class="family">Vacuum OLTC</span>
+        <a href="../product-2026-08-19/02-editorial-cv2.html">CV2</a>
+        <span>Selector-switch. III 350 A / 600 A. Um to 145 kV.</span>
+      </li>
+      <li>
+        <span class="family">Vacuum OLTC</span>
+        <a href="../product-2026-08-19/02-editorial-cv2.html">CM2</a>
+        <span>Diverter. Vacuum switching on the CM geometry.</span>
+      </li>
+      <li>
+        <span class="family">Vacuum OLTC</span>
+        <a href="../product-2026-08-19/02-editorial-cv2.html">SHZV</a>
+        <span>Vacuum version of CMD. Grid and industrial duty.</span>
+      </li>
+      <li>
+        <span class="family">Converter</span>
+        <span style="font-family:Newsreader,serif;font-size:36px;letter-spacing:-0.03em">CHVT</span>
+        <span>Longdong ±800 kV. Commissioned May 2025.</span>
+      </li>
+      <li>
+        <span class="family">Oil OLTC</span>
+        <span style="font-family:Newsreader,serif;font-size:36px;letter-spacing:-0.03em">CV · CM · CMD</span>
+        <span>Conventional selector and diverter types.</span>
+      </li>
+      <li>
+        <span class="family">Off-circuit</span>
+        <span style="font-family:Newsreader,serif;font-size:36px;letter-spacing:-0.03em">WSL · WDG</span>
+        <span>Cage and drum DETC. Transformer isolated.</span>
+      </li>
+    </ol>
+  </section>
+
+  <section id="downloads" aria-labelledby="dl-title">
+    <h2 id="dl-title">Technical data</h2>
+    <div class="files">
+      <a href="https://www.intl-huaming.com/images/00_HuaMing/product/PDF/Vacuum%20Type/CV2/"><span>CV2 — HM0.154.4101</span><span>PDF</span></a>
+      <a href="https://www.intl-huaming.com/images/00_HuaMing/product/PDF/Vacuum%20Type/CM2/"><span>CM2 — HM0 154 5701</span><span>PDF</span></a>
+      <a href="https://www.intl-huaming.com/images/00_HuaMing/product/PDF/Vacuum%20Type/SHZV/"><span>SHZV — HM0.154.3901</span><span>PDF</span></a>
+      <a href="https://www.intl-huaming.com/images/00_HuaMing/product/Retrofit Leaflet En.pdf"><span>Retrofit leaflet</span><span>PDF</span></a>
+    </div>
+  </section>
+
+  <section id="about" class="narrow" aria-labelledby="about-title">
+    <h2 id="about-title">Shanghai works. Singapore desk.</h2>
+    <p id="news">Huaming Power Equipment has made tap changers since the early 1990s. Shenzhen listed, 002270.SZ. Standard lead time about 4–6 weeks. ISO 9001, 14001, 18001. CNAS laboratory, 2009. International headquarters opened at Tai Seng Exchange on 29 April 2025.</p>
+  </section>
+</main>
+
+<footer class="site" id="contact">
+  <div>
+    <strong>Talk to us</strong>
+    <p style="margin:8px 0 16px">Type questions go to Singapore. The factory is in Putuo, Shanghai.</p>
+    <a class="cta" href="/contact">Contact</a>
+  </div>
+  <address>
+    Huaming Power Equipment Singapore Pte. Ltd<br/>
+    Tai Seng Exchange, Tower A #03-13<br/>
+    1 Tai Seng Ave, Singapore 536464
+  </address>
+  <address>
+    Huaming Power Equipment Co., Ltd.<br/>
+    No. 977 Tongpu Road, Putuo District<br/>
+    Shanghai 200333 · +86 21 5270 8966
+  </address>
+</footer>
 </body>
 </html>

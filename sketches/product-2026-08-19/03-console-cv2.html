@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CV2 · Huaming Types</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0E1114; --panel: #161A1E; --line: #2A3036;
+    --ink: #E8EDF2; --muted: #9AA3AD; --amber: #C9842A; --amber-ink: #1A1208;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+    font-size: 15px; line-height: 1.45;
+  }
+  a { color: var(--ink); }
+  a:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+  .skip { position: absolute; left: -999px; top: 8px; background: var(--amber); color: var(--amber-ink); padding: 10px 16px; }
+  .skip:focus { left: 8px; }
+  .shell { width: min(980px, calc(100% - 40px)); margin: 0 auto; }
+  header.site {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line);
+  }
+  .brand {
+    font-weight: 600; text-decoration: none; font-size: 18px;
+    min-height: 44px; display: inline-flex; align-items: center;
+  }
+  .brand span { color: var(--muted); font-weight: 400; margin-left: 8px; font-size: 13px; }
+  nav.primary { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; }
+  nav.primary a {
+    text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500;
+    min-height: 44px; display: inline-flex; align-items: center;
+  }
+  .cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; padding: 0 14px; background: var(--amber); color: var(--amber-ink);
+    text-decoration: none; font-weight: 600; font-size: 13px;
+  }
+  .cta-ghost {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; padding: 0 14px; border: 1px solid var(--line);
+    text-decoration: none; font-weight: 600; font-size: 13px; color: var(--ink);
+  }
+  .path { color: var(--muted); font-size: 12px; margin: 20px 0 8px; font-family: "IBM Plex Mono", monospace; }
+  .path a { color: var(--amber); text-decoration: none; }
+  h1 { font-size: 36px; letter-spacing: -0.04em; margin: 0 0 6px; font-family: "IBM Plex Mono", monospace; }
+  .family { color: var(--amber); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 10px; }
+  .one { color: var(--muted); max-width: 52em; margin: 0 0 18px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+  table.kv { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  table.kv th, table.kv td {
+    text-align: left; padding: 11px 10px; border-bottom: 1px solid var(--line); vertical-align: top;
+  }
+  table.kv th {
+    width: 32%; color: var(--muted); font-weight: 500; font-size: 12px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  table.kv td { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13px; }
+  h2 { font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 28px 0 10px; }
+  .sib { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .sib a {
+    display: block; padding: 14px 0; border-top: 1px solid var(--line);
+    text-decoration: none; min-height: 56px;
+  }
+  .sib strong { font-family: "IBM Plex Mono", monospace; color: var(--amber); }
+  footer.site { border-top: 1px solid var(--line); padding: 20px 0 40px; color: var(--muted); font-size: 12px; }
+  @media (max-width: 640px) {
+    .shell { width: calc(100% - 24px); }
+    header.site { flex-direction: column; align-items: flex-start; }
+    .sib { grid-template-columns: 1fr; }
+    table.kv th, table.kv td { display: block; width: auto; border: 0; padding: 2px 0; }
+    table.kv tr { display: block; border-bottom: 1px solid var(--line); padding: 10px 0; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell">
+  <header class="site">
+    <a class="brand" href="../home-2026-08-19/03-console.html">Huaming <span>Types</span></a>
+    <nav class="primary" aria-label="Primary">
+      <a href="../home-2026-08-19/03-console.html#types">Products</a>
+      <a href="#download">Downloads</a>
+      <a href="../home-2026-08-19/03-console.html#about">About</a>
+      <a href="../home-2026-08-19/03-console.html#news">News</a>
+      <a href="/contact?product=CV2">Contact</a>
+      <a class="cta" href="#download">Download PDF</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <p class="path"><a href="../home-2026-08-19/03-console.html">types</a> / vacuum / <strong>CV2</strong></p>
+    <p class="family">Vacuum OLTC · in-tank compound</p>
+    <h1>CV2</h1>
+    <p class="one">In-tank vacuum compound OLTC. Selector-switch structure, vacuum version of CV. Specify III 350 A or III 600 A — there is no mid-current type.</p>
+    <div class="actions">
+      <a class="cta" id="download" href="https://www.intl-huaming.com/images/00_HuaMing/product/PDF/Vacuum%20Type/CV2/">Download PDF · HM0.154.4101</a>
+      <a class="cta-ghost" href="https://erict16.github.io/oltc-selector/">Type selector</a>
+      <a class="cta-ghost" href="/contact?product=CV2">Talk to us</a>
+    </div>
+
+    <table class="kv">
+      <tr><th>Structure</th><td>In-tank vacuum compound (selector-switch)</td></tr>
+      <tr><th>Iᵤ</th><td>III 350 A · III 600 A</td></tr>
+      <tr><th>Uₘ</th><td>40.5 kV · 72.5 kV · 126 kV · 145 kV</td></tr>
+      <tr><th>Frequency</th><td>50 / 60 Hz</td></tr>
+      <tr><th>Connection</th><td>Y · D · single-phase</td></tr>
+      <tr><th>Positions</th><td>12 without change-over · 23 with change-over</td></tr>
+      <tr><th>Mechanical life</th><td>1 500 000 ops · maintenance-free 300 000</td></tr>
+      <tr><th>Drive / mount</th><td>SHM or CMA7 · flange to tank cover</td></tr>
+    </table>
+    <p style="color:var(--muted);font-size:13px;margin:12px 0 0">IEC 60214-1:2014 · GB/T 10230.1-2019. Mechanical backup contacts. Primarily-delta transformers up to 132 kV systems.</p>
+
+    <h2>Siblings</h2>
+    <div class="sib">
+      <a href="03-console-cv2.html"><strong>CM2</strong><br/>Vacuum diverter. Higher current than CV2 selector-switch duty.</a>
+      <a href="03-console-cv2.html"><strong>SHZV</strong><br/>Vacuum version of CMD. Grid and heavy industrial.</a>
+    </div>
+  </main>
+  <footer class="site">No prices. Ratings from published CV2 technical data only.</footer>
+</div>
+</body>
+</html>
