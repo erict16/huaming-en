@@ -32,6 +32,11 @@ export default async function NewsArticlePage({
       <p className="font-mono text-xs text-muted">{item.date}</p>
       <h1 className="font-serif mt-2 text-4xl">{item.title}</h1>
       <p className="mt-6 text-[17px] leading-7">{item.summary}</p>
+      {item.body.map((para) => (
+        <p key={para.slice(0, 40)} className="mt-4 text-[17px] leading-7">
+          {para}
+        </p>
+      ))}
       <p className="mt-6 text-sm">
         Source on the previous English site:{" "}
         <a href={source} className="underline">
