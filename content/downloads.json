@@ -418,5 +418,19 @@
     "products": ["wdg"],
     "kind": "technical-data",
     "lang": "en"
+  },
+  {
+    "file": "CV2600-OI-2023.pdf",
+    "title": "CV2 600 A operating instructions 2023",
+    "products": ["cv2"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "SHM-D-MDU-Operation-instruction-HM0-460-1381-0908.pdf",
+    "title": "SHM-D MDU operating instruction (live shop copy)",
+    "products": ["shm-d"],
+    "kind": "manual",
+    "lang": "en"
   }
 ]
