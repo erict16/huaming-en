@@ -33,14 +33,11 @@ export default function HomePage() {
       <div className="mt-10 grid items-end gap-10 md:grid-cols-[1.2fr_0.8fr]">
         <div className="flex min-h-[280px] flex-col border border-rule p-6">
           <p className="text-[12px] uppercase tracking-[0.16em] text-muted">Plate · CV2</p>
-          <svg viewBox="0 0 240 72" className="mt-4 w-full max-w-xs text-ink" aria-hidden="true">
-            <rect x="8" y="18" width="224" height="36" fill="none" stroke="currentColor" strokeWidth="1.2" />
-            <circle cx="48" cy="36" r="10" fill="none" stroke="currentColor" strokeWidth="1.2" />
-            <circle cx="120" cy="36" r="10" fill="none" stroke="currentColor" strokeWidth="1.2" />
-            <circle cx="192" cy="36" r="10" fill="#9B2C2C" />
-            <line x1="58" y1="36" x2="110" y2="36" stroke="currentColor" strokeWidth="1.2" />
-            <line x1="130" y1="36" x2="182" y2="36" stroke="currentColor" strokeWidth="1.2" />
-          </svg>
+          <img
+            src="/images/products/cv2.png"
+            alt="CV2 vacuum on-load tap changer"
+            className="mt-4 max-h-44 w-auto"
+          />
           <p className="font-serif mt-4 text-3xl">CV2</p>
           <p className="mt-auto pt-4 text-sm">
             <Link href="/products/cv2/" className="underline">

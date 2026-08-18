@@ -29,6 +29,7 @@ Checked 2026-08-19 against `mirror/research-text/`, `mirror/research-raw/`, OneD
 | CM / CMD shop copy | “state-of-the-art”, “most reliable”, “natural choice”, furnace “over 1,000 daily operations” | Numbers only | Brochure numbers. Furnace duty is shop text, not a catalogue current. |
 | SHZV shop copy | “extremely robust and big capacity” | Table 2-1 currents / Um | Brochure numbers. |
 | SHZV live URL | Listed twice: `17-shzv` and `32-shzv` (page 2 of 27 results) | One type | One product. `17-shzv` is the used URL. |
+| CHVT | Live shop: jointly with EPRI / State Grid; 1500 A three-phase; 6000 V step. Photo only. | No technical PDF in OneDrive or on the product page (rechecked 2026-08-19). | Print live figures as shop text. Do not invent Um. No download button. |
 | W_L / W_G slugs | Shop names `W_L`, `W_G` | Brochures / designation: **WSL** (cage), **WDG / WLG / WSG** (drum) | Keep both: name `WSL / W_L`, `WDG / W_G`. WSL is cage; WDG is drum. Do not treat W_G as WSL. |
 
 ## Brochure vs catalog-source / 2025 sales notes

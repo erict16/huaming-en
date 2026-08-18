@@ -48,6 +48,25 @@ if (pdfs.length < 20) {
   fail++;
 }
 
+const catalog = JSON.parse((await import("node:fs")).readFileSync("content/downloads.json", "utf8"));
+for (const row of catalog) {
+  const p = path.join(dl, row.file);
+  const ok = existsSync(p) && statSync(p).size > 0;
+  if (!ok) {
+    console.log(`FAIL catalog file missing ${row.file}`);
+    fail++;
+  }
+}
+console.log(`OK catalog rows=${catalog.length} all exist on disk`);
+
+const chvt = path.join(root, "products/chvt/index.html");
+if (existsSync(chvt)) {
+  const html = (await import("node:fs")).readFileSync(chvt, "utf8");
+  const honest = html.includes("No English technical data") || html.includes("no CHVT");
+  console.log(honest ? "OK chvt has no-PDF copy" : "FAIL chvt should say no technical data");
+  if (!honest) fail++;
+}
+
 const home = (await import("node:fs")).readFileSync(path.join(root, "index.html"), "utf8");
 for (const phrase of ["Tap changers for power transformers", "Find a type", "What this is"]) {
   const ok = home.includes(phrase);

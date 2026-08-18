@@ -1,29 +1,18 @@
 # Missing / truncated
 
-## Truncated HTML (urllib IncompleteRead; byte sizes are exact 192/256 KiB)
+## Still missing as of 2026-08-19 01:15
 
-Re-fetch with curl if still this size:
+- **CHVT technical PDF.** Rechecked live `/products-page/product/18-chvt` — description + `chvt.png` only. No brochure in OneDrive.
+- www.huaming.com — ThinkPHP 500
+- Banner mp4 (`.part` dropped)
 
-- about/why-us, career, contact-us, investor-relations, newsroom
-- products listing pages
-- renewable general-introduction
-- tap-changer
-- CHVT product page (was .part)
+## Closed since first pass
 
-## Files not in public/downloads
+- WSL cage: leaflet + DETC technical + operating instruction from live shop
+- ZWC: leaflet + OI
+- HWDK, HMDK, SHGV: live-shop OI / leaflets
+- CV2 / CM2 / SHZV OI and leaflets
 
-- WSL / WDL cage OCTC technical data (OneDrive folder had drum WDG only)
-- ZWC linear OCTC
-- CHVT technical data
-- HWDK, HMDK, SHGV brochures
-- Live CV2/CM2/SHZV OI and leaflets — added when curl succeeded; confirm in downloads.json
+## Truncated first-pass HTML
 
-## Hosts
-
-- www.huaming.com — ThinkPHP 500 / “系统发生错误”
-- Reinhausen `/products/on-load-tap-changers` — 404
-- Hitachi Energy tap-changers URL — 404
-
-## Video
-
-- Banner mp4 started then cut (`.part` dropped from git)
+Some urllib dumps sat at 192/256 KiB. Later curl copies under `mirror/research-raw/` and `mirror/raw/` are the usable ones.
