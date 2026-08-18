@@ -5,8 +5,8 @@ Updated: 2026-08-19 00:55 CST
 ## Clock
 
 - Started: 00:15 CST 2026-08-19
-- Hard stop: 07:30 CST 2026-08-19 then STATUS + push
-- Still looping after this commit; do not idle
+- Hard stop: **07:00 CST 2026-08-19** (Eric: 到七点就停，不再 loop)
+- Scheduler `01a015a8d8ee` still fires every 45m until then; after 07:00 it must no-op
 
 ## Repo
 
