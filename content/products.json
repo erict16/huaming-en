@@ -58,7 +58,13 @@
       "family": "oltc-oil",
       "oneLiner": "Classic in-tank OLTC: diverter switch plus tap selector. Arc in oil.",
       "fromLive": "Type CM is a classic on-load tap changer composed by a diverter switch & tap selector.",
-      "ratings": ["In-tank", "Diverter + selector", "Oil arc", "III currents 500 / 600 A (catalogue)"],
+      "ratings": [
+        "In-tank diverter + selector, oil arc",
+        "III / II 500 A and 600 A; I also 800 / 1200 / 1500 A",
+        "Um 72.5 / 126 / 170 / 252 kV; selector B / C / D / DE",
+        "Max. step voltage 3300 V",
+        "Positions: 18 without change-over, 35 with"
+      ],
       "siblings": ["cm2", "cmd", "cv"],
       "downloads": ["CM-OLTC-Technical-Data--HM0-154-301.pdf"],
       "livePath": "/products-page/product/1-cm"
@@ -69,7 +75,12 @@
       "family": "oltc-oil",
       "oneLiner": "Larger oil OLTC, same family idea as CM, higher current steps.",
       "fromLive": "Type CMD is designed with state-of-the-art technology and concept.",
-      "ratings": ["In-tank", "Oil arc", "III currents 400 / 600 / 1000 A (catalogue)"],
+      "ratings": [
+        "In-tank, oil arc, bell-type head",
+        "III 400 / 600 / 1000 A; I also 1600 / 2400 A",
+        "Um 72.5 / 126 / 170 / 252 kV; selector B / C / D / DE",
+        "Positions: 14 without change-over, 27 with"
+      ],
       "siblings": ["shzv", "cm"],
       "downloads": ["CMD-OLTC-Technical-Data-HM0-154-1901.pdf"],
       "livePath": "/products-page/product/14-cmd"
@@ -80,7 +91,12 @@
       "family": "oltc-oil",
       "oneLiner": "Selector-switch oil OLTC. The oil ancestor of CV2.",
       "fromLive": "Type CV is a typical selector switch structure tap changer.",
-      "ratings": ["Selector switch", "Oil arc", "III 350 A; compound volume (catalogue)", "Um 40.5 / 72.5 kV"],
+      "ratings": [
+        "Selector switch (compound), oil arc",
+        "III 350 A; I also 700 A as CVI 700",
+        "Um 40.5 / 72.5 kV only (live “110 kV” is not a CV Um)",
+        "Positions: 14 without change-over, 27 with"
+      ],
       "siblings": ["cv2", "sv"],
       "downloads": ["CV-SV-OLTC-Technical-Data-HM0.154.001.pdf"],
       "livePath": "/products-page/product/15-cv"
@@ -102,7 +118,13 @@
       "family": "oltc-vacuum",
       "oneLiner": "Vacuum version of CV. Selector-switch OLTC for primarily-delta transformers up to 132 kV.",
       "fromLive": "Type CV2 is of selector switch structure, a vacuum version of type CV on-load tap changer. Mechanical backup contacts. Most economic solution for primarily-delta transformer up to 132kV system.",
-      "ratings": ["Vacuum interrupter", "Selector switch", "III 350 A and 600 A only — no CV2-500", "Um 40.5 / 72.5 / 126 / 145 kV", "Positions 12 without change-over, 23 with"],
+      "ratings": [
+        "Vacuum selector switch; mechanical backup contacts; no grade letter",
+        "III 350 A and 600 A only — no CV2-500",
+        "Um 40.5 / 72.5 / 126 / 145 kV",
+        "Step voltage 2000 V (10 contacts) / 1500 V (12 contacts)",
+        "Positions: 12 without change-over, 23 with"
+      ],
       "siblings": ["cv", "cm2", "shzv"],
       "downloads": [
         "CV2-OLTC-Technical-Data-HM0.154.4101-2025.pdf",
@@ -117,7 +139,13 @@
       "family": "oltc-vacuum",
       "oneLiner": "Vacuum version of CM. Diverter + selector, vacuum bottles.",
       "fromLive": "Type CM2 on-load tap changer perfectly integrates the proven reliability of type CM and vacuum switching technology.",
-      "ratings": ["Vacuum interrupter", "Diverter + selector", "III 500 / 600 A (catalogue)"],
+      "ratings": [
+        "Vacuum CM envelope (diverter retrofit possible)",
+        "III / II 500 A and 600 A only — no CM2 III 800 / 1000",
+        "I also 800 / 1200 / 1500 A",
+        "Um 72.5 / 126 / 170 / 252 kV; selector B / C / D / DE",
+        "Positions: 18 without change-over, 35 with"
+      ],
       "siblings": ["cm", "cv2", "shzv"],
       "downloads": [
         "CM2-Vacuum-OLTC-Technical-Data-HM0-154-5701.pdf",
@@ -131,7 +159,13 @@
       "family": "oltc-vacuum",
       "oneLiner": "Vacuum version of CMD. Higher current than CM2 when CM2 does not cover Iᵤ.",
       "fromLive": "Type SHZV is a vacuum version of type CMD on-load tap changer.",
-      "ratings": ["Vacuum interrupter", "III 400 / 600 / 1000 A", "Um 72.5–252 kV (300 / 363 in brochure)"],
+      "ratings": [
+        "Vacuum CMD; in-tank combined",
+        "III / II 400 / 600 / 1000 A",
+        "Um 72.5 / 126 / 170 / 252 kV commercially; brochure also 300 / 363",
+        "Selector B / C / D / DE; max. step voltage 4000 V",
+        "Positions: 18 without change-over, 35 with"
+      ],
       "siblings": ["cmd", "shzvg", "cm2"],
       "downloads": [
         "SHZV-Vacuum-OLTC-Technical-Data-HM0.154.3901-2025.pdf",
@@ -145,7 +179,13 @@
       "family": "oltc-vacuum",
       "oneLiner": "Larger vacuum OLTC after SHZV max current (1300 / 1500 A III).",
       "fromLive": "Listed on the live shop as SHZVG.",
-      "ratings": ["Vacuum interrupter", "III 1300 / 1500 A (catalogue)"],
+      "ratings": [
+        "Vacuum combined; after SHZV max current",
+        "III 1300 A and 1500 A",
+        "Um 72.5 / 126 / 170 / 252 / 300 / 363 kV",
+        "Selector B / C / D / DE / E; max. step voltage 6000 V",
+        "Positions: 18 without change-over, 35 with"
+      ],
       "siblings": ["shzv"],
       "downloads": ["SHZVG-Vacuum-OLTC-Technical-Data-2025.pdf"],
       "livePath": "/products-page/product/33-shzvg"
@@ -172,7 +212,13 @@
       "family": "oltc-vacuum",
       "oneLiner": "On-tank / external vacuum OLTC. Commercial type already includes the motor drive.",
       "fromLive": "Listed under vacuum / on-tank types.",
-      "ratings": ["On-tank (bolt-on)", "Vacuum", "400 / 800 / 1000 A", "Um 17.5 / 40.5 / 72.5 kV", "Do not add CMA7 twice"],
+      "ratings": [
+        "On-tank vacuum; oil chamber separate from the main tank",
+        "MDU is on the chamber — do not add CMA7 twice",
+        "400 / 800 / 1000 A — no 600 A",
+        "Um 17.5 / 40.5 / 72.5 kV; no selector grade letter",
+        "Positions: 18 without change-over, 35 with"
+      ],
       "siblings": ["hwdk", "cma7"],
       "downloads": ["HWV-Technical-Data.pdf"],
       "livePath": "/products-page/product/19-hwv"
@@ -194,7 +240,12 @@
       "family": "oltc-dry",
       "oneLiner": "Vacuum OLTC for dry-type / air-insulated transformers. Low Um.",
       "fromLive": "Dry type family on the live shop.",
-      "ratings": ["Air insulated", "Vacuum", "160 / 200 A", "Um 12 kV"],
+      "ratings": [
+        "Air-insulated vacuum for dry-type transformers",
+        "Brochure table: 160 A (200 A is not in that table)",
+        "Um 12 kV only",
+        "Max. step voltage 500 V; linear; max. 9 positions"
+      ],
       "siblings": ["cz"],
       "downloads": ["CVT-Vacuum-OLTC-Technical-Data-HM0.154.3301.pdf"],
       "livePath": "/products-page/product/5-cvt"
@@ -205,7 +256,12 @@
       "family": "oltc-dry",
       "oneLiner": "Vacuum dry / air OLTC at distribution voltages.",
       "fromLive": "Dry type family on the live shop.",
-      "ratings": ["Air insulated", "Vacuum", "500 / 600 A", "Um 40.5 / 72.5 kV"],
+      "ratings": [
+        "Single-phase air-insulated vacuum; three units, one MDU",
+        "Brochure: 500 A (CZ 600 not in this brochure)",
+        "Um 40.5 / 72.5 kV",
+        "Max. step voltage 950 V; max. 17 positions"
+      ],
       "siblings": ["cvt"],
       "downloads": ["CZ-vacuum-OLTC-technical-data-HM0-154-1102.pdf"],
       "livePath": "/products-page/product/21-cz"

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "oltc-oil",
+    "label": "Oil OLTC",
+    "group": "oltc",
+    "explainer": "On-load tap changer (OLTC): it changes transformer taps while the transformer is energised. These types put the switching arc in oil, inside a separate oil compartment.",
+    "shopCategory": "On-Load Tap Changer / Non-Vacuum Type",
+    "productSlugs": ["cm", "cmd", "cv"]
+  },
+  {
+    "id": "oltc-vacuum",
+    "label": "Vacuum OLTC",
+    "group": "oltc",
+    "explainer": "Vacuum OLTC: same job as an oil OLTC, but the arc is inside a vacuum interrupter, not in the oil. Use when the buyer wants less oil carbon and longer contact life.",
+    "shopCategory": "On-Load Tap Changer / Vacuum Type",
+    "productSlugs": ["cv2", "cm2", "shzv", "shzvg", "chvt", "hwv"]
+  },
+  {
+    "id": "oltc-dry",
+    "label": "Dry-type OLTC",
+    "group": "oltc",
+    "explainer": "Air-insulated OLTC for dry-type transformers. Not for oil tanks.",
+    "shopCategory": "On-Load Tap Changer / Dry Type",
+    "productSlugs": ["cvt", "cz"]
+  },
+  {
+    "id": "oltc-gas",
+    "label": "Gas-insulated OLTC",
+    "group": "oltc",
+    "explainer": "OLTC built for SF6 gas-insulated regulating transformers.",
+    "shopCategory": "On-Load Tap Changer / Gas Insulated Type",
+    "productSlugs": ["shgv"]
+  },
+  {
+    "id": "oltc-regulator",
+    "label": "Regulator OLTC",
+    "group": "oltc",
+    "explainer": "OLTC used on a distribution step-voltage regulator, not on a power-transformer tank.",
+    "shopCategory": "On-Load Tap Changer / Regulator",
+    "productSlugs": ["hmdk"]
+  },
+  {
+    "id": "oltc-reactive",
+    "label": "Reactive OLTC",
+    "group": "oltc",
+    "explainer": "Compartment OLTC that uses reactor (reactive) transition. Common on North American units. Not the same as the resistive in-tank oil or vacuum types.",
+    "shopCategory": "On-Load Tap Changer",
+    "productSlugs": ["hwdk"]
+  },
+  {
+    "id": "octc-cage",
+    "label": "Cage OCTC",
+    "group": "octc",
+    "explainer": "De-energized tap changer (OCTC / DETC): only operate it when the transformer is isolated. Cage type sits in the tank oil with no separate oil compartment. This is not an OLTC.",
+    "shopCategory": "De-Energized Tap Changers / Cage Type",
+    "productSlugs": ["wsl"]
+  },
+  {
+    "id": "octc-drum",
+    "label": "Drum OCTC",
+    "group": "octc",
+    "explainer": "De-energized drum tap changer. Often one single-phase drum plus one two-phase drum. Not an OLTC.",
+    "shopCategory": "De-Energized Tap Changers / Drum Type",
+    "productSlugs": ["wdg"]
+  },
+  {
+    "id": "octc-linear",
+    "label": "Linear OCTC",
+    "group": "octc",
+    "explainer": "De-energized linear tap changer. Usually three single-phase units linked and driven from one side mechanism. Not an OLTC.",
+    "shopCategory": "De-Energized Tap Changers / Linear Type",
+    "productSlugs": ["zwc"]
+  },
+  {
+    "id": "mdu",
+    "label": "Motor drive unit",
+    "group": "accessory",
+    "explainer": "Motor drive unit (MDU): the motor box that turns the tap changer. It is an accessory, not a tap changer. HWV already includes its drive — do not add CMA7 a second time on that type.",
+    "shopCategory": "Accessories / Motor Drive Unit",
+    "productSlugs": ["shm-d", "cma7", "shm-x"]
+  },
+  {
+    "id": "monitor",
+    "label": "Controller and monitor",
+    "group": "accessory",
+    "explainer": "Remote controllers, automatic voltage regulators, position indicators, and online monitors. They talk to an MDU. They are not tap changers.",
+    "shopCategory": "Accessories / Controller / Monitoring",
+    "productSlugs": ["shm-kx", "hmjk-ii", "et-sz6", "hmc-3c"]
+  },
+  {
+    "id": "filter",
+    "label": "Online oil filter",
+    "group": "accessory",
+    "explainer": "A cabinet that filters oil and particles from the tap-changer oil compartment. Not needed on HWV under normal conditions (vacuum switching, no oil carbon).",
+    "shopCategory": "Accessories / Online Oil Filter",
+    "productSlugs": ["zxjy"]
+  },
+  {
+    "id": "other",
+    "label": "Other accessory",
+    "group": "accessory",
+    "explainer": "Shop items that are not a tap changer, MDU, monitor, or filter. Function is only what the local sources state.",
+    "shopCategory": "Accessories",
+    "productSlugs": ["hmiet"]
+  }
+]
