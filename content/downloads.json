@@ -208,5 +208,215 @@
     "products": ["shm-x"],
     "kind": "type-test",
     "lang": "zh"
+  },
+  {
+    "file": "WSL-Leaflet.pdf",
+    "title": "WSL leaflet",
+    "products": ["wsl"],
+    "kind": "leaflet",
+    "lang": "en"
+  },
+  {
+    "file": "W-LDETCTechnicalInstruction_2021.07.pdf",
+    "title": "WSL / WDL technical instruction 2021-07",
+    "products": ["wsl"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "W-LDETCOperationinstruction1-compressed.pdf",
+    "title": "WSL / WDL operating instruction",
+    "products": ["wsl"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "WG-Leaflet.pdf",
+    "title": "WDG leaflet",
+    "products": ["wdg"],
+    "kind": "leaflet",
+    "lang": "en"
+  },
+  {
+    "file": "WGOff-CircuitTapChangerOperatingInstrutions-HM0.460.6001.pdf",
+    "title": "WDG operating instructions HM0.460.6001",
+    "products": ["wdg"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "ZWC-Leaflet-2020.02.03.pdf",
+    "title": "ZWC leaflet 2020-02-03",
+    "products": ["zwc"],
+    "kind": "leaflet",
+    "lang": "en"
+  },
+  {
+    "file": "ZWC-operation-instruction-2020.02.03.pdf",
+    "title": "ZWC operating instruction 2020-02-03",
+    "products": ["zwc"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "HWDK-Leaflet.pdf",
+    "title": "HWDK leaflet",
+    "products": ["hwdk"],
+    "kind": "leaflet",
+    "lang": "en"
+  },
+  {
+    "file": "OLTC-HWDK-OI-HM-0.460.5801-EN.2025.pdf",
+    "title": "HWDK operating instructions 2025",
+    "products": ["hwdk"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "HMDK-OI-ENG.pdf",
+    "title": "HMDK operating instructions",
+    "products": ["hmdk"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "HWV-Leaflet.pdf",
+    "title": "HWV leaflet",
+    "products": ["hwv"],
+    "kind": "leaflet",
+    "lang": "en"
+  },
+  {
+    "file": "HWV-OI-ENG.pdf",
+    "title": "HWV operating instructions",
+    "products": ["hwv"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "SHGV-Operation-Installation-Instruction-V0.9.pdf",
+    "title": "SHGV operation and installation V0.9",
+    "products": ["shgv"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "SHZVG-leaflet-20241.pdf",
+    "title": "SHZVG leaflet 2024",
+    "products": ["shzvg"],
+    "kind": "leaflet",
+    "lang": "en"
+  },
+  {
+    "file": "OLTC-SHZVG-OI-HMO.460.7202-EN-2024.pdf",
+    "title": "SHZVG operating instructions 2024",
+    "products": ["shzvg"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "CZ-Leaflet.pdf",
+    "title": "CZ leaflet",
+    "products": ["cz"],
+    "kind": "leaflet",
+    "lang": "en"
+  },
+  {
+    "file": "OLTC-CZ-OI-HM0.460.1101-EN.pdf",
+    "title": "CZ operating instructions HM0.460.1101",
+    "products": ["cz"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "CVT-Leaflet.pdf",
+    "title": "CVT leaflet",
+    "products": ["cvt"],
+    "kind": "leaflet",
+    "lang": "en"
+  },
+  {
+    "file": "CVT-Vacuum-OLTC-operating-instructions-HM0.460.3301-EN.pdf",
+    "title": "CVT operating instructions HM0.460.3301",
+    "products": ["cvt"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "HMJK-II-TAP-Monitor-LEAFLET.pdf",
+    "title": "HMJK-II leaflet",
+    "products": ["hmjk-ii"],
+    "kind": "leaflet",
+    "lang": "en"
+  },
+  {
+    "file": "HMJK-II-Tap-Monitor-OI-ENG.pdf",
+    "title": "HMJK-II operating instructions",
+    "products": ["hmjk-ii"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "ZXJY-II-OI-ENG.pdf",
+    "title": "ZXJY-II operating instructions",
+    "products": ["zxjy"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "SHM-X-operating-instruction.pdf",
+    "title": "SHM-X operating instruction",
+    "products": ["shm-x"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "HMIET-I-AVR-.pdf",
+    "title": "HMIET-I AVR",
+    "products": ["hmiet"],
+    "kind": "leaflet",
+    "lang": "en"
+  },
+  {
+    "file": "Controller--ET-SZ6-HM0.460.555-ENG-2024.pdf",
+    "title": "ET-SZ6 controller 2024",
+    "products": ["et-sz6"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "Controller--HMC-3--HM.460.305-EN2024.pdf",
+    "title": "HMC-3C controller 2024",
+    "products": ["hmc-3c"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "CMA7MDUOperatingInstruction-HM0.460.302-EN.pdf",
+    "title": "CMA7 MDU operating instruction (live shop copy)",
+    "products": ["cma7"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
+    "file": "HWV-Technical-Data-ENG.pdf",
+    "title": "HWV technical data (live shop copy)",
+    "products": ["hwv"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "SHZV-Vacuum-OLTC-Technical-Data.pdf",
+    "title": "SHZV vacuum OLTC technical data (live shop copy)",
+    "products": ["shzv"],
+    "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "WG-Drum-Type-OCTC-Technical-Data-ENG.pdf",
+    "title": "WDG drum OCTC technical data (live shop copy)",
+    "products": ["wdg"],
+    "kind": "technical-data",
+    "lang": "en"
   }
 ]

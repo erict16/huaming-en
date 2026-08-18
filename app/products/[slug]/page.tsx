@@ -55,8 +55,8 @@ export default async function ProductPage({
         ))}
       </dl>
 
-      {"note" in product && product.note ? (
-        <p className="mt-6 text-sm text-muted">{product.note}</p>
+      {typeof (product as { note?: string }).note === "string" ? (
+        <p className="mt-6 text-sm text-muted">{(product as { note?: string }).note}</p>
       ) : null}
 
       <section className="mt-12">
