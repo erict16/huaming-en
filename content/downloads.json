@@ -7,6 +7,20 @@
     "lang": "en"
   },
   {
+    "file": "CM-Leaflet.pdf",
+    "title": "CM leaflet",
+    "products": ["cm"],
+    "kind": "leaflet",
+    "lang": "en"
+  },
+  {
+    "file": "CM-Operating-Instruction_2021.09.01.pdf",
+    "title": "CM operating instructions 2021-09-01",
+    "products": ["cm"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
     "file": "CM2-Vacuum-OLTC-Technical-Data-HM0-154-5701.pdf",
     "title": "CM2 vacuum OLTC technical data HM0.154.5701",
     "products": ["cm2"],
@@ -21,10 +35,31 @@
     "lang": "en"
   },
   {
+    "file": "CMD-OLTC-Operation-instructions-HM0.460.1901.pdf",
+    "title": "CMD operating instructions HM0.460.1901",
+    "products": ["cmd"],
+    "kind": "manual",
+    "lang": "en"
+  },
+  {
     "file": "CV-SV-OLTC-Technical-Data-HM0.154.001.pdf",
     "title": "CV & SV OLTC technical data HM0.154.001",
     "products": ["cv", "sv"],
     "kind": "technical-data",
+    "lang": "en"
+  },
+  {
+    "file": "CV-Leaflet.pdf",
+    "title": "CV leaflet",
+    "products": ["cv"],
+    "kind": "leaflet",
+    "lang": "en"
+  },
+  {
+    "file": "CVSV-Operating-Instruction_2023.08.pdf",
+    "title": "CV & SV operating instructions 2023-08",
+    "products": ["cv", "sv"],
+    "kind": "manual",
     "lang": "en"
   },
   {
