@@ -1,9 +1,8 @@
-# Live home — Marketing
+# Live vote — home first viewport
 
-**Vote:** keep
+Role: Marketing  
+Date: 2026-08-19
 
-**Names the job?** Yes. The first screen H1 is “Tap changers for power transformers.”
+## keep
 
-**CV2 PDF in ≤3 clicks from this copy?** Yes. “Download brochures” → CV2 file is two clicks; “Find a type” → type page → PDF is three.
-
-The first screen names the job and the offer (PDF, 4–6 weeks); a buyer who wants CV2 can take the file without hunting.
+A specifier stays: the first screen names tap changers, states PDF plus a 4–6 week lead time, and exits to Find a type or Download brochures — no solar slider, no HQ tour.
