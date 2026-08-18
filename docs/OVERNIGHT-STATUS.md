@@ -1,46 +1,50 @@
 # Overnight status
 
-Updated: 2026-08-19 ~00:40 CST
+Updated: 2026-08-19 00:43 CST
 
 ## Clock
 
 - Started: 00:15 CST 2026-08-19
-- Soft checkpoint: 07:30 CST 2026-08-19
-- User override: keep looping until 07:30 CST 2026-08-20
-- Scheduler: `01a015a8d8ee` every 45m
+- Hard stop: 07:30 CST 2026-08-19 then STATUS + push
+- Still looping after this commit; do not idle
 
 ## Repo
 
 - Workdir: `~/Github/huaming-en`
 - GitHub: https://github.com/erict16/huaming-en (private)
 - Branch: `feat/overnight-v1`
-- Plan winner: **01 Utility handbook** (plurality 3–2–2 twice; no veto)
-- `npm run build`: **0** (60 static routes)
+- Plan winner: **01 Utility handbook**
+- Live home vote: marketing keep, copy keep, UX iterate-not-scrap (plate pulled above the fold)
+
+## File counts
+
+- 62 PDFs in `public/downloads/` (~249 MB)
+- 27 product types in `content/products.json`
+- 60 static routes from `npm run build`
+- 43 mirrored HTML pages under `mirror/raw/`
+- 12 news articles
 
 ## Done
 
-- 6 plans + 2 independent ballots + identity lock
-- OneDrive brochures + live PDFs → `public/downloads/` (30 PDFs)
-- Next.js App Router, Tailwind v4, static export
-- Home, learn, products (every type), downloads search, about/history/why, news, projects, renewable, careers, investors, contact+offices, legal
-- `scripts/assert-export.mjs` green: required IA, CV2 PDF href, 30 files
-- Sketches in `sketches/home-2026-08-19/`
+- Six plans, independent votes, runoff, identity lock
+- Next.js App Router + TS + Tailwind v4, `output: "export"`
+- All required routes
+- OneDrive technical brochures + live shop leaflets / OI
+- Contact mailto
+- `npm run build` 0; `scripts/assert-export.mjs` 0
+- No prices. Hub + selector outbound
 
-## In flight
+## Not finished
 
-- `git push` of the first pack (large PDFs). HTTP 400 on first try; retry with bigger buffer still running
-- Live home vote (UX + copy + marketing)
-- Full MANIFEST checksum table
-- WSL cage PDF still missing
+- CHVT still has no technical PDF
+- Full `/images/` tree (partial)
+- Chinese huaming.com HTTP 500
+- No Vercel preview (no vercel CLI)
+- git-lfs unavailable
+- YouTube: links only (`docs/youtube.md`)
+- Some product HTML still thin Joomla shells
 
 ## Blockers
 
-- `web_fetch` blocked (Clash fake-ip 198.18.*)
-- No git-lfs, no vercel CLI
-- urllib crawl IncompleteRead — curl used instead
-- huaming.com still 500 / ThinkPHP error
-- Reinhausen product URL 404; Hitachi tap-changer URL 404
-
-## SHA
-
-Local commits: `fae2f77` init, `330b208` identity+mirror, `7c13282` drop zip dups. App commit pending push of those.
+- `web_fetch` blocked (Clash 198.18.*)
+- No wget / httrack / git-lfs

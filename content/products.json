@@ -180,7 +180,7 @@
       "fromLive": "Listed on the live shop.",
       "ratings": ["Compartment / reactive", "North America application"],
       "siblings": ["hwv"],
-      "downloads": [],
+      "downloads": ["HWDK-Leaflet.pdf", "OLTC-HWDK-OI-HM-0.460.5801-EN.2025.pdf"],
       "livePath": "/products-page/product/20-hwdk"
     },
     {
@@ -213,7 +213,7 @@
       "fromLive": "Gas insulated type on the live shop.",
       "ratings": ["Gas insulated"],
       "siblings": [],
-      "downloads": [],
+      "downloads": ["SHGV-Operation-Installation-Instruction-V0.9.pdf"],
       "livePath": "/products-page/product/29-shgv"
     },
     {
@@ -224,7 +224,7 @@
       "fromLive": "Regulator family on the live shop.",
       "ratings": ["Step voltage regulator"],
       "siblings": [],
-      "downloads": [],
+      "downloads": ["HMDK-OI-ENG.pdf"],
       "livePath": "/products-page/product/22-hmdk"
     },
     {
@@ -235,9 +235,12 @@
       "fromLive": "Live slug W_L. Cage type.",
       "ratings": ["De-energized only", "Cage"],
       "siblings": ["wdg", "zwc"],
-      "downloads": [],
-      "livePath": "/products-page/product/7-w_l",
-      "note": "No cage OCTC PDF in the OneDrive technical-brochure folder as of 2026-08-19."
+      "downloads": [
+        "WSL-Leaflet.pdf",
+        "W-LDETCTechnicalInstruction_2021.07.pdf",
+        "W-LDETCOperationinstruction1-compressed.pdf"
+      ],
+      "livePath": "/products-page/product/7-w_l"
     },
     {
       "slug": "wdg",
@@ -258,7 +261,7 @@
       "fromLive": "Linear type on the live shop.",
       "ratings": ["De-energized only", "Linear"],
       "siblings": ["wsl", "wdg"],
-      "downloads": [],
+      "downloads": ["ZWC-Leaflet-2020.02.03.pdf", "ZWC-operation-instruction-2020.02.03.pdf"],
       "livePath": "/products-page/product/8-zwc"
     },
     {
@@ -291,7 +294,7 @@
       "fromLive": "Motor drive / controller family.",
       "ratings": ["Motor drive"],
       "siblings": ["shm-kx", "cma7"],
-      "downloads": [],
+      "downloads": ["SHM-X-operating-instruction.pdf"],
       "livePath": "/products-page/product/13-shm-x"
     },
     {
@@ -313,7 +316,7 @@
       "fromLive": "Monitoring on the live shop.",
       "ratings": ["Monitor"],
       "siblings": ["zxjy"],
-      "downloads": [],
+      "downloads": ["HMJK-II-TAP-Monitor-LEAFLET.pdf", "HMJK-II-Tap-Monitor-OI-ENG.pdf"],
       "livePath": "/products-page/product/27-hmjk-ii"
     },
     {
@@ -324,7 +327,7 @@
       "fromLive": "Online oil filter on the live shop.",
       "ratings": ["Oil filter"],
       "siblings": ["hmjk-ii"],
-      "downloads": [],
+      "downloads": ["ZXJY-II-OI-ENG.pdf"],
       "livePath": "/products-page/product/28-zxjy"
     },
     {
@@ -335,7 +338,7 @@
       "fromLive": "Accessories / other.",
       "ratings": [],
       "siblings": [],
-      "downloads": [],
+      "downloads": ["HMIET-I-AVR-.pdf"],
       "livePath": "/products-page/product/24-hmiet"
     },
     {
@@ -346,7 +349,7 @@
       "fromLive": "Accessories / other.",
       "ratings": [],
       "siblings": [],
-      "downloads": [],
+      "downloads": ["Controller--ET-SZ6-HM0.460.555-ENG-2024.pdf"],
       "livePath": "/products-page/product/25-et-sz6"
     },
     {
@@ -357,7 +360,7 @@
       "fromLive": "Accessories / other.",
       "ratings": [],
       "siblings": [],
-      "downloads": [],
+      "downloads": ["Controller--HMC-3--HM.460.305-EN2024.pdf"],
       "livePath": "/products-page/product/26-hmc-3c"
     }
   ]
