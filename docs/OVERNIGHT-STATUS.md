@@ -1,6 +1,6 @@
 # Overnight status
 
-Updated: 2026-08-19 00:43 CST
+Updated: 2026-08-19 00:55 CST
 
 ## Clock
 
@@ -12,6 +12,7 @@ Updated: 2026-08-19 00:43 CST
 
 - Workdir: `~/Github/huaming-en`
 - GitHub: https://github.com/erict16/huaming-en (private)
+- Preview: https://huaming-en.vercel.app (first Vercel deploy landed on production alias; not the official domain)
 - Branch: `feat/overnight-v1`
 - Plan winner: **01 Utility handbook**
 - Live home vote: marketing keep, copy keep, UX iterate-not-scrap (plate pulled above the fold)
