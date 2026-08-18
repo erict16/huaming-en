@@ -9,3 +9,5 @@ out/
 tsconfig.tsbuildinfo
 mirror/brochures/zip-extract/
 **/*.part
+.vercel
+.env*

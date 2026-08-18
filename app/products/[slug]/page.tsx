@@ -8,6 +8,7 @@ import {
   products,
 } from "@/lib/catalog";
 import { formatBytes } from "@/lib/format";
+import { productImageSrc } from "@/lib/product-image";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -37,6 +38,7 @@ export default async function ProductPage({
   const siblings = product.siblings
     .map((s) => productBySlug(s))
     .filter(Boolean);
+  const photo = productImageSrc(product.slug);
 
   return (
     <main className="mx-auto max-w-6xl px-5 py-14">
@@ -45,6 +47,13 @@ export default async function ProductPage({
       </p>
       <h1 className="font-serif mt-2 text-5xl">{product.name}</h1>
       <p className="mt-4 max-w-2xl text-lg">{product.oneLiner}</p>
+      {photo ? (
+        <img
+          src={photo}
+          alt={`${product.name} tap changer`}
+          className="mt-8 max-h-80 w-auto border border-rule bg-white p-3"
+        />
+      ) : null}
 
       <dl className="mt-10 grid gap-4 border-y border-rule py-6 sm:grid-cols-2">
         {product.ratings.map((r) => (
