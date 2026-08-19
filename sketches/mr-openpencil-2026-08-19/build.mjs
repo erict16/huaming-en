@@ -123,11 +123,22 @@ function chrome(parent, { w, fonts, dark }) {
     });
   });
   const seek = frame(head, {
-    name: "search", x: w - 220, y: 18, w: 164, h: 36, fill: dark ? "#2A2A28" : "#F4F4F2",
-    stroke: { color: dark ? C.white : C.ink, opacity: 0.18 },
+    name: "search", x: w - 216, y: 18, w: 176, h: 36,
+    fill: dark ? "#2A2A28" : C.white,
+    stroke: { color: dark ? C.white : C.ink, opacity: 0.4 },
+    radius: 2,
+  });
+  frame(seek, {
+    name: "glass", x: 12, y: 10, w: 14, h: 14,
+    stroke: { color: dark ? C.white : C.muted, opacity: 0.9 },
+    radius: 7,
+  });
+  frame(seek, {
+    name: "handle", x: 23, y: 22, w: 7, h: 2,
+    fill: dark ? C.white : C.muted,
   });
   txt(seek, {
-    text: "Search", x: 12, y: 9, w: 140, h: 18, size: 13,
+    text: "Search types", x: 34, y: 9, w: 130, h: 18, size: 13,
     family: fonts.ui.family, style: fonts.ui.style, color: dark ? C.white : C.muted,
   });
 }
@@ -145,9 +156,28 @@ const cv2Fill = await imageFill(`${ROOT}/assets/products/cv2.png`, "FIT");
 const cm2Fill = await imageFill(`${ROOT}/assets/products/cm2.png`, "FIT");
 const shzvFill = await imageFill(`${ROOT}/assets/products/shzv.png`, "FIT");
 const hwvFill = await imageFill(`${ROOT}/assets/products/hwv.png`, "FIT");
-const wslFill = await imageFill(`${ROOT}/assets/products/wsl.jpg`, "FIT");
-const cma7Fill = await imageFill(`${ROOT}/assets/products/cma7.jpg`, "FIT");
-const cmFill = await imageFill(`${ROOT}/assets/products/cm.jpg`, "FIT");
+const wslFill = await imageFill(`${ROOT}/assets/products/wsl.jpg`, "FILL");
+const cma7Fill = await imageFill(`${ROOT}/assets/products/cma7.jpg`, "FILL");
+const cmFill = await imageFill(`${ROOT}/assets/products/cm.jpg`, "FILL");
+const wslFit = await imageFill(`${ROOT}/assets/products/wsl.jpg`, "FIT");
+const cma7Fit = await imageFill(`${ROOT}/assets/products/cma7.jpg`, "FIT");
+const cmFit = await imageFill(`${ROOT}/assets/products/cm.jpg`, "FIT");
+
+function photoTeaser(parent, { name, x, y, w, h, fill, title, sub }) {
+  const n = frame(parent, { name, x, y, w, h, fill: C.stage });
+  if (fill) n.fills = darkPhoto(fill);
+  const sh = frame(n, { name: "shade", x: 0, y: h - 88, w, h: 88, fill: C.ink });
+  sh.fills = solid(C.ink, 0.72);
+  txt(n, {
+    text: title, x: 20, y: h - 72, w: w - 40, h: 22, size: 18,
+    family: uiSB.family, style: uiSB.style, color: C.white,
+  });
+  txt(n, {
+    text: sub, x: 20, y: h - 46, w: w - 40, h: 32, size: 13,
+    family: ui.family, style: ui.style, color: C.white, lh: 17,
+  });
+  return n;
+}
 
 for (const c of [...figma.currentPage.children]) c.remove();
 figma.currentPage.name = "Huaming EN · MR layout";
@@ -519,19 +549,9 @@ btn(cv2stage, { label: "Technical data PDF", x: 56, y: 436, w: 196, fill: C.whit
   ["SHZV", "Vacuum CMD. Use when CM2 current does not cover.", shzvFill],
   ["HWV", "On-tank vacuum. 400 / 800 / 1000 A. Drive included.", hwvFill],
 ].forEach((row, i) => {
-  const n = frame(prod, {
-    name: row[0], x: 56 + i * 444, y: 656, w: 428, h: 200, fill: C.white,
-    stroke: { color: C.ink, opacity: 0.12 },
-  });
-  const ph = frame(n, { name: "ph", x: 0, y: 0, w: 160, h: 200, fill: C.stage });
-  ph.fills = darkPhoto(row[2]);
-  txt(n, {
-    text: row[0], x: 180, y: 56, w: 220, h: 24, size: 20,
-    family: uiSB.family, style: uiSB.style,
-  });
-  txt(n, {
-    text: row[1], x: 180, y: 88, w: 220, h: 80, size: 13,
-    family: ui.family, style: ui.style, color: C.muted, lh: 18,
+  photoTeaser(prod, {
+    name: row[0], x: 56 + i * 444, y: 656, w: 428, h: 240,
+    fill: row[2], title: row[0], sub: row[1],
   });
 });
 
@@ -543,7 +563,7 @@ const specs = [
   ["Positions", "12 without change-over, 23 with"],
 ];
 specs.forEach((row, i) => {
-  const y = 884 + i * 56;
+  const y = 920 + i * 56;
   const line = figma.createRectangle();
   line.resize(1328, 1);
   line.fills = solid(C.ink, 0.12);
@@ -560,7 +580,7 @@ specs.forEach((row, i) => {
   });
 });
 
-const pfoot = frame(prod, { name: "footer", x: 0, y: 1320, w: 1440, h: 160, fill: C.ink });
+const pfoot = frame(prod, { name: "footer", x: 0, y: 1360, w: 1440, h: 160, fill: C.ink });
 txt(pfoot, {
   text: "intl@huaming.com    Shanghai · Singapore",
   x: 56, y: 64, w: 600, h: 18, size: 13,
@@ -571,7 +591,7 @@ txt(pfoot, {
   x: 900, y: 64, w: 484, h: 18, size: 13,
   family: ui.family, style: ui.style, color: C.white, align: "RIGHT",
 });
-prod.resize(1440, 1480);
+prod.resize(1440, 1520);
 
 const mprod = frame(board, {
   name: "product-cv2-mobile",
@@ -696,7 +716,7 @@ function mStage(parent, { fill, title, dek, cta, h }) {
 
 function mPhotoCard(parent, { name, y, fill, title, sub }) {
   const n = frame(parent, { name, x: 16, y, w: 358, h: 176, fill: C.stage });
-  n.fills = darkPhoto(fill);
+  if (fill) n.fills = darkPhoto(fill);
   const shade = frame(n, { name: "shade", x: 0, y: 104, w: 358, h: 72, fill: C.ink });
   shade.fills = solid(C.ink, 0.72);
   txt(n, {
@@ -716,7 +736,7 @@ function mTeaser(parent, { name, y, fill, kicker, title, sub }) {
     stroke: { color: C.ink, opacity: 0.12 },
   });
   const ph = frame(n, { name: "photo", x: 0, y: 0, w: 358, h: 128, fill: C.stage });
-  ph.fills = darkPhoto(fill);
+  if (fill) ph.fills = darkPhoto(fill);
   let ty = 140;
   if (kicker) {
     txt(n, {
@@ -752,13 +772,13 @@ function mFoot(parent, y) {
 }
 
 // Product type: chrome → STAGE (photo or dark band, type bottom-left, one CTA) → 3 photo teasers → spec list → ink footer
-// studio: white stills sit on a dark band (right), so the stage is not a pale PDP.
+// studio: white catalogue JPEG is a full-height right half, not a padded plate. Do not fake a night still.
 function productType(pageName, artName, { fill, name, dek, siblings, specs, cta, studio }) {
   const art = siteArt(pageName, artName, 1680);
   const st = frame(art, { name: "stage", x: 0, y: 108, w: 1440, h: 520, fill: C.stage });
   if (studio) {
-    const still = frame(st, { name: "still", x: 760, y: 40, w: 620, h: 440, fill: C.stage });
-    still.fills = darkPhoto(fill);
+    const still = frame(st, { name: "still", x: 720, y: 0, w: 720, h: 520, fill: C.white });
+    still.fills = fill;
   } else {
     st.fills = darkPhoto(fill);
   }
@@ -781,24 +801,14 @@ function productType(pageName, artName, { fill, name, dek, siblings, specs, cta,
   });
 
   siblings.forEach((row, i) => {
-    const n = frame(art, {
-      name: row[0], x: 56 + i * 444, y: 656, w: 428, h: 200, fill: C.white,
-      stroke: { color: C.ink, opacity: 0.12 },
-    });
-    const ph = frame(n, { name: "ph", x: 0, y: 0, w: 160, h: 200, fill: C.stage });
-    ph.fills = darkPhoto(row[2]);
-    txt(n, {
-      text: row[0], x: 180, y: 56, w: 220, h: 24, size: 20,
-      family: uiSB.family, style: uiSB.style,
-    });
-    txt(n, {
-      text: row[1], x: 180, y: 88, w: 220, h: 80, size: 13,
-      family: ui.family, style: ui.style, color: C.muted, lh: 18,
+    photoTeaser(art, {
+      name: row[0], x: 56 + i * 444, y: 656, w: 428, h: 240,
+      fill: row[2], title: row[0], sub: row[1],
     });
   });
 
   specs.forEach((row, i) => {
-    const y = 884 + i * 56;
+    const y = 920 + i * 56;
     const line = figma.createRectangle();
     line.resize(1328, 1);
     line.fills = solid(C.ink, 0.12);
@@ -815,22 +825,42 @@ function productType(pageName, artName, { fill, name, dek, siblings, specs, cta,
     });
   });
 
-  siteFoot(art, 1320);
-  art.resize(1440, 1460);
-  productMobile(art, artName + "-mobile", { fill, name, dek, siblings, specs, cta });
+  siteFoot(art, 1360);
+  art.resize(1440, 1500);
+  productMobile(art, artName + "-mobile", { fill, name, dek, siblings, specs, cta, studio });
   return art;
 }
 
 // Product 390: chrome → STAGE photo (type bottom) → stacked sibling cards → 3 spec rows → foot
-function productMobile(deskArt, artName, { fill, name, dek, siblings, specs, cta }) {
+function productMobile(deskArt, artName, { fill, name, dek, siblings, specs, cta, studio }) {
   const m = siteMobile(deskArt, artName, 1680);
-  let y = mStage(m, {
-    fill: darkPhoto(fill),
-    title: name,
-    dek,
-    cta: cta || "Technical data PDF",
-    h: 320,
-  });
+  let y;
+  if (studio) {
+    const st = frame(m, { name: "stage", x: 0, y: 52, w: 390, h: 380, fill: C.stage });
+    const still = frame(st, { name: "still", x: 0, y: 0, w: 390, h: 168, fill: C.white });
+    still.fills = fill;
+    txt(st, {
+      text: name, x: 16, y: 184, w: 358, h: 32, size: 24,
+      family: uiSB.family, style: uiSB.style, color: C.white,
+    });
+    txt(st, {
+      text: dek, x: 16, y: 220, w: 358, h: 40, size: 13,
+      family: ui.family, style: ui.style, color: C.white, lh: 18,
+    });
+    btn(st, {
+      label: cta || "Technical data PDF", x: 16, y: 272, w: 358,
+      fontName: uiM, fill: C.white, color: C.ink,
+    });
+    y = 432;
+  } else {
+    y = mStage(m, {
+      fill: darkPhoto(fill),
+      title: name,
+      dek,
+      cta: cta || "Technical data PDF",
+      h: 320,
+    });
+  }
   siblings.forEach((row, i) => {
     mPhotoCard(m, {
       name: row[0], y: y + 16 + i * 188, fill: row[2], title: row[0], sub: row[1],
@@ -1146,7 +1176,7 @@ const numsA = frame(about, { name: "numbers", x: 0, y: 588, w: 1440, h: 140, fil
   },
   {
     name: "singapore", x: 740,
-    fill: heroFill, kicker: "Singapore  ·  international HQ",
+    fill: null, kicker: "Singapore  ·  international HQ",
     addr: "TSX Tower A #03-13, 1 Tai Seng Ave, Singapore 536464",
     note: "Opened 29 April 2025. intl@huaming.com",
   },
@@ -1156,7 +1186,14 @@ const numsA = frame(about, { name: "numbers", x: 0, y: 588, w: 1440, h: 140, fil
     stroke: { color: C.ink, opacity: 0.12 },
   });
   const ph = frame(n, { name: "photo", x: 0, y: 0, w: 644, h: 180, fill: C.stage });
-  ph.fills = hq.fill;
+  if (hq.fill) ph.fills = hq.fill;
+  else {
+    txt(ph, {
+      text: "International HQ",
+      x: 24, y: 120, w: 580, h: 32, size: 22,
+      family: uiSB.family, style: uiSB.style, color: C.white,
+    });
+  }
   txt(n, {
     text: hq.kicker, x: 24, y: 196, w: 596, h: 18, size: 13,
     family: uiM.family, style: uiM.style, color: C.blue, track: 0.8,
@@ -1202,7 +1239,7 @@ const mNumsA = frame(aboutM, { name: "numbers", x: 0, y: ay, w: 390, h: 220, fil
 ay += 236;
 [
   { title: "Shanghai  ·  factory", sub: "No. 977 Tongpu Road, Putuo. Credit code 913101076076323035.", fill: factoryFill },
-  { title: "Singapore  ·  international HQ", sub: "TSX Tower A #03-13, 1 Tai Seng Ave. Opened 29 April 2025.", fill: heroFill },
+  { title: "Singapore  ·  international HQ", sub: "TSX Tower A #03-13, 1 Tai Seng Ave. Opened 29 April 2025.", fill: null },
 ].forEach((card, i) => {
   mTeaser(aboutM, {
     name: card.title, y: ay + i * 240, fill: card.fill,
@@ -1460,7 +1497,7 @@ btn(nstage, { label: "About", x: 56, y: 400, w: 120, fill: C.white, color: C.ink
 
 const newsCards = [
   { title: "CHVT at Longdong ±800 kV", date: "28 May 2025", body: "Commissioned on an HVDC line in China.", fill: solarFill },
-  { title: "Singapore international HQ", date: "29 April 2025", body: "Tai Seng Exchange. intl@huaming.com.", fill: heroFill },
+  { title: "Singapore international HQ", date: "29 April 2025", body: "Tai Seng Exchange. intl@huaming.com.", fill: null },
   { title: "Listed in Shenzhen", date: "2015", body: "Stock code 002270.SZ.", fill: factoryFill },
 ];
 newsCards.forEach((card, i) => {
@@ -1469,7 +1506,7 @@ newsCards.forEach((card, i) => {
     stroke: { color: C.ink, opacity: 0.12 },
   });
   const photo = frame(n, { name: "photo", x: 0, y: 0, w: 428, h: 168, fill: C.stage });
-  photo.fills = card.fill;
+  if (card.fill) photo.fills = card.fill;
   txt(n, {
     text: card.date, x: 20, y: 184, w: 388, h: 16, size: 12,
     family: uiM.family, style: uiM.style, color: C.blue, track: 0.6,
@@ -1523,7 +1560,7 @@ btn(crstage, { label: "Write to us", x: 56, y: 416, w: 140, fill: C.white, color
 
 const crTeasers = [
   { title: "Shanghai", sub: "Factory", body: "No. 977 Tongpu Road, Putuo District, Shanghai 200333.", fill: factoryFill },
-  { title: "Singapore", sub: "International HQ", body: "TSX Tower A #03-13, 1 Tai Seng Ave. Opened 29 April 2025.", fill: heroFill },
+  { title: "Singapore", sub: "International HQ", body: "TSX Tower A #03-13, 1 Tai Seng Ave. Opened 29 April 2025.", fill: null },
   { title: "Write", sub: "intl@huaming.com", body: "Engineering, test, and sales. We do not print a vacancy list.", fill: subFill },
 ];
 crTeasers.forEach((card, i) => {
@@ -1532,7 +1569,7 @@ crTeasers.forEach((card, i) => {
     stroke: { color: C.ink, opacity: 0.12 },
   });
   const photo = frame(n, { name: "photo", x: 0, y: 0, w: 428, h: 168, fill: C.stage });
-  photo.fills = card.fill;
+  if (card.fill) photo.fills = card.fill;
   txt(n, {
     text: card.sub, x: 20, y: 180, w: 388, h: 16, size: 12,
     family: uiM.family, style: uiM.style, color: C.blue, track: 0.6,
@@ -1690,14 +1727,14 @@ productType("12 Product HWV", "product-hwv", {
 
 // 13 Product WSL — cage OCTC / DETC. Transformer off. Not an OLTC.
 productType("13 Product WSL", "product-wsl", {
-  fill: wslFill,
+  fill: wslFit,
   studio: true,
   name: "WSL",
   dek: "Cage-type OCTC. Transformer off. Not an OLTC.",
   siblings: [
-    ["CM", "Oil in-tank OLTC. Transformer stays live.", cmFill],
-    ["CMA7", "Motor drive. Accessory, not a tap changer.", cma7Fill],
-    ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
+    ["WDG", "Drum OCTC. Transformer off.", null],
+    ["ZWC", "Linear OCTC. Transformer off.", null],
+    ["CM", "Oil OLTC. Transformer stays live.", cmFill],
   ],
   specs: [
     ["Duty", "OCTC / DETC. Transformer off."],
@@ -1710,15 +1747,15 @@ productType("13 Product WSL", "product-wsl", {
 
 // 14 Product CMA7 — motor drive unit. Accessory. Not a tap changer. HWV already has its drive.
 productType("14 Product CMA7", "product-cma7", {
-  fill: cma7Fill,
+  fill: cma7Fit,
   studio: true,
   cta: "Operating instructions",
   name: "CMA7",
   dek: "Motor drive unit. Accessory, not a tap changer.",
   siblings: [
-    ["HWV", "On-tank vacuum OLTC. Motor drive included.", hwvFill],
-    ["CM", "Oil in-tank OLTC. III 500 / 600 A.", cmFill],
-    ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
+    ["HWV", "On-tank vacuum. Motor drive included.", hwvFill],
+    ["SHM-D", "Motor drive. Same family as CMA7.", null],
+    ["SHM-X", "Motor drive. Same family as CMA7.", null],
   ],
   specs: [
     ["Function", "Motor drive unit. Turns the tap changer."],
@@ -1731,7 +1768,7 @@ productType("14 Product CMA7", "product-cma7", {
 
 // 15 Product CM — oil-arc in-tank OLTC. III 500 / 600 A typical. Not vacuum.
 productType("15 Product CM", "product-cm", {
-  fill: cmFill,
+  fill: cmFit,
   studio: true,
   name: "CM",
   dek: "Oil-arc in-tank OLTC. III 500 / 600 A. Not vacuum.",
@@ -1975,23 +2012,13 @@ btn(missSt, { label: "Find a type", x: 56, y: 400, w: 148, fill: C.white, color:
   ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
   ["WSL", "Cage OCTC. Transformer off.", wslFill],
 ].forEach((row, i) => {
-  const n = frame(missing, {
-    name: row[0], x: 56 + i * 444, y: 620, w: 428, h: 200, fill: C.white,
-    stroke: { color: C.ink, opacity: 0.12 },
-  });
-  const ph = frame(n, { name: "ph", x: 0, y: 0, w: 160, h: 200, fill: C.stage });
-  ph.fills = darkPhoto(row[2]);
-  txt(n, {
-    text: row[0], x: 180, y: 56, w: 220, h: 24, size: 20,
-    family: uiSB.family, style: uiSB.style,
-  });
-  txt(n, {
-    text: row[1], x: 180, y: 88, w: 220, h: 80, size: 13,
-    family: ui.family, style: ui.style, color: C.muted, lh: 18,
+  photoTeaser(missing, {
+    name: row[0], x: 56 + i * 444, y: 620, w: 428, h: 240,
+    fill: row[2], title: row[0], sub: row[1],
   });
 });
-siteFoot(missing, 860);
-missing.resize(1440, 1000);
+siteFoot(missing, 900);
+missing.resize(1440, 1040);
 
 return {
   pages: figma.root.children.map((c) => c.name),
