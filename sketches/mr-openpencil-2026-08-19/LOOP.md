@@ -49,6 +49,7 @@ Refuse: MR red, MR mark, MR sentences, cream paper, serif kickers.
 | 8 | White-JPEG teaser tiles + more-types 390 preview | done 2026-08-20 03:03. Knockout tiles for CM/CMA7/WSL teasers. PDP studio split unchanged. |
 | 9 | Copy nits + stale previews | done 2026-08-20 03:16. WSL Name = WSL / WDL. CV2 spec hyphen. Re-exported About Contact Projects Learn CV2 CM2 SHZV. |
 | 10 | Polaroid teasers → photo tiles | done 2026-08-20 03:30. Home impulses/TYPES, About HQ, Projects, News, Careers, Learn = photoTeaser. 404 390. CV2 390 siblings. Cycle-6 no must-fix. Applied: About CTA, Careers Write dark band, Learn dek shorter, CV2 siteFoot. |
+| 11 | Copy: no fake vacancies | done 2026-08-20 03:35. Home careers CTA “Write to us”, not Open roles. Impulse title On-load or off (OLTC vs OCTC). |
 
 ## Do not
 

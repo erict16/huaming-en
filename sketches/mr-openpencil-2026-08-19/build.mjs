@@ -257,7 +257,7 @@ txt(desk, {
 const impulses = [
   { title: "Longdong ±800 kV", body: "CHVT on the Longdong ±800 kV HVDC line, commissioned 28 May 2025.", fill: solarFill },
   { title: "4–6 weeks", body: "Standard lead time for catalogue types is about 4–6 weeks.", fill: factoryFill },
-  { title: "Vacuum or oil", body: "OLTC changes taps while the transformer is live. OCTC only with it off. Pick the family first.", fill: subFill },
+  { title: "On-load or off", body: "OLTC changes taps while the transformer is live. OCTC only with it off. Pick the family first.", fill: subFill },
 ];
 impulses.forEach((card, i) => {
   photoTeaser(desk, {
@@ -380,7 +380,7 @@ txt(career, {
   family: ui.family, style: ui.style, color: C.muted,
 });
 txt(career, {
-  text: "Open roles →",
+  text: "Write to us →",
   x: 772, y: 208, w: 200, h: 20, size: 14,
   family: uiM.family, style: uiM.style, color: C.blue,
 });
@@ -1382,7 +1382,7 @@ btn(prstage, { label: "Find a type", x: 56, y: 396, w: 148, fill: C.white, color
 const prImpulses = [
   { title: "Longdong ±800 kV", body: "CHVT on the Longdong ±800 kV HVDC line, commissioned 28 May 2025.", fill: solarFill },
   { title: "4–6 weeks", body: "Standard lead time for catalogue types is about 4–6 weeks.", fill: factoryFill },
-  { title: "Vacuum or oil", body: "OLTC changes taps while the transformer is live. OCTC only with it off. Pick the family first.", fill: subFill },
+  { title: "On-load or off", body: "OLTC changes taps while the transformer is live. OCTC only with it off. Pick the family first.", fill: subFill },
 ];
 prImpulses.forEach((card, i) => {
   photoTeaser(projects, {

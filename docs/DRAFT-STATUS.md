@@ -1,6 +1,6 @@
 # Huaming EN OpenPencil draft — status
 
-Updated: 2026-08-20 03:32 +08  
+Updated: 2026-08-20 03:35 +08  
 Hard stop: **2026-08-20 07:00 +08**
 
 Queue **done** (slices 0–10). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
@@ -38,6 +38,10 @@ WSL Name row is `WSL / WDL` (json). CV2 Switching hyphenated `selector-switch`. 
 ## Slice 10 (03:32)
 
 Polaroid leftover (white card + photo on top) gone on Home / About / Projects / News / Careers / Learn. Same full-bleed + shade as product siblings. Not-found 390 added. Home stage still has a ghost second CTA (MR-like; lock said one primary).
+
+## Slice 11 (03:35)
+
+Home careers CTA is “Write to us →” (Careers page has no vacancy list). Impulse title “On-load or off”, body still OLTC vs OCTC.
 
 ## Still open (not blocking the draft)
 
