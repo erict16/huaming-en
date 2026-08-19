@@ -1,9 +1,9 @@
 # Huaming EN OpenPencil draft — status
 
-Updated: 2026-08-20 05:46 +08  
+Updated: 2026-08-20 05:52 +08  
 Hard stop: **2026-08-20 07:00 +08**
 
-Queue **done** (slices 0–19). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
+Queue **done** (slices 0–20). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
 
 ## Where
 
@@ -81,6 +81,10 @@ About desk is stage → HQ photo teasers → ink numbers. Contact desk teasers a
 ## Slice 19 (05:46)
 
 Downloads desk kind tiles are photoTeaser 428×240 (same as Contact). File list stays after. Cycle-13 no must-fix.
+
+## Slice 20 (05:52)
+
+News Singapore body is TSX Tower A #03-13. Contact Singapore line includes opened 29 April 2025. More 390 list adds SHGV and HMDK (json one-liners).
 
 ## Still open (not blocking the draft)
 

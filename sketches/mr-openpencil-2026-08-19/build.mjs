@@ -1194,7 +1194,8 @@ let ay = mStage(aboutM, {
   });
 });
 ay += 16 + 2 * 240;
-const mNumsA = frame(aboutM, { name: "numbers", x: 0, y: ay, w: 390, h: 220, fill: C.ink });
+const mNumsA = frame(aboutM, { name: "numbers", x: 0, y: ay, w: 390, h: 220, fill: C.stage });
+mNumsA.fills = solid(C.stage);
 [
   ["1989", "Founded, Shanghai"],
   ["002270.SZ", "Listed 2015"],
@@ -1269,7 +1270,7 @@ const form = frame(contact, {
 btn(form, { label: "Send", x: 20, y: 296, w: 120, fontName: uiM });
 const offices = [
   ["Shanghai", "977 Tongpu Road, Putuo, 200333"],
-  ["Singapore", "TSX Tower A #03-13, 1 Tai Seng Ave"],
+  ["Singapore", "TSX Tower A #03-13, 1 Tai Seng Ave. Opened 29 April 2025."],
   ["Turkey", "OSB 9. Cad. No.13/2, Balıkesir"],
   ["Indonesia", "Delta Silicon 5, Bekasi 17530"],
   ["Brazil", "Vila Antonina, São Paulo"],
@@ -1443,7 +1444,7 @@ btn(nstage, { label: "About", x: 56, y: 400, w: 120, fill: C.white, color: C.ink
 
 const newsCards = [
   { title: "CHVT at Longdong ±800 kV", date: "28 May 2025", body: "Commissioned on an HVDC line in China.", fill: solarFill },
-  { title: "Singapore international HQ", date: "29 April 2025", body: "Tai Seng Exchange. intl@huaming.com.", fill: null },
+  { title: "Singapore international HQ", date: "29 April 2025", body: "TSX Tower A #03-13. intl@huaming.com.", fill: null },
   { title: "Listed in Shenzhen", date: "2015", body: "Stock code 002270.SZ.", fill: factoryFill },
 ];
 newsCards.forEach((card, i) => {
@@ -1875,6 +1876,8 @@ const moreNames = [
   ["WDG", "Drum-type de-energized tap changer."],
   ["ZWC", "Linear de-energized tap changer."],
   ["SHM-D", "Motor drive unit for in-tank OLTCs."],
+  ["SHGV", "Combined vacuum OLTC for SF6 / gas-insulated regulating transformers."],
+  ["HMDK", "Reactance-transition tap changer for a distribution step-voltage regulator."],
 ];
 moreNames.forEach((row, i) => {
   const y = moreY + i * 48;
