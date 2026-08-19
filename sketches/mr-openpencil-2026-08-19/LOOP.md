@@ -54,6 +54,7 @@ Refuse: MR red, MR mark, MR sentences, cream paper, serif kickers.
 | 13 | Home 390 dek + Learn 02 | done 2026-08-20 03:47. Home 390 dek. Learn 02 names CM / WSL / CMA7. Cycle-7 no must-fix. Applied: Downloads stage CTA; Products SHZV/WSL lines; More dry tile = factory; Careers 390 drops “inside the transformer”. |
 | 14 | 390 pass + WSL Leaflet | done 2026-08-20 03:58. WSL CTA Leaflet. Cycle-8 copy must-fix: H1 WSL / WDL. More 390 adds ZWC / SHM-D. |
 | 15 | Contact stage CTA | done 2026-08-20 04:30. Desk + 390 “Write to us”. Cycle-9 no must-fix. |
+| 16 | Leftover 390s + News dek | done 2026-08-20 04:38. About 390 legal name + type-test lab. News dek Longdong / Singapore HQ / Listed 2015. Cycle-10 copy must-fix applied. |
 
 ## Do not
 

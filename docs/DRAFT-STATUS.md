@@ -1,9 +1,9 @@
 # Huaming EN OpenPencil draft — status
 
-Updated: 2026-08-20 04:30 +08  
+Updated: 2026-08-20 04:38 +08  
 Hard stop: **2026-08-20 07:00 +08**
 
-Queue **done** (slices 0–15). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
+Queue **done** (slices 0–16). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
 
 ## Where
 
@@ -29,6 +29,7 @@ Home (+390), Products, Downloads, About, Contact, Projects, News, Careers, Learn
 - Cycle 7: Home 390 dek; Learn 02 names CM / WSL / CMA7. No must-fix.
 - Cycle 8: remaining 390s. UX/industrial no must-fix. Copy: WSL 390 now H1 `WSL / WDL`. CTA Leaflet.
 - Cycle 9: Contact stage CTA Write to us (desk + 390). No must-fix.
+- Cycle 10: leftover 390s (Projects, News, SHZV, HWV, CM). UX/industrial no must-fix. Copy: News dek is Longdong / Singapore HQ / Listed 2015. About 390 legal name.
 
 ## Slice 8 (03:03)
 
@@ -61,6 +62,10 @@ Exported remaining 390s. WSL CTA is Leaflet (`WSL-Leaflet.pdf`). Cycle-8 copy mu
 ## Slice 15 (04:30)
 
 Contact stage has one CTA: Write to us (desk + 390). Form Send stays below the teasers. Cycle-9 no must-fix.
+
+## Slice 16 (04:38)
+
+Leftover 390s exported (Projects, News, SHZV, HWV, CM). About 390 dek is the legal name. ISO line includes Type-test laboratory. News dek: Longdong ±800 kV. Singapore HQ. Listed 2015.
 
 ## Still open (not blocking the draft)
 

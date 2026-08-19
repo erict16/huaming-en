@@ -1190,7 +1190,7 @@ const aboutM = siteMobile(about, "about-mobile", 1280);
 let ay = mStage(aboutM, {
   fill: factoryFill,
   title: "Tap changers, made in Shanghai.",
-  dek: "On-load and de-energized types for power transformers.",
+  dek: "Shanghai Huaming Power Equipment Co., Ltd. On-load and de-energized.",
   cta: "Write to us",
 });
 const mNumsA = frame(aboutM, { name: "numbers", x: 0, y: ay, w: 390, h: 220, fill: C.ink });
@@ -1221,11 +1221,11 @@ ay += 236;
 });
 ay += 492;
 txt(aboutM, {
-  text: "Turkey, Indonesia, Brazil, USA. ISO 9001 / 14001 / 18001.",
-  x: 16, y: ay, w: 358, h: 36, size: 13,
+  text: "Turkey, Indonesia, Brazil, USA. ISO 9001 / 14001 / 18001. Type-test laboratory.",
+  x: 16, y: ay, w: 358, h: 54, size: 13,
   family: ui.family, style: ui.style, color: C.muted, lh: 18,
 });
-ay += 52;
+ay += 68;
 mFoot(aboutM, ay);
 aboutM.resize(390, ay + 88);
 
@@ -1454,7 +1454,7 @@ txt(nstage, {
   family: uiSB.family, style: uiSB.style, color: C.white,
 });
 txt(nstage, {
-  text: "Three dates we can print. Longdong, Singapore, Shenzhen.",
+  text: "Longdong ±800 kV. Singapore HQ. Listed 2015.",
   x: 56, y: 348, w: 800, h: 24, size: 16,
   family: ui.family, style: ui.style, color: C.white, opacity: 0.85,
 });
@@ -1478,7 +1478,7 @@ const newsM = siteMobile(newsPg, "news-mobile", 1280);
 let ny = mStage(newsM, {
   fill: solarFill,
   title: "News",
-  dek: "Three dates we can print. Longdong, Singapore, Shenzhen.",
+  dek: "Longdong ±800 kV. Singapore HQ. Listed 2015.",
   cta: "About",
 });
 newsCards.forEach((card, i) => {
