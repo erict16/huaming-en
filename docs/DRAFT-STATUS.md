@@ -48,9 +48,9 @@ Home careers CTA is “Write to us →” (Careers page has no vacancy list). Im
 
 Home stage is one CTA: Find a type. Downloads stays in the utility bar.
 
-## Slice 13 (03:46)
+## Slice 13 (03:47)
 
-Home 390 stage has a dek under the title. Learn 02 names CM / WSL / CMA7 after the vacuum starters. Cycle-7 no must-fix. Applied: Downloads stage CTA; Products SHZV = vacuum CMD, WSL / WDL; More dry tile uses factory not Longdong.
+Home 390 stage has a dek under the title. Learn 02 names CM / WSL / CMA7 after the vacuum starters. Cycle-7 no must-fix. Applied: Downloads stage CTA; Products SHZV = vacuum CMD, WSL / WDL; More dry tile uses factory not Longdong; Careers 390 title matches desk (“Work on the switch.”).
 
 ## Still open (not blocking the draft)
 
