@@ -1016,23 +1016,13 @@ btn(dstage, { label: "Find a type", x: 56, y: 316, w: 148, fill: C.white, color:
   ["Leaflets", "Short type sheets.", hwvFill],
   ["Instructions", "Install and operate.", cma7Tile],
 ].forEach((row, i) => {
-  const n = frame(dl, {
-    name: row[0], x: 56 + i * 444, y: 516, w: 428, h: 200, fill: C.stage,
-  });
-  n.fills = darkPhoto(row[2]);
-  const sh = frame(n, { name: "shade", x: 0, y: 120, w: 428, h: 80, fill: C.ink });
-  sh.fills = solid(C.ink, 0.72);
-  txt(n, {
-    text: row[0], x: 16, y: 132, w: 396, h: 22, size: 16,
-    family: uiSB.family, style: uiSB.style, color: C.white,
-  });
-  txt(n, {
-    text: row[1], x: 16, y: 158, w: 396, h: 18, size: 12,
-    family: ui.family, style: ui.style, color: C.white,
+  photoTeaser(dl, {
+    name: row[0], x: 56 + i * 444, y: 516, w: 428, h: 240,
+    fill: row[2], title: row[0], sub: row[1],
   });
 });
 const search = frame(dl, {
-  name: "search", x: 56, y: 740, w: 1328, h: 52, fill: C.white,
+  name: "search", x: 56, y: 780, w: 1328, h: 52, fill: C.white,
   stroke: { color: C.ink, opacity: 0.16 },
 });
 txt(search, {
@@ -1042,7 +1032,7 @@ txt(search, {
 });
 ["Type", "Kind", "File"].forEach((h, i) => {
   txt(dl, {
-    text: h, x: 56 + [0, 220, 520][i], y: 812, w: 200, h: 16, size: 11,
+    text: h, x: 56 + [0, 220, 520][i], y: 852, w: 200, h: 16, size: 11,
     family: uiM.family, style: uiM.style, color: C.muted, track: 1.2,
   });
 });
@@ -1061,7 +1051,7 @@ const files = [
   ["Retrofit", "Leaflet", "Retrofit-Leaflet-En.pdf"],
 ];
 files.forEach((row, i) => {
-  const y = 844 + i * 56;
+  const y = 884 + i * 56;
   const band = frame(dl, {
     name: row[2], x: 56, y, w: 1328, h: 64, fill: i % 2 ? "#F6F6F4" : C.white,
   });
@@ -1078,8 +1068,8 @@ files.forEach((row, i) => {
     family: ui.family, style: ui.style, color: C.blue,
   });
 });
-siteFoot(dl, 1540);
-dl.resize(1440, 1680);
+siteFoot(dl, 1580);
+dl.resize(1440, 1720);
 
 const dlM = siteMobile(dl, "downloads-mobile", 1680);
 let dy = mStage(dlM, {

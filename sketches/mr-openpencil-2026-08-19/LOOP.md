@@ -57,6 +57,7 @@ Refuse: MR red, MR mark, MR sentences, cream paper, serif kickers.
 | 16 | Leftover 390s + News dek | done 2026-08-20 04:38. About 390 legal name + type-test lab. News dek Longdong / Singapore HQ / Listed 2015. Cycle-10 copy must-fix applied. |
 | 17 | About 390 teasers first | done 2026-08-20 05:00. HQ photo teasers before the numbers band. Cycle-11 no must-fix. |
 | 18 | About desk + Contact teasers | done 2026-08-20 05:08. About desk HQ teasers then ink numbers. Contact desk photoTeaser 428×240. Cycle-12 no must-fix. |
+| 19 | Downloads photoTeaser | done 2026-08-20 05:46. Desk kind tiles 428×240. Cycle-13 no must-fix. |
 
 ## Do not
 

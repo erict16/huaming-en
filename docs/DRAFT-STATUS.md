@@ -1,9 +1,9 @@
 # Huaming EN OpenPencil draft — status
 
-Updated: 2026-08-20 05:08 +08  
+Updated: 2026-08-20 05:46 +08  
 Hard stop: **2026-08-20 07:00 +08**
 
-Queue **done** (slices 0–18). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
+Queue **done** (slices 0–19). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
 
 ## Where
 
@@ -32,6 +32,7 @@ Home (+390), Products, Downloads, About, Contact, Projects, News, Careers, Learn
 - Cycle 10: leftover 390s (Projects, News, SHZV, HWV, CM). UX/industrial no must-fix. Copy: News dek is Longdong / Singapore HQ / Listed 2015. About 390 legal name.
 - Cycle 11: About 390 HQ teasers before numbers. No must-fix.
 - Cycle 12: About desk matches 390 (teasers then numbers). Contact desk teasers are photoTeaser. No must-fix.
+- Cycle 13: Downloads desk kind tiles are photoTeaser 428×240. No must-fix.
 
 ## Slice 8 (03:03)
 
@@ -76,6 +77,10 @@ About 390 is stage → HQ photo teasers → dark numbers. Cycle-11 no must-fix.
 ## Slice 18 (05:08)
 
 About desk is stage → HQ photo teasers → ink numbers. Contact desk teasers are photoTeaser 428×240. Cycle-12 no must-fix.
+
+## Slice 19 (05:46)
+
+Downloads desk kind tiles are photoTeaser 428×240 (same as Contact). File list stays after. Cycle-13 no must-fix.
 
 ## Still open (not blocking the draft)
 
