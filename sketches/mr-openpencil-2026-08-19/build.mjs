@@ -756,9 +756,14 @@ function mFoot(parent, y) {
 function productType(pageName, artName, { fill, name, dek, siblings, specs, cta, studio }) {
   const art = siteArt(pageName, artName, 1680);
   const st = frame(art, { name: "stage", x: 0, y: 108, w: 1440, h: 520, fill: C.stage });
-  st.fills = darkPhoto(fill);
-  const veil = frame(st, { name: "veil", x: 0, y: 280, w: 1440, h: 240, fill: C.ink });
-  veil.fills = solid(C.ink, 0.62);
+  if (studio) {
+    const still = frame(st, { name: "still", x: 760, y: 40, w: 620, h: 440, fill: C.stage });
+    still.fills = darkPhoto(fill);
+  } else {
+    st.fills = darkPhoto(fill);
+  }
+  const veil = frame(st, { name: "veil", x: 0, y: 280, w: studio ? 720 : 1440, h: 240, fill: C.ink });
+  veil.fills = solid(C.ink, studio ? 0.45 : 0.62);
   txt(st, {
     text: name,
     x: 56, y: 310, w: 680, h: 56, size: 48,
