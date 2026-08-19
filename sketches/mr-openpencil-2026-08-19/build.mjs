@@ -1245,6 +1245,7 @@ txt(cstage, {
   x: 56, y: 274, w: 800, h: 24, size: 16,
   family: ui.family, style: ui.style, color: C.white, opacity: 0.85,
 });
+btn(cstage, { label: "Write to us", x: 56, y: 316, w: 140, fill: C.white, color: C.ink, fontName: uiM });
 [
   ["Find a type", "Open the range. Start with CV2.", cv2Fill],
   ["Take a PDF", "Technical data the factory uses.", hwvFill],
@@ -1312,6 +1313,7 @@ let cy = mStage(contactM, {
   fill: factoryFill,
   title: "Write to intl@huaming.com.",
   dek: "Singapore answers first. Name the type if you have one.",
+  cta: "Write to us",
 });
 [
   ["Find a type", "Open the range. Start with CV2.", cv2Fill],
