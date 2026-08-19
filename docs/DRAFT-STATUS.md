@@ -1,9 +1,9 @@
 # Huaming EN OpenPencil draft — status
 
-Updated: 2026-08-20 04:38 +08  
+Updated: 2026-08-20 05:00 +08  
 Hard stop: **2026-08-20 07:00 +08**
 
-Queue **done** (slices 0–16). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
+Queue **done** (slices 0–17). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
 
 ## Where
 
@@ -30,6 +30,7 @@ Home (+390), Products, Downloads, About, Contact, Projects, News, Careers, Learn
 - Cycle 8: remaining 390s. UX/industrial no must-fix. Copy: WSL 390 now H1 `WSL / WDL`. CTA Leaflet.
 - Cycle 9: Contact stage CTA Write to us (desk + 390). No must-fix.
 - Cycle 10: leftover 390s (Projects, News, SHZV, HWV, CM). UX/industrial no must-fix. Copy: News dek is Longdong / Singapore HQ / Listed 2015. About 390 legal name.
+- Cycle 11: About 390 HQ teasers before numbers. No must-fix.
 
 ## Slice 8 (03:03)
 
@@ -67,9 +68,15 @@ Contact stage has one CTA: Write to us (desk + 390). Form Send stays below the t
 
 Leftover 390s exported (Projects, News, SHZV, HWV, CM). About 390 dek is the legal name. ISO line includes Type-test laboratory. News dek: Longdong ±800 kV. Singapore HQ. Listed 2015.
 
+## Slice 17 (05:00)
+
+About 390 is stage → HQ photo teasers → dark numbers. Cycle-11 no must-fix.
+
 ## Still open (not blocking the draft)
 
 - CMA7 cabinet is grey paint, so its teaser stays paler than vacuum PNGs. That is the product, not leftover studio.
 - WSL WDG/ZWC and CMA7 SHM-D/SHM-X teasers are empty dark bands (no still on disk).
+- Contact desk teasers are still a short custom row, not `photoTeaser`.
+- About desk still puts numbers between stage and HQ teasers.
 
 Eric: open the `.fig` in OpenPencil. Spec for Next.js only after he says so.

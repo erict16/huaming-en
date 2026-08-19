@@ -1193,6 +1193,16 @@ let ay = mStage(aboutM, {
   dek: "Shanghai Huaming Power Equipment Co., Ltd. On-load and de-energized.",
   cta: "Write to us",
 });
+[
+  { title: "Shanghai  ·  factory", sub: "No. 977 Tongpu Road, Putuo. Credit code 913101076076323035.", fill: factoryFill },
+  { title: "Singapore  ·  international HQ", sub: "TSX Tower A #03-13, 1 Tai Seng Ave. Opened 29 April 2025.", fill: null },
+].forEach((card, i) => {
+  mTeaser(aboutM, {
+    name: card.title, y: ay + 16 + i * 240, fill: card.fill,
+    title: card.title, sub: card.sub,
+  });
+});
+ay += 16 + 2 * 240;
 const mNumsA = frame(aboutM, { name: "numbers", x: 0, y: ay, w: 390, h: 220, fill: C.ink });
 [
   ["1989", "Founded, Shanghai"],
@@ -1210,16 +1220,6 @@ const mNumsA = frame(aboutM, { name: "numbers", x: 0, y: ay, w: 390, h: 220, fil
   });
 });
 ay += 236;
-[
-  { title: "Shanghai  ·  factory", sub: "No. 977 Tongpu Road, Putuo. Credit code 913101076076323035.", fill: factoryFill },
-  { title: "Singapore  ·  international HQ", sub: "TSX Tower A #03-13, 1 Tai Seng Ave. Opened 29 April 2025.", fill: null },
-].forEach((card, i) => {
-  mTeaser(aboutM, {
-    name: card.title, y: ay + i * 240, fill: card.fill,
-    title: card.title, sub: card.sub,
-  });
-});
-ay += 492;
 txt(aboutM, {
   text: "Turkey, Indonesia, Brazil, USA. ISO 9001 / 14001 / 18001. Type-test laboratory.",
   x: 16, y: ay, w: 358, h: 54, size: 13,
