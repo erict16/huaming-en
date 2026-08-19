@@ -1,9 +1,9 @@
 # Huaming EN OpenPencil draft — status
 
-Updated: 2026-08-20 03:48 +08  
+Updated: 2026-08-20 03:58 +08  
 Hard stop: **2026-08-20 07:00 +08**
 
-Queue **done** (slices 0–13). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
+Queue **done** (slices 0–14). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
 
 ## Where
 
@@ -27,6 +27,7 @@ Home (+390), Products, Downloads, About, Contact, Projects, News, Careers, Learn
 - Cycle 5: search field; studio split (full-height right JPEG); sibling **photo tiles**; Singapore HQ **dark band** (no fake office); WSL teasers WDG / ZWC / CM; CMA7 teasers HWV / SHM-D / SHM-X. No must-fix.
 - Cycle 6: leftover polaroid rows → photoTeaser (Home impulses/TYPES, About HQ, Projects, News, Careers, Learn). 404 390. CV2 390 siblings. No must-fix. Applied About CTA, Careers Write dark band, Learn dek, CV2 siteFoot.
 - Cycle 7: Home 390 dek; Learn 02 names CM / WSL / CMA7. No must-fix.
+- Cycle 8: remaining 390s. UX/industrial no must-fix. Copy: WSL 390 now H1 `WSL / WDL`. CTA Leaflet.
 
 ## Slice 8 (03:03)
 
@@ -51,6 +52,10 @@ Home stage is one CTA: Find a type. Downloads stays in the utility bar.
 ## Slice 13 (03:47)
 
 Home 390 stage has a dek under the title. Learn 02 names CM / WSL / CMA7 after the vacuum starters. Cycle-7 no must-fix. Applied: Downloads stage CTA; Products SHZV = vacuum CMD, WSL / WDL; More dry tile uses factory not Longdong; Careers 390 title matches desk (“Work on the switch.”).
+
+## Slice 14 (03:58)
+
+Exported remaining 390s. WSL CTA is Leaflet (`WSL-Leaflet.pdf`). Cycle-8 copy must-fix: type page H1 is `WSL / WDL`. More 390 list adds ZWC and SHM-D.
 
 ## Still open (not blocking the draft)
 

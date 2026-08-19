@@ -1650,7 +1650,8 @@ productType("12 Product HWV", "product-hwv", {
 productType("13 Product WSL", "product-wsl", {
   fill: wslFit,
   studio: true,
-  name: "WSL",
+  cta: "Leaflet",
+  name: "WSL / WDL",
   dek: "Cage-type OCTC. Transformer off. Not an OLTC.",
   siblings: [
     ["WDG", "Drum OCTC. Transformer off.", null],
@@ -1658,10 +1659,10 @@ productType("13 Product WSL", "product-wsl", {
     ["CM", "Oil OLTC. Transformer stays live.", cmTile],
   ],
   specs: [
+    ["Name", "WSL / WDL"],
     ["Duty", "OCTC / DETC. Transformer off."],
     ["Type", "Cage. De-energized only."],
     ["Operation", "Only with the transformer isolated. Not an OLTC."],
-    ["Name", "WSL / WDL"],
     ["Also", "Drum WDG · linear ZWC"],
   ],
 });
@@ -1889,6 +1890,8 @@ const moreNames = [
   ["CHVT", "HV vacuum for HVDC / converter transformers."],
   ["CVT", "Vacuum OLTC for dry-type transformers."],
   ["WDG", "Drum-type de-energized tap changer."],
+  ["ZWC", "Linear de-energized tap changer."],
+  ["SHM-D", "Motor drive unit for in-tank OLTCs."],
 ];
 moreNames.forEach((row, i) => {
   const y = moreY + i * 48;

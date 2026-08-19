@@ -52,6 +52,7 @@ Refuse: MR red, MR mark, MR sentences, cream paper, serif kickers.
 | 11 | Copy: no fake vacancies | done 2026-08-20 03:35. Home careers CTA “Write to us”, not Open roles. Impulse title On-load or off (OLTC vs OCTC). |
 | 12 | Home stage one CTA | done 2026-08-20 03:38. Dropped ghost “Download brochures”. Downloads stays in utility + later band. |
 | 13 | Home 390 dek + Learn 02 | done 2026-08-20 03:47. Home 390 dek. Learn 02 names CM / WSL / CMA7. Cycle-7 no must-fix. Applied: Downloads stage CTA; Products SHZV/WSL lines; More dry tile = factory; Careers 390 drops “inside the transformer”. |
+| 14 | 390 pass + WSL Leaflet | done 2026-08-20 03:58. WSL CTA Leaflet. Cycle-8 copy must-fix: H1 WSL / WDL. More 390 adds ZWC / SHM-D. |
 
 ## Do not
 
