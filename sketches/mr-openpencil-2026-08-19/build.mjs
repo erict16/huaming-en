@@ -314,7 +314,7 @@ txt(desk, {
 });
 
 const latest = [
-  { name: "CV2", line: "Vacuum selector. III 350 A and 600 A only.", fill: cv2Fill },
+  { name: "CV2", line: "Vacuum selector-switch. III 350 A and 600 A only.", fill: cv2Fill },
   { name: "CM2", line: "Vacuum CM. III/II 500 / 600 A only.", fill: cm2Fill },
   { name: "SHZV", line: "Vacuum CMD. 400 / 600 / 1000 A.", fill: shzvFill },
   { name: "HWV", line: "On-tank vacuum. 400 / 800 / 1000 A. Drive included.", fill: hwvFill },
@@ -489,7 +489,7 @@ txt(mstage, {
 });
 btn(mstage, { label: "Find a type", x: 16, y: 328, w: 358, fontName: uiM, fill: C.white, color: C.ink });
 [
-  { title: "CV2", sub: "Vacuum selector. III 350 / 600 A.", fill: cv2Fill },
+  { title: "CV2", sub: "Vacuum selector-switch. III 350 / 600 A.", fill: cv2Fill },
   { title: "CM2", sub: "Vacuum CM. III/II 500 / 600 A.", fill: cm2Fill },
   { title: "SHZV", sub: "Vacuum CMD. 400 / 600 / 1000 A.", fill: shzvFill },
   { title: "HWV", sub: "On-tank vacuum. 400 / 800 / 1000 A.", fill: hwvFill },
@@ -935,7 +935,7 @@ txt(products, {
   family: uiSB.family, style: uiSB.style,
 });
 const typeRows = [
-  ["CV2", "Vacuum selector. III 350 / 600 A only."],
+  ["CV2", "Vacuum selector-switch. III 350 / 600 A only."],
   ["CM2", "Vacuum diverter + selector. III/II 500 / 600 A."],
   ["SHZV", "Vacuum. 400 / 600 / 1000 A."],
   ["HWV", "On-tank vacuum. 400 / 800 / 1000 A. Drive included."],
@@ -1674,7 +1674,7 @@ productType("10 Product CM2", "product-cm2", {
   name: "CM2",
   dek: "Vacuum CM. Diverter + selector. III/II 500 A and 600 A only.",
   siblings: [
-    ["CV2", "Vacuum selector. III 350 A and 600 A only.", cv2Fill],
+    ["CV2", "Vacuum selector-switch. III 350 A and 600 A only.", cv2Fill],
     ["SHZV", "Vacuum CMD. Use when CM2 current does not cover.", shzvFill],
     ["HWV", "On-tank vacuum. 400 / 800 / 1000 A. Drive included.", hwvFill],
   ],
@@ -1712,7 +1712,7 @@ productType("12 Product HWV", "product-hwv", {
   name: "HWV",
   dek: "On-tank vacuum OLTC. 400 / 800 / 1000 A. Motor drive included.",
   siblings: [
-    ["CV2", "Vacuum selector. III 350 A and 600 A only.", cv2Fill],
+    ["CV2", "Vacuum selector-switch. III 350 A and 600 A only.", cv2Fill],
     ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
     ["CMA7", "Motor drive. Accessory, not a tap changer.", cma7Fill],
   ],
@@ -1774,7 +1774,7 @@ productType("15 Product CM", "product-cm", {
   dek: "Oil-arc in-tank OLTC. III 500 / 600 A. Not vacuum.",
   siblings: [
     ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
-    ["CV2", "Vacuum selector. III 350 A and 600 A only.", cv2Fill],
+    ["CV2", "Vacuum selector-switch. III 350 A and 600 A only.", cv2Fill],
     ["CMA7", "Motor drive. Accessory, not a tap changer.", cma7Fill],
   ],
   specs: [
@@ -2008,7 +2008,7 @@ txt(missSt, {
 });
 btn(missSt, { label: "Find a type", x: 56, y: 400, w: 148, fill: C.white, color: C.ink, fontName: uiM });
 [
-  ["CV2", "Vacuum selector. III 350 A and 600 A only.", cv2Fill],
+  ["CV2", "Vacuum selector-switch. III 350 A and 600 A only.", cv2Fill],
   ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
   ["WSL", "Cage OCTC. Transformer off.", wslFill],
 ].forEach((row, i) => {
