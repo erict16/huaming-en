@@ -43,7 +43,7 @@ Refuse: MR red, MR mark, MR sentences, cream paper, serif kickers.
 | 2 | Projects, News, Careers, Learn | done 2026-08-20 00:29; copy strings still need pass |
 | 3 | Product pages CM2, SHZV, HWV | done 2026-08-20 00:46; cycle-2 review no must-fix |
 | 4 | Product pages WSL, CMA7, CM | done 2026-08-20 |
-| 5 | Remaining types as compact rows + mobile for slice 1–2 | remaining types done 2026-08-20 (`16 More types`); mobile still pending |
+| 5 | Remaining types as compact rows + mobile for slice 1–2 | done 2026-08-20 (`16 More types` + 390 mobile: Products, Downloads, About, Contact, Projects, Learn) |
 | 6 | Polish from reviews, nav consistency, empty/error | pending |
 
 ## Do not

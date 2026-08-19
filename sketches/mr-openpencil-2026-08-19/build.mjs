@@ -656,6 +656,104 @@ function siteFoot(parent, y) {
   return f;
 }
 
+function siteMobile(deskArt, artName, h) {
+  const m = frame(deskArt.parent, {
+    name: artName, x: 1528, y: 40, w: 390, h, fill: C.white,
+  });
+  txt(m, {
+    text: "HUAMING", x: 16, y: 16, w: 160, h: 20, size: 16,
+    family: uiSB.family, style: uiSB.style, color: C.blue, track: 1.2,
+  });
+  txt(m, {
+    text: "Menu", x: 310, y: 18, w: 60, h: 18, size: 13,
+    family: uiM.family, style: uiM.style, align: "RIGHT",
+  });
+  return m;
+}
+
+function mStage(parent, { fill, title, dek, cta, h }) {
+  const stH = h || 340;
+  const st = frame(parent, { name: "stage", x: 0, y: 52, w: 390, h: stH, fill: C.stage });
+  st.fills = fill;
+  const veil = frame(st, { name: "veil", x: 0, y: stH - 200, w: 390, h: 200, fill: C.ink });
+  veil.fills = solid(C.ink, 0.62);
+  const titleH = title.length > 28 ? 64 : 36;
+  const titleY = cta ? stH - 188 : stH - 148;
+  txt(st, {
+    text: title,
+    x: 16, y: titleY, w: 358, h: titleH, size: 24,
+    family: uiSB.family, style: uiSB.style, color: C.white, lh: 28,
+  });
+  if (dek) {
+    txt(st, {
+      text: dek,
+      x: 16, y: cta ? stH - 116 : stH - 76, w: 358, h: 40, size: 13,
+      family: ui.family, style: ui.style, color: C.white, lh: 18,
+    });
+  }
+  if (cta) {
+    btn(st, { label: cta, x: 16, y: stH - 60, w: 358, fontName: uiM, fill: C.white, color: C.ink });
+  }
+  return 52 + stH;
+}
+
+function mPhotoCard(parent, { name, y, fill, title, sub }) {
+  const n = frame(parent, { name, x: 16, y, w: 358, h: 176, fill: C.stage });
+  n.fills = darkPhoto(fill);
+  const shade = frame(n, { name: "shade", x: 0, y: 104, w: 358, h: 72, fill: C.ink });
+  shade.fills = solid(C.ink, 0.72);
+  txt(n, {
+    text: title, x: 16, y: 116, w: 326, h: 22, size: 16,
+    family: uiSB.family, style: uiSB.style, color: C.white,
+  });
+  txt(n, {
+    text: sub, x: 16, y: 140, w: 326, h: 18, size: 12,
+    family: ui.family, style: ui.style, color: C.white,
+  });
+  return n;
+}
+
+function mTeaser(parent, { name, y, fill, kicker, title, sub }) {
+  const n = frame(parent, {
+    name, x: 16, y, w: 358, h: 228, fill: C.white,
+    stroke: { color: C.ink, opacity: 0.12 },
+  });
+  const ph = frame(n, { name: "photo", x: 0, y: 0, w: 358, h: 128, fill: C.stage });
+  ph.fills = darkPhoto(fill);
+  let ty = 140;
+  if (kicker) {
+    txt(n, {
+      text: kicker, x: 16, y: ty, w: 326, h: 14, size: 11,
+      family: uiM.family, style: uiM.style, color: C.blue, track: 0.6,
+    });
+    ty += 16;
+  }
+  txt(n, {
+    text: title, x: 16, y: ty, w: 326, h: 20, size: 16,
+    family: uiSB.family, style: uiSB.style,
+  });
+  txt(n, {
+    text: sub, x: 16, y: ty + 22, w: 326, h: 36, size: 12,
+    family: ui.family, style: ui.style, color: C.muted, lh: 16,
+  });
+  return n;
+}
+
+function mFoot(parent, y) {
+  const f = frame(parent, { name: "footer", x: 0, y, w: 390, h: 88, fill: C.ink });
+  txt(f, {
+    text: "intl@huaming.com",
+    x: 16, y: 24, w: 358, h: 18, size: 13,
+    family: uiM.family, style: uiM.style, color: C.white,
+  });
+  txt(f, {
+    text: "Shanghai · Singapore",
+    x: 16, y: 48, w: 358, h: 16, size: 12,
+    family: ui.family, style: ui.style, color: C.white, opacity: 0.7,
+  });
+  return f;
+}
+
 // Product type: chrome → STAGE (photo, type bottom-left, one CTA) → 3 photo teasers → spec list → ink footer
 function productType(pageName, artName, { fill, name, dek, siblings, specs }) {
   const art = siteArt(pageName, artName, 1680);
@@ -788,6 +886,46 @@ typeRows.forEach((row, i) => {
 siteFoot(products, 1660);
 products.resize(1440, 1800);
 
+const productsM = siteMobile(products, "products-mobile", 1680);
+let py = mStage(productsM, {
+  fill: heroFill,
+  title: "On-load, de-energized, and motor drives.",
+  dek: "Open a family, then a type.",
+  cta: "Download brochures",
+});
+worldsP.forEach((w, i) => {
+  mPhotoCard(productsM, {
+    name: w.title, y: py + 16 + i * 188, fill: w.fill, title: w.title, sub: w.sub,
+  });
+});
+py += 16 + worldsP.length * 188 + 16;
+txt(productsM, {
+  text: "All types",
+  x: 16, y: py, w: 358, h: 24, size: 18,
+  family: uiSB.family, style: uiSB.style,
+});
+py += 32;
+typeRows.forEach((row, i) => {
+  const y = py + i * 48;
+  const line = figma.createRectangle();
+  line.resize(358, 1);
+  line.fills = solid(C.ink, 0.1);
+  productsM.appendChild(line);
+  line.x = 16;
+  line.y = y;
+  txt(productsM, {
+    text: row[0], x: 16, y: y + 12, w: 358, h: 16, size: 13,
+    family: uiM.family, style: uiM.style, color: C.blue,
+  });
+  txt(productsM, {
+    text: row[1], x: 16, y: y + 28, w: 358, h: 16, size: 11,
+    family: ui.family, style: ui.style, color: C.muted,
+  });
+});
+py += typeRows.length * 48 + 16;
+mFoot(productsM, py);
+productsM.resize(390, py + 88);
+
 // DOWNLOADS — stage photo, kind teasers, then table
 const dl = siteArt("03 Downloads", "downloads-desktop", 1900);
 const dstage = frame(dl, { name: "stage", x: 0, y: 108, w: 1440, h: 380, fill: C.stage });
@@ -874,6 +1012,52 @@ files.forEach((row, i) => {
 siteFoot(dl, 1540);
 dl.resize(1440, 1680);
 
+const dlM = siteMobile(dl, "downloads-mobile", 1680);
+let dy = mStage(dlM, {
+  fill: factoryFill,
+  title: "Downloads",
+  dek: "Technical data, leaflets, operating instructions.",
+  cta: "Find a type",
+});
+[
+  ["Technical data", "Ratings the factory quotes.", cv2Fill],
+  ["Leaflets", "Short type sheets.", hwvFill],
+  ["Instructions", "Install and operate.", cma7Fill],
+].forEach((row, i) => {
+  mPhotoCard(dlM, {
+    name: row[0], y: dy + 16 + i * 188, fill: row[2], title: row[0], sub: row[1],
+  });
+});
+dy += 16 + 3 * 188 + 12;
+const mSearch = frame(dlM, {
+  name: "search", x: 16, y: dy, w: 358, h: 44, fill: C.white,
+  stroke: { color: C.ink, opacity: 0.16 },
+});
+txt(mSearch, {
+  text: "Search type or file  ·  e.g. CV2",
+  x: 12, y: 13, w: 334, h: 18, size: 13,
+  family: ui.family, style: ui.style, color: C.muted,
+});
+dy += 56;
+files.forEach((row, i) => {
+  const y = dy + i * 48;
+  const band = frame(dlM, {
+    name: row[0] + "-" + row[1], x: 16, y, w: 358, h: 44,
+    fill: i % 2 ? "#F6F6F4" : C.white,
+  });
+  txt(band, {
+    text: row[0], x: 12, y: 6, w: 334, h: 16, size: 13,
+    family: uiM.family, style: uiM.style,
+  });
+  txt(band, {
+    text: row[1], x: 12, y: 24, w: 334, h: 14, size: 11,
+    family: ui.family, style: ui.style, color: C.blue,
+  });
+});
+dy += files.length * 48 + 16;
+mFoot(dlM, dy);
+dlM.resize(390, dy + 88);
+
 // ABOUT — factory stage, numbers, two HQ
 const about = siteArt("04 About", "about-desktop", 1680);
 const astage = frame(about, { name: "stage", x: 0, y: 108, w: 1440, h: 480, fill: C.stage });
@@ -944,6 +1128,56 @@ txt(about, {
 });
 siteFoot(about, 1040);
 about.resize(1440, 1180);
+
+const aboutM = siteMobile(about, "about-mobile", 1280);
+let ay = mStage(aboutM, {
+  fill: factoryFill,
+  title: "Tap changers, made in Shanghai.",
+  dek: "On-load and de-energized types for power transformers.",
+});
+const mNumsA = frame(aboutM, { name: "numbers", x: 0, y: ay, w: 390, h: 220, fill: C.ink });
+[
+  ["1989", "Founded, Shanghai"],
+  ["002270.SZ", "Listed 2015"],
+  ["150+", "countries in service"],
+  ["4–6", "weeks, catalogue types"],
+].forEach((row, i) => {
+  txt(mNumsA, {
+    text: row[0], x: 16, y: 16 + i * 50, w: 358, h: 20, size: 16,
+    family: uiSB.family, style: uiSB.style, color: C.white,
+  });
+  txt(mNumsA, {
+    text: row[1], x: 140, y: 18 + i * 50, w: 234, h: 18, size: 12,
+    family: ui.family, style: ui.style, color: C.white, opacity: 0.7,
+  });
+});
+ay += 236;
+[
+  ["Shanghai  ·  factory", "No. 977 Tongpu Road, Putuo District, Shanghai 200333"],
+  ["Singapore  ·  international HQ", "TSX Tower A #03-13, 1 Tai Seng Ave, Singapore 536464"],
+].forEach((row, i) => {
+  const n = frame(aboutM, {
+    name: row[0], x: 16, y: ay + i * 100, w: 358, h: 88, fill: C.white,
+    stroke: { color: C.ink, opacity: 0.12 },
+  });
+  txt(n, {
+    text: row[0], x: 16, y: 14, w: 326, h: 16, size: 12,
+    family: uiM.family, style: uiM.style, color: C.blue, track: 0.6,
+  });
+  txt(n, {
+    text: row[1], x: 16, y: 38, w: 326, h: 36, size: 13,
+    family: ui.family, style: ui.style, lh: 18,
+  });
+});
+ay += 212;
+txt(aboutM, {
+  text: "Turkey, Indonesia, Brazil, USA. ISO 9001 / 14001 / 18001.",
+  x: 16, y: ay, w: 358, h: 36, size: 13,
+  family: ui.family, style: ui.style, color: C.muted, lh: 18,
+});
+ay += 52;
+mFoot(aboutM, ay);
+aboutM.resize(390, ay + 88);
 
 // CONTACT — MR: Curious / Questions / Customer, then form
 const contact = siteArt("05 Contact", "contact-desktop", 1480);
@@ -1023,6 +1257,58 @@ offices.forEach((row, i) => {
 siteFoot(contact, 1160);
 contact.resize(1440, 1300);
 
+const contactM = siteMobile(contact, "contact-mobile", 1680);
+let cy = mStage(contactM, {
+  fill: factoryFill,
+  title: "Write to intl@huaming.com.",
+  dek: "Singapore answers first. Name the type if you have one.",
+});
+[
+  ["Find a type", "Open the range. Start with CV2.", cv2Fill],
+  ["Take a PDF", "Technical data the factory uses.", hwvFill],
+  ["Write", "intl@huaming.com. Name the type.", factoryFill],
+].forEach((col, i) => {
+  mPhotoCard(contactM, {
+    name: col[0], y: cy + 16 + i * 188, fill: col[2], title: col[0], sub: col[1],
+  });
+});
+cy += 16 + 3 * 188 + 16;
+const mForm = frame(contactM, {
+  name: "form", x: 16, y: cy, w: 358, h: 280, fill: C.white,
+  stroke: { color: C.ink, opacity: 0.12 },
+});
+[
+  ["Name", 12],
+  ["Email", 64],
+  ["Type or project", 116],
+  ["Message", 168],
+].forEach((row) => {
+  const field = frame(mForm, {
+    name: row[0], x: 12, y: row[1], w: 334, h: row[0] === "Message" ? 56 : 44,
+    fill: C.white, stroke: { color: C.ink, opacity: 0.16 },
+  });
+  txt(field, {
+    text: row[0], x: 12, y: 12, w: 300, h: 16, size: 13,
+    family: ui.family, style: ui.style, color: C.muted,
+  });
+});
+btn(mForm, { label: "Send", x: 12, y: 232, w: 334, fontName: uiM });
+cy += 296;
+offices.forEach((row, i) => {
+  const y = cy + i * 48;
+  txt(contactM, {
+    text: row[0], x: 16, y, w: 358, h: 16, size: 13,
+    family: uiM.family, style: uiM.style,
+  });
+  txt(contactM, {
+    text: row[1], x: 16, y: y + 18, w: 358, h: 16, size: 11,
+    family: ui.family, style: ui.style, color: C.muted,
+  });
+});
+cy += offices.length * 48 + 16;
+mFoot(contactM, cy);
+contactM.resize(390, cy + 88);
+
 // PROJECTS — stage + three Home impulses. Not a fake case-study grid.
 const projects = siteArt("06 Projects", "projects-desktop", 1480);
 const prstage = frame(projects, { name: "stage", x: 0, y: 108, w: 1440, h: 480, fill: C.stage });
@@ -1080,6 +1366,39 @@ const numsP = frame(projects, { name: "numbers", x: 0, y: 952, w: 1440, h: 140, 
 });
 siteFoot(projects, 1092);
 projects.resize(1440, 1232);
+
+const projectsM = siteMobile(projects, "projects-mobile", 1480);
+let pry = mStage(projectsM, {
+  fill: subFill,
+  title: "CHVT at Longdong ±800 kV",
+  dek: "Commissioned 28 May 2025. Converter-transformer OLTC on an HVDC line.",
+  cta: "Find a type",
+});
+prImpulses.forEach((card, i) => {
+  mTeaser(projectsM, {
+    name: card.title, y: pry + 16 + i * 240, fill: card.fill, title: card.title, sub: card.body,
+  });
+});
+pry += 16 + prImpulses.length * 240;
+const mNumsP = frame(projectsM, { name: "numbers", x: 0, y: pry, w: 390, h: 220, fill: C.ink });
+[
+  ["150+", "countries in service"],
+  ["4–6", "weeks, catalogue types"],
+  ["CNAS, 2009", "type-test laboratory"],
+  ["002270.SZ", "listed in Shenzhen"],
+].forEach((row, i) => {
+  txt(mNumsP, {
+    text: row[0], x: 16, y: 16 + i * 50, w: 358, h: 20, size: 16,
+    family: uiSB.family, style: uiSB.style, color: C.white,
+  });
+  txt(mNumsP, {
+    text: row[1], x: 160, y: 18 + i * 50, w: 214, h: 18, size: 12,
+    family: ui.family, style: ui.style, color: C.white, opacity: 0.7,
+  });
+});
+pry += 236;
+mFoot(projectsM, pry);
+projectsM.resize(390, pry + 88);
 
 // NEWS — dark stage, three dated facts only
 const newsPg = siteArt("07 News", "news-desktop", 1280);
@@ -1215,6 +1534,24 @@ learnSteps.forEach((card, i) => {
 });
 siteFoot(learn, 960);
 learn.resize(1440, 1100);
+
+const learnM = siteMobile(learn, "learn-mobile", 1280);
+let ly = mStage(learnM, {
+  fill: heroFill,
+  title: "The switch that picks the tap.",
+  dek: "OLTC while live. OCTC only with it off. Name the family, open a type, take the PDF.",
+  cta: "Find a type",
+  h: 360,
+});
+learnSteps.forEach((card, i) => {
+  mTeaser(learnM, {
+    name: card.title, y: ly + 16 + i * 240, fill: card.fill,
+    kicker: "0" + (i + 1), title: card.title, sub: card.body,
+  });
+});
+ly += 16 + learnSteps.length * 240 + 16;
+mFoot(learnM, ly);
+learnM.resize(390, ly + 88);
 
 // 10 Product CM2 — vacuum CM. III/II 500 / 600 A only.
 productType("10 Product CM2", "product-cm2", {
@@ -1490,4 +1827,11 @@ return {
   pages: figma.root.children.map((c) => c.name),
   desk: { w: desk.width, h: desk.height },
   prod: { w: prod.width, h: prod.height },
+  mobile: [
+    productsM.name, dlM.name, aboutM.name, contactM.name, projectsM.name, learnM.name,
+  ].map((name, i) => ({
+    name,
+    w: [productsM, dlM, aboutM, contactM, projectsM, learnM][i].width,
+    h: [productsM, dlM, aboutM, contactM, projectsM, learnM][i].height,
+  })),
 };
