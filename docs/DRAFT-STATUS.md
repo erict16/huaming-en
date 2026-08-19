@@ -1,6 +1,6 @@
 # Huaming EN OpenPencil draft — morning handoff
 
-Updated: 2026-08-20 06:10 +08  
+Updated: 2026-08-20 06:32 +08  
 Hard stop: **2026-08-20 07:00 +08**
 
 Open `sketches/mr-openpencil-2026-08-19/huaming-mr-draft.fig` in OpenPencil. Branch `feat/overnight-v1`. Builder `build.mjs`. **Do not recode Next.js** until Eric says this draft is the spec.
@@ -27,7 +27,7 @@ Home, Products, Downloads, About, Contact, Projects, News, Careers, Learn, CV2, 
 - CMA7 cabinet is grey paint. That is the product.
 - WSL WDG / ZWC and CMA7 SHM-D / SHM-X are empty dark bands. No still on disk.
 
-Queue **done** (slices 0–22). Scheduler may still fire until 07:00.
+Queue **done** (slices 0–23). Scheduler may still fire until 07:00.
 
 ## Reviews
 
@@ -45,6 +45,7 @@ Queue **done** (slices 0–22). Scheduler may still fire until 07:00.
 - Cycle 12: About desk matches 390 (teasers then numbers). Contact desk teasers are photoTeaser. No must-fix.
 - Cycle 13: Downloads desk kind tiles are photoTeaser 428×240. No must-fix.
 - Cycle 14: Downloads 390 kind tiles are mTeaser. No must-fix.
+- Cycle 15: More 390 All types matches desk names from json. No must-fix.
 
 ## Slice 8 (03:03)
 
@@ -105,6 +106,10 @@ Downloads 390 kind tiles are mTeaser (same stack as desk photoTeaser). File list
 ## Slice 22 (06:10)
 
 About desk + 390 numbers both `C.ink`. Morning brief at the top of this file.
+
+## Slice 23 (06:32)
+
+More 390 All types adds CZ, HWDK, SHM-X / SHM-KX, ET-SZ6, HMC-3C, ZXJY (json one-liners). Cycle-15 no must-fix.
 
 ## Still open (not blocking the draft)
 

@@ -1873,11 +1873,18 @@ const moreNames = [
   ["SHZVG", "Larger vacuum after SHZV."],
   ["CHVT", "HV vacuum for HVDC / converter transformers."],
   ["CVT", "Vacuum OLTC for dry-type transformers."],
+  ["CZ", "Vacuum dry / air OLTC at distribution voltages."],
+  ["SHGV", "Combined vacuum OLTC for SF6 / gas-insulated transformers."],
+  ["HMDK", "Reactance-transition tap changer for a step-voltage regulator."],
+  ["HWDK", "Reactive-transition compartment OLTC. North America, usually secondary."],
   ["WDG", "Drum-type de-energized tap changer."],
   ["ZWC", "Linear de-energized tap changer."],
   ["SHM-D", "Motor drive unit for in-tank OLTCs."],
-  ["SHGV", "Combined vacuum OLTC for SF6 / gas-insulated regulating transformers."],
-  ["HMDK", "Reactance-transition tap changer for a distribution step-voltage regulator."],
+  ["SHM-X", "Motor drive unit."],
+  ["SHM-KX", "Controller / drive cabinet."],
+  ["ET-SZ6", "Digital voltage relay."],
+  ["HMC-3C", "Position indicator for CMA7 / CMA9."],
+  ["ZXJY", "Online oil filter plant."],
 ];
 moreNames.forEach((row, i) => {
   const y = moreY + i * 48;
