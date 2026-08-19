@@ -51,6 +51,8 @@ Refuse: MR red, MR mark, MR sentences, cream paper, serif kickers.
 | 10 | Polaroid teasers → photo tiles | done 2026-08-20 03:30. Home impulses/TYPES, About HQ, Projects, News, Careers, Learn = photoTeaser. 404 390. CV2 390 siblings. Cycle-6 no must-fix. Applied: About CTA, Careers Write dark band, Learn dek shorter, CV2 siteFoot. |
 | 11 | Copy: no fake vacancies | done 2026-08-20 03:35. Home careers CTA “Write to us”, not Open roles. Impulse title On-load or off (OLTC vs OCTC). |
 | 12 | Home stage one CTA | done 2026-08-20 03:38. Dropped ghost “Download brochures”. Downloads stays in utility + later band. |
+| 13 | Home 390 dek + Learn 02 | done 2026-08-20 03:45. Home 390 dek. Learn 02 names CM / WSL / CMA7. Cycle-7 no must-fix. Applied: Downloads stage CTA; Products SHZV/WSL lines; More dry tile = factory not Longdong. |
+| 13 | Home 390 dek + Learn 02 | done 2026-08-20 03:45. Home 390 stage has dek. Learn 02 names CM, WSL, CMA7. Cycle-7 no must-fix. |
 
 ## Do not
 

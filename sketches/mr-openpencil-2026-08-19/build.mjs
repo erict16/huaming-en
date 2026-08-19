@@ -461,27 +461,32 @@ txt(phone, {
   text: "Menu", x: 310, y: 18, w: 60, h: 18, size: 13,
   family: uiM.family, style: uiM.style, align: "RIGHT",
 });
-const mstage = frame(phone, { name: "m-stage", x: 0, y: 52, w: 390, h: 420, fill: C.stage });
+const mstage = frame(phone, { name: "m-stage", x: 0, y: 52, w: 390, h: 440, fill: C.stage });
 mstage.fills = heroFill;
-const mveil = frame(mstage, { name: "veil", x: 0, y: 200, w: 390, h: 220, fill: C.ink });
+const mveil = frame(mstage, { name: "veil", x: 0, y: 200, w: 390, h: 240, fill: C.ink });
 mveil.fills = solid(C.ink, 0.62);
 txt(mstage, {
   text: "Tap changers for power transformers",
-  x: 16, y: 220, w: 358, h: 84, size: 26,
+  x: 16, y: 216, w: 358, h: 72, size: 26,
   family: uiSB.family, style: uiSB.style, color: C.white, lh: 30,
 });
-btn(mstage, { label: "Find a type", x: 16, y: 328, w: 358, fontName: uiM, fill: C.white, color: C.ink });
+txt(mstage, {
+  text: "On-load and de-energized. Vacuum and oil.",
+  x: 16, y: 296, w: 358, h: 20, size: 13,
+  family: ui.family, style: ui.style, color: C.white,
+});
+btn(mstage, { label: "Find a type", x: 16, y: 336, w: 358, fontName: uiM, fill: C.white, color: C.ink });
 [
   { title: "CV2", sub: "Vacuum selector-switch. III 350 / 600 A.", fill: cv2Fill },
   { title: "CM2", sub: "Vacuum CM. III/II 500 / 600 A.", fill: cm2Fill },
   { title: "SHZV", sub: "Vacuum CMD. 400 / 600 / 1000 A.", fill: shzvFill },
-  { title: "HWV", sub: "On-tank vacuum. 400 / 800 / 1000 A.", fill: hwvFill },
+  { title: "HWV", sub: "On-tank vacuum. 400 / 800 / 1000 A. Drive included.", fill: hwvFill },
 ].forEach((card, i) => {
   mPhotoCard(phone, {
-    name: card.title, y: 492 + i * 188, fill: card.fill, title: card.title, sub: card.sub,
+    name: card.title, y: 508 + i * 188, fill: card.fill, title: card.title, sub: card.sub,
   });
 });
-const mnum = frame(phone, { name: "m-numbers", x: 0, y: 1256, w: 390, h: 160, fill: C.ink });
+const mnum = frame(phone, { name: "m-numbers", x: 0, y: 1272, w: 390, h: 160, fill: C.ink });
 txt(mnum, {
   text: "150+ countries", x: 16, y: 24, w: 358, h: 28, size: 22,
   family: uiSB.family, style: uiSB.style, color: C.white,
@@ -496,9 +501,9 @@ txt(mnum, {
   x: 16, y: 108, w: 358, h: 20, size: 14,
   family: uiM.family, style: uiM.style, color: C.white,
 });
-btn(phone, { label: "Download brochures", x: 16, y: 1432, w: 358, fontName: uiM });
-mFoot(phone, 1492);
-phone.resize(390, 1580);
+btn(phone, { label: "Download brochures", x: 16, y: 1448, w: 358, fontName: uiM });
+mFoot(phone, 1508);
+phone.resize(390, 1596);
 
 txt(board, {
   text: "PRODUCT 1440 · CV2",
@@ -923,10 +928,10 @@ txt(products, {
 const typeRows = [
   ["CV2", "Vacuum selector-switch. III 350 / 600 A only."],
   ["CM2", "Vacuum diverter + selector. III/II 500 / 600 A."],
-  ["SHZV", "Vacuum. 400 / 600 / 1000 A."],
+  ["SHZV", "Vacuum CMD. 400 / 600 / 1000 A."],
   ["HWV", "On-tank vacuum. 400 / 800 / 1000 A. Drive included."],
   ["CM", "Oil in-tank. III 500 / 600 A."],
-  ["WSL", "Cage OCTC. Transformer off."],
+  ["WSL", "WSL / WDL. Cage OCTC. Transformer off."],
   ["CMA7", "Motor drive. Do not add twice on HWV."],
 ];
 typeRows.forEach((row, i) => {
@@ -1005,6 +1010,7 @@ txt(dstage, {
   x: 56, y: 276, w: 800, h: 24, size: 16,
   family: ui.family, style: ui.style, color: C.white, opacity: 0.85,
 });
+btn(dstage, { label: "Find a type", x: 56, y: 316, w: 148, fill: C.white, color: C.ink, fontName: uiM });
 [
   ["Technical data", "Ratings the factory quotes.", cv2Fill],
   ["Leaflets", "Short type sheets.", hwvFill],
@@ -1518,7 +1524,7 @@ careers.resize(1440, 1100);
 const careersM = siteMobile(careers, "careers-mobile", 1480);
 let cry = mStage(careersM, {
   fill: factoryFill,
-  title: "Work on the switch inside the transformer.",
+  title: "Work on the switch.",
   dek: "Shanghai and Singapore. Engineering, test, and sales.",
   cta: "Write to us",
   h: 360,
@@ -1553,7 +1559,7 @@ btn(lstage, { label: "Find a type", x: 56, y: 396, w: 148, fill: C.white, color:
 
 const learnSteps = [
   { title: "Name the family", body: "On-load or off. Vacuum or oil. In-tank or on-tank.", fill: cv2Fill },
-  { title: "Open the type", body: "CV2, CM2, SHZV, HWV. Then the rest of the range.", fill: cm2Fill },
+  { title: "Open the type", body: "CV2, CM2, SHZV, HWV. Then CM, WSL, CMA7.", fill: cm2Fill },
   { title: "Take the PDF", body: "Same technical data the factory uses.", fill: shzvFill },
 ];
 learnSteps.forEach((card, i) => {
@@ -1722,7 +1728,7 @@ btn(moreStage, { label: "Download brochures", x: 56, y: 356, w: 196, fill: C.whi
 const moreWorlds = [
   { title: "Oil OLTC", sub: "CMD · CV", fill: cmTile, x: 56, y: 576 },
   { title: "Vacuum OLTC", sub: "SHZVG · CHVT", fill: shzvFill, x: 740, y: 576 },
-  { title: "Dry · gas · regulator · reactive", sub: "CVT · CZ · SHGV · HMDK · HWDK", fill: subFill, x: 56, y: 892 },
+  { title: "Dry · gas · regulator · reactive", sub: "CVT · CZ · SHGV · HMDK · HWDK", fill: factoryFill, x: 56, y: 892 },
   { title: "OCTC", sub: "WDG · ZWC. Transformer off.", fill: wslTile, x: 740, y: 892 },
 ];
 moreWorlds.forEach((w) => {

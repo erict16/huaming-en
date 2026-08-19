@@ -1,9 +1,9 @@
 # Huaming EN OpenPencil draft — status
 
-Updated: 2026-08-20 03:38 +08  
+Updated: 2026-08-20 03:48 +08  
 Hard stop: **2026-08-20 07:00 +08**
 
-Queue **done** (slices 0–10). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
+Queue **done** (slices 0–13). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
 
 ## Where
 
@@ -26,6 +26,7 @@ Home (+390), Products, Downloads, About, Contact, Projects, News, Careers, Learn
 - Cycle 4: WSL / CMA7 / CM **dark band + still** (not pale full-bleed JPEGs). About HQ photo teasers. Home 390 photo tiles. No must-fix.
 - Cycle 5: search field; studio split (full-height right JPEG); sibling **photo tiles**; Singapore HQ **dark band** (no fake office); WSL teasers WDG / ZWC / CM; CMA7 teasers HWV / SHM-D / SHM-X. No must-fix.
 - Cycle 6: leftover polaroid rows → photoTeaser (Home impulses/TYPES, About HQ, Projects, News, Careers, Learn). 404 390. CV2 390 siblings. No must-fix. Applied About CTA, Careers Write dark band, Learn dek, CV2 siteFoot.
+- Cycle 7: Home 390 dek; Learn 02 names CM / WSL / CMA7. No must-fix.
 
 ## Slice 8 (03:03)
 
@@ -47,9 +48,14 @@ Home careers CTA is “Write to us →” (Careers page has no vacancy list). Im
 
 Home stage is one CTA: Find a type. Downloads stays in the utility bar.
 
+## Slice 13 (03:46)
+
+Home 390 stage has a dek under the title. Learn 02 names CM / WSL / CMA7 after the vacuum starters. Cycle-7 no must-fix. Applied: Downloads stage CTA; Products SHZV = vacuum CMD, WSL / WDL; More dry tile uses factory not Longdong.
+
 ## Still open (not blocking the draft)
 
 - CMA7 cabinet is grey paint, so its teaser stays paler than vacuum PNGs. That is the product, not leftover studio.
-- Home stage is one CTA now (“Find a type”). Downloads stays in the utility bar.
+- Contact stage has no button; the form is the action.
+- WSL WDG/ZWC and CMA7 SHM-D/SHM-X teasers are empty dark bands (no still on disk).
 
 Eric: open the `.fig` in OpenPencil. Spec for Next.js only after he says so.
