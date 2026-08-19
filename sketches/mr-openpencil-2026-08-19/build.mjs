@@ -1905,6 +1905,54 @@ txt(moreAsk, {
 siteFoot(more, gy + 148);
 more.resize(1440, gy + 288);
 
+const moreM = siteMobile(more, "more-types-mobile", 1680);
+let moreY = mStage(moreM, {
+  fill: factoryFill,
+  title: "The rest of the range",
+  dek: "Oil, vacuum, dry, gas, OCTC, and the drives. Flagships have their own pages.",
+  cta: "Download brochures",
+});
+moreWorlds.forEach((w, i) => {
+  mPhotoCard(moreM, {
+    name: w.title, y: moreY + 16 + i * 188, fill: w.fill, title: w.title, sub: w.sub,
+  });
+});
+moreY += 16 + moreWorlds.length * 188 + 16;
+txt(moreM, {
+  text: "All types",
+  x: 16, y: moreY, w: 358, h: 24, size: 18,
+  family: uiSB.family, style: uiSB.style,
+});
+moreY += 32;
+const moreNames = [
+  ["CMD", "Larger oil OLTC, same family as CM."],
+  ["CV", "Selector-switch oil OLTC."],
+  ["SHZVG", "Larger vacuum after SHZV."],
+  ["CHVT", "HV vacuum for HVDC / converter transformers."],
+  ["CVT", "Vacuum OLTC for dry-type transformers."],
+  ["WDG", "Drum-type de-energized tap changer."],
+];
+moreNames.forEach((row, i) => {
+  const y = moreY + i * 48;
+  const line = figma.createRectangle();
+  line.resize(358, 1);
+  line.fills = solid(C.ink, 0.1);
+  moreM.appendChild(line);
+  line.x = 16;
+  line.y = y;
+  txt(moreM, {
+    text: row[0], x: 16, y: y + 12, w: 358, h: 16, size: 13,
+    family: uiM.family, style: uiM.style, color: C.blue,
+  });
+  txt(moreM, {
+    text: row[1], x: 16, y: y + 28, w: 358, h: 16, size: 11,
+    family: ui.family, style: ui.style, color: C.muted,
+  });
+});
+moreY += moreNames.length * 48 + 16;
+mFoot(moreM, moreY);
+moreM.resize(390, moreY + 88);
+
 // 17 Not found — empty / no type. Same chrome. Stage, then three real types, not a white 404.
 const missing = siteArt("17 Not found", "not-found-desktop", 1280);
 const missSt = frame(missing, { name: "stage", x: 0, y: 108, w: 1440, h: 480, fill: C.stage });
@@ -1951,7 +1999,7 @@ return {
   prod: { w: prod.width, h: prod.height },
   mobile: [
     productsM.name, dlM.name, aboutM.name, contactM.name, projectsM.name,
-    newsM.name, careersM.name, learnM.name,
+    newsM.name, careersM.name, learnM.name, moreM.name,
     "product-cm2-mobile", "product-shzv-mobile", "product-hwv-mobile",
     "product-wsl-mobile", "product-cma7-mobile", "product-cm-mobile",
   ],
