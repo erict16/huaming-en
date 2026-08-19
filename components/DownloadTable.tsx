@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { formatKind, parseDocMeta } from "@/lib/doc-meta";
 import { formatBytes } from "@/lib/format";
 
 type Download = {
@@ -13,7 +15,8 @@ type Download = {
 };
 
 export function DownloadTable({ files }: { files: Download[] }) {
-  const [q, setQ] = useState("");
+  const params = useSearchParams();
+  const [q, setQ] = useState(() => params.get("q") ?? "");
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
     if (!needle) return files;
@@ -25,46 +28,53 @@ export function DownloadTable({ files }: { files: Download[] }) {
 
   return (
     <div>
-      <label className="block text-sm">
+      <label className="block text-sm" htmlFor="dl-q">
         Search by type (CV2, SHZV, CMA7…)
         <input
+          id="dl-q"
           type="search"
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          className="mt-2 min-h-11 w-full max-w-md border border-rule bg-paper px-3"
+          className="field mt-1 max-w-md"
         />
       </label>
-      <div className="mt-8 overflow-x-auto">
-        <table className="w-full min-w-[640px] text-left text-sm">
+      <div className="ledger-wrap mt-8">
+        <table className="ledger">
           <thead>
-            <tr className="border-b border-rule text-[12px] uppercase tracking-[0.08em] text-muted">
-              <th className="py-2 pr-4 font-medium">Document</th>
-              <th className="py-2 pr-4 font-medium">Type</th>
-              <th className="py-2 pr-4 font-medium">Kind</th>
-              <th className="py-2 pr-4 font-medium">Lang</th>
-              <th className="py-2 font-medium">Size</th>
+            <tr>
+              <th>Document</th>
+              <th>Type</th>
+              <th>Kind</th>
+              <th>Lang</th>
+              <th>Size</th>
             </tr>
           </thead>
           <tbody>
-            {filtered.map((f) => (
-              <tr key={f.file} className="border-b border-rule">
-                <td className="py-3 pr-4">
-                  <a href={`/downloads/${encodeURIComponent(f.file)}`} className="underline">
-                    {f.title}
-                  </a>
-                </td>
-                <td className="py-3 pr-4 font-mono text-xs">
-                  {f.products.length ? f.products.join(", ").toUpperCase() : "—"}
-                </td>
-                <td className="py-3 pr-4">{f.kind}</td>
-                <td className="py-3 pr-4 uppercase">{f.lang}</td>
-                <td className="py-3">{formatBytes(f.bytes ?? 0)}</td>
-              </tr>
-            ))}
+            {filtered.map((f) => {
+              const meta = parseDocMeta(f.file, f.title);
+              return (
+                <tr key={f.file}>
+                  <td>
+                    <a href={`/downloads/${encodeURIComponent(f.file)}`}>{f.title}</a>
+                    {meta.docNo || meta.year ? (
+                      <span className="doc-meta">
+                        {[meta.docNo, meta.year].filter(Boolean).join(" · ")}
+                      </span>
+                    ) : null}
+                  </td>
+                  <td className="font-mono text-xs tracking-[0.04em]">
+                    {f.products.length ? f.products.join(", ").toUpperCase() : "—"}
+                  </td>
+                  <td className="capitalize">{formatKind(f.kind)}</td>
+                  <td className="uppercase">{f.lang}</td>
+                  <td>{formatBytes(f.bytes ?? 0)}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
-      <p className="mt-4 text-sm text-muted">
+      <p className="mt-4 font-mono text-xs tracking-[0.08em] text-muted" role="status" aria-atomic="true">
         {filtered.length} file{filtered.length === 1 ? "" : "s"}
       </p>
     </div>

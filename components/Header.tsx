@@ -9,38 +9,49 @@ const links = [
 
 export function Header() {
   return (
-    <header className="border-b border-rule">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
-        <Link href="/" className="flex items-center gap-3 text-[15px] font-semibold tracking-[0.14em]">
-          <img src="/brand/logo.png" alt="" width={32} height={32} />
-          HUAMING
+    <header className="masthead">
+      <div className="masthead-inner">
+        <Link href="/" className="wordmark">
+          <img src="/brand/logo.png" alt="" width={28} height={28} />
+          <span>
+            <span className="wordmark-name">Huaming</span>
+            <span className="wordmark-sub">Technical catalogue</span>
+          </span>
         </Link>
-        <nav className="hidden items-center gap-6 text-[13px] uppercase tracking-[0.08em] md:flex">
+        <nav className="mast-nav hidden md:flex" aria-label="Primary">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className="hover:underline">
+            <Link key={l.href} href={l.href}>
               {l.label}
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
-          <a
-            href="https://www.huaming.com"
-            className="hidden text-[13px] text-muted sm:inline"
-            lang="zh"
-          >
+        <div className="mast-tools">
+          <form action="/downloads/" method="get" role="search" className="hidden lg:block">
+            <label className="sr-only" htmlFor="mast-q">
+              Search types and PDFs
+            </label>
+            <input
+              id="mast-q"
+              name="q"
+              type="search"
+              placeholder="CV2, SHZV…"
+              className="field field-slim"
+            />
+          </form>
+          <a href="https://www.huaming.com" className="hidden text-[13px] text-muted sm:inline" lang="zh">
             中文
           </a>
-          <Link
-            href="/contact/"
-            className="inline-flex min-h-11 items-center bg-cta px-4 text-[13px] font-medium text-white"
-          >
+          <Link href="/contact/" className="btn-cta">
             Contact
           </Link>
         </div>
       </div>
-      <nav className="flex gap-4 overflow-x-auto border-t border-rule px-5 py-2 text-[13px] uppercase tracking-[0.06em] md:hidden">
+      <nav
+        className="flex gap-5 overflow-x-auto border-t border-rule px-5 py-2 text-[13px] md:hidden"
+        aria-label="Primary"
+      >
         {links.map((l) => (
-          <Link key={l.href} href={l.href} className="whitespace-nowrap">
+          <Link key={l.href} href={l.href} className="whitespace-nowrap py-2">
             {l.label}
           </Link>
         ))}
