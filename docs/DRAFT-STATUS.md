@@ -1,7 +1,7 @@
 # Huaming EN OpenPencil draft — morning handoff
 
-Updated: 2026-08-20 06:32 +08  
-Hard stop: **2026-08-20 07:00 +08**
+Updated: 2026-08-20 07:12 +08  
+Hard stop: **2026-08-20 07:00 +08** — reached. Overnight closed. No further cycles.
 
 Open `sketches/mr-openpencil-2026-08-19/huaming-mr-draft.fig` in OpenPencil. Branch `feat/overnight-v1`. Builder `build.mjs`. **Do not recode Next.js** until Eric says this draft is the spec.
 
@@ -27,7 +27,7 @@ Home, Products, Downloads, About, Contact, Projects, News, Careers, Learn, CV2, 
 - CMA7 cabinet is grey paint. That is the product.
 - WSL WDG / ZWC and CMA7 SHM-D / SHM-X are empty dark bands. No still on disk.
 
-Queue **done** (slices 0–23). Scheduler may still fire until 07:00.
+Queue **done** (slices 0–23). Cycle 15 closed. Overnight stopped at 07:00 +08.
 
 ## Reviews
 
