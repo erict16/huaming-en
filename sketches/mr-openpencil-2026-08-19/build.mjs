@@ -156,12 +156,14 @@ const cv2Fill = await imageFill(`${ROOT}/assets/products/cv2.png`, "FIT");
 const cm2Fill = await imageFill(`${ROOT}/assets/products/cm2.png`, "FIT");
 const shzvFill = await imageFill(`${ROOT}/assets/products/shzv.png`, "FIT");
 const hwvFill = await imageFill(`${ROOT}/assets/products/hwv.png`, "FIT");
-const wslFill = await imageFill(`${ROOT}/assets/products/wsl.jpg`, "FILL");
-const cma7Fill = await imageFill(`${ROOT}/assets/products/cma7.jpg`, "FILL");
-const cmFill = await imageFill(`${ROOT}/assets/products/cm.jpg`, "FILL");
+// Catalogue JPEGs stay FIT on white for the PDP studio split. Do not fake a night still.
+// Tile PNGs: studio white knocked out so teaser rows match CV2/CM2 on stage.
 const wslFit = await imageFill(`${ROOT}/assets/products/wsl.jpg`, "FIT");
 const cma7Fit = await imageFill(`${ROOT}/assets/products/cma7.jpg`, "FIT");
 const cmFit = await imageFill(`${ROOT}/assets/products/cm.jpg`, "FIT");
+const wslTile = await imageFill(`${ROOT}/assets/products/wsl-tile.png`, "FIT");
+const cma7Tile = await imageFill(`${ROOT}/assets/products/cma7-tile.png`, "FIT");
+const cmTile = await imageFill(`${ROOT}/assets/products/cm-tile.png`, "FIT");
 
 function photoTeaser(parent, { name, x, y, w, h, fill, title, sub }) {
   const n = frame(parent, { name, x, y, w, h, fill: C.stage });
@@ -283,9 +285,9 @@ txt(desk, {
 
 const worlds = [
   { title: "Vacuum OLTC", sub: "CV2 · CM2 · SHZV · HWV", fill: cv2Fill, x: 56, y: 1364 },
-  { title: "Oil OLTC", sub: "CM · CMD · CV", fill: cmFill, x: 740, y: 1364 },
-  { title: "OCTC / DETC", sub: "Cage, drum, linear. Transformer off.", fill: wslFill, x: 56, y: 1716 },
-  { title: "Motor drive", sub: "CMA7 · SHM-D. Accessory, not a tap changer.", fill: cma7Fill, x: 740, y: 1716 },
+  { title: "Oil OLTC", sub: "CM · CMD · CV", fill: cmTile, x: 740, y: 1364 },
+  { title: "OCTC / DETC", sub: "Cage, drum, linear. Transformer off.", fill: wslTile, x: 56, y: 1716 },
+  { title: "Motor drive", sub: "CMA7 · SHM-D. Accessory, not a tap changer.", fill: cma7Tile, x: 740, y: 1716 },
 ];
 worlds.forEach((w) => {
   const n = frame(desk, { name: w.title, x: w.x, y: w.y, w: 644, h: 332, fill: C.stage });
@@ -910,9 +912,9 @@ btn(pstage, { label: "Download brochures", x: 56, y: 332, w: 196, fill: C.white,
 
 const worldsP = [
   { title: "Vacuum OLTC", sub: "CV2 · CM2 · SHZV · HWV", fill: cv2Fill, x: 56, y: 556 },
-  { title: "Oil OLTC", sub: "CM · CMD · CV", fill: cmFill, x: 740, y: 556 },
-  { title: "OCTC / DETC", sub: "Cage, drum, linear. Transformer off.", fill: wslFill, x: 56, y: 900 },
-  { title: "Motor drive", sub: "CMA7 · SHM-D. Accessory, not a tap changer.", fill: cma7Fill, x: 740, y: 900 },
+  { title: "Oil OLTC", sub: "CM · CMD · CV", fill: cmTile, x: 740, y: 556 },
+  { title: "OCTC / DETC", sub: "Cage, drum, linear. Transformer off.", fill: wslTile, x: 56, y: 900 },
+  { title: "Motor drive", sub: "CMA7 · SHM-D. Accessory, not a tap changer.", fill: cma7Tile, x: 740, y: 900 },
 ];
 worldsP.forEach((w) => {
   const n = frame(products, { name: w.title, x: w.x, y: w.y, w: 644, h: 320, fill: C.stage });
@@ -1022,7 +1024,7 @@ txt(dstage, {
 [
   ["Technical data", "Ratings the factory quotes.", cv2Fill],
   ["Leaflets", "Short type sheets.", hwvFill],
-  ["Instructions", "Install and operate.", cma7Fill],
+  ["Instructions", "Install and operate.", cma7Tile],
 ].forEach((row, i) => {
   const n = frame(dl, {
     name: row[0], x: 56 + i * 444, y: 516, w: 428, h: 200, fill: C.stage,
@@ -1099,7 +1101,7 @@ let dy = mStage(dlM, {
 [
   ["Technical data", "Ratings the factory quotes.", cv2Fill],
   ["Leaflets", "Short type sheets.", hwvFill],
-  ["Instructions", "Install and operate.", cma7Fill],
+  ["Instructions", "Install and operate.", cma7Tile],
 ].forEach((row, i) => {
   mPhotoCard(dlM, {
     name: row[0], y: dy + 16 + i * 188, fill: row[2], title: row[0], sub: row[1],
@@ -1507,6 +1509,13 @@ newsCards.forEach((card, i) => {
   });
   const photo = frame(n, { name: "photo", x: 0, y: 0, w: 428, h: 168, fill: C.stage });
   if (card.fill) photo.fills = card.fill;
+  else {
+    txt(photo, {
+      text: "International HQ",
+      x: 20, y: 112, w: 388, h: 28, size: 18,
+      family: uiSB.family, style: uiSB.style, color: C.white,
+    });
+  }
   txt(n, {
     text: card.date, x: 20, y: 184, w: 388, h: 16, size: 12,
     family: uiM.family, style: uiM.style, color: C.blue, track: 0.6,
@@ -1570,6 +1579,13 @@ crTeasers.forEach((card, i) => {
   });
   const photo = frame(n, { name: "photo", x: 0, y: 0, w: 428, h: 168, fill: C.stage });
   if (card.fill) photo.fills = card.fill;
+  else {
+    txt(photo, {
+      text: "International HQ",
+      x: 20, y: 112, w: 388, h: 28, size: 18,
+      family: uiSB.family, style: uiSB.style, color: C.white,
+    });
+  }
   txt(n, {
     text: card.sub, x: 20, y: 180, w: 388, h: 16, size: 12,
     family: uiM.family, style: uiM.style, color: C.blue, track: 0.6,
@@ -1714,7 +1730,7 @@ productType("12 Product HWV", "product-hwv", {
   siblings: [
     ["CV2", "Vacuum selector-switch. III 350 A and 600 A only.", cv2Fill],
     ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
-    ["CMA7", "Motor drive. Accessory, not a tap changer.", cma7Fill],
+    ["CMA7", "Motor drive. Accessory, not a tap changer.", cma7Tile],
   ],
   specs: [
     ["Switching", "On-tank vacuum. Oil chamber separate from the main tank."],
@@ -1734,7 +1750,7 @@ productType("13 Product WSL", "product-wsl", {
   siblings: [
     ["WDG", "Drum OCTC. Transformer off.", null],
     ["ZWC", "Linear OCTC. Transformer off.", null],
-    ["CM", "Oil OLTC. Transformer stays live.", cmFill],
+    ["CM", "Oil OLTC. Transformer stays live.", cmTile],
   ],
   specs: [
     ["Duty", "OCTC / DETC. Transformer off."],
@@ -1775,7 +1791,7 @@ productType("15 Product CM", "product-cm", {
   siblings: [
     ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
     ["CV2", "Vacuum selector-switch. III 350 A and 600 A only.", cv2Fill],
-    ["CMA7", "Motor drive. Accessory, not a tap changer.", cma7Fill],
+    ["CMA7", "Motor drive. Accessory, not a tap changer.", cma7Tile],
   ],
   specs: [
     ["Switching", "In-tank diverter + selector. Arc in oil."],
@@ -1805,10 +1821,10 @@ txt(moreStage, {
 btn(moreStage, { label: "Download brochures", x: 56, y: 356, w: 196, fill: C.white, color: C.ink, fontName: uiM });
 
 const moreWorlds = [
-  { title: "Oil OLTC", sub: "CMD · CV", fill: cmFill, x: 56, y: 576 },
+  { title: "Oil OLTC", sub: "CMD · CV", fill: cmTile, x: 56, y: 576 },
   { title: "Vacuum OLTC", sub: "SHZVG · CHVT", fill: shzvFill, x: 740, y: 576 },
   { title: "Dry · gas · regulator · reactive", sub: "CVT · CZ · SHGV · HMDK · HWDK", fill: subFill, x: 56, y: 892 },
-  { title: "OCTC", sub: "WDG · ZWC. Transformer off.", fill: wslFill, x: 740, y: 892 },
+  { title: "OCTC", sub: "WDG · ZWC. Transformer off.", fill: wslTile, x: 740, y: 892 },
 ];
 moreWorlds.forEach((w) => {
   const n = frame(more, { name: w.title, x: w.x, y: w.y, w: 644, h: 300, fill: C.stage });
@@ -2010,7 +2026,7 @@ btn(missSt, { label: "Find a type", x: 56, y: 400, w: 148, fill: C.white, color:
 [
   ["CV2", "Vacuum selector-switch. III 350 A and 600 A only.", cv2Fill],
   ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
-  ["WSL", "Cage OCTC. Transformer off.", wslFill],
+  ["WSL", "Cage OCTC. Transformer off.", wslTile],
 ].forEach((row, i) => {
   photoTeaser(missing, {
     name: row[0], x: 56 + i * 444, y: 620, w: 428, h: 240,
