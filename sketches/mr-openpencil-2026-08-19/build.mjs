@@ -817,7 +817,47 @@ function productType(pageName, artName, { fill, name, dek, siblings, specs, cta,
 
   siteFoot(art, 1320);
   art.resize(1440, 1460);
+  productMobile(art, artName + "-mobile", { fill, name, dek, siblings, specs, cta });
   return art;
+}
+
+// Product 390: chrome → STAGE photo (type bottom) → stacked sibling cards → 3 spec rows → foot
+function productMobile(deskArt, artName, { fill, name, dek, siblings, specs, cta }) {
+  const m = siteMobile(deskArt, artName, 1680);
+  let y = mStage(m, {
+    fill: darkPhoto(fill),
+    title: name,
+    dek,
+    cta: cta || "Technical data PDF",
+    h: 320,
+  });
+  siblings.forEach((row, i) => {
+    mPhotoCard(m, {
+      name: row[0], y: y + 16 + i * 188, fill: row[2], title: row[0], sub: row[1],
+    });
+  });
+  y += 16 + siblings.length * 188 + 8;
+  specs.slice(0, 3).forEach((row, i) => {
+    const ry = y + i * 64;
+    const line = figma.createRectangle();
+    line.resize(358, 1);
+    line.fills = solid(C.ink, 0.1);
+    m.appendChild(line);
+    line.x = 16;
+    line.y = ry;
+    txt(m, {
+      text: row[0], x: 16, y: ry + 8, w: 358, h: 14, size: 11,
+      family: uiM.family, style: uiM.style, color: C.muted, track: 0.8,
+    });
+    txt(m, {
+      text: row[1], x: 16, y: ry + 24, w: 358, h: 32, size: 13,
+      family: ui.family, style: ui.style, lh: 16,
+    });
+  });
+  y += 3 * 64 + 16;
+  mFoot(m, y);
+  m.resize(390, y + 88);
+  return m;
 }
 
 // PRODUCTS INDEX — MR portfolio: stage + teaser tiles, then a compact type list
@@ -1912,9 +1952,7 @@ return {
   mobile: [
     productsM.name, dlM.name, aboutM.name, contactM.name, projectsM.name,
     newsM.name, careersM.name, learnM.name,
-  ].map((name, i) => ({
-    name,
-    w: [productsM, dlM, aboutM, contactM, projectsM, newsM, careersM, learnM][i].width,
-    h: [productsM, dlM, aboutM, contactM, projectsM, newsM, careersM, learnM][i].height,
-  })),
+    "product-cm2-mobile", "product-shzv-mobile", "product-hwv-mobile",
+    "product-wsl-mobile", "product-cma7-mobile", "product-cm-mobile",
+  ],
 };

@@ -44,7 +44,7 @@ Refuse: MR red, MR mark, MR sentences, cream paper, serif kickers.
 | 3 | Product pages CM2, SHZV, HWV | done 2026-08-20 00:46; cycle-2 review no must-fix |
 | 4 | Product pages WSL, CMA7, CM | done 2026-08-20 |
 | 5 | Remaining types as compact rows + mobile for slice 1–2 | done 2026-08-20 (`16 More types` + 390 mobile: Products, Downloads, About, Contact, Projects, Learn) |
-| 6 | Polish from reviews, nav consistency, empty/error | done 2026-08-20 01:38; cycle-4 studio stages WSL/CMA7/CM, no must-fix |
+| 6 | Polish from reviews, nav consistency, empty/error | done 2026-08-20 01:38; product 390 for CM2 SHZV HWV WSL CMA7 CM (x:1528) |
 
 ## Do not
 

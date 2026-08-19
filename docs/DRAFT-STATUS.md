@@ -16,7 +16,7 @@ Layout lock: Reinhausen.com (stage → photo teasers → optional list). Huaming
 
 Home (+390), Products, Downloads, About, Contact, Projects, News, Careers, Learn, CV2, CM2, SHZV, HWV, WSL, CMA7, CM, More types, Not found.
 
-390 mobile on: Home, Products, Downloads, About, Contact, Projects, News, Careers, Learn.
+390 mobile on: Home, Products, Downloads, About, Contact, Projects, News, Careers, Learn, CV2, CM2, SHZV, HWV, WSL, CMA7, CM.
 
 ## Reviews
 
