@@ -122,9 +122,13 @@ function chrome(parent, { w, fonts, dark }) {
       family: fonts.ui.family, style: fonts.ui.style, color: navColor,
     });
   });
-  txt(head, {
-    text: "Search", x: w - 120, y: 28, w: 64, h: 18, size: 14,
-    family: fonts.ui.family, style: fonts.ui.style, color: navColor, align: "RIGHT",
+  const seek = frame(head, {
+    name: "search", x: w - 220, y: 18, w: 164, h: 36, fill: dark ? "#2A2A28" : "#F4F4F2",
+    stroke: { color: dark ? C.white : C.ink, opacity: 0.18 },
+  });
+  txt(seek, {
+    text: "Search", x: 12, y: 9, w: 140, h: 18, size: 13,
+    family: fonts.ui.family, style: fonts.ui.style, color: dark ? C.white : C.muted,
   });
 }
 
@@ -935,8 +939,8 @@ txt(hq2, {
   x: 24, y: 112, w: 580, h: 18, size: 13, family: ui.family, style: ui.style, color: C.muted,
 });
 txt(about, {
-  text: "Xiao Yi has run Huaming since 1995. Turkey plant, Indonesia, Brazil, USA. ISO 9001 / 14001 / 18001. Type-test laboratory.",
-  x: 56, y: 968, w: 1100, h: 44, size: 15, family: ui.family, style: ui.style, color: C.muted, lh: 22,
+  text: "Turkey plant, Indonesia, Brazil, USA. ISO 9001 / 14001 / 18001. Type-test laboratory.",
+  x: 56, y: 968, w: 1100, h: 24, size: 15, family: ui.family, style: ui.style, color: C.muted,
 });
 siteFoot(about, 1040);
 about.resize(1440, 1180);
@@ -958,29 +962,27 @@ txt(cstage, {
   family: ui.family, style: ui.style, color: C.white, opacity: 0.85,
 });
 [
-  ["Looking for a type?", "Open the range. CV2 is three clicks from home.", "Find a type"],
-  ["Need a PDF?", "Same technical data the factory uses.", "Downloads"],
-  ["Ready to talk?", "Write. Name the type if you have one.", "Send a note"],
+  ["Find a type", "Open the range. Start with CV2.", cv2Fill],
+  ["Take a PDF", "Technical data the factory uses.", hwvFill],
+  ["Write", "intl@huaming.com. Name the type.", factoryFill],
 ].forEach((col, i) => {
   const n = frame(contact, {
-    name: col[0], x: 56 + i * 444, y: 520, w: 428, h: 160, fill: C.white,
-    stroke: { color: C.ink, opacity: 0.12 },
+    name: col[0], x: 56 + i * 444, y: 520, w: 428, h: 220, fill: C.stage,
+  });
+  n.fills = darkPhoto(col[2]);
+  const sh = frame(n, { name: "shade", x: 0, y: 140, w: 428, h: 80, fill: C.ink });
+  sh.fills = solid(C.ink, 0.72);
+  txt(n, {
+    text: col[0], x: 16, y: 152, w: 396, h: 22, size: 16,
+    family: uiSB.family, style: uiSB.style, color: C.white,
   });
   txt(n, {
-    text: col[0], x: 20, y: 24, w: 388, h: 22, size: 16,
-    family: uiSB.family, style: uiSB.style,
-  });
-  txt(n, {
-    text: col[1], x: 20, y: 56, w: 388, h: 40, size: 13,
-    family: ui.family, style: ui.style, color: C.muted, lh: 18,
-  });
-  txt(n, {
-    text: col[2] + " →", x: 20, y: 112, w: 388, h: 18, size: 13,
-    family: uiM.family, style: uiM.style, color: C.blue,
+    text: col[1], x: 16, y: 178, w: 396, h: 28, size: 13,
+    family: ui.family, style: ui.style, color: C.white,
   });
 });
 const form = frame(contact, {
-  name: "form", x: 56, y: 712, w: 720, h: 360, fill: C.white,
+  name: "form", x: 56, y: 768, w: 720, h: 360, fill: C.white,
   stroke: { color: C.ink, opacity: 0.12 },
 });
 [
@@ -1008,7 +1010,7 @@ const offices = [
   ["USA", "Irwindale, CA 91706"],
 ];
 offices.forEach((row, i) => {
-  const y = 712 + i * 56;
+  const y = 768 + i * 56;
   txt(contact, {
     text: row[0], x: 820, y, w: 540, h: 16, size: 14,
     family: uiM.family, style: uiM.style,
@@ -1018,8 +1020,8 @@ offices.forEach((row, i) => {
     family: ui.family, style: ui.style, color: C.muted,
   });
 });
-siteFoot(contact, 1100);
-contact.resize(1440, 1240);
+siteFoot(contact, 1160);
+contact.resize(1440, 1300);
 
 // PROJECTS — stage + three Home impulses. Not a fake case-study grid.
 const projects = siteArt("06 Projects", "projects-desktop", 1480);
@@ -1267,6 +1269,63 @@ productType("12 Product HWV", "product-hwv", {
     ["Current", "400 / 800 / 1000 A — no 600 A"],
     ["Um", "17.5 / 40.5 / 72.5 kV. No selector grade letter."],
     ["Drive", "Motor drive included."],
+    ["Positions", "18 without change-over, 35 with"],
+  ],
+});
+
+// 13 Product WSL — cage OCTC / DETC. Transformer off. Not an OLTC.
+productType("13 Product WSL", "product-wsl", {
+  fill: wslFill,
+  name: "WSL",
+  dek: "Cage-type OCTC. Transformer off. Not an OLTC.",
+  siblings: [
+    ["CM", "Oil in-tank OLTC. III 500 / 600 A. Transformer stays live.", cmFill],
+    ["CMA7", "Motor drive. Accessory, not a tap changer.", cma7Fill],
+    ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
+  ],
+  specs: [
+    ["Duty", "OCTC / DETC. Transformer off."],
+    ["Type", "Cage. In tank oil, no separate compartment."],
+    ["Operation", "Only with the transformer isolated. Not an OLTC."],
+    ["Name", "WSL. Cage OCTC."],
+    ["Also", "Drum WDG · linear ZWC"],
+  ],
+});
+
+// 14 Product CMA7 — motor drive unit. Accessory. Not a tap changer. HWV already has its drive.
+productType("14 Product CMA7", "product-cma7", {
+  fill: cma7Fill,
+  name: "CMA7",
+  dek: "Motor drive unit. Accessory, not a tap changer.",
+  siblings: [
+    ["HWV", "On-tank vacuum OLTC. Motor drive included.", hwvFill],
+    ["CM", "Oil in-tank OLTC. III 500 / 600 A.", cmFill],
+    ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
+  ],
+  specs: [
+    ["Function", "Motor drive unit. Turns the tap changer."],
+    ["Kind", "Accessory. Not a tap changer."],
+    ["Family", "CMA7 · SHM-D · SHM-X"],
+    ["Mount", "The motor cabinet on an in-tank tap changer."],
+    ["PDF", "Operating instructions."],
+  ],
+});
+
+// 15 Product CM — oil-arc in-tank OLTC. III 500 / 600 A typical. Not vacuum.
+productType("15 Product CM", "product-cm", {
+  fill: cmFill,
+  name: "CM",
+  dek: "Oil-arc in-tank OLTC. III 500 / 600 A. Not vacuum.",
+  siblings: [
+    ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
+    ["CV2", "Vacuum selector. III 350 A and 600 A only.", cv2Fill],
+    ["CMA7", "Motor drive. Accessory, not a tap changer.", cma7Fill],
+  ],
+  specs: [
+    ["Switching", "In-tank diverter + selector. Arc in oil."],
+    ["Current", "III/II 500 A and 600 A. I also 800 / 1200 / 1500 A."],
+    ["Um", "72.5 / 126 / 170 / 252 kV"],
+    ["Selector", "B / C / D / DE. Max. step voltage 3300 V"],
     ["Positions", "18 without change-over, 35 with"],
   ],
 });
