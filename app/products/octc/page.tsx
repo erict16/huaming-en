@@ -6,10 +6,16 @@ export const metadata: Metadata = { title: "De-energized tap changers" };
 
 export default function OctcPage() {
   return (
-    <main className="mx-auto max-w-6xl px-5 py-14">
-      <p className="text-[12px] uppercase tracking-[0.16em] text-muted">OCTC / DETC</p>
-      <h1 className="font-serif mt-2 text-4xl">De-energized tap changers</h1>
-      <p className="mt-4 max-w-2xl">
+    <main className="sheet">
+      <div className="folio">
+        <span>
+          <span className="folio-mark">HM / 02</span>
+          <span> · OCTC / DETC</span>
+        </span>
+      </div>
+      <hr className="rule-strong mt-3" />
+      <h1 className="display-sm mt-8">De-energized tap changers</h1>
+      <p className="lede mt-4">
         Change taps only with the transformer off. Cage (WSL / WDL), drum (WDG), linear (ZWC). Not
         on-load. Not a vacuum filter.
       </p>

@@ -11,8 +11,10 @@ const sans = IBM_Plex_Sans({
 });
 const serif = Source_Serif_4({
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: "variable",
+  style: ["normal", "italic"],
   variable: "--font-serif",
+  axes: ["opsz"],
 });
 const mono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -33,6 +35,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
       <body className="min-h-screen font-sans antialiased">
+        <svg className="svg-filters" aria-hidden="true" focusable="false">
+          <filter id="knock-black" colorInterpolationFilters="sRGB">
+            <feColorMatrix
+              type="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  2.6 2.6 2.6 0 -0.12"
+            />
+          </filter>
+        </svg>
         <Header />
         {children}
         <Footer />

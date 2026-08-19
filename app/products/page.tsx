@@ -1,63 +1,38 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { families, products } from "@/lib/catalog";
-import { productImageSrc } from "@/lib/product-image";
+import { FamilyList } from "@/components/FamilyList";
+import { families } from "@/lib/catalog";
 
 export const metadata: Metadata = { title: "Products" };
 
 export default function ProductsPage() {
   return (
-    <main className="mx-auto max-w-6xl px-5 py-14">
-      <p className="text-[12px] uppercase tracking-[0.16em] text-muted">Catalogue</p>
-      <h1 className="font-serif mt-2 text-4xl">Products</h1>
-      <p className="mt-4 max-w-2xl">
+    <main className="sheet">
+      <div className="folio">
+        <span>
+          <span className="folio-mark">HM / 02</span>
+          <span> · Catalogue</span>
+        </span>
+        <span>OLTC · OCTC · Accessories</span>
+      </div>
+      <hr className="rule-strong mt-3" />
+      <h1 className="display-sm mt-8">Products</h1>
+      <p className="lede mt-4">
         Three jobs: on-load tap changers, de-energized tap changers, and accessories (motor drives,
         monitors). Vacuum is a technology inside OLTC, not a third family.
       </p>
-      <p className="mt-3 text-sm">
-        <Link href="/products/oltc/" className="underline">
+      <nav className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm" aria-label="Families">
+        <Link href="/products/oltc/" className="link-ink">
           OLTC
         </Link>
-        {" · "}
-        <Link href="/products/octc/" className="underline">
+        <Link href="/products/octc/" className="link-ink">
           OCTC
         </Link>
-        {" · "}
-        <Link href="/products/accessories/" className="underline">
+        <Link href="/products/accessories/" className="link-ink">
           Accessories
         </Link>
-      </p>
-      {families.map((family) => {
-        const rows = products.filter((p) => p.family === family.id);
-        if (!rows.length) return null;
-        return (
-          <section key={family.id} className="mt-12">
-            <h2 className="font-serif text-2xl">{family.name}</h2>
-            <p className="mt-1 text-sm text-muted">{family.blurb}</p>
-            <ul className="mt-4 divide-y divide-rule border-y border-rule">
-              {rows.map((p) => {
-                const photo = productImageSrc(p.slug);
-                return (
-                  <li
-                    key={p.slug}
-                    className="flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between"
-                  >
-                    <div className="flex items-center gap-4">
-                      {photo ? (
-                        <img src={photo} alt="" className="h-14 w-14 object-contain" />
-                      ) : null}
-                      <Link href={`/products/${p.slug}/`} className="font-mono underline">
-                        {p.name}
-                      </Link>
-                    </div>
-                    <span className="max-w-2xl text-sm">{p.oneLiner}</span>
-                  </li>
-                );
-              })}
-            </ul>
-          </section>
-        );
-      })}
+      </nav>
+      <FamilyList familyIds={families.map((f) => f.id)} />
     </main>
   );
 }
