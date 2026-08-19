@@ -629,15 +629,25 @@ function siteArt(pageName, artName, h) {
 }
 
 function siteFoot(parent, y) {
-  const f = frame(parent, { name: "footer", x: 0, y, w: 1440, h: 140, fill: C.ink });
+  const f = frame(parent, { name: "footer", x: 0, y, w: 1440, h: 180, fill: C.ink });
   txt(f, {
-    text: "intl@huaming.com    Shanghai · Singapore",
-    x: 56, y: 56, w: 640, h: 18, size: 13,
-    family: ui.family, style: ui.style, color: C.white, opacity: 0.8,
+    text: "HUAMING",
+    x: 56, y: 36, w: 200, h: 18, size: 14,
+    family: uiSB.family, style: uiSB.style, color: C.white, track: 1.2,
+  });
+  txt(f, {
+    text: "Shanghai 977 Tongpu Road    Singapore TSX Tower A #03-13",
+    x: 56, y: 64, w: 720, h: 18, size: 12,
+    family: ui.family, style: ui.style, color: C.white, opacity: 0.75,
+  });
+  txt(f, {
+    text: "intl@huaming.com",
+    x: 56, y: 90, w: 400, h: 18, size: 12,
+    family: ui.family, style: ui.style, color: C.white,
   });
   txt(f, {
     text: "Products    Downloads    Contact",
-    x: 900, y: 56, w: 484, h: 18, size: 13,
+    x: 900, y: 64, w: 484, h: 18, size: 13,
     family: ui.family, style: ui.style, color: C.white, align: "RIGHT",
   });
   return f;
