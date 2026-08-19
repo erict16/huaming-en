@@ -558,7 +558,7 @@ btn(cv2stage, { label: "Technical data PDF", x: 56, y: 436, w: 196, fill: C.whit
 });
 
 const specs = [
-  ["Switching", "Vacuum selector switch. Mechanical backup contacts. No grade letter."],
+  ["Switching", "Vacuum selector-switch. Mechanical backup contacts. No grade letter."],
   ["Current", "III 350 A and 600 A."],
   ["Um", "40.5 / 72.5 / 126 / 145 kV"],
   ["Step voltage", "2000 V (10 contacts) / 1500 V (12 contacts)"],
@@ -1756,7 +1756,7 @@ productType("13 Product WSL", "product-wsl", {
     ["Duty", "OCTC / DETC. Transformer off."],
     ["Type", "Cage. De-energized only."],
     ["Operation", "Only with the transformer isolated. Not an OLTC."],
-    ["Name", "WSL. Cage OCTC."],
+    ["Name", "WSL / WDL"],
     ["Also", "Drum WDG · linear ZWC"],
   ],
 });

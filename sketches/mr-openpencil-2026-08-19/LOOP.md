@@ -47,6 +47,7 @@ Refuse: MR red, MR mark, MR sentences, cream paper, serif kickers.
 | 6 | Polish from reviews, nav consistency, empty/error | done 2026-08-20 01:38; product 390 for CM2 SHZV HWV WSL CMA7 CM (x:1528) |
 | 7 | Visual-lock nits (cycle-4 should-fix) | done 2026-08-20 02:15; cycle-5 no must-fix. Search field, studio split, photo tiles, SG dark HQ, WSL WDG/ZWC |
 | 8 | White-JPEG teaser tiles + more-types 390 preview | done 2026-08-20 03:03. Knockout tiles for CM/CMA7/WSL teasers. PDP studio split unchanged. |
+| 9 | Copy nits + stale previews | done 2026-08-20 03:16. WSL Name = WSL / WDL. CV2 spec hyphen. Re-exported About Contact Projects Learn CV2 CM2 SHZV. |
 
 ## Do not
 
