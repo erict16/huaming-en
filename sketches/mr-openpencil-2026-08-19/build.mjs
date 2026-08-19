@@ -165,17 +165,26 @@ const wslTile = await imageFill(`${ROOT}/assets/products/wsl-tile.png`, "FIT");
 const cma7Tile = await imageFill(`${ROOT}/assets/products/cma7-tile.png`, "FIT");
 const cmTile = await imageFill(`${ROOT}/assets/products/cm-tile.png`, "FIT");
 
-function photoTeaser(parent, { name, x, y, w, h, fill, title, sub }) {
+function photoTeaser(parent, { name, x, y, w, h, fill, title, sub, kicker }) {
   const n = frame(parent, { name, x, y, w, h, fill: C.stage });
   if (fill) n.fills = darkPhoto(fill);
-  const sh = frame(n, { name: "shade", x: 0, y: h - 88, w, h: 88, fill: C.ink });
+  const shadeH = kicker ? 112 : 88;
+  const sh = frame(n, { name: "shade", x: 0, y: h - shadeH, w, h: shadeH, fill: C.ink });
   sh.fills = solid(C.ink, 0.72);
+  let ty = h - shadeH + 16;
+  if (kicker) {
+    txt(n, {
+      text: kicker, x: 20, y: ty, w: w - 40, h: 16, size: 12,
+      family: uiM.family, style: uiM.style, color: C.white, track: 0.6,
+    });
+    ty += 20;
+  }
   txt(n, {
-    text: title, x: 20, y: h - 72, w: w - 40, h: 22, size: 18,
+    text: title, x: 20, y: ty, w: w - 40, h: 22, size: 18,
     family: uiSB.family, style: uiSB.style, color: C.white,
   });
   txt(n, {
-    text: sub, x: 20, y: h - 46, w: w - 40, h: 32, size: 13,
+    text: sub, x: 20, y: ty + 26, w: w - 40, h: 32, size: 13,
     family: ui.family, style: ui.style, color: C.white, lh: 17,
   });
   return n;
@@ -251,19 +260,9 @@ const impulses = [
   { title: "Vacuum or oil", body: "OLTC changes taps while the transformer is live. OCTC only with it off. Pick the family first.", fill: subFill },
 ];
 impulses.forEach((card, i) => {
-  const n = frame(desk, {
-    name: card.title, x: 56 + i * 444, y: 920, w: 428, h: 300, fill: C.white,
-    stroke: { color: C.ink, opacity: 0.12 },
-  });
-  const photo = frame(n, { name: "photo", x: 0, y: 0, w: 428, h: 168, fill: C.stage });
-  photo.fills = card.fill;
-  txt(n, {
-    text: card.title, x: 20, y: 184, w: 388, h: 24, size: 18,
-    family: uiSB.family, style: uiSB.style,
-  });
-  txt(n, {
-    text: card.body, x: 20, y: 214, w: 388, h: 64, size: 13,
-    family: ui.family, style: ui.style, color: C.muted, lh: 20,
+  photoTeaser(desk, {
+    name: card.title, x: 56 + i * 444, y: 920, w: 428, h: 300,
+    fill: card.fill, title: card.title, sub: card.body,
   });
 });
 
@@ -322,19 +321,9 @@ const latest = [
   { name: "HWV", line: "On-tank vacuum. 400 / 800 / 1000 A. Drive included.", fill: hwvFill },
 ];
 latest.forEach((p, i) => {
-  const n = frame(desk, {
-    name: p.name, x: 56 + i * 340, y: 2156, w: 324, h: 236, fill: C.white,
-    stroke: { color: C.ink, opacity: 0.12 },
-  });
-  const ph = frame(n, { name: "photo", x: 0, y: 0, w: 324, h: 140, fill: C.stage });
-  ph.fills = darkPhoto(p.fill);
-  txt(n, {
-    text: p.name, x: 16, y: 152, w: 292, h: 22, size: 18,
-    family: uiSB.family, style: uiSB.style,
-  });
-  txt(n, {
-    text: p.line, x: 16, y: 178, w: 292, h: 40, size: 13,
-    family: ui.family, style: ui.style, color: C.muted, lh: 18,
+  photoTeaser(desk, {
+    name: p.name, x: 56 + i * 340, y: 2156, w: 324, h: 236,
+    fill: p.fill, title: p.name, sub: p.line,
   });
 });
 
@@ -381,7 +370,7 @@ txt(career, {
   family: uiM.family, style: uiM.style, color: C.blue, track: 1.8,
 });
 txt(career, {
-  text: "Work on the switch inside the transformer.",
+  text: "Work on the switch.",
   x: 772, y: 84, w: 560, h: 72, size: 28,
   family: uiSB.family, style: uiSB.style, lh: 34,
 });
@@ -582,58 +571,62 @@ specs.forEach((row, i) => {
   });
 });
 
-const pfoot = frame(prod, { name: "footer", x: 0, y: 1360, w: 1440, h: 160, fill: C.ink });
-txt(pfoot, {
-  text: "intl@huaming.com    Shanghai · Singapore",
-  x: 56, y: 64, w: 600, h: 18, size: 13,
-  family: ui.family, style: ui.style, color: C.white, opacity: 0.8,
-});
-txt(pfoot, {
-  text: "Find a type    Downloads    Contact",
-  x: 900, y: 64, w: 484, h: 18, size: 13,
-  family: ui.family, style: ui.style, color: C.white, align: "RIGHT",
-});
-prod.resize(1440, 1520);
+siteFoot(prod, 1360);
+prod.resize(1440, 1540);
 
 const mprod = frame(board, {
   name: "product-cv2-mobile",
-  x: 1528, y: 3608, w: 390, h: 1480, fill: C.white,
+  x: 1528, y: 3608, w: 390, h: 1680, fill: C.white,
 });
 txt(mprod, {
-  text: "HUAMING", x: 16, y: 16, w: 160, h: 18, size: 14,
+  text: "HUAMING", x: 16, y: 16, w: 160, h: 20, size: 16,
   family: uiSB.family, style: uiSB.style, color: C.blue, track: 1.2,
 });
 txt(mprod, {
-  text: "Products / CV2", x: 16, y: 48, w: 358, h: 16, size: 12,
-  family: ui.family, style: ui.style, color: C.muted,
+  text: "Menu", x: 310, y: 18, w: 60, h: 18, size: 13,
+  family: uiM.family, style: uiM.style, align: "RIGHT",
 });
-const mph = frame(mprod, { name: "photo", x: 0, y: 76, w: 390, h: 280, fill: C.stage });
-mph.fills = darkPhoto(cv2Fill);
-txt(mprod, {
-  text: "CV2", x: 16, y: 372, w: 358, h: 40, size: 36,
-  family: uiSB.family, style: uiSB.style,
+let cv2my = mStage(mprod, {
+  fill: darkPhoto(cv2Fill),
+  title: "CV2",
+  dek: "Vacuum selector-switch. III 350 A and 600 A.",
+  cta: "Technical data PDF",
+  h: 320,
 });
-txt(mprod, {
-  text: "Vacuum selector-switch OLTC. III 350 A and 600 A.",
-  x: 16, y: 420, w: 358, h: 64, size: 15,
-  family: ui.family, style: ui.style, color: C.muted, lh: 22,
+[
+  ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
+  ["SHZV", "Vacuum CMD. Use when CM2 current does not cover.", shzvFill],
+  ["HWV", "On-tank vacuum. 400 / 800 / 1000 A. Drive included.", hwvFill],
+].forEach((row, i) => {
+  mPhotoCard(mprod, {
+    name: row[0], y: cv2my + 16 + i * 188, fill: row[2], title: row[0], sub: row[1],
+  });
 });
-btn(mprod, { label: "Technical data PDF", x: 16, y: 500, w: 358, fontName: uiM });
+cv2my += 16 + 3 * 188 + 8;
 [
   ["Current", "III 350 A and 600 A"],
   ["Um", "40.5 / 72.5 / 126 / 145 kV"],
   ["Positions", "12, or 23 with change-over"],
 ].forEach((row, i) => {
+  const ry = cv2my + i * 64;
+  const line = figma.createRectangle();
+  line.resize(358, 1);
+  line.fills = solid(C.ink, 0.1);
+  mprod.appendChild(line);
+  line.x = 16;
+  line.y = ry;
   txt(mprod, {
-    text: row[0], x: 16, y: 568 + i * 48, w: 358, h: 16, size: 11,
+    text: row[0], x: 16, y: ry + 8, w: 358, h: 14, size: 11,
     family: uiM.family, style: uiM.style, color: C.muted, track: 0.8,
   });
   txt(mprod, {
-    text: row[1], x: 16, y: 584 + i * 48, w: 358, h: 18, size: 14,
-    family: ui.family, style: ui.style,
+    text: row[1], x: 16, y: ry + 24, w: 358, h: 32, size: 13,
+    family: ui.family, style: ui.style, lh: 16,
   });
 });
-mprod.resize(390, 760);
+cv2my += 3 * 64 + 16;
+mFoot(mprod, cv2my);
+mprod.resize(390, cv2my + 88);
 
 board.resize(1960, 5160);
 
@@ -733,27 +726,26 @@ function mPhotoCard(parent, { name, y, fill, title, sub }) {
 }
 
 function mTeaser(parent, { name, y, fill, kicker, title, sub }) {
-  const n = frame(parent, {
-    name, x: 16, y, w: 358, h: 228, fill: C.white,
-    stroke: { color: C.ink, opacity: 0.12 },
-  });
-  const ph = frame(n, { name: "photo", x: 0, y: 0, w: 358, h: 128, fill: C.stage });
-  if (fill) ph.fills = darkPhoto(fill);
-  let ty = 140;
+  const n = frame(parent, { name, x: 16, y, w: 358, h: 228, fill: C.stage });
+  if (fill) n.fills = darkPhoto(fill);
+  const shadeH = kicker ? 108 : 88;
+  const sh = frame(n, { name: "shade", x: 0, y: 228 - shadeH, w: 358, h: shadeH, fill: C.ink });
+  sh.fills = solid(C.ink, 0.72);
+  let ty = 228 - shadeH + 12;
   if (kicker) {
     txt(n, {
       text: kicker, x: 16, y: ty, w: 326, h: 14, size: 11,
-      family: uiM.family, style: uiM.style, color: C.blue, track: 0.6,
+      family: uiM.family, style: uiM.style, color: C.white, track: 0.6,
     });
     ty += 16;
   }
   txt(n, {
     text: title, x: 16, y: ty, w: 326, h: 20, size: 16,
-    family: uiSB.family, style: uiSB.style,
+    family: uiSB.family, style: uiSB.style, color: C.white,
   });
   txt(n, {
     text: sub, x: 16, y: ty + 22, w: 326, h: 36, size: 12,
-    family: ui.family, style: ui.style, color: C.muted, lh: 16,
+    family: ui.family, style: ui.style, color: C.white, lh: 16,
   });
   return n;
 }
@@ -1153,6 +1145,7 @@ txt(astage, {
   x: 56, y: 360, w: 800, h: 44, size: 16,
   family: ui.family, style: ui.style, color: C.white, lh: 22,
 });
+btn(astage, { label: "Write to us", x: 56, y: 416, w: 140, fill: C.white, color: C.ink, fontName: uiM });
 const numsA = frame(about, { name: "numbers", x: 0, y: 588, w: 1440, h: 140, fill: C.ink });
 [
   ["1989", "Founded, Shanghai"],
@@ -1172,41 +1165,20 @@ const numsA = frame(about, { name: "numbers", x: 0, y: 588, w: 1440, h: 140, fil
 [
   {
     name: "shanghai", x: 56,
-    fill: factoryFill, kicker: "Shanghai  ·  factory",
-    addr: "No. 977 Tongpu Road, Putuo District, Shanghai 200333, China",
-    note: "Credit code 913101076076323035",
+    fill: factoryFill, kicker: "Factory",
+    title: "Shanghai",
+    sub: "No. 977 Tongpu Road, Putuo. Credit code 913101076076323035.",
   },
   {
     name: "singapore", x: 740,
-    fill: null, kicker: "Singapore  ·  international HQ",
-    addr: "TSX Tower A #03-13, 1 Tai Seng Ave, Singapore 536464",
-    note: "Opened 29 April 2025. intl@huaming.com",
+    fill: null, kicker: "International HQ",
+    title: "Singapore",
+    sub: "TSX Tower A #03-13, 1 Tai Seng Ave. Opened 29 April 2025.",
   },
 ].forEach((hq) => {
-  const n = frame(about, {
-    name: hq.name, x: hq.x, y: 760, w: 644, h: 320, fill: C.white,
-    stroke: { color: C.ink, opacity: 0.12 },
-  });
-  const ph = frame(n, { name: "photo", x: 0, y: 0, w: 644, h: 180, fill: C.stage });
-  if (hq.fill) ph.fills = hq.fill;
-  else {
-    txt(ph, {
-      text: "International HQ",
-      x: 24, y: 120, w: 580, h: 32, size: 22,
-      family: uiSB.family, style: uiSB.style, color: C.white,
-    });
-  }
-  txt(n, {
-    text: hq.kicker, x: 24, y: 196, w: 596, h: 18, size: 13,
-    family: uiM.family, style: uiM.style, color: C.blue, track: 0.8,
-  });
-  txt(n, {
-    text: hq.addr, x: 24, y: 220, w: 596, h: 40, size: 15,
-    family: ui.family, style: ui.style, lh: 20,
-  });
-  txt(n, {
-    text: hq.note, x: 24, y: 268, w: 596, h: 18, size: 13,
-    family: ui.family, style: ui.style, color: C.muted,
+  photoTeaser(about, {
+    name: hq.name, x: hq.x, y: 760, w: 644, h: 320,
+    fill: hq.fill, kicker: hq.kicker, title: hq.title, sub: hq.sub,
   });
 });
 txt(about, {
@@ -1221,6 +1193,7 @@ let ay = mStage(aboutM, {
   fill: factoryFill,
   title: "Tap changers, made in Shanghai.",
   dek: "On-load and de-energized types for power transformers.",
+  cta: "Write to us",
 });
 const mNumsA = frame(aboutM, { name: "numbers", x: 0, y: ay, w: 390, h: 220, fill: C.ink });
 [
@@ -1412,19 +1385,9 @@ const prImpulses = [
   { title: "Vacuum or oil", body: "OLTC changes taps while the transformer is live. OCTC only with it off. Pick the family first.", fill: subFill },
 ];
 prImpulses.forEach((card, i) => {
-  const n = frame(projects, {
-    name: card.title, x: 56 + i * 444, y: 620, w: 428, h: 300, fill: C.white,
-    stroke: { color: C.ink, opacity: 0.12 },
-  });
-  const photo = frame(n, { name: "photo", x: 0, y: 0, w: 428, h: 168, fill: C.stage });
-  photo.fills = card.fill;
-  txt(n, {
-    text: card.title, x: 20, y: 184, w: 388, h: 24, size: 18,
-    family: uiSB.family, style: uiSB.style,
-  });
-  txt(n, {
-    text: card.body, x: 20, y: 214, w: 388, h: 64, size: 13,
-    family: ui.family, style: ui.style, color: C.muted, lh: 20,
+  photoTeaser(projects, {
+    name: card.title, x: 56 + i * 444, y: 620, w: 428, h: 300,
+    fill: card.fill, title: card.title, sub: card.body,
   });
 });
 const numsP = frame(projects, { name: "numbers", x: 0, y: 952, w: 1440, h: 140, fill: C.ink });
@@ -1503,30 +1466,9 @@ const newsCards = [
   { title: "Listed in Shenzhen", date: "2015", body: "Stock code 002270.SZ.", fill: factoryFill },
 ];
 newsCards.forEach((card, i) => {
-  const n = frame(newsPg, {
-    name: card.title, x: 56 + i * 444, y: 620, w: 428, h: 320, fill: C.white,
-    stroke: { color: C.ink, opacity: 0.12 },
-  });
-  const photo = frame(n, { name: "photo", x: 0, y: 0, w: 428, h: 168, fill: C.stage });
-  if (card.fill) photo.fills = card.fill;
-  else {
-    txt(photo, {
-      text: "International HQ",
-      x: 20, y: 112, w: 388, h: 28, size: 18,
-      family: uiSB.family, style: uiSB.style, color: C.white,
-    });
-  }
-  txt(n, {
-    text: card.date, x: 20, y: 184, w: 388, h: 16, size: 12,
-    family: uiM.family, style: uiM.style, color: C.blue, track: 0.6,
-  });
-  txt(n, {
-    text: card.title, x: 20, y: 206, w: 388, h: 44, size: 18,
-    family: uiSB.family, style: uiSB.style, lh: 22,
-  });
-  txt(n, {
-    text: card.body, x: 20, y: 256, w: 388, h: 40, size: 13,
-    family: ui.family, style: ui.style, color: C.muted, lh: 18,
+  photoTeaser(newsPg, {
+    name: card.title, x: 56 + i * 444, y: 620, w: 428, h: 320,
+    fill: card.fill, kicker: card.date, title: card.title, sub: card.body,
   });
 });
 siteFoot(newsPg, 980);
@@ -1556,7 +1498,7 @@ crstage.fills = factoryFill;
 const crveil = frame(crstage, { name: "veil", x: 0, y: 250, w: 1440, h: 230, fill: C.ink });
 crveil.fills = solid(C.ink, 0.62);
 txt(crstage, {
-  text: "Work on the switch inside the transformer.",
+  text: "Work on the switch.",
   x: 56, y: 284, w: 1000, h: 88, size: 36,
   family: uiSB.family, style: uiSB.style, color: C.white, lh: 42,
 });
@@ -1570,33 +1512,12 @@ btn(crstage, { label: "Write to us", x: 56, y: 416, w: 140, fill: C.white, color
 const crTeasers = [
   { title: "Shanghai", sub: "Factory", body: "No. 977 Tongpu Road, Putuo District, Shanghai 200333.", fill: factoryFill },
   { title: "Singapore", sub: "International HQ", body: "TSX Tower A #03-13, 1 Tai Seng Ave. Opened 29 April 2025.", fill: null },
-  { title: "Write", sub: "intl@huaming.com", body: "Engineering, test, and sales. We do not print a vacancy list.", fill: subFill },
+  { title: "Write", sub: "intl@huaming.com", body: "Engineering, test, and sales. We do not print a vacancy list.", fill: null },
 ];
 crTeasers.forEach((card, i) => {
-  const n = frame(careers, {
-    name: card.title, x: 56 + i * 444, y: 620, w: 428, h: 300, fill: C.white,
-    stroke: { color: C.ink, opacity: 0.12 },
-  });
-  const photo = frame(n, { name: "photo", x: 0, y: 0, w: 428, h: 168, fill: C.stage });
-  if (card.fill) photo.fills = card.fill;
-  else {
-    txt(photo, {
-      text: "International HQ",
-      x: 20, y: 112, w: 388, h: 28, size: 18,
-      family: uiSB.family, style: uiSB.style, color: C.white,
-    });
-  }
-  txt(n, {
-    text: card.sub, x: 20, y: 180, w: 388, h: 16, size: 12,
-    family: uiM.family, style: uiM.style, color: C.blue, track: 0.6,
-  });
-  txt(n, {
-    text: card.title, x: 20, y: 200, w: 388, h: 24, size: 18,
-    family: uiSB.family, style: uiSB.style,
-  });
-  txt(n, {
-    text: card.body, x: 20, y: 230, w: 388, h: 48, size: 13,
-    family: ui.family, style: ui.style, color: C.muted, lh: 18,
+  photoTeaser(careers, {
+    name: card.title, x: 56 + i * 444, y: 620, w: 428, h: 300,
+    fill: card.fill, kicker: card.sub, title: card.title, sub: card.body,
   });
 });
 siteFoot(careers, 960);
@@ -1632,35 +1553,21 @@ txt(lstage, {
   family: uiSB.family, style: uiSB.style, color: C.white, lh: 42,
 });
 txt(lstage, {
-  text: "A tap changer picks which winding tap is live. OLTC changes taps while the transformer is energised. OCTC only with it off. Vacuum or oil. Name the family, open a type, take the PDF.",
-  x: 56, y: 312, w: 860, h: 64, size: 16,
+  text: "OLTC while the transformer is live. OCTC only with it off. Vacuum or oil.",
+  x: 56, y: 312, w: 860, h: 48, size: 16,
   family: ui.family, style: ui.style, color: C.white, lh: 22,
 });
 btn(lstage, { label: "Find a type", x: 56, y: 396, w: 148, fill: C.white, color: C.ink, fontName: uiM });
 
 const learnSteps = [
-  { title: "Name the family", body: "OLTC, OCTC, or motor drive. On-load or off. Vacuum or oil.", fill: cv2Fill },
+  { title: "Name the family", body: "On-load or off. Vacuum or oil. In-tank or on-tank.", fill: cv2Fill },
   { title: "Open the type", body: "CV2, CM2, SHZV, HWV. Then the rest of the range.", fill: cm2Fill },
   { title: "Take the PDF", body: "Same technical data the factory uses.", fill: shzvFill },
 ];
 learnSteps.forEach((card, i) => {
-  const n = frame(learn, {
-    name: card.title, x: 56 + i * 444, y: 620, w: 428, h: 300, fill: C.white,
-    stroke: { color: C.ink, opacity: 0.12 },
-  });
-  const photo = frame(n, { name: "photo", x: 0, y: 0, w: 428, h: 168, fill: C.stage });
-  photo.fills = darkPhoto(card.fill);
-  txt(n, {
-    text: "0" + (i + 1), x: 20, y: 180, w: 388, h: 16, size: 12,
-    family: uiM.family, style: uiM.style, color: C.blue, track: 0.8,
-  });
-  txt(n, {
-    text: card.title, x: 20, y: 200, w: 388, h: 24, size: 18,
-    family: uiSB.family, style: uiSB.style,
-  });
-  txt(n, {
-    text: card.body, x: 20, y: 230, w: 388, h: 48, size: 13,
-    family: ui.family, style: ui.style, color: C.muted, lh: 18,
+  photoTeaser(learn, {
+    name: card.title, x: 56 + i * 444, y: 620, w: 428, h: 300,
+    fill: card.fill, kicker: "0" + (i + 1), title: card.title, sub: card.body,
   });
 });
 siteFoot(learn, 960);
@@ -1670,7 +1577,7 @@ const learnM = siteMobile(learn, "learn-mobile", 1280);
 let ly = mStage(learnM, {
   fill: heroFill,
   title: "The switch that picks the tap.",
-  dek: "OLTC while live. OCTC only with it off. Name the family, open a type, take the PDF.",
+  dek: "OLTC while live. OCTC only with it off. Vacuum or oil.",
   cta: "Find a type",
   h: 360,
 });
@@ -2036,13 +1943,33 @@ btn(missSt, { label: "Find a type", x: 56, y: 400, w: 148, fill: C.white, color:
 siteFoot(missing, 900);
 missing.resize(1440, 1040);
 
+const missingM = siteMobile(missing, "not-found-mobile", 1280);
+let missY = mStage(missingM, {
+  fill: subFill,
+  title: "No type by that name.",
+  dek: "Open the range. Start with CV2.",
+  cta: "Find a type",
+});
+[
+  ["CV2", "Vacuum selector-switch. III 350 A and 600 A only.", cv2Fill],
+  ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
+  ["WSL", "Cage OCTC. Transformer off.", wslTile],
+].forEach((row, i) => {
+  mPhotoCard(missingM, {
+    name: row[0], y: missY + 16 + i * 188, fill: row[2], title: row[0], sub: row[1],
+  });
+});
+missY += 16 + 3 * 188 + 16;
+mFoot(missingM, missY);
+missingM.resize(390, missY + 88);
+
 return {
   pages: figma.root.children.map((c) => c.name),
   desk: { w: desk.width, h: desk.height },
   prod: { w: prod.width, h: prod.height },
   mobile: [
     productsM.name, dlM.name, aboutM.name, contactM.name, projectsM.name,
-    newsM.name, careersM.name, learnM.name, moreM.name,
+    newsM.name, careersM.name, learnM.name, moreM.name, missingM.name,
     "product-cm2-mobile", "product-shzv-mobile", "product-hwv-mobile",
     "product-wsl-mobile", "product-cma7-mobile", "product-cm-mobile",
   ],
