@@ -1,9 +1,9 @@
 # Huaming EN OpenPencil draft — status
 
-Updated: 2026-08-20 05:00 +08  
+Updated: 2026-08-20 05:08 +08  
 Hard stop: **2026-08-20 07:00 +08**
 
-Queue **done** (slices 0–17). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
+Queue **done** (slices 0–18). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
 
 ## Where
 
@@ -31,6 +31,7 @@ Home (+390), Products, Downloads, About, Contact, Projects, News, Careers, Learn
 - Cycle 9: Contact stage CTA Write to us (desk + 390). No must-fix.
 - Cycle 10: leftover 390s (Projects, News, SHZV, HWV, CM). UX/industrial no must-fix. Copy: News dek is Longdong / Singapore HQ / Listed 2015. About 390 legal name.
 - Cycle 11: About 390 HQ teasers before numbers. No must-fix.
+- Cycle 12: About desk matches 390 (teasers then numbers). Contact desk teasers are photoTeaser. No must-fix.
 
 ## Slice 8 (03:03)
 
@@ -72,11 +73,13 @@ Leftover 390s exported (Projects, News, SHZV, HWV, CM). About 390 dek is the leg
 
 About 390 is stage → HQ photo teasers → dark numbers. Cycle-11 no must-fix.
 
+## Slice 18 (05:08)
+
+About desk is stage → HQ photo teasers → ink numbers. Contact desk teasers are photoTeaser 428×240. Cycle-12 no must-fix.
+
 ## Still open (not blocking the draft)
 
 - CMA7 cabinet is grey paint, so its teaser stays paler than vacuum PNGs. That is the product, not leftover studio.
 - WSL WDG/ZWC and CMA7 SHM-D/SHM-X teasers are empty dark bands (no still on disk).
-- Contact desk teasers are still a short custom row, not `photoTeaser`.
-- About desk still puts numbers between stage and HQ teasers.
 
 Eric: open the `.fig` in OpenPencil. Spec for Next.js only after he says so.

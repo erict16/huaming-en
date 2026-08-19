@@ -1144,22 +1144,6 @@ txt(astage, {
   family: ui.family, style: ui.style, color: C.white, lh: 22,
 });
 btn(astage, { label: "Write to us", x: 56, y: 416, w: 140, fill: C.white, color: C.ink, fontName: uiM });
-const numsA = frame(about, { name: "numbers", x: 0, y: 588, w: 1440, h: 140, fill: C.ink });
-[
-  ["1989", "Founded, Shanghai"],
-  ["002270.SZ", "Listed 2015"],
-  ["150+", "countries in service"],
-  ["4–6", "weeks, catalogue types"],
-].forEach((row, i) => {
-  txt(numsA, {
-    text: row[0], x: 56 + i * 340, y: 32, w: 300, h: 32, size: 24,
-    family: uiSB.family, style: uiSB.style, color: C.white,
-  });
-  txt(numsA, {
-    text: row[1], x: 56 + i * 340, y: 72, w: 300, h: 20, size: 13,
-    family: ui.family, style: ui.style, color: C.white, opacity: 0.7,
-  });
-});
 [
   {
     name: "shanghai", x: 56,
@@ -1175,16 +1159,33 @@ const numsA = frame(about, { name: "numbers", x: 0, y: 588, w: 1440, h: 140, fil
   },
 ].forEach((hq) => {
   photoTeaser(about, {
-    name: hq.name, x: hq.x, y: 760, w: 644, h: 320,
+    name: hq.name, x: hq.x, y: 608, w: 644, h: 320,
     fill: hq.fill, kicker: hq.kicker, title: hq.title, sub: hq.sub,
+  });
+});
+const numsA = frame(about, { name: "numbers", x: 0, y: 948, w: 1440, h: 140, fill: C.stage });
+numsA.fills = solid(C.stage);
+[
+  ["1989", "Founded, Shanghai"],
+  ["002270.SZ", "Listed 2015"],
+  ["150+", "countries in service"],
+  ["4–6", "weeks, catalogue types"],
+].forEach((row, i) => {
+  txt(numsA, {
+    text: row[0], x: 56 + i * 340, y: 32, w: 300, h: 32, size: 24,
+    family: uiSB.family, style: uiSB.style, color: C.white,
+  });
+  txt(numsA, {
+    text: row[1], x: 56 + i * 340, y: 72, w: 300, h: 20, size: 13,
+    family: uiSB.family, style: uiSB.style, color: C.white, opacity: 0.7,
   });
 });
 txt(about, {
   text: "Turkey plant, Indonesia, Brazil, USA. ISO 9001 / 14001 / 18001. Type-test laboratory.",
-  x: 56, y: 1104, w: 1100, h: 24, size: 15, family: ui.family, style: ui.style, color: C.muted,
+  x: 56, y: 1112, w: 1100, h: 24, size: 15, family: ui.family, style: ui.style, color: C.muted,
 });
-siteFoot(about, 1160);
-about.resize(1440, 1300);
+siteFoot(about, 1168);
+about.resize(1440, 1348);
 
 const aboutM = siteMobile(about, "about-mobile", 1280);
 let ay = mStage(aboutM, {
@@ -1251,23 +1252,13 @@ btn(cstage, { label: "Write to us", x: 56, y: 316, w: 140, fill: C.white, color:
   ["Take a PDF", "Technical data the factory uses.", hwvFill],
   ["Write", "intl@huaming.com. Name the type.", factoryFill],
 ].forEach((col, i) => {
-  const n = frame(contact, {
-    name: col[0], x: 56 + i * 444, y: 520, w: 428, h: 220, fill: C.stage,
-  });
-  n.fills = darkPhoto(col[2]);
-  const sh = frame(n, { name: "shade", x: 0, y: 140, w: 428, h: 80, fill: C.ink });
-  sh.fills = solid(C.ink, 0.72);
-  txt(n, {
-    text: col[0], x: 16, y: 152, w: 396, h: 22, size: 16,
-    family: uiSB.family, style: uiSB.style, color: C.white,
-  });
-  txt(n, {
-    text: col[1], x: 16, y: 178, w: 396, h: 28, size: 13,
-    family: ui.family, style: ui.style, color: C.white,
+  photoTeaser(contact, {
+    name: col[0], x: 56 + i * 444, y: 520, w: 428, h: 240,
+    fill: col[2], title: col[0], sub: col[1],
   });
 });
 const form = frame(contact, {
-  name: "form", x: 56, y: 768, w: 720, h: 360, fill: C.white,
+  name: "form", x: 56, y: 788, w: 720, h: 360, fill: C.white,
   stroke: { color: C.ink, opacity: 0.12 },
 });
 [
@@ -1295,7 +1286,7 @@ const offices = [
   ["USA", "Irwindale, CA 91706"],
 ];
 offices.forEach((row, i) => {
-  const y = 768 + i * 56;
+  const y = 788 + i * 56;
   txt(contact, {
     text: row[0], x: 820, y, w: 540, h: 16, size: 14,
     family: uiM.family, style: uiM.style,
@@ -1305,8 +1296,8 @@ offices.forEach((row, i) => {
     family: ui.family, style: ui.style, color: C.muted,
   });
 });
-siteFoot(contact, 1160);
-contact.resize(1440, 1300);
+siteFoot(contact, 1180);
+contact.resize(1440, 1360);
 
 const contactM = siteMobile(contact, "contact-mobile", 1680);
 let cy = mStage(contactM, {
