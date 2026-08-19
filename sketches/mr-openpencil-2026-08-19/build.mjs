@@ -1153,8 +1153,8 @@ btn(astage, { label: "Write to us", x: 56, y: 416, w: 140, fill: C.white, color:
     fill: hq.fill, kicker: hq.kicker, title: hq.title, sub: hq.sub,
   });
 });
-const numsA = frame(about, { name: "numbers", x: 0, y: 948, w: 1440, h: 140, fill: C.stage });
-numsA.fills = solid(C.stage);
+const numsA = frame(about, { name: "numbers", x: 0, y: 948, w: 1440, h: 140, fill: C.ink });
+numsA.fills = solid(C.ink);
 [
   ["1989", "Founded, Shanghai"],
   ["002270.SZ", "Listed 2015"],
@@ -1194,8 +1194,8 @@ let ay = mStage(aboutM, {
   });
 });
 ay += 16 + 2 * 240;
-const mNumsA = frame(aboutM, { name: "numbers", x: 0, y: ay, w: 390, h: 220, fill: C.stage });
-mNumsA.fills = solid(C.stage);
+const mNumsA = frame(aboutM, { name: "numbers", x: 0, y: ay, w: 390, h: 220, fill: C.ink });
+mNumsA.fills = solid(C.ink);
 [
   ["1989", "Founded, Shanghai"],
   ["002270.SZ", "Listed 2015"],

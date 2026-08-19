@@ -1,22 +1,33 @@
-# Huaming EN OpenPencil draft — status
+# Huaming EN OpenPencil draft — morning handoff
 
-Updated: 2026-08-20 06:03 +08  
+Updated: 2026-08-20 06:10 +08  
 Hard stop: **2026-08-20 07:00 +08**
 
-Queue **done** (slices 0–21). Scheduler may still fire for nits; do not recode Next.js. If past 07:00, stop.
+Open `sketches/mr-openpencil-2026-08-19/huaming-mr-draft.fig` in OpenPencil. Branch `feat/overnight-v1`. Builder `build.mjs`. **Do not recode Next.js** until Eric says this draft is the spec.
 
-## Where
+Layout: Reinhausen (chrome → stage → photo teasers → list last). Huaming blue `#0057B8`, ink `#1D1D1B`, white. No MR red. No cream paper.
 
-`sketches/mr-openpencil-2026-08-19/huaming-mr-draft.fig`  
-Branch: `feat/overnight-v1`
+## Pages (17, each with 390)
 
-Layout lock: Reinhausen.com (stage → photo teasers → optional list). Huaming blue `#0057B8`, ink `#1D1D1B`, white. No MR red. No Next.js recode.
+Home, Products, Downloads, About, Contact, Projects, News, Careers, Learn, CV2, CM2, SHZV, HWV, WSL, CMA7, CM, More types, Not found.
 
-## Pages in the fig (17)
+## Locked facts
 
-Home (+390), Products, Downloads, About, Contact, Projects, News, Careers, Learn, CV2, CM2, SHZV, HWV, WSL, CMA7, CM, More types, Not found.
+- CV2 vacuum selector-switch. III 350 A and 600 A only.
+- CM2 vacuum CM. III/II 500 / 600 A only. Spec also I 800 / 1200 / 1500 A.
+- SHZV vacuum CMD. 400 / 600 / 1000 A.
+- HWV on-tank vacuum. 400 / 800 / 1000 A. Drive included. Not Horizontal. No 600.
+- WSL / WDL cage OCTC. Transformer off. CTA Leaflet.
+- CMA7 motor drive. Accessory, not a tap changer. CTA Operating instructions.
+- Singapore HQ: TSX Tower A #03-13, 1 Tai Seng Ave. Opened 29 April 2025. Dark band, no fake office.
+- CHVT at Longdong ±800 kV, 28 May 2025.
 
-390 mobile on all of those, including Not found (`preview-not-found-mobile.png`).
+## Leftover (not blocking)
+
+- CMA7 cabinet is grey paint. That is the product.
+- WSL WDG / ZWC and CMA7 SHM-D / SHM-X are empty dark bands. No still on disk.
+
+Queue **done** (slices 0–22). Scheduler may still fire until 07:00.
 
 ## Reviews
 
@@ -90,6 +101,10 @@ News Singapore body is TSX Tower A #03-13. Contact Singapore line includes opene
 ## Slice 21 (06:03)
 
 Downloads 390 kind tiles are mTeaser (same stack as desk photoTeaser). File list stays after. Cycle-14 no must-fix.
+
+## Slice 22 (06:10)
+
+About desk + 390 numbers both `C.ink`. Morning brief at the top of this file.
 
 ## Still open (not blocking the draft)
 
