@@ -1330,6 +1330,162 @@ productType("15 Product CM", "product-cm", {
   ],
 });
 
+// 16 More types — remaining catalogue as compact rows. Flagships already have full pages.
+const more = siteArt("16 More types", "more-types-desktop", 2800);
+const moreStage = frame(more, { name: "stage", x: 0, y: 108, w: 1440, h: 440, fill: C.stage });
+moreStage.fills = factoryFill;
+const moreVeil = frame(moreStage, { name: "veil", x: 0, y: 200, w: 1440, h: 240, fill: C.ink });
+moreVeil.fills = solid(C.ink, 0.58);
+txt(moreStage, {
+  text: "The rest of the range",
+  x: 56, y: 248, w: 1000, h: 52, size: 40,
+  family: uiSB.family, style: uiSB.style, color: C.white,
+});
+txt(moreStage, {
+  text: "Oil, vacuum, dry, gas, regulator, reactive, OCTC, and the drives. Flagships have their own pages.",
+  x: 56, y: 308, w: 880, h: 24, size: 16,
+  family: ui.family, style: ui.style, color: C.white,
+});
+btn(moreStage, { label: "Download brochures", x: 56, y: 356, w: 196, fill: C.white, color: C.ink, fontName: uiM });
+
+const moreWorlds = [
+  { title: "Oil OLTC", sub: "CMD · CV", fill: cmFill, x: 56, y: 576 },
+  { title: "Vacuum OLTC", sub: "SHZVG · CHVT", fill: shzvFill, x: 740, y: 576 },
+  { title: "Dry · gas · regulator · reactive", sub: "CVT · CZ · SHGV · HMDK · HWDK", fill: subFill, x: 56, y: 892 },
+  { title: "OCTC and accessories", sub: "WDG · ZWC · SHM-D · monitors", fill: wslFill, x: 740, y: 892 },
+];
+moreWorlds.forEach((w) => {
+  const n = frame(more, { name: w.title, x: w.x, y: w.y, w: 644, h: 300, fill: C.stage });
+  n.fills = darkPhoto(w.fill);
+  const shade = frame(n, { name: "shade", x: 0, y: 188, w: 644, h: 112, fill: C.ink });
+  shade.fills = solid(C.ink, 0.72);
+  txt(n, {
+    text: w.title, x: 24, y: 208, w: 596, h: 32, size: 22,
+    family: uiSB.family, style: uiSB.style, color: C.white,
+  });
+  txt(n, {
+    text: w.sub, x: 24, y: 244, w: 596, h: 20, size: 14,
+    family: ui.family, style: ui.style, color: C.white,
+  });
+});
+
+txt(more, {
+  text: "TYPES",
+  x: 56, y: 1224, w: 240, h: 14, size: 11,
+  family: uiM.family, style: uiM.style, color: C.blue, track: 1.8,
+});
+txt(more, {
+  text: "By family. One line each.",
+  x: 56, y: 1246, w: 720, h: 28, size: 22,
+  family: uiSB.family, style: uiSB.style,
+});
+
+const moreGroups = [
+  {
+    label: "OIL",
+    rows: [
+      ["CMD", "Larger oil OLTC, same family idea as CM, higher current steps."],
+      ["CV", "Selector-switch oil OLTC. The oil ancestor of CV2."],
+    ],
+  },
+  {
+    label: "VACUUM",
+    rows: [
+      ["SHZVG", "Larger vacuum OLTC after SHZV max current (1300 / 1500 A III)."],
+      ["CHVT", "High-voltage vacuum OLTC for HVDC / converter transformers. Longdong ±800 kV, May 2025."],
+    ],
+  },
+  {
+    label: "DRY",
+    rows: [
+      ["CVT", "Vacuum OLTC for dry-type / air-insulated transformers. Low Um."],
+      ["CZ", "Vacuum dry / air OLTC at distribution voltages."],
+    ],
+  },
+  {
+    label: "GAS",
+    rows: [
+      ["SHGV", "Combined vacuum OLTC for SF6 / gas-insulated regulating transformers."],
+    ],
+  },
+  {
+    label: "REGULATOR",
+    rows: [
+      ["HMDK", "Reactance-transition tap changer for a distribution step-voltage regulator."],
+    ],
+  },
+  {
+    label: "REACTIVE",
+    rows: [
+      ["HWDK", "Reactive-transition compartment OLTC, used mostly in North America, usually on the secondary."],
+    ],
+  },
+  {
+    label: "OCTC DRUM / LINEAR",
+    rows: [
+      ["WDG", "Drum-type de-energized tap changer."],
+      ["ZWC", "Linear de-energized tap changer."],
+    ],
+  },
+  {
+    label: "MOTOR DRIVE / MONITOR",
+    rows: [
+      ["SHM-D", "Motor drive unit for in-tank OLTCs."],
+      ["SHM-X", "Motor drive unit."],
+      ["SHM-KX", "Controller / drive cabinet. Type-test pack on file for SHM-XE."],
+      ["ET-SZ6", "Digital voltage relay: AVR, over-current / over-voltage block, parallel, delay."],
+      ["HMC-3C", "Position indicator for CMA7 / CMA9 motor drives. Decimal in, BCD out."],
+      ["ZXJY", "Online oil filter plant."],
+    ],
+  },
+];
+
+let gy = 1292;
+moreGroups.forEach((g) => {
+  txt(more, {
+    text: g.label, x: 56, y: gy, w: 640, h: 16, size: 11,
+    family: uiM.family, style: uiM.style, color: C.blue, track: 1.8,
+  });
+  gy += 28;
+  g.rows.forEach((row) => {
+    const line = figma.createRectangle();
+    line.resize(1328, 1);
+    line.fills = solid(C.ink, 0.1);
+    more.appendChild(line);
+    line.x = 56;
+    line.y = gy;
+    txt(more, {
+      text: row[0], x: 56, y: gy + 12, w: 160, h: 20, size: 15,
+      family: uiM.family, style: uiM.style, color: C.blue,
+    });
+    txt(more, {
+      text: row[1], x: 240, y: gy + 12, w: 1144, h: 20, size: 14,
+      family: ui.family, style: ui.style,
+    });
+    gy += 44;
+  });
+  gy += 16;
+});
+
+const moreAsk = frame(more, { name: "ask", x: 0, y: gy + 8, w: 1440, h: 140, fill: C.ink });
+txt(moreAsk, {
+  text: "Name the type. Singapore answers first.",
+  x: 56, y: 40, w: 800, h: 28, size: 22,
+  family: uiSB.family, style: uiSB.style, color: C.white,
+});
+txt(moreAsk, {
+  text: "intl@huaming.com",
+  x: 56, y: 80, w: 400, h: 20, size: 14,
+  family: ui.family, style: ui.style, color: C.white, opacity: 0.8,
+});
+txt(moreAsk, {
+  text: "Contact →",
+  x: 1020, y: 56, w: 360, h: 20, size: 14,
+  family: uiM.family, style: uiM.style, color: C.white, align: "RIGHT",
+});
+siteFoot(more, gy + 148);
+more.resize(1440, gy + 288);
+
 return {
   pages: figma.root.children.map((c) => c.name),
   desk: { w: desk.width, h: desk.height },
