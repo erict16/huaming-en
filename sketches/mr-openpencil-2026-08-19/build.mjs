@@ -234,14 +234,6 @@ txt(stage, {
   family: ui.family, style: ui.style, color: C.white,
 });
 btn(stage, { label: "Find a type", x: 56, y: 616, w: 148, fill: C.white, color: C.ink, fontName: uiM });
-const ghost = frame(stage, {
-  name: "btn-Download brochures", x: 216, y: 616, w: 188, h: 44,
-  stroke: { color: C.white, opacity: 1 },
-});
-txt(ghost, {
-  text: "Download brochures", x: 0, y: 13, w: 188, h: 18, size: 14,
-  family: uiM.family, style: uiM.style, color: C.white, align: "CENTER",
-});
 
 txt(desk, {
   text: "PROJECTS",
