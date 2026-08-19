@@ -1083,11 +1083,11 @@ let dy = mStage(dlM, {
   ["Leaflets", "Short type sheets.", hwvFill],
   ["Instructions", "Install and operate.", cma7Tile],
 ].forEach((row, i) => {
-  mPhotoCard(dlM, {
-    name: row[0], y: dy + 16 + i * 188, fill: row[2], title: row[0], sub: row[1],
+  mTeaser(dlM, {
+    name: row[0], y: dy + 16 + i * 240, fill: row[2], title: row[0], sub: row[1],
   });
 });
-dy += 16 + 3 * 188 + 12;
+dy += 16 + 3 * 240 + 12;
 const mSearch = frame(dlM, {
   name: "search", x: 16, y: dy, w: 358, h: 44, fill: C.white,
   stroke: { color: C.ink, opacity: 0.16 },

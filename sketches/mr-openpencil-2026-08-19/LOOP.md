@@ -59,6 +59,7 @@ Refuse: MR red, MR mark, MR sentences, cream paper, serif kickers.
 | 18 | About desk + Contact teasers | done 2026-08-20 05:08. About desk HQ teasers then ink numbers. Contact desk photoTeaser 428×240. Cycle-12 no must-fix. |
 | 19 | Downloads photoTeaser | done 2026-08-20 05:46. Desk kind tiles 428×240. Cycle-13 no must-fix. |
 | 20 | Address nits + More 390 | done 2026-08-20 05:52. News Singapore body TSX Tower A #03-13. Contact office line has 29 April 2025. More 390 adds SHGV / HMDK from json. |
+| 21 | Downloads 390 mTeaser | done 2026-08-20 06:03. Kind tiles match desk photoTeaser. Cycle-14 no must-fix. |
 
 ## Do not
 
