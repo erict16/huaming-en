@@ -652,6 +652,65 @@ function siteFoot(parent, y) {
   return f;
 }
 
+// Product type: chrome → STAGE (photo, type bottom-left, one CTA) → 3 photo teasers → spec list → ink footer
+function productType(pageName, artName, { fill, name, dek, siblings, specs }) {
+  const art = siteArt(pageName, artName, 1680);
+  const st = frame(art, { name: "stage", x: 0, y: 108, w: 1440, h: 520, fill: C.stage });
+  st.fills = darkPhoto(fill);
+  const veil = frame(st, { name: "veil", x: 0, y: 280, w: 1440, h: 240, fill: C.ink });
+  veil.fills = solid(C.ink, 0.62);
+  txt(st, {
+    text: name,
+    x: 56, y: 310, w: 800, h: 56, size: 48,
+    family: uiSB.family, style: uiSB.style, color: C.white,
+  });
+  txt(st, {
+    text: dek,
+    x: 56, y: 376, w: 800, h: 44, size: 16,
+    family: ui.family, style: ui.style, color: C.white, lh: 22,
+  });
+  btn(st, { label: "Technical data PDF", x: 56, y: 436, w: 196, fill: C.white, color: C.ink, fontName: uiM });
+
+  siblings.forEach((row, i) => {
+    const n = frame(art, {
+      name: row[0], x: 56 + i * 444, y: 656, w: 428, h: 200, fill: C.white,
+      stroke: { color: C.ink, opacity: 0.12 },
+    });
+    const ph = frame(n, { name: "ph", x: 0, y: 0, w: 160, h: 200, fill: C.stage });
+    ph.fills = darkPhoto(row[2]);
+    txt(n, {
+      text: row[0], x: 180, y: 56, w: 220, h: 24, size: 20,
+      family: uiSB.family, style: uiSB.style,
+    });
+    txt(n, {
+      text: row[1], x: 180, y: 88, w: 220, h: 80, size: 13,
+      family: ui.family, style: ui.style, color: C.muted, lh: 18,
+    });
+  });
+
+  specs.forEach((row, i) => {
+    const y = 884 + i * 56;
+    const line = figma.createRectangle();
+    line.resize(1328, 1);
+    line.fills = solid(C.ink, 0.12);
+    art.appendChild(line);
+    line.x = 56;
+    line.y = y;
+    txt(art, {
+      text: row[0], x: 56, y: y + 16, w: 220, h: 20, size: 13,
+      family: uiM.family, style: uiM.style, color: C.muted,
+    });
+    txt(art, {
+      text: row[1], x: 300, y: y + 16, w: 1080, h: 20, size: 15,
+      family: ui.family, style: ui.style,
+    });
+  });
+
+  siteFoot(art, 1320);
+  art.resize(1440, 1460);
+  return art;
+}
+
 // PRODUCTS INDEX — MR portfolio: stage + teaser tiles, then a compact type list
 const products = siteArt("02 Products", "products-desktop", 2200);
 const pstage = frame(products, { name: "stage", x: 0, y: 108, w: 1440, h: 420, fill: C.stage });
@@ -1154,6 +1213,63 @@ learnSteps.forEach((card, i) => {
 });
 siteFoot(learn, 960);
 learn.resize(1440, 1100);
+
+// 10 Product CM2 — vacuum CM. III/II 500 / 600 A only.
+productType("10 Product CM2", "product-cm2", {
+  fill: cm2Fill,
+  name: "CM2",
+  dek: "Vacuum CM. Diverter + selector. III/II 500 A and 600 A only.",
+  siblings: [
+    ["CV2", "Vacuum selector. III 350 A and 600 A only.", cv2Fill],
+    ["SHZV", "Vacuum CMD. Use when CM2 current does not cover.", shzvFill],
+    ["HWV", "On-tank vacuum. 400 / 800 / 1000 A. Drive included.", hwvFill],
+  ],
+  specs: [
+    ["Switching", "Vacuum CM. Diverter + selector."],
+    ["Current", "III/II 500 A and 600 A. I also 800 / 1200 / 1500 A."],
+    ["Um", "72.5 / 126 / 170 / 252 kV"],
+    ["Selector", "B / C / D / DE"],
+    ["Positions", "18 without change-over, 35 with"],
+  ],
+});
+
+// 11 Product SHZV — vacuum CMD. III/II 400 / 600 / 1000 A.
+productType("11 Product SHZV", "product-shzv", {
+  fill: shzvFill,
+  name: "SHZV",
+  dek: "Vacuum version of CMD. III/II 400 / 600 / 1000 A. Use when CM2 current does not cover.",
+  siblings: [
+    ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
+    ["CV2", "Vacuum selector-switch. III 350 A and 600 A only.", cv2Fill],
+    ["HWV", "On-tank vacuum. 400 / 800 / 1000 A. Drive included.", hwvFill],
+  ],
+  specs: [
+    ["Switching", "Vacuum CMD. In-tank combined."],
+    ["Current", "III/II 400 / 600 / 1000 A"],
+    ["Um", "72.5 / 126 / 170 / 252 kV"],
+    ["Selector", "B / C / D / DE. Max. step voltage 4000 V"],
+    ["Positions", "18 without change-over, 35 with"],
+  ],
+});
+
+// 12 Product HWV — on-tank vacuum. 400 / 800 / 1000 A. Drive included. No 600 A.
+productType("12 Product HWV", "product-hwv", {
+  fill: hwvFill,
+  name: "HWV",
+  dek: "On-tank vacuum OLTC. 400 / 800 / 1000 A. Motor drive included.",
+  siblings: [
+    ["CV2", "Vacuum selector. III 350 A and 600 A only.", cv2Fill],
+    ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
+    ["CMA7", "Motor drive. Accessory, not a tap changer.", cma7Fill],
+  ],
+  specs: [
+    ["Switching", "On-tank vacuum. Oil chamber separate from the main tank."],
+    ["Current", "400 / 800 / 1000 A — no 600 A"],
+    ["Um", "17.5 / 40.5 / 72.5 kV. No selector grade letter."],
+    ["Drive", "Motor drive included."],
+    ["Positions", "18 without change-over, 35 with"],
+  ],
+});
 
 return {
   pages: figma.root.children.map((c) => c.name),
