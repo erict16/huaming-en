@@ -458,47 +458,34 @@ txt(mstage, {
   family: uiSB.family, style: uiSB.style, color: C.white, lh: 30,
 });
 btn(mstage, { label: "Find a type", x: 16, y: 328, w: 358, fontName: uiM, fill: C.white, color: C.ink });
-txt(phone, {
-  text: "Vacuum OLTC · Oil OLTC · OCTC · Drive",
-  x: 16, y: 492, w: 358, h: 40, size: 16,
-  family: uiSB.family, style: uiSB.style, lh: 22,
-});
 [
-  ["CV2", "Vacuum selector. III 350 / 600 A."],
-  ["CM2", "Vacuum CM. III/II 500 / 600 A."],
-  ["SHZV", "400 / 600 / 1000 A."],
-  ["HWV", "On-tank vacuum. 400 / 800 / 1000 A."],
-].forEach((row, i) => {
-  const n = frame(phone, {
-    name: row[0], x: 16, y: 548 + i * 88, w: 358, h: 76, fill: C.white,
-    stroke: { color: C.ink, opacity: 0.12 },
-  });
-  txt(n, {
-    text: row[0], x: 16, y: 14, w: 326, h: 20, size: 16,
-    family: uiSB.family, style: uiSB.style,
-  });
-  txt(n, {
-    text: row[1], x: 16, y: 40, w: 326, h: 20, size: 13,
-    family: ui.family, style: ui.style, color: C.muted,
+  { title: "CV2", sub: "Vacuum selector. III 350 / 600 A.", fill: cv2Fill },
+  { title: "CM2", sub: "Vacuum CM. III/II 500 / 600 A.", fill: cm2Fill },
+  { title: "SHZV", sub: "Vacuum CMD. 400 / 600 / 1000 A.", fill: shzvFill },
+  { title: "HWV", sub: "On-tank vacuum. 400 / 800 / 1000 A.", fill: hwvFill },
+].forEach((card, i) => {
+  mPhotoCard(phone, {
+    name: card.title, y: 492 + i * 188, fill: card.fill, title: card.title, sub: card.sub,
   });
 });
-const mnum = frame(phone, { name: "m-numbers", x: 0, y: 916, w: 390, h: 200, fill: C.ink });
+const mnum = frame(phone, { name: "m-numbers", x: 0, y: 1256, w: 390, h: 160, fill: C.ink });
 txt(mnum, {
-  text: "150+ countries", x: 16, y: 28, w: 358, h: 28, size: 22,
+  text: "150+ countries", x: 16, y: 24, w: 358, h: 28, size: 22,
   family: uiSB.family, style: uiSB.style, color: C.white,
 });
 txt(mnum, {
   text: "4–6 weeks · type-test lab · 002270.SZ",
-  x: 16, y: 64, w: 358, h: 40, size: 14,
+  x: 16, y: 56, w: 358, h: 36, size: 14,
   family: ui.family, style: ui.style, color: C.white, opacity: 0.7, lh: 20,
 });
 txt(mnum, {
   text: "intl@huaming.com",
-  x: 16, y: 132, w: 358, h: 20, size: 14,
+  x: 16, y: 108, w: 358, h: 20, size: 14,
   family: uiM.family, style: uiM.style, color: C.white,
 });
-btn(phone, { label: "Download brochures", x: 16, y: 1140, w: 358, fontName: uiM });
-phone.resize(390, 1220);
+btn(phone, { label: "Download brochures", x: 16, y: 1432, w: 358, fontName: uiM });
+mFoot(phone, 1492);
+phone.resize(390, 1580);
 
 txt(board, {
   text: "PRODUCT 1440 · CV2",
@@ -754,8 +741,9 @@ function mFoot(parent, y) {
   return f;
 }
 
-// Product type: chrome → STAGE (photo, type bottom-left, one CTA) → 3 photo teasers → spec list → ink footer
-function productType(pageName, artName, { fill, name, dek, siblings, specs }) {
+// Product type: chrome → STAGE (photo or dark band, type bottom-left, one CTA) → 3 photo teasers → spec list → ink footer
+// studio: white stills sit on a dark band (right), so the stage is not a pale PDP.
+function productType(pageName, artName, { fill, name, dek, siblings, specs, cta, studio }) {
   const art = siteArt(pageName, artName, 1680);
   const st = frame(art, { name: "stage", x: 0, y: 108, w: 1440, h: 520, fill: C.stage });
   st.fills = darkPhoto(fill);
@@ -763,15 +751,19 @@ function productType(pageName, artName, { fill, name, dek, siblings, specs }) {
   veil.fills = solid(C.ink, 0.62);
   txt(st, {
     text: name,
-    x: 56, y: 310, w: 800, h: 56, size: 48,
+    x: 56, y: 310, w: 680, h: 56, size: 48,
     family: uiSB.family, style: uiSB.style, color: C.white,
   });
   txt(st, {
     text: dek,
-    x: 56, y: 376, w: 800, h: 44, size: 16,
+    x: 56, y: 376, w: 680, h: 44, size: 16,
     family: ui.family, style: ui.style, color: C.white, lh: 22,
   });
-  btn(st, { label: "Technical data PDF", x: 56, y: 436, w: 196, fill: C.white, color: C.ink, fontName: uiM });
+  const ctaLabel = cta || "Technical data PDF";
+  btn(st, {
+    label: ctaLabel, x: 56, y: 436, w: ctaLabel.length > 20 ? 220 : 196,
+    fill: C.white, color: C.ink, fontName: uiM,
+  });
 
   siblings.forEach((row, i) => {
     const n = frame(art, {
@@ -1090,44 +1082,45 @@ const numsA = frame(about, { name: "numbers", x: 0, y: 588, w: 1440, h: 140, fil
     family: ui.family, style: ui.style, color: C.white, opacity: 0.7,
   });
 });
-const hq1 = frame(about, {
-  name: "shanghai", x: 56, y: 760, w: 644, h: 180, fill: C.white,
-  stroke: { color: C.ink, opacity: 0.12 },
-});
-txt(hq1, {
-  text: "Shanghai  ·  factory", x: 24, y: 24, w: 580, h: 18, size: 13,
-  family: uiM.family, style: uiM.style, color: C.blue, track: 0.8,
-});
-txt(hq1, {
-  text: "No. 977 Tongpu Road, Putuo District, Shanghai 200333, China",
-  x: 24, y: 56, w: 580, h: 44, size: 16, family: ui.family, style: ui.style, lh: 22,
-});
-txt(hq1, {
-  text: "Credit code 913101076076323035",
-  x: 24, y: 112, w: 580, h: 18, size: 13, family: ui.family, style: ui.style, color: C.muted,
-});
-const hq2 = frame(about, {
-  name: "singapore", x: 740, y: 760, w: 644, h: 180, fill: C.white,
-  stroke: { color: C.ink, opacity: 0.12 },
-});
-txt(hq2, {
-  text: "Singapore  ·  international HQ", x: 24, y: 24, w: 580, h: 18, size: 13,
-  family: uiM.family, style: uiM.style, color: C.blue, track: 0.8,
-});
-txt(hq2, {
-  text: "TSX Tower A #03-13, 1 Tai Seng Ave, Singapore 536464",
-  x: 24, y: 56, w: 580, h: 44, size: 16, family: ui.family, style: ui.style, lh: 22,
-});
-txt(hq2, {
-  text: "Opened 29 April 2025. intl@huaming.com",
-  x: 24, y: 112, w: 580, h: 18, size: 13, family: ui.family, style: ui.style, color: C.muted,
+[
+  {
+    name: "shanghai", x: 56,
+    fill: factoryFill, kicker: "Shanghai  ·  factory",
+    addr: "No. 977 Tongpu Road, Putuo District, Shanghai 200333, China",
+    note: "Credit code 913101076076323035",
+  },
+  {
+    name: "singapore", x: 740,
+    fill: heroFill, kicker: "Singapore  ·  international HQ",
+    addr: "TSX Tower A #03-13, 1 Tai Seng Ave, Singapore 536464",
+    note: "Opened 29 April 2025. intl@huaming.com",
+  },
+].forEach((hq) => {
+  const n = frame(about, {
+    name: hq.name, x: hq.x, y: 760, w: 644, h: 320, fill: C.white,
+    stroke: { color: C.ink, opacity: 0.12 },
+  });
+  const ph = frame(n, { name: "photo", x: 0, y: 0, w: 644, h: 180, fill: C.stage });
+  ph.fills = hq.fill;
+  txt(n, {
+    text: hq.kicker, x: 24, y: 196, w: 596, h: 18, size: 13,
+    family: uiM.family, style: uiM.style, color: C.blue, track: 0.8,
+  });
+  txt(n, {
+    text: hq.addr, x: 24, y: 220, w: 596, h: 40, size: 15,
+    family: ui.family, style: ui.style, lh: 20,
+  });
+  txt(n, {
+    text: hq.note, x: 24, y: 268, w: 596, h: 18, size: 13,
+    family: ui.family, style: ui.style, color: C.muted,
+  });
 });
 txt(about, {
   text: "Turkey plant, Indonesia, Brazil, USA. ISO 9001 / 14001 / 18001. Type-test laboratory.",
-  x: 56, y: 968, w: 1100, h: 24, size: 15, family: ui.family, style: ui.style, color: C.muted,
+  x: 56, y: 1104, w: 1100, h: 24, size: 15, family: ui.family, style: ui.style, color: C.muted,
 });
-siteFoot(about, 1040);
-about.resize(1440, 1180);
+siteFoot(about, 1160);
+about.resize(1440, 1300);
 
 const aboutM = siteMobile(about, "about-mobile", 1280);
 let ay = mStage(aboutM, {
@@ -1153,23 +1146,15 @@ const mNumsA = frame(aboutM, { name: "numbers", x: 0, y: ay, w: 390, h: 220, fil
 });
 ay += 236;
 [
-  ["Shanghai  ·  factory", "No. 977 Tongpu Road, Putuo District, Shanghai 200333"],
-  ["Singapore  ·  international HQ", "TSX Tower A #03-13, 1 Tai Seng Ave, Singapore 536464"],
-].forEach((row, i) => {
-  const n = frame(aboutM, {
-    name: row[0], x: 16, y: ay + i * 100, w: 358, h: 88, fill: C.white,
-    stroke: { color: C.ink, opacity: 0.12 },
-  });
-  txt(n, {
-    text: row[0], x: 16, y: 14, w: 326, h: 16, size: 12,
-    family: uiM.family, style: uiM.style, color: C.blue, track: 0.6,
-  });
-  txt(n, {
-    text: row[1], x: 16, y: 38, w: 326, h: 36, size: 13,
-    family: ui.family, style: ui.style, lh: 18,
+  { title: "Shanghai  ·  factory", sub: "No. 977 Tongpu Road, Putuo. Credit code 913101076076323035.", fill: factoryFill },
+  { title: "Singapore  ·  international HQ", sub: "TSX Tower A #03-13, 1 Tai Seng Ave. Opened 29 April 2025.", fill: heroFill },
+].forEach((card, i) => {
+  mTeaser(aboutM, {
+    name: card.title, y: ay + i * 240, fill: card.fill,
+    title: card.title, sub: card.sub,
   });
 });
-ay += 212;
+ay += 492;
 txt(aboutM, {
   text: "Turkey, Indonesia, Brazil, USA. ISO 9001 / 14001 / 18001.",
   x: 16, y: ay, w: 358, h: 36, size: 13,
@@ -1400,20 +1385,23 @@ pry += 236;
 mFoot(projectsM, pry);
 projectsM.resize(390, pry + 88);
 
-// NEWS — dark stage, three dated facts only
-const newsPg = siteArt("07 News", "news-desktop", 1280);
-const nstage = frame(newsPg, { name: "stage", x: 0, y: 108, w: 1440, h: 320, fill: C.ink });
+// NEWS — photo stage, three dated teasers
+const newsPg = siteArt("07 News", "news-desktop", 1480);
+const nstage = frame(newsPg, { name: "stage", x: 0, y: 108, w: 1440, h: 480, fill: C.stage });
+nstage.fills = solarFill;
+const nveil = frame(nstage, { name: "veil", x: 0, y: 250, w: 1440, h: 230, fill: C.ink });
+nveil.fills = solid(C.ink, 0.62);
 txt(nstage, {
   text: "News",
-  x: 56, y: 88, w: 900, h: 52, size: 40,
+  x: 56, y: 284, w: 900, h: 52, size: 40,
   family: uiSB.family, style: uiSB.style, color: C.white,
 });
 txt(nstage, {
   text: "Three dates we can print. Longdong, Singapore, Shenzhen.",
-  x: 56, y: 150, w: 800, h: 24, size: 16,
-  family: ui.family, style: ui.style, color: C.white, opacity: 0.8,
+  x: 56, y: 348, w: 800, h: 24, size: 16,
+  family: ui.family, style: ui.style, color: C.white, opacity: 0.85,
 });
-btn(nstage, { label: "About", x: 56, y: 196, w: 120, fill: C.white, color: C.ink, fontName: uiM });
+btn(nstage, { label: "About", x: 56, y: 400, w: 120, fill: C.white, color: C.ink, fontName: uiM });
 
 const newsCards = [
   { title: "CHVT at Longdong ±800 kV", date: "28 May 2025", body: "Commissioned on an HVDC line in China.", fill: solarFill },
@@ -1422,7 +1410,7 @@ const newsCards = [
 ];
 newsCards.forEach((card, i) => {
   const n = frame(newsPg, {
-    name: card.title, x: 56 + i * 444, y: 460, w: 428, h: 320, fill: C.white,
+    name: card.title, x: 56 + i * 444, y: 620, w: 428, h: 320, fill: C.white,
     stroke: { color: C.ink, opacity: 0.12 },
   });
   const photo = frame(n, { name: "photo", x: 0, y: 0, w: 428, h: 168, fill: C.stage });
@@ -1440,8 +1428,25 @@ newsCards.forEach((card, i) => {
     family: ui.family, style: ui.style, color: C.muted, lh: 18,
   });
 });
-siteFoot(newsPg, 820);
-newsPg.resize(1440, 960);
+siteFoot(newsPg, 980);
+newsPg.resize(1440, 1120);
+
+const newsM = siteMobile(newsPg, "news-mobile", 1280);
+let ny = mStage(newsM, {
+  fill: solarFill,
+  title: "News",
+  dek: "Three dates we can print. Longdong, Singapore, Shenzhen.",
+  cta: "About",
+});
+newsCards.forEach((card, i) => {
+  mTeaser(newsM, {
+    name: card.title, y: ny + 16 + i * 240, fill: card.fill,
+    kicker: card.date, title: card.title, sub: card.body,
+  });
+});
+ny += 16 + newsCards.length * 240 + 16;
+mFoot(newsM, ny);
+newsM.resize(390, ny + 88);
 
 // CAREERS — factory stage. Two cities. No vacancy list.
 const careers = siteArt("08 Careers", "careers-desktop", 1480);
@@ -1488,6 +1493,24 @@ crTeasers.forEach((card, i) => {
 });
 siteFoot(careers, 960);
 careers.resize(1440, 1100);
+
+const careersM = siteMobile(careers, "careers-mobile", 1480);
+let cry = mStage(careersM, {
+  fill: factoryFill,
+  title: "Work on the switch inside the transformer.",
+  dek: "Shanghai and Singapore. Engineering, test, and sales.",
+  cta: "Write to us",
+  h: 360,
+});
+crTeasers.forEach((card, i) => {
+  mTeaser(careersM, {
+    name: card.title, y: cry + 16 + i * 240, fill: card.fill,
+    kicker: card.sub, title: card.title, sub: card.body,
+  });
+});
+cry += 16 + crTeasers.length * 240 + 16;
+mFoot(careersM, cry);
+careersM.resize(390, cry + 88);
 
 // LEARN — what a tap changer is. Three steps. No course chrome.
 const learn = siteArt("09 Learn", "learn-desktop", 1480);
@@ -1613,16 +1636,17 @@ productType("12 Product HWV", "product-hwv", {
 // 13 Product WSL — cage OCTC / DETC. Transformer off. Not an OLTC.
 productType("13 Product WSL", "product-wsl", {
   fill: wslFill,
+  studio: true,
   name: "WSL",
   dek: "Cage-type OCTC. Transformer off. Not an OLTC.",
   siblings: [
-    ["CM", "Oil in-tank OLTC. III 500 / 600 A. Transformer stays live.", cmFill],
+    ["CM", "Oil in-tank OLTC. Transformer stays live.", cmFill],
     ["CMA7", "Motor drive. Accessory, not a tap changer.", cma7Fill],
     ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
   ],
   specs: [
     ["Duty", "OCTC / DETC. Transformer off."],
-    ["Type", "Cage. In tank oil, no separate compartment."],
+    ["Type", "Cage. De-energized only."],
     ["Operation", "Only with the transformer isolated. Not an OLTC."],
     ["Name", "WSL. Cage OCTC."],
     ["Also", "Drum WDG · linear ZWC"],
@@ -1632,6 +1656,8 @@ productType("13 Product WSL", "product-wsl", {
 // 14 Product CMA7 — motor drive unit. Accessory. Not a tap changer. HWV already has its drive.
 productType("14 Product CMA7", "product-cma7", {
   fill: cma7Fill,
+  studio: true,
+  cta: "Operating instructions",
   name: "CMA7",
   dek: "Motor drive unit. Accessory, not a tap changer.",
   siblings: [
@@ -1651,6 +1677,7 @@ productType("14 Product CMA7", "product-cma7", {
 // 15 Product CM — oil-arc in-tank OLTC. III 500 / 600 A typical. Not vacuum.
 productType("15 Product CM", "product-cm", {
   fill: cmFill,
+  studio: true,
   name: "CM",
   dek: "Oil-arc in-tank OLTC. III 500 / 600 A. Not vacuum.",
   siblings: [
@@ -1689,7 +1716,7 @@ const moreWorlds = [
   { title: "Oil OLTC", sub: "CMD · CV", fill: cmFill, x: 56, y: 576 },
   { title: "Vacuum OLTC", sub: "SHZVG · CHVT", fill: shzvFill, x: 740, y: 576 },
   { title: "Dry · gas · regulator · reactive", sub: "CVT · CZ · SHGV · HMDK · HWDK", fill: subFill, x: 56, y: 892 },
-  { title: "OCTC and accessories", sub: "WDG · ZWC · SHM-D · monitors", fill: wslFill, x: 740, y: 892 },
+  { title: "OCTC", sub: "WDG · ZWC. Transformer off.", fill: wslFill, x: 740, y: 892 },
 ];
 moreWorlds.forEach((w) => {
   const n = frame(more, { name: w.title, x: w.x, y: w.y, w: 644, h: 300, fill: C.stage });
@@ -1823,15 +1850,56 @@ txt(moreAsk, {
 siteFoot(more, gy + 148);
 more.resize(1440, gy + 288);
 
+// 17 Not found — empty / no type. Same chrome. Stage, then three real types, not a white 404.
+const missing = siteArt("17 Not found", "not-found-desktop", 1280);
+const missSt = frame(missing, { name: "stage", x: 0, y: 108, w: 1440, h: 480, fill: C.stage });
+missSt.fills = subFill;
+const missVeil = frame(missSt, { name: "veil", x: 0, y: 250, w: 1440, h: 230, fill: C.ink });
+missVeil.fills = solid(C.ink, 0.62);
+txt(missSt, {
+  text: "No type by that name.",
+  x: 56, y: 284, w: 900, h: 52, size: 40,
+  family: uiSB.family, style: uiSB.style, color: C.white,
+});
+txt(missSt, {
+  text: "Open the range. Start with CV2.",
+  x: 56, y: 348, w: 720, h: 24, size: 16,
+  family: ui.family, style: ui.style, color: C.white, opacity: 0.85,
+});
+btn(missSt, { label: "Find a type", x: 56, y: 400, w: 148, fill: C.white, color: C.ink, fontName: uiM });
+[
+  ["CV2", "Vacuum selector. III 350 A and 600 A only.", cv2Fill],
+  ["CM2", "Vacuum CM. III/II 500 / 600 A only.", cm2Fill],
+  ["WSL", "Cage OCTC. Transformer off.", wslFill],
+].forEach((row, i) => {
+  const n = frame(missing, {
+    name: row[0], x: 56 + i * 444, y: 620, w: 428, h: 200, fill: C.white,
+    stroke: { color: C.ink, opacity: 0.12 },
+  });
+  const ph = frame(n, { name: "ph", x: 0, y: 0, w: 160, h: 200, fill: C.stage });
+  ph.fills = darkPhoto(row[2]);
+  txt(n, {
+    text: row[0], x: 180, y: 56, w: 220, h: 24, size: 20,
+    family: uiSB.family, style: uiSB.style,
+  });
+  txt(n, {
+    text: row[1], x: 180, y: 88, w: 220, h: 80, size: 13,
+    family: ui.family, style: ui.style, color: C.muted, lh: 18,
+  });
+});
+siteFoot(missing, 860);
+missing.resize(1440, 1000);
+
 return {
   pages: figma.root.children.map((c) => c.name),
   desk: { w: desk.width, h: desk.height },
   prod: { w: prod.width, h: prod.height },
   mobile: [
-    productsM.name, dlM.name, aboutM.name, contactM.name, projectsM.name, learnM.name,
+    productsM.name, dlM.name, aboutM.name, contactM.name, projectsM.name,
+    newsM.name, careersM.name, learnM.name,
   ].map((name, i) => ({
     name,
-    w: [productsM, dlM, aboutM, contactM, projectsM, learnM][i].width,
-    h: [productsM, dlM, aboutM, contactM, projectsM, learnM][i].height,
+    w: [productsM, dlM, aboutM, contactM, projectsM, newsM, careersM, learnM][i].width,
+    h: [productsM, dlM, aboutM, contactM, projectsM, newsM, careersM, learnM][i].height,
   })),
 };
