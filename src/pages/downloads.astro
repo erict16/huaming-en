@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
 import StageControls from "../components/StageControls.astro";
 import { allDownloads } from "../lib/downloads";
 import { formatKind, parseDocMeta } from "../lib/doc-meta";
@@ -17,6 +18,9 @@ for (const d of files) {
 
 <Base title="Downloads · Huaming" description="Technical data, leaflets, operating instructions, and type-test reports. No email gate.">
   <main id="main">
+    <div class="container">
+      <Breadcrumb crumbs={[{ href: "/", label: "Home" }]} visible={false} />
+    </div>
     <div class="stage">
       <div class="swiper-container stage-slider" data-loop="0" data-autoplay="0" data-autoplay-time="5000">
         <div class="swiper-wrapper">

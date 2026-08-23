@@ -1,11 +1,15 @@
 ---
 import Base from "../layouts/Base.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
 import StageControls from "../components/StageControls.astro";
 import { offices } from "../lib/catalog";
 ---
 
 <Base title="About · Huaming" description="Shanghai Huaming Power Equipment Co., Ltd. makes tap changers for power transformers.">
   <main id="main">
+    <div class="container">
+      <Breadcrumb crumbs={[{ href: "/", label: "Home" }]} visible={false} />
+    </div>
     <div class="stage">
       <div class="swiper-container stage-slider" data-loop="0" data-autoplay="0" data-autoplay-time="5000">
         <div class="swiper-wrapper">

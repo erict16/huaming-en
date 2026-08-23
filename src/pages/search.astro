@@ -44,15 +44,11 @@ const rows = [
                   hidden
                 >
                   <div class="result-number">{i + 1}.</div>
-                  <div class="result-title-page">
+                  <div class="result-title result-title-page">
                     <a href={r.href}>{r.title}</a>
                   </div>
                   <div class="result-teaser">{r.teaser}</div>
-                  <div class="add-info">
-                    <div class="result-title">
-                      <a href={r.href}>{r.href}</a>
-                    </div>
-                  </div>
+                  <div class="add-info">{r.type}</div>
                 </div>
               ))
             }

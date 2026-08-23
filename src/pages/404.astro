@@ -1,25 +1,31 @@
 ---
 import Base from "../layouts/Base.astro";
-import StageControls from "../components/StageControls.astro";
 ---
 
 <Base title="404 · Huaming" description="This page is not on the English catalogue.">
   <main id="main">
-    <div class="stage">
-      <div class="swiper-container stage-slider" data-loop="0" data-autoplay="0" data-autoplay-time="5000">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="swiper-image"></div>
-            <div class="stage-content container bg-gradient">
-              <div class="text-container">
-                <h2><p>404</p></h2>
-                <span class="light"><p>This page is not on the English catalogue.</p></span>
-                <a href="/" class="cta cta-gradient">Home</a>
+    <div class="frame frame-default frame-type-sitereinhausen_mediaparallax frame-layout-0">
+      <div class="textmedia-parallax color-blue">
+        <div class="parallax-bg"></div>
+        <div class="background image-bg">
+          <div class="media-content">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-s-11 col-sm-10 col-md-6 col-lg-5 offset-lg-1">
+                  <h2>
+                    404
+                    <br />
+                    This page is not on the English catalogue.
+                  </h2>
+                  <div class="copy-content">
+                    <p>The URL may be wrong, or the page moved. Types and PDFs are still on the catalogue.</p>
+                  </div>
+                  <a href="/" class="cta cta-outline">Home</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <StageControls />
       </div>
     </div>
   </main>

@@ -1,13 +1,13 @@
 # Overnight status
 
-Updated: 2026-08-23 23:29 Asia/Shanghai
+Updated: 2026-08-23 23:32 Asia/Shanghai
 Branch: `feat/mr-astro-lock`
 Hard stop: 2026-08-24 07:00 Asia/Shanghai
 Scheduler: `01a02f00e2d6` every 20m
 
 ## SHA
 
-HEAD after cycle 14. Cycle 13 was `652253c`.
+HEAD after cycle 15. Cycle 14 was `7645295`.
 
 ## Preview
 
@@ -17,7 +17,7 @@ Vercel project `huaming-en` framework preset **astro**. SSO off.
 
 ## Now
 
-Closeness still 100. Cycle 14: PDP `arrow-right.svg` crumbs, search icon submit, related-products row. Next: imprint / 404.
+Closeness still 100. Cycle 15: imprint/privacy `.text-module`, 404 `.textmedia-parallax`, inner hidden breadcrumbs. Formula at target. Language modal and `.socialMedia` skipped on purpose.
 
 ## Do not
 

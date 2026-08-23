@@ -6,8 +6,9 @@ interface Crumb {
 interface Props {
   crumbs: Crumb[];
   visible?: boolean;
+  hidden?: boolean;
 }
-const { crumbs, visible = true } = Astro.props;
+const { crumbs, hidden = false, visible = !hidden } = Astro.props;
 const arrow = "/_assets/4fe0297b88c3f75f81bce57218e3ae92/Images/Icons/arrow-right.svg";
 ---
 
