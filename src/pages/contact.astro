@@ -150,26 +150,115 @@ import { offices } from "../lib/catalog";
         </div>
       </div>
     </div>
-    <div class="container">
-      <h2 class="headline">Offices</h2>
-      <ul>
-        {
-          offices.map((o) => (
-            <li>
-              <p>{o.role}</p>
-              <p>{o.name}</p>
-              {o.lines.map((line) => (
-                <p>{line}</p>
-              ))}
-              {"email" in o && o.email ? (
-                <p>
-                  <a href={`mailto:${o.email}`}>{o.email}</a>
-                </p>
-              ) : null}
-            </li>
-          ))
-        }
-      </ul>
+    <div class="contactfinder">
+      <div class="subnavi-big">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <ul class="scrollbar scrollbar-horizontal scrollbar-black">
+                <li class="js-contactfinder-tab subnavi-big-button active" data-tab="international">
+                  <h3>International</h3>
+                </li>
+                <li class="js-contactfinder-tab subnavi-big-button" data-tab="factory">
+                  <h3>Factory</h3>
+                </li>
+                <li class="js-contactfinder-tab subnavi-big-button" data-tab="offices">
+                  <h3>Offices</h3>
+                </li>
+              </ul>
+              <img
+                class="down-button d-block d-s-none rotate180"
+                alt=""
+                src="/_assets/4fe0297b88c3f75f81bce57218e3ae92/Images/Icons/arrow-down-blue.svg"
+                width="24"
+                height="24"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-results-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2 id="contactHeadline">Offices</h2>
+              <div id="contactContent" class="contact-results">
+                <div class="teaser-wrapper">
+                  <div class="row">
+                    {
+                      offices.map((o, i) => {
+                        const tab =
+                          o.id === "singapore" ? "international" : o.id === "shanghai" ? "factory" : "offices";
+                        const mail = "email" in o && typeof o.email === "string" ? o.email : null;
+                        const web = "web" in o && typeof o.web === "string" ? o.web : null;
+                        return (
+                          <div
+                            class={`teaser_element col-lg-6 two-column aorder--${i}`}
+                            data-tab={tab}
+                          >
+                            <div class="textteaser contact-teaser textteaser-outline">
+                              <div class="contact-person"></div>
+                              <div class="contact-info">
+                                <div class="header">
+                                  <div class="top-wrap">
+                                    <p class="contact-info-name">
+                                      <strong>{o.name}</strong>
+                                    </p>
+                                  </div>
+                                  <p>
+                                    {o.role}
+                                    <br />
+                                    {o.lines.map((line) => (
+                                      <>
+                                        {line}
+                                        <br />
+                                      </>
+                                    ))}
+                                    {mail ? (
+                                      <a href={`mailto:${mail}`}>{mail}</a>
+                                    ) : null}
+                                    {mail && web ? <br /> : null}
+                                    {web ? (
+                                      <a href={web} target="_blank" rel="noreferrer">
+                                        {web.replace(/^https?:\/\//, "")}
+                                      </a>
+                                    ) : null}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <script is:inline>
+      (function () {
+        var tabs = document.querySelectorAll(".js-contactfinder-tab");
+        var cards = document.querySelectorAll(".contact-results .teaser_element");
+        if (!tabs.length) return;
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            var id = tab.getAttribute("data-tab");
+            tabs.forEach(function (t) {
+              t.classList.toggle("active", t === tab);
+            });
+            cards.forEach(function (c) {
+              c.hidden = c.getAttribute("data-tab") !== id;
+            });
+          });
+        });
+        cards.forEach(function (c) {
+          c.hidden = c.getAttribute("data-tab") !== "international";
+        });
+      })();
+    </script>
   </main>
 </Base>

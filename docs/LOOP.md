@@ -35,7 +35,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 27. [done] 404 `.image-bg.gradient-bg` overlay (no MR photo) (cycle 16)
 28. [done] News slug `articleIntro` / `blueBox` from impulse article (cycle 17)
 29. [done] Footer `.icon-wrap` + scroll-to-top PNG (cycle 18)
-30. Skip language modal and `.socialMedia`. Formula at target.
+30. [done] Contact `.contactfinder` / `.contact-teaser` office cards (cycle 19)
+31. Skip language modal and `.socialMedia`. Formula at target.
 
 ## Cycle log
 
@@ -57,3 +58,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 16: 404 `.image-bg.gradient-bg` overlay (no MR photo). `/404` 29/29.
 - 17: news slug articleIntro + blueBox from impulse-article.html. CHVT 28/28.
 - 18: footer icon-wrap + arrowup.png. `/` 99/99.
+- 19: contactfinder office teasers. `/contact` 41/41.
