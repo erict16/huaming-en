@@ -20,6 +20,7 @@ CSS hash in live HTML: `_assets/4fe0297b88c3f75f81bce57218e3ae92/Css/layout.min.
 | `mirror/mr/search.html` | 294018 | `7adf516c5bb3` |
 | `mirror/mr/404.html` | 293431 | `7bca55935aeb` |
 | `mirror/mr/imprint.html` | 295225 | `32389e52bff8` |
+| `mirror/mr/impulse-article.html` | 345091 | `7a023ebebc9e` |
 | `mirror/mr/css/layout.min.css` | 857650 | `a4b5bea9b689` |
 | `mirror/mr/css/animate.min.css` | 17715 | `1623c56c99d6` |
 | `mirror/mr/css/Basic.css` | 4066 | `6fc59a79199f` |
