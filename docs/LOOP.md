@@ -28,7 +28,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 20. [done] Mobile `third-nav-toggler` / `list-parent` / `mobile-menu-third` (cycle 9)
 21. [done] Drop unused powermail `/typo3conf/` image urls in Basic.css (cycle 10)
 22. [done] Contact powermail class tree + downloads filter chrome (cycle 11)
-23. Skip language modal and `.socialMedia`. Formula at target. Leftover selector noise only until 07:00.
+23. [done] About `numbers-module` + news `teaser_articles` / `articleWrapper` (cycle 12)
+24. Skip language modal and `.socialMedia`. Formula at target.
 
 ## Cycle log
 
@@ -43,3 +44,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 09: mobile mega `third-nav-toggler`. Home selector 97/97.
 - 10: Basic.css powermail `/typo3conf/` urls → `none`.
 - 11: contact `.tx-powermail` / `.powermail_form`; downloads `.dc-filter-container`.
+- 12: about numbers-module; news teaser_articles.
