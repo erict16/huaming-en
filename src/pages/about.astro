@@ -31,17 +31,31 @@ import { offices } from "../lib/catalog";
         <StageControls />
       </div>
     </div>
-    <div class="container">
-      <p>
-        Legal name: Shanghai Huaming Power Equipment Co., Ltd. Credit code 913101076076323035. Factory
-        at No. 977 Tongpu Road, Putuo District, Shanghai 200333. International mail:
-        <a href="mailto:intl@huaming.com">intl@huaming.com</a>.
-      </p>
-      <p>
-        International headquarters: Huaming Power Equipment Singapore Pte. Ltd, Tai Seng Exchange (TSX)
-        Tower A #03-13, 1 Tai Seng Ave, Singapore 536464. The company announced that office on 29 April
-        2025.
-      </p>
+    <div class="frame frame-default frame-type-sitereinhausen_text frame-layout-0">
+      <div class="text-module bg-white" style="position: relative;">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-6 col-lg-5 offset-lg-1">
+              <h2 class="headline mb-sm-0">Shanghai factory. Singapore international headquarters.</h2>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-5">
+              <div class="text-wrapper">
+                <p>
+                  Legal name: Shanghai Huaming Power Equipment Co., Ltd. Credit code 913101076076323035.
+                  Factory at No. 977 Tongpu Road, Putuo District, Shanghai 200333. International mail:
+                  <a href="mailto:intl@huaming.com">intl@huaming.com</a>.
+                </p>
+                <p>
+                  International headquarters: Huaming Power Equipment Singapore Pte. Ltd, Tai Seng Exchange
+                  (TSX) Tower A #03-13, 1 Tai Seng Ave, Singapore 536464. The company announced that office
+                  on 29 April 2025.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
       <div class="numbers-module bg-grey">
         <div class="container">
           <div class="number-headline">
@@ -75,27 +89,40 @@ import { offices } from "../lib/catalog";
           </div>
         </div>
       </div>
-      <h2 class="headline">Also</h2>
-      <ul>
-        <li>Chairman: Xiao Yi (肖毅), general manager since 1995.</li>
-        <li>CNAS laboratory accreditation, 2009. Public pages list ISO 9001, ISO 14001, and ISO 18001.</li>
-        <li>Turkey plant 2016. Brazil and USA outlets 2019. Singapore subsidiary 2022. Indonesia plant 2025.</li>
-        <li>CHVT at Longdong ±800 kV HVDC, commissioned 28 May 2025.</li>
-      </ul>
-      <h2 class="headline">Offices</h2>
-      <ul>
-        {
-          offices.map((o) => (
-            <li>
-              <strong>{o.name}</strong>
-              <span> — {o.role}</span>
-              {o.lines.map((line) => (
-                <div>{line}</div>
-              ))}
-            </li>
-          ))
-        }
-      </ul>
+    <div class="frame frame-default frame-type-sitereinhausen_text frame-layout-0">
+      <div class="text-module bg-white" style="position: relative;">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-6 col-lg-5 offset-lg-1">
+              <h2 class="headline">Also</h2>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-5">
+              <div class="text-wrapper">
+                <p>Chairman: Xiao Yi (肖毅), general manager since 1995.</p>
+                <p>CNAS laboratory accreditation, 2009. Public pages list ISO 9001, ISO 14001, and ISO 18001.</p>
+                <p>Turkey plant 2016. Brazil and USA outlets 2019. Singapore subsidiary 2022. Indonesia plant 2025.</p>
+                <p>CHVT at Longdong ±800 kV HVDC, commissioned 28 May 2025.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-5 offset-lg-1">
+              <h2 class="headline">Offices</h2>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-5">
+              <div class="text-wrapper">
+                {
+                  offices.map((o) => (
+                    <p>
+                      <strong>{o.name}</strong>
+                      {` ${o.role}. `}
+                      {o.lines.join(", ")}
+                    </p>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 </Base>

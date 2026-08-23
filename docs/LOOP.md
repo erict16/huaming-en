@@ -36,7 +36,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 28. [done] News slug `articleIntro` / `blueBox` from impulse article (cycle 17)
 29. [done] Footer `.icon-wrap` + scroll-to-top PNG (cycle 18)
 30. [done] Contact `.contactfinder` / `.contact-teaser` office cards (cycle 19)
-31. Skip language modal and `.socialMedia`. Formula at target.
+31. [done] About `.text-module` from company.html (cycle 20)
+32. Skip language modal and `.socialMedia`. Formula at target.
 
 ## Cycle log
 
@@ -59,3 +60,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 17: news slug articleIntro + blueBox from impulse-article.html. CHVT 28/28.
 - 18: footer icon-wrap + arrowup.png. `/` 99/99.
 - 19: contactfinder office teasers. `/contact` 41/41.
+- 20: about text-module. `/about` 31/31.
