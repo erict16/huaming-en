@@ -1,32 +1,25 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
-import StageControls from "../../components/StageControls.astro";
 import SwiperArrows from "../../components/SwiperArrows.astro";
 import { news } from "../../lib/news";
 ---
 
 <Base title="News · Huaming" description="Articles listed on the live English newsroom. Titles rewritten. No extra stories invented.">
   <main id="main">
-    <div class="container">
-      <Breadcrumb crumbs={[{ href: "/", label: "Home" }]} visible={false} />
-    </div>
-    <div class="stage">
-      <div class="swiper-container stage-slider" data-loop="0" data-autoplay="0" data-autoplay-time="5000">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="swiper-image"></div>
-            <div class="stage-content container bg-gradient">
-              <div class="text-container">
-                <h2><p>News</p></h2>
-                <span class="light">
-                  <p>From the live English newsroom. We rewrote the titles. We did not invent extra stories.</p>
-                </span>
-              </div>
+    <div class="frame frame-default frame-type-sitereinhausen_introtext frame-layout-0">
+      <div class="introtext bg-white">
+        <div class="container">
+          <Breadcrumb crumbs={[{ href: "/", label: "Home" }]} visible={false} />
+          <div>
+            <h1 class="h1ToIntro">News</h1>
+          </div>
+          <div class="row">
+            <div class="intro col-xl-12 col-xxl-10">
+              <p>From the live English newsroom. We rewrote the titles. We did not invent extra stories.</p>
             </div>
           </div>
         </div>
-        <StageControls />
       </div>
     </div>
     <div class="bg-">

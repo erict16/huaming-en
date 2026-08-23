@@ -38,7 +38,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 30. [done] Contact `.contactfinder` / `.contact-teaser` office cards (cycle 19)
 31. [done] About `.text-module` from company.html (cycle 20)
 32. [done] `/products` portfolio introtext + family tabs + wordcloud (cycle 21)
-33. Skip language modal and `.socialMedia`. Formula at target.
+33. [done] Downloads + news introtext / h1ToIntro (cycle 22)
+34. Skip language modal and `.socialMedia`. Formula at target.
 
 ## Cycle log
 
@@ -63,3 +64,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 19: contactfinder office teasers. `/contact` 41/41.
 - 20: about text-module. `/about` 31/31.
 - 21: products index from portfolio.html. `/products` 31/31.
+- 22: downloads/news introtext. `/downloads` 33/33, `/news` 29/29.

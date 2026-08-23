@@ -1,13 +1,13 @@
 # Overnight status
 
-Updated: 2026-08-24 00:06 Asia/Shanghai
+Updated: 2026-08-24 00:26 Asia/Shanghai
 Branch: `feat/mr-astro-lock`
 Hard stop: 2026-08-24 07:00 Asia/Shanghai
 Scheduler: `01a02f00e2d6` every 20m
 
 ## SHA
 
-HEAD after cycle 21. Cycle 20 was `259002f`.
+HEAD after cycle 22. Cycle 21 was `42f6274` / `026a5d4`.
 
 ## Preview
 
@@ -17,7 +17,7 @@ Vercel project `huaming-en` framework preset **astro**. SSO off.
 
 ## Now
 
-Closeness 100. Cycle 21: `/products` from `portfolio.html` (introtext, family tabs, wordcloud of Huaming types). Language modal and `.socialMedia` skipped on purpose.
+Closeness 100. Cycle 22: downloads and news use `.introtext` / `.h1ToIntro` like downloadcenter.html and impulses.html. Language modal and `.socialMedia` skipped on purpose.
 
 ## Do not
 

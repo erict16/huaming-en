@@ -1,7 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
-import StageControls from "../components/StageControls.astro";
 import { allDownloads } from "../lib/downloads";
 import { formatKind, parseDocMeta } from "../lib/doc-meta";
 import { formatBytes } from "../lib/format";
@@ -18,84 +17,142 @@ for (const d of files) {
 
 <Base title="Downloads · Huaming" description="Technical data, leaflets, operating instructions, and type-test reports. No email gate.">
   <main id="main">
-    <div class="container">
-      <Breadcrumb crumbs={[{ href: "/", label: "Home" }]} visible={false} />
-    </div>
-    <div class="stage">
-      <div class="swiper-container stage-slider" data-loop="0" data-autoplay="0" data-autoplay-time="5000">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="swiper-image"></div>
-            <div class="stage-content container bg-gradient">
-              <div class="text-container">
-                <h2><p>Downloads</p></h2>
-                <span class="light">
-                  <p>Technical data, leaflets, operating instructions, and type-test reports. No email gate.</p>
-                </span>
-              </div>
+    <div class="frame frame-default frame-type-sitereinhausen_introtext frame-layout-0">
+      <div class="introtext bg-white">
+        <div class="container">
+          <Breadcrumb crumbs={[{ href: "/", label: "Home" }]} visible={false} />
+          <div>
+            <h1 class="h1ToIntro">Download Center</h1>
+          </div>
+          <div class="row">
+            <div class="intro col-xl-12 col-xxl-10">
+              <p>
+                Technical data, leaflets, operating instructions, and type-test reports. No email gate.
+              </p>
             </div>
           </div>
         </div>
-        <StageControls />
       </div>
     </div>
 
     <div class="container">
       <div class="download-center">
-        <div class="dc-filter-container">
-          <form action="/downloads/" class="downloadCenter-filter" method="get">
-            <div class="row">
-              <div class="downloadcenter-select-area col-12">
-                <div class="partial-select-area row">
-                  <div class="dropdown-selectarea col-12 col-s-6 col-md-4 col-lg-3">
-                    <select
-                      id="selectArea1-Products"
-                      name="kind"
-                      class="js-portfolio-selectarea"
-                      onchange="var v=this.value;document.querySelectorAll('.downloadcenter-row').forEach(function(r){r.hidden=!!v&&r.getAttribute('data-filter-category')!==v;});"
-                    >
-                      <option value="">All kinds</option>
-                      {
-                        kinds.map((k) => (
-                          <option value={k}>{formatKind(k)}</option>
-                        ))
-                      }
-                    </select>
-                  </div>
-                </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="subnavi-big">
+              <ul class="nav nav-tabs scrollbar scrollbar-horizontal scrollbar-black" id="downloadTabs" role="tablist">
+                <li class="nav-item subnavi-big-button active">
+                  <a class="nav-link active" href="#tabcontent-all" data-kind="" role="tab">
+                    <h3>All</h3>
+                  </a>
+                </li>
+                {
+                  kinds.map((k, i) => (
+                    <li class="nav-item subnavi-big-button">
+                      <a class="nav-link" href={`#tabcontent-${i}`} data-kind={k} role="tab">
+                        <h3>{formatKind(k)}</h3>
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+              <div class="down-button rotate180">
+                <img
+                  class="d-block d-s-none"
+                  alt=""
+                  src="/_assets/4fe0297b88c3f75f81bce57218e3ae92/Images/Icons/arrow-down-blue.svg"
+                  width="24"
+                  height="24"
+                />
               </div>
             </div>
-          </form>
+          </div>
         </div>
-        <div class="downloadcenter-rows">
-          {
-            [...byKind.entries()].map(([kind, rows]) => (
-              <div class="downloadcenter-row" data-filter-category={kind}>
-                <div class="col-xl-3 col-xxl-4 downloadcenter-row-name">{formatKind(kind)}</div>
-                <div class="download-set">
-                  {rows.map((d) => {
-                    const meta = parseDocMeta(d.file, d.title);
-                    return (
-                      <a href={`/downloads/${d.file}`} class="downloadItem-link">
-                        <div class="downloadItem">
-                          <div class="downloadItem-label d-flex align-items-baseline">
-                            <div class="download-name">{d.title}</div>
-                          </div>
-                          <div class="downloadItem-info">
-                            {meta.docNo ? <span>{meta.docNo}</span> : null}
-                            {meta.year ? <span>{meta.year}</span> : null}
-                            <span>{formatBytes(d.bytes ?? 0)}</span>
-                          </div>
-                        </div>
-                      </a>
-                    );
-                  })}
+
+        <div class="tab-content" id="downloadTabsContent">
+          <div class="tab-pane fade show active" id="tabcontent-all" role="tabpanel">
+            <div class="dc-filter-container">
+              <form action="/downloads/" class="downloadCenter-filter" method="get">
+                <div class="row">
+                  <div class="downloadcenter-select-area col-12">
+                    <div class="partial-select-area row">
+                      <div class="dropdown-selectarea col-12 col-s-6 col-md-4 col-lg-3">
+                        <select id="selectArea1-Products" name="kind" class="js-portfolio-selectarea">
+                          <option value="">All kinds</option>
+                          {
+                            kinds.map((k) => (
+                              <option value={k}>{formatKind(k)}</option>
+                            ))
+                          }
+                        </select>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))
-          }
+              </form>
+            </div>
+            <div class="downloadcenter-rows">
+              {
+                [...byKind.entries()].map(([kind, rows]) => (
+                  <div class="downloadcenter-row" data-filter-category={kind}>
+                    <div class="col-xl-3 col-xxl-4 downloadcenter-row-name">{formatKind(kind)}</div>
+                    <div class="download-set">
+                      {rows.map((d) => {
+                        const meta = parseDocMeta(d.file, d.title);
+                        return (
+                          <a href={`/downloads/${d.file}`} class="downloadItem-link">
+                            <div class="downloadItem">
+                              <div class="downloadItem-label d-flex align-items-baseline">
+                                <div class="download-name">{d.title}</div>
+                              </div>
+                              <div class="downloadItem-info">
+                                {meta.docNo ? <span>{meta.docNo}</span> : null}
+                                {meta.year ? <span>{meta.year}</span> : null}
+                                <span>{formatBytes(d.bytes ?? 0)}</span>
+                              </div>
+                            </div>
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </main>
 </Base>
+
+<script is:inline>
+  (function () {
+    var tabs = document.querySelectorAll("#downloadTabs a[data-kind]");
+    var rows = document.querySelectorAll(".downloadcenter-row");
+    var select = document.getElementById("selectArea1-Products");
+    function filter(kind) {
+      rows.forEach(function (r) {
+        r.hidden = !!kind && r.getAttribute("data-filter-category") !== kind;
+      });
+      tabs.forEach(function (a) {
+        var on = a.getAttribute("data-kind") === kind;
+        a.classList.toggle("active", on);
+        var li = a.closest(".subnavi-big-button");
+        if (li) li.classList.toggle("active", on);
+      });
+      if (select) select.value = kind || "";
+    }
+    tabs.forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        filter(a.getAttribute("data-kind") || "");
+      });
+    });
+    if (select) {
+      select.addEventListener("change", function () {
+        filter(select.value);
+      });
+    }
+  })();
+</script>
