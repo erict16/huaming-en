@@ -7,11 +7,13 @@ Scheduler: `01a02f00e2d6` every 20m
 
 ## SHA
 
-Cycle 11 after this commit. 10 `b2e24b9` · 9 `81bd750` · 8 `afb879b`.
+HEAD after cycle 11: `9cad859`. 10 `b2e24b9` · 9 `81bd750` · 8 `afb879b`.
 
 ## Preview
 
-https://huaming-bjswmgzp8-eric-tans-projects.vercel.app (cycle 9 chrome). This commit is Astro static; GitHub/Vercel will mint a new preview.
+https://huaming-6efgya1z5-eric-tans-projects.vercel.app
+
+curl `/contact/`: `tx-powermail` `powermail_form` `cta-gradient` `placholder`. curl `/downloads/`: `dc-filter-container` `downloadCenter-filter`.
 
 Vercel project `huaming-en` framework preset **astro**. SSO off.
 

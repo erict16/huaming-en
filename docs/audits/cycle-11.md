@@ -19,6 +19,8 @@ gaps:
 - language modal, `.socialMedia` skipped on purpose
 - no MR downloadcenter-plugin / nested product selects (MR catalog, not ours)
 
+preview: https://huaming-6efgya1z5-eric-tans-projects.vercel.app
+
 next_fix: leftover chrome only if a mapped page still misses an MR class that paints (search overlay already shipped)
 
 closeness: 100
