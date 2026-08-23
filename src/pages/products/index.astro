@@ -2,43 +2,85 @@
 import Base from "../../layouts/Base.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import ProductBox from "../../components/ProductBox.astro";
-import StageControls from "../../components/StageControls.astro";
-import { families, products } from "../../lib/catalog";
+import { families, familyGroups, products } from "../../lib/catalog";
 import { productImageSrc } from "../../lib/product-image";
+
+function groupOf(familyId: string): "oltc" | "octc" | "accessories" {
+  if ((familyGroups.oltc as readonly string[]).includes(familyId)) return "oltc";
+  if ((familyGroups.octc as readonly string[]).includes(familyId)) return "octc";
+  return "accessories";
+}
+
+const featured = ["cv2", "cm2", "shzv", "hwv", "wsl", "cma7"];
+const weights = ["wc-biggest", "wc-big", "wc-normal", "wc-small"] as const;
 ---
 
 <Base title="Products · Huaming" description="On-load tap changers, de-energized tap changers, and motor drives.">
   <main id="main">
-    <div class="container">
-      <Breadcrumb crumbs={[{ href: "/", label: "Home" }]} visible={false} />
-    </div>
-    <div class="stage">
-      <div class="swiper-container stage-slider" data-loop="0" data-autoplay="0" data-autoplay-time="5000">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="swiper-image"></div>
-            <div class="stage-content container bg-gradient">
-              <div class="text-container">
-                <h2><p>Products</p></h2>
-                <span class="light">
-                  <p>
-                    Three jobs: on-load tap changers, de-energized tap changers, and accessories (motor
-                    drives, monitors). Vacuum is a technology inside OLTC, not a third family.
-                  </p>
-                </span>
-              </div>
+    <div class="frame frame-default frame-type-sitereinhausen_introtext frame-layout-0">
+      <div class="introtext bg-white">
+        <div class="container">
+          <Breadcrumb crumbs={[{ href: "/", label: "Home" }]} visible={false} />
+          <div>
+            <h1 class="h1ToIntro">Products. Types. Brochures.</h1>
+          </div>
+          <div class="row">
+            <div class="intro col-xl-12 col-xxl-10">
+              <p>
+                Three jobs: on-load tap changers, de-energized tap changers, and accessories (motor drives,
+                monitors). Vacuum is a technology inside OLTC, not a third family.
+              </p>
             </div>
           </div>
         </div>
-        <StageControls />
       </div>
     </div>
 
-    <div class="container">
-      <p>
-        <a href="/products/oltc/">OLTC</a>
-        · OCTC · Accessories
-      </p>
+    <div class="frame frame-default frame-type-list frame-layout-0">
+      <div class="subnavi-big">
+        <div class="container">
+          <div style="position: relative">
+            <ul class="scrollbar scrollbar-horizontal scrollbar-black">
+              <li class="subnavi-big-button active" data-tab="oltc">
+                <h3>On-load tap changers</h3>
+              </li>
+              <li class="subnavi-big-button" data-tab="octc">
+                <h3>De-energized</h3>
+              </li>
+              <li class="subnavi-big-button" data-tab="accessories">
+                <h3>Accessories</h3>
+              </li>
+            </ul>
+            <img
+              class="down-button d-block d-s-none"
+              alt=""
+              src="/_assets/4fe0297b88c3f75f81bce57218e3ae92/Images/Icons/arrow-down-blue.svg"
+              width="24"
+              height="24"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="wordcloud-container bg-gradient">
+        <div class="container">
+          <ul class="wordcloud">
+            {
+              products.map((p, i) => (
+                <li
+                  class="js-wordcloud-item"
+                  data-tab={groupOf(p.family)}
+                  data-weight={featured.includes(p.slug) ? "wc-biggest" : weights[i % 4]}
+                >
+                  <a class="wordcloud-link" href={`/products/${p.slug}/`}>
+                    {p.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="product-list-plugin">
@@ -51,10 +93,76 @@ import { productImageSrc } from "../../lib/product-image";
               intro={p.oneLiner}
               image={productImageSrc(p.slug)}
               facts={[families.find((f) => f.id === p.family)?.name ?? ""]}
+              tab={groupOf(p.family)}
             />
           ))
         }
       </div>
     </div>
+
+    <div class="teaser-module bg-white">
+      <div class="container">
+        <div class="row">
+          <div class="text col-m-12 col-lg-12">
+            <div class="teaser-wrapper">
+              <div class="row">
+                <div class="teaser_element col-lg-4 three-column">
+                  <div class="textteaser textteaser-gradient textteaser-gradient-bg">
+                    <div class="teaser-HeadlineAndText">
+                      <p class="headline">Search our complete range?</p>
+                    </div>
+                    <div>
+                      <a href="/search/" class="link">Search</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="teaser_element col-lg-4 three-column">
+                  <div class="textteaser textteaser-gradient textteaser-gradient-bg">
+                    <div class="teaser-HeadlineAndText">
+                      <p class="headline">Technical data as PDF?</p>
+                    </div>
+                    <div>
+                      <a href="/downloads/" class="link">Downloads</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="teaser_element col-lg-4 three-column">
+                  <div class="textteaser textteaser-gradient textteaser-gradient-bg">
+                    <div class="teaser-HeadlineAndText">
+                      <p class="headline">News from the factory?</p>
+                    </div>
+                    <div>
+                      <a href="/news/" class="link">News</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </Base>
+
+<script is:inline>
+  (function () {
+    var tabs = document.querySelectorAll(".subnavi-big-button");
+    var boxes = document.querySelectorAll(".product-list-plugin .product-box");
+    if (!tabs.length) return;
+    function show(id) {
+      tabs.forEach(function (t) {
+        t.classList.toggle("active", t.getAttribute("data-tab") === id);
+      });
+      boxes.forEach(function (b) {
+        b.hidden = b.getAttribute("data-tab") !== id;
+      });
+    }
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        show(tab.getAttribute("data-tab"));
+      });
+    });
+    show("oltc");
+  })();
+</script>

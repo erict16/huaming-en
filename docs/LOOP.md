@@ -37,7 +37,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 29. [done] Footer `.icon-wrap` + scroll-to-top PNG (cycle 18)
 30. [done] Contact `.contactfinder` / `.contact-teaser` office cards (cycle 19)
 31. [done] About `.text-module` from company.html (cycle 20)
-32. Skip language modal and `.socialMedia`. Formula at target.
+32. [done] `/products` portfolio introtext + family tabs + wordcloud (cycle 21)
+33. Skip language modal and `.socialMedia`. Formula at target.
 
 ## Cycle log
 
@@ -61,3 +62,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 18: footer icon-wrap + arrowup.png. `/` 99/99.
 - 19: contactfinder office teasers. `/contact` 41/41.
 - 20: about text-module. `/about` 31/31.
+- 21: products index from portfolio.html. `/products` 31/31.

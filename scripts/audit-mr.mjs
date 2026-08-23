@@ -240,6 +240,7 @@ if (homeHtmlPath) {
 
 const pages = [
   { id: "/", route: "", mr: mrHome, extra: CHROME_CLASSES },
+  { id: "/products", route: "products", mr: path.join(root, "mirror/mr/portfolio.html"), extra: ["introtext", "h1ToIntro", "subnavi-big", "subnavi-big-button", "wordcloud-container", "wordcloud", "js-wordcloud-item", "product-list-plugin", "teaser-module", "teaser_element", "textteaser-gradient"] },
   { id: "/products/oltc", route: "products/oltc", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "product-keyfacts", "stage", "introtext", "breadcrumb", "subline"] },
   { id: "/products/cv2", route: "products/cv2", mr: mrPdp, extra: ["product-detail-wrapper", "keyfacts", "keyfacts-list", "keyfact-headline", "download-center", "downloadcenter-rows", "downloadItem", "breadcrumb", "product-related-products", "teaser_products", "width-small", "icon-plus", "collapse-mobile-spec-number"] },
   { id: "/contact", route: "contact", mr: path.join(root, "mirror/mr/contact.html"), extra: ["tx-powermail", "powermail_form", "powermail_fieldset", "powermail_input", "powermail_textarea", "powermail_submit", "cta-gradient", "powermail_label", "powermail_field", "frame-type-powermail_pi1", "placholder", "breadcrumb", "contactfinder", "subnavi-big", "subnavi-big-button", "contact-results-wrapper", "contact-results", "contact-teaser", "contact-person", "contact-info", "contact-info-name"] },

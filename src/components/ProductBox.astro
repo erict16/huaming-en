@@ -5,11 +5,12 @@ interface Props {
   intro: string;
   image?: string | null;
   facts?: string[];
+  tab?: string;
 }
-const { href, name, intro, image, facts = [] } = Astro.props;
+const { href, name, intro, image, facts = [], tab } = Astro.props;
 ---
 
-<div class="swiper-slide product-box columns">
+<div class="swiper-slide product-box columns" data-tab={tab}>
   <div class="product-box-inner">
     <div class="swiper-image">
       <a href={href}>
