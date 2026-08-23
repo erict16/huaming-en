@@ -26,7 +26,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 18. [done] Product-box inner wrappers: product-image-wrapper + swiper-text-container (cycle 7)
 19. [done] Define `stageSlides` (HEAD was a ReferenceError); inner-page stage controls; public preview no SSO (cycle 8)
 20. [done] Mobile `third-nav-toggler` / `list-parent` / `mobile-menu-third` (cycle 9)
-21. [next] Drop unused powermail `/typo3conf/` image urls in Basic.css. Skip language modal and `.socialMedia`.
+21. [done] Drop unused powermail `/typo3conf/` image urls in Basic.css (cycle 10)
+22. Skip language modal and `.socialMedia`. Formula at target. Keep looping until 07:00 on leftover selector noise only.
 
 ## Cycle log
 
@@ -39,3 +40,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 07: ProductBox MR inner wrappers. Home selector 85/85.
 - 08: stageSlides defined (3 autoplay slides); inner StageControls; Vercel framework astro + SSO off; public 200 preview.
 - 09: mobile mega `third-nav-toggler`. Home selector 97/97.
+- 10: Basic.css powermail `/typo3conf/` urls → `none`.
