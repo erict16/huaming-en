@@ -1,13 +1,13 @@
 # Overnight status
 
-Updated: 2026-08-23 22:54 Asia/Shanghai
+Updated: 2026-08-23 22:57 Asia/Shanghai
 Branch: `feat/mr-astro-lock`
 Hard stop: 2026-08-24 07:00 Asia/Shanghai
 Scheduler: `01a02f00e2d6` every 20m
 
 ## SHA
 
-Cycle 8 after this commit. 1 `71bd980` · 2 `acfb095` · 3 `52b2d34` · 4 `5dc07d6` · 5 `02f2fb7` · 6 `af3453b` · 7 `1d300e2` / `cbab2f7`.
+HEAD after cycle 9. 8 `afb879b` · 7 `1d300e2` / `cbab2f7`.
 
 ## Preview
 
@@ -21,7 +21,7 @@ curl `/`: `page-header` `dropdown-menu-products` `stage-slider` `swiper-paginati
 
 ## Now
 
-Closeness `/`: 100 (93/93, 22/22, 9/9). Home `stageSlides` is defined (HEAD 7 mapped an undefined array). Next leftover: powermail `/typo3conf/` icons, `third-nav-toggler`.
+Closeness `/`: 100 (97/97, 22/22, 9/9). Cycle 9 added mobile `third-nav-toggler`. Next leftover: powermail `/typo3conf/` icons.
 
 ## Do not
 

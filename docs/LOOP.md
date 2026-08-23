@@ -25,7 +25,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 17. [done] Stage swiper-controls + mega-nav overflow-scroll (cycle 6). MR home does not use fadeIn classes in HTML; motion is stage.min.js.
 18. [done] Product-box inner wrappers: product-image-wrapper + swiper-text-container (cycle 7)
 19. [done] Define `stageSlides` (HEAD was a ReferenceError); inner-page stage controls; public preview no SSO (cycle 8)
-20. [next] Leftover: powermail `/typo3conf/` icons; mobile `third-nav-toggler`; language modal. Skip `.socialMedia`.
+20. [done] Mobile `third-nav-toggler` / `list-parent` / `mobile-menu-third` (cycle 9)
+21. [next] Drop unused powermail `/typo3conf/` image urls in Basic.css. Skip language modal and `.socialMedia`.
 
 ## Cycle log
 
@@ -37,3 +38,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 06: Stage `.swiper-controls` + mega-nav `.overflow-scroll` from home.html.
 - 07: ProductBox MR inner wrappers. Home selector 85/85.
 - 08: stageSlides defined (3 autoplay slides); inner StageControls; Vercel framework astro + SSO off; public 200 preview.
+- 09: mobile mega `third-nav-toggler`. Home selector 97/97.

@@ -109,6 +109,10 @@ const CHROME_CLASSES = [
   "product-image-wrapper",
   "swiper-text",
   "swiper-text-container",
+  "list-parent",
+  "third-nav-toggler",
+  "third-nav-toggler-li",
+  "mobile-menu-third",
 ];
 
 const TOKENS = [
