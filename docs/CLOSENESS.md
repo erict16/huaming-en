@@ -2,19 +2,19 @@
 
 Formula: `0.5 * selector_hit% + 0.3 * token_hit% + 0.2 * structure_pass%`
 
-Last audit: cycle 60. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mirror/mr`.
+Last audit: cycle 62. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mirror/mr`.
 
 | page | selector | token | structure | closeness |
 |------|----------|-------|-----------|----------:|
 | `/` | 114/114 | 22/22 | 15/15 | 100 |
-| `/products` | 39/39 | 22/22 | (selector) | 100 |
+| `/products` | 42/42 | 22/22 | (selector) | 100 |
 | `/products/oltc` | 51/51 | 22/22 | (selector) | 100 |
 | `/products/octc` | 38/38 | 22/22 | (selector) | 100 |
 | `/products/accessories` | 38/38 | 22/22 | (selector) | 100 |
 | `/products/oltc-oil` | 38/38 | 22/22 | (selector) | 100 |
-| PDP `/products/cv2` | 60/60 | 22/22 | (selector) | 100 |
+| PDP `/products/cv2` | 63/63 | 22/22 | (selector) | 100 |
 | `/contact` | 63/63 | 22/22 | (selector) | 100 |
-| `/downloads` | 50/50 | 22/22 | (selector) | 100 |
+| `/downloads` | 52/52 | 22/22 | (selector) | 100 |
 | `/about` | 59/59 | 22/22 | (selector) | 100 |
 | `/news` | 47/47 | 22/22 | (selector) | 100 |
 | `/search` | 50/50 | 22/22 | (selector) | 100 |

@@ -82,6 +82,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 74. [done] Contact + downloads `frame-type-list` (cycle 58)
 75. [done] About + OLTC text-media-images from company.html (cycle 59)
 76. [done] Contact named powermail wraps + telephone (cycle 60)
+77. [done] Products wordcloud noHit + wordcloud-items (cycle 61)
+78. [done] PDP teaser_newsimpulse + download icon-placeholder / dc-select (cycle 62)
 
 ## Cycle log
 
@@ -145,3 +147,5 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 58: contactfinder + download-center `frame-type-list`. contact 56/56, downloads 50/50.
 - 59: about/OLTC text-media-images. `/about` 59/59, `/products/oltc` 51/51.
 - 60: contact named fieldwraps + telephone. `/contact` 63/63.
+- 61: products wordcloud noHit. `/products` 42/42.
+- 62: PDP news impulse + download icon-placeholder. cv2 63/63, downloads 52/52.

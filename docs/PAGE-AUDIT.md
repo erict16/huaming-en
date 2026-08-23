@@ -2,18 +2,18 @@
 
 Source of truth: `mirror/mr/` HTML+CSS. Formula scores in `docs/CLOSENESS.md` can be 100 while paint is still wrong.
 
-Updated: 2026-08-24 06:27 Asia/Shanghai. Cycle 60: contact fieldwraps.
+Updated: 2026-08-24 06:45 Asia/Shanghai. Cycle 62: PDP news + download icon.
 
 | # | Route | MR | Formula | Paint / taxonomy | Status |
 |---|-------|----|---------|------------------|--------|
 | 1 | `/` | home.html | 114/114 | Stage, introtext, teasers, numbers, parallax, factory/HQ text-module, sticky contact. | **pass** |
-| 2 | `/products/` | portfolio.html | 39/39 | Tabs + wordcloud + 12-col grid + teaser frame. Inner blue-nav. | **pass** |
+| 2 | `/products/` | portfolio.html | 42/42 | Tabs + wordcloud + noHit line + 12-col grid + teaser frame. | **pass** |
 | 3 | `/products/oltc/` | oltc.html | 51/51 | Lab textmedia with image column + tables + InnerTeaser. | **pass** |
 | 4 | `/products/octc/` | oltc.html shape | 38/38 | 3 boxes + InnerTeaser. | **pass** |
 | 5 | `/products/accessories/` | oltc.html shape | 38/38 | 9 boxes + InnerTeaser. | **pass** |
 | 6 | `/products/oltc-oil/` … `/products/other/` | oltc.html shape | oltc-oil 38/38 | One list per family + InnerTeaser. | **pass** |
-| 7 | `/products/cv2/` (and 26 other PDPs) | vacutap-vi.html | cv2 60/60 | Facts + registers + related + related-services + All types + InnerTeaser. | **pass** |
-| 8 | `/downloads/` | downloadcenter.html | 50/50 | introtext + kind tabs + Search tab + list frame + InnerTeaser. | **pass** |
+| 7 | `/products/cv2/` (and 26 other PDPs) | vacutap-vi.html | cv2 63/63 | Facts + registers + related + related-services + news impulse + InnerTeaser. | **pass** |
+| 8 | `/downloads/` | downloadcenter.html | 52/52 | introtext + kind tabs + Search tab + dc-select + icon-placeholder + InnerTeaser. | **pass** |
 | 9 | `/about/` | company.html | 59/59 | introtext + numbers + quote + textmedia image column + news + InnerTeaser. | **pass** |
 | 10 | `/news/` | impulses.html | 47/47 | introtext + three topicteaser rows (left/right). Indonesia photo only. | **pass** |
 | 11 | `/news/{slug}/` | impulse-article.html | chvt 45/45 | articleIntro / quote / sourced numbers + InnerTeaser. | **pass** |

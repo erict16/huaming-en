@@ -81,6 +81,25 @@ const weights = ["wc-biggest", "wc-big", "wc-normal", "wc-small"] as const;
           </ul>
         </div>
       </div>
+      <div class="wordcloud-container noHit pt-0">
+        <div class="container pt-0">
+          <p>Click a type name to open that product page.</p>
+        </div>
+      </div>
+      <div class="solution-results" style="display:none;">
+        <div class="container">
+          <div class="wordcloud-items">
+            <h2 id="defaultHeadline">
+              Results for „<span id="selectedWordCloudItemDisplay" data-item=""></span>"
+            </h2>
+          </div>
+          <div class="tab-navi-solutions">
+            <ul class="scrollbar scrollbar-horizontal scrollbar-black">
+              <li class="js-change-solutionTabNavi" data-tab="products">Types</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="container">
