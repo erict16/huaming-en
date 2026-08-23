@@ -248,6 +248,7 @@ const pages = [
   { id: "/404", route: "404", mr: path.join(root, "mirror/mr/404.html"), extra: ["textmedia-parallax", "color-blue", "parallax-bg", "media-content", "copy-content", "cta-outline", "frame-type-sitereinhausen_mediaparallax", "image-bg", "gradient-bg"] },
   { id: "/legal/imprint", route: "legal/imprint", mr: path.join(root, "mirror/mr/imprint.html"), extra: ["text-module", "bg-white", "headline", "text-wrapper", "frame-type-sitereinhausen_text"] },
   { id: "/legal/privacy", route: "legal/privacy", mr: path.join(root, "mirror/mr/imprint.html"), extra: ["text-module", "bg-white", "headline", "text-wrapper", "frame-type-sitereinhausen_text"] },
+  { id: "/news/chvt-longdong-800kv", route: "news/chvt-longdong-800kv", mr: path.join(root, "mirror/mr/impulse-article.html"), extra: ["articleIntro", "articleIntro-image", "blueBox", "article-text", "article-text-left", "frame-type-sitereinhausen_articleintro", "box-left", "media-100-16-6"] },
 ];
 
 const report = {

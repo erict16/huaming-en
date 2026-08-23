@@ -2,7 +2,7 @@
 
 Formula: `0.5 * selector_hit% + 0.3 * token_hit% + 0.2 * structure_pass%`
 
-Last audit: cycle 16. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mirror/mr`.
+Last audit: cycle 17. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mirror/mr`.
 
 | page | selector | token | structure | closeness |
 |------|----------|-------|-----------|----------:|
@@ -17,6 +17,7 @@ Last audit: cycle 16. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mi
 | `/404` | 29/29 | 22/22 | (selector) | 100 |
 | `/legal/imprint` | 25/25 | 22/22 | (selector) | 100 |
 | `/legal/privacy` | 25/25 | 22/22 | (selector) | 100 |
+| `/news/chvt-longdong-800kv` | 28/28 | 22/22 | (selector) | 100 |
 
 Target by morning: `/` ≥ 85, OLTC list + one PDP ≥ 75. Formula at target.
 

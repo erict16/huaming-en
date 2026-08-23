@@ -9,20 +9,77 @@ export function getStaticPaths() {
 
 const item = newsBySlug(Astro.params.slug!);
 if (!item) throw new Error("unknown news");
+const lead = item.body[0] ?? item.summary;
+const rest = item.body.slice(1);
 ---
 
 <Base title={`${item.title} · Huaming`} description={item.summary}>
   <main id="main">
-    <div class="container">
-      <Breadcrumb
-        crumbs={[
-          { href: "/", label: "Home" },
-          { href: "/news/", label: "News" },
-        ]}
-      />
-      <p>{item.date}</p>
-      <h1>{item.title}</h1>
-      {item.body.map((p) => <p>{p}</p>)}
+    <div class="frame frame-default frame-type-sitereinhausen_articleintro frame-layout-0">
+      <div class="articleIntro">
+        <div class="articleIntro-image">
+          <div class="background media-100-16-6 d-none d-md-block"></div>
+          <div class="background media-100-16-6 d-block d-md-none"></div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="blueBox d-block d-xl-none">
+                <h1>{item.title}</h1>
+                <div class="intro">
+                  <p style="margin-bottom: 0;">{item.summary}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="d-flex box-left full-width">
+              <div class="col-12 col-lg-6 d-none d-xl-block">
+                <div class="blueBox">
+                  <h1>{item.title}</h1>
+                  <div class="intro">
+                    <p style="margin-bottom: 0;">{item.summary}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-xl-6">
+                <Breadcrumb
+                  crumbs={[
+                    { href: "/", label: "Home" },
+                    { href: "/news/", label: "News" },
+                  ]}
+                />
+              </div>
+            </div>
+            <div class="col-12 col-xl-6 offset-xl-6">
+              <div class="article-text intro article-text-left">
+                <p>{item.date}. {lead}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    {
+      rest.length ? (
+        <div class="frame frame-default frame-type-sitereinhausen_text frame-layout-0">
+          <div class="text-module bg-white" style="position: relative;">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-sm-6 col-lg-5 offset-lg-1">
+                  <div class="text-wrapper">
+                    {rest.map((p) => (
+                      <p>{p}</p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null
+    }
   </main>
 </Base>

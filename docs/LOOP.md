@@ -33,7 +33,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 25. [done] PDP related types + OLTC hidden breadcrumb (cycle 14)
 26. [done] Imprint / privacy `.text-module` + 404 `textmedia-parallax` (cycle 15)
 27. [done] 404 `.image-bg.gradient-bg` overlay (no MR photo) (cycle 16)
-28. Skip language modal and `.socialMedia`. Formula at target.
+28. [done] News slug `articleIntro` / `blueBox` from impulse article (cycle 17)
+29. Skip language modal and `.socialMedia`. Formula at target.
 
 ## Cycle log
 
@@ -53,3 +54,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 14: breadcrumb arrows + PDP related + OLTC introtext (`7645295`). cv2 33/33.
 - 15: 404 textmedia-parallax; imprint/privacy text-module. `/404` 27/27.
 - 16: 404 `.image-bg.gradient-bg` overlay (no MR photo). `/404` 29/29.
+- 17: news slug articleIntro + blueBox from impulse-article.html. CHVT 28/28.
