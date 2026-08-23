@@ -2,11 +2,11 @@
 
 Source of truth: `mirror/mr/` HTML+CSS. Formula scores in `docs/CLOSENESS.md` can be 100 while paint is still wrong.
 
-Updated: 2026-08-24 02:48 Asia/Shanghai. Cycle 38: downloadItem icon.
+Updated: 2026-08-24 03:06 Asia/Shanghai. Cycle 40: home parallax + sticky contact.
 
 | # | Route | MR | Formula | Paint / taxonomy | Status |
 |---|-------|----|---------|------------------|--------|
-| 1 | `/` | home.html | 100/100 | Stage 1265×448 cover at 1280. Logo contain. Product-swiper 3:2. News cards 3:2 plates. `.mobileTopNav`. | **pass** |
+| 1 | `/` | home.html | 107/107 | Stage, introtext, teasers, numbers-module, parallax (no MR photo), sticky contact. `.mobileTopNav`. | **pass** |
 | 2 | `/products/` | portfolio.html | 37/37 | Tabs + wordcloud + 12-col grid. Inner header animation + blue-nav. Mobile stills full-width 3:2. | **pass** |
 | 3 | `/products/oltc/` | oltc.html | 37/37 | Three tables: vacuum / other on-load / oil. Grid of 15. Inner blue-nav. | **pass** |
 | 4 | `/products/octc/` | oltc.html shape | 32/32 | 3 boxes (WSL/WDG/ZWC). | **pass** |

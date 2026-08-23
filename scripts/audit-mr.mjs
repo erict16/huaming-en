@@ -116,6 +116,13 @@ const CHROME_CLASSES = [
   "third-nav-toggler-li",
   "mobile-menu-third",
   "mobileTopNav",
+  "introtext",
+  "numbers-module",
+  "number-headline",
+  "textmedia-parallax",
+  "parallax-bg",
+  "contact-icon",
+  "sticky-overlay-contact-wrapper-directlink",
 ];
 
 const INNER_BLUE_NAV = [
@@ -126,6 +133,7 @@ const INNER_BLUE_NAV = [
   "blue-nav-toggler",
   "light-menu",
   "mobileTopNav",
+  "contact-icon",
 ];
 
 const TOKENS = [
@@ -163,6 +171,10 @@ const HOME_BLOCKS = [
   { id: "footerUp", re: /footerUp/ },
   { id: "footerDown", re: /footerDown/ },
   { id: "stage-controls", re: /swiper-controls/ },
+  { id: "introtext", re: /introtext/ },
+  { id: "numbers", re: /numbers-module/ },
+  { id: "parallax", re: /textmedia-parallax/ },
+  { id: "sticky-contact", re: /sticky-overlay-contact-wrapper-directlink|contact-icon/ },
 ];
 
 function sha12(file) {

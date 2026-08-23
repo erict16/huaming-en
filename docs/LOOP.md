@@ -60,6 +60,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 52. [done] PDP product-registers accordion + nav-pills from vacutap-vi.html (cycle 37)
 53. [done] PDP show-more/less keyfacts siblings (cycle 37)
 54. [done] Downloads + PDP downloadItem icon / download-link from downloadcenter.html (cycle 38)
+55. [done] Home introtext + numbers-module.bg-gradient from home.html (cycle 39)
+56. [done] Home textmedia-parallax + sticky contact overlay (cycle 40). Login skipped.
 
 ## Cycle log
 
@@ -101,3 +103,5 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 36: PDP keyfact-headline labels from rating strings; empty headlines hidden.
 - 37: PDP product-registers accordion + pills; show-all keyfacts. cv2 52/52.
 - 38: downloadItem PDF icon + download-link on `/downloads` and PDP. `/downloads` 46/46.
+- 39: home introtext + numbers-module. `/` 107/107, structure 13/13.
+- 40: home parallax CTA (no MR photo) + sticky contact. Login skipped.

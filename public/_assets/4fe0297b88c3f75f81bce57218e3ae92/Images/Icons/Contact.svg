@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44.346" height="40.525" viewBox="0 0 44.346 40.525">
+  <g id="Icon_Contact" transform="translate(-927.168 -1060)">
+    <g id="Gruppe_2043" data-name="Gruppe 2043" transform="translate(-572.693 723.758)">
+      <g id="Icon_Footer-2" transform="translate(1514.492 336.242)">
+        <rect id="space" width="29.7" height="29.7" transform="translate(0.001)" fill="none" opacity="0.538"/>
+        <g id="Ellipse_15" data-name="Ellipse 15" transform="translate(7.921 11.88)" fill="none" stroke="#fff" stroke-width="2">
+          <ellipse cx="1.32" cy="1.32" rx="1.32" ry="1.32" stroke="none"/>
+          <ellipse cx="1.32" cy="1.32" rx="0.32" ry="0.32" fill="none"/>
+        </g>
+        <g id="Ellipse_16" data-name="Ellipse 16" transform="translate(13.201 11.88)" fill="none" stroke="#fff" stroke-width="2">
+          <ellipse cx="1.32" cy="1.32" rx="1.32" ry="1.32" stroke="none"/>
+          <ellipse cx="1.32" cy="1.32" rx="0.32" ry="0.32" fill="none"/>
+        </g>
+        <g id="Ellipse_17" data-name="Ellipse 17" transform="translate(18.481 11.88)" fill="none" stroke="#fff" stroke-width="2">
+          <ellipse cx="1.32" cy="1.32" rx="1.32" ry="1.32" stroke="none"/>
+          <ellipse cx="1.32" cy="1.32" rx="0.32" ry="0.32" fill="none"/>
+        </g>
+      </g>
+      <g id="Ellipse_97" data-name="Ellipse 97" transform="translate(1507.202 346.455)" fill="none" stroke="#fff" stroke-width="2">
+        <circle cx="7.654" cy="7.654" r="7.654" stroke="none"/>
+        <circle cx="7.654" cy="7.654" r="6.654" fill="none"/>
+      </g>
+      <path id="Pfad_389" data-name="Pfad 389" d="M-18976.277-19155.186c0-.08,0-.16.035-.5,1.045-14.34,26.934-13.281,27.232.5" transform="translate(20477.139 19531.932)" fill="none" stroke="#fff" stroke-width="2"/>
+    </g>
+    <path id="Pfad_390" data-name="Pfad 390" d="M23237.287-21548.551c2,1.188,6.26,1.742,6.26,1.742l-.9,4.6s6.811-4.961,6.855-4.93c2.729-.146,10.121-3.223,10.01-8.211-.316-5.525-7.719-8.406-13.934-8.395s-10.854,2.338-13,5.7" transform="translate(-22289 22629)" fill="none" stroke="#fff" stroke-width="2"/>
+  </g>
+</svg>
