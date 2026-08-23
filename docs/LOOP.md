@@ -20,9 +20,9 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 12. [done] `/contact` form chrome (cycle 2)
 13. [done] 404 (cycle 2)
 14. [done] Curl CSS-referenced icons into public so arrows paint (cycle 3)
-15. [next] Vercel preview URL (`npx vercel --yes`)
-16. Motion check: stage Swiper + animate classes actually in dist JS
-17. Strip unused eot/ttf/woff from @font-face (woff2 only)
+15. [done] Strip unused eot/ttf/woff from @font-face (cycle 4)
+16. [next] Vercel preview URL — vercel.json now Astro; last CLI deploy still failed as Next
+17. Motion check: stage Swiper + animate classes actually in dist JS
 18. Leftover selector/asset gaps from audits
 
 ## Cycle log
@@ -30,3 +30,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 01: mirror + MR-source. closeness 0
 - 02: Astro + layout.min.css + mapped pages. closeness 100 on class/token formula; icon urls still 404
 - 03: 18 CSS icon SVGs mirrored; layout urls retargeted to `/_assets/` and `/fileadmin/`
+- 04: Azo @font-face woff2-only; vercel.json framework astro. CLI deploy still Next until redeploy.
