@@ -44,7 +44,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 36. [done] Family list URLs + Header second-level hrefs (cycle 23)
 37. [done] About/contact drop empty stage → introtext (cycle 23)
 38. [done] Downloads `downloadCenterInputWrapper` search vs downloadcenter.html (cycle 24)
-39. Next failing row in `docs/PAGE-AUDIT.md`. Paint, not only class formula.
+39. [done] PDP stage 3:2 contain; home banner stays cover (cycle 25)
+40. Next failing row in `docs/PAGE-AUDIT.md`. Paint, not only class formula.
 
 ## Cycle log
 
@@ -72,3 +73,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 22: downloads/news introtext. `/downloads` 33/33, `/news` 29/29.
 - 23: PAGE-GOAL + family list routes (octc/accessories/10 families). Header second-level no longer dumps to `/products/`. About/contact introtext, empty stage gone.
 - 24: downloadCenterInputWrapper search. `/downloads` 36/36.
+- 25: PDP still centered 3:2 contain (768×512); home stage 1265×448 cover.

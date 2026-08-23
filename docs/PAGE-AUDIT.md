@@ -2,17 +2,17 @@
 
 Source of truth: `mirror/mr/` HTML+CSS. Formula scores in `docs/CLOSENESS.md` can be 100 while paint is still wrong.
 
-Updated: 2026-08-24 00:30 Asia/Shanghai. After this cycle: family list URLs + Header hrefs + about/contact introtext.
+Updated: 2026-08-24 00:49 Asia/Shanghai. Cycle 25: PDP still 3:2 contain; home banner still cover.
 
 | # | Route | MR | Formula | Paint / taxonomy | Status |
 |---|-------|----|---------|------------------|--------|
-| 1 | `/` | home.html | 99/99 | Stage 28rem cover (fixed after postage-stamp). Logo contain. Product-swiper 3:2. | **pass** — re-check if hero crops badly |
+| 1 | `/` | home.html | 99/99 | Stage 1265×448 cover at 1280. Logo contain. Product-swiper 3:2. | **pass** |
 | 2 | `/products/` | portfolio.html | 31/31 | Tabs + wordcloud + 12-col grid. Tabs filter in-page (MR does). | **pass** |
 | 3 | `/products/oltc/` | oltc.html | 29/29 | Stage + table + grid. All 6 OLTC families. | **pass** |
 | 4 | `/products/octc/` | oltc.html shape | 26/26 | 3 boxes (WSL/WDG/ZWC). | **pass** |
 | 5 | `/products/accessories/` | oltc.html shape | 26/26 | 9 boxes (MDU+monitor+other). | **pass** |
 | 6 | `/products/oltc-oil/` … `/products/other/` | oltc.html shape | oltc-oil 26/26 | One list per family. Header second-level 10/10. | **pass** |
-| 7 | `/products/cv2/` (and 26 other PDPs) | vacutap-vi.html | cv2 33/33 | Facts + PDFs + related. Breadcrumb now includes family list. | **pass** (spot-check CV2, WSL, CMA7) |
+| 7 | `/products/cv2/` (and 26 other PDPs) | vacutap-vi.html | cv2 33/33 | Facts + PDFs + related. Stage is centered 3:2 contain (768×512 at 1280), not the home cinema crop. | **pass** |
 | 8 | `/downloads/` | downloadcenter.html | 36/36 | introtext + kind tabs + Search tab `downloadCenterInputWrapper`. | **pass** |
 | 9 | `/about/` | company.html | 33/33 | introtext + numbers-module. No factory photo (we do not have one). | **pass** |
 | 10 | `/news/` | impulses.html | 29/29 | introtext + teaser_articles. | **pass** |
@@ -43,7 +43,6 @@ Updated: 2026-08-24 00:30 Asia/Shanghai. After this cycle: family list URLs + He
 
 ## Next failing row (overnight)
 
-1. Home/PDP stage crop if a still looks wrong at 1280 and 390.
-2. News article image band is empty (MR has a photo). Do not invent photos.
+1. News article image band is empty (MR has a photo). Do not invent photos.
 
 Skip: language modal, `.socialMedia`.

@@ -54,7 +54,7 @@ body{
   background:#f6f6f2;
 }
 
-/* Home stage: full-bleed banner. 3:2 stills cover a ~28rem strip. */
+/* Home / category banners (have overlay): full-bleed cover strip. */
 .stage .swiper-container .swiper-wrapper .swiper-slide .swiper-image{
   width:100%;
   margin:0;
@@ -85,4 +85,33 @@ body{
 }
 .stage .swiper-image:not(:has(img)){
   display:none;
+}
+
+/* PDP still: whole unit, centered 3:2. MR .swiper-image is absolute; undo that here. */
+.product-detail-wrapper .stage .swiper-container .swiper-wrapper .swiper-slide .swiper-image{
+  position:relative!important;
+  left:auto!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:auto!important;
+  width:min(100%,48rem)!important;
+  margin:0 auto;
+  height:auto!important;
+  min-height:0!important;
+  max-height:32rem!important;
+  aspect-ratio:3/2;
+  background:#f6f6f2;
+}
+.product-detail-wrapper .stage .swiper-container .swiper-wrapper .swiper-slide .swiper-image img{
+  object-fit:contain!important;
+  object-position:center;
+  background:#f6f6f2;
+}
+@media (max-width:1199px){
+  .product-detail-wrapper .stage .swiper-container .swiper-wrapper .swiper-slide .swiper-image{
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:22rem!important;
+  }
 }
