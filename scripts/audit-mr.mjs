@@ -242,10 +242,13 @@ const pages = [
   { id: "/", route: "", mr: mrHome, extra: CHROME_CLASSES },
   { id: "/products", route: "products", mr: path.join(root, "mirror/mr/portfolio.html"), extra: ["introtext", "h1ToIntro", "subnavi-big", "subnavi-big-button", "wordcloud-container", "wordcloud", "js-wordcloud-item", "product-list-plugin", "teaser-module", "teaser_element", "textteaser-gradient"] },
   { id: "/products/oltc", route: "products/oltc", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "product-keyfacts", "stage", "introtext", "breadcrumb", "subline"] },
+  { id: "/products/octc", route: "products/octc", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "introtext", "subline"] },
+  { id: "/products/accessories", route: "products/accessories", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "introtext", "subline"] },
+  { id: "/products/oltc-oil", route: "products/oltc-oil", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "introtext", "subline"] },
   { id: "/products/cv2", route: "products/cv2", mr: mrPdp, extra: ["product-detail-wrapper", "keyfacts", "keyfacts-list", "keyfact-headline", "download-center", "downloadcenter-rows", "downloadItem", "breadcrumb", "product-related-products", "teaser_products", "width-small", "icon-plus", "collapse-mobile-spec-number"] },
-  { id: "/contact", route: "contact", mr: path.join(root, "mirror/mr/contact.html"), extra: ["tx-powermail", "powermail_form", "powermail_fieldset", "powermail_input", "powermail_textarea", "powermail_submit", "cta-gradient", "powermail_label", "powermail_field", "frame-type-powermail_pi1", "placholder", "breadcrumb", "contactfinder", "subnavi-big", "subnavi-big-button", "contact-results-wrapper", "contact-results", "contact-teaser", "contact-person", "contact-info", "contact-info-name"] },
+  { id: "/contact", route: "contact", mr: path.join(root, "mirror/mr/contact.html"), extra: ["tx-powermail", "powermail_form", "powermail_fieldset", "powermail_input", "powermail_textarea", "powermail_submit", "cta-gradient", "powermail_label", "powermail_field", "frame-type-powermail_pi1", "placholder", "breadcrumb", "contactfinder", "subnavi-big", "subnavi-big-button", "contact-results-wrapper", "contact-results", "contact-teaser", "contact-person", "contact-info", "contact-info-name", "introtext", "h1ToIntro"] },
   { id: "/downloads", route: "downloads", mr: path.join(root, "mirror/mr/downloadcenter.html"), extra: ["download-center", "downloadcenter-rows", "downloadItem", "dc-filter-container", "downloadCenter-filter", "downloadcenter-select-area", "breadcrumb", "introtext", "h1ToIntro", "subnavi-big", "subnavi-big-button", "downloadTabs", "tab-content"] },
-  { id: "/about", route: "about", mr: path.join(root, "mirror/mr/company.html"), extra: ["numbers-module", "number-headline", "number-number", "number-overline", "number-label", "numbers", "breadcrumb", "text-module", "text-wrapper", "frame-type-sitereinhausen_text", "headline"] },
+  { id: "/about", route: "about", mr: path.join(root, "mirror/mr/company.html"), extra: ["numbers-module", "number-headline", "number-number", "number-overline", "number-label", "numbers", "breadcrumb", "text-module", "text-wrapper", "frame-type-sitereinhausen_text", "headline", "introtext", "h1ToIntro"] },
   { id: "/news", route: "news", mr: path.join(root, "mirror/mr/impulses.html"), extra: ["teaser_articles", "article-main-area", "blue-teaser", "article-slider-area", "swiper-articles", "articleWrapper", "breadcrumb", "introtext", "h1ToIntro"] },
   { id: "/search", route: "search", mr: path.join(root, "mirror/mr/search.html"), extra: ["tx-kesearch-pi1", "kesearch_searchbox", "kesearchbox", "ke_search_sword_search", "frame-type-ke_search_pi1", "frame-type-ke_search_pi2", "searchbox-grid", "resetbutt", "resetButton", "submitbutt", "resultCounterInfo", "countedResults", "searchWord", "kesearch_results", "kesearch_pagebrowser_bottom", "load-more", "result-list-item", "result-title", "result-title-page", "result-teaser", "result-number"] },
   { id: "/404", route: "404", mr: path.join(root, "mirror/mr/404.html"), extra: ["textmedia-parallax", "color-blue", "parallax-bg", "media-content", "copy-content", "cta-outline", "frame-type-sitereinhausen_mediaparallax", "image-bg", "gradient-bg"] },
@@ -282,5 +285,28 @@ for (const page of pages) {
     closeness: Math.round(close * 1000) / 10,
   });
 }
+
+const headerPath = path.join(root, "src/components/Header.astro");
+const header = existsSync(headerPath) ? readFileSync(headerPath, "utf8") : "";
+const familyHrefs = [
+  ["OLTC, oil arc", "/products/oltc-oil/"],
+  ["OLTC, vacuum", "/products/oltc-vacuum/"],
+  ["OLTC, air / dry", "/products/oltc-dry/"],
+  ["OLTC, gas", "/products/oltc-gas/"],
+  ["OLTC, reactive / compartment", "/products/oltc-reactive/"],
+  ["Step voltage regulator", "/products/regulator/"],
+  ["OCTC / DETC", "/products/octc/"],
+  ["Motor drive / MDU", "/products/mdu/"],
+  ["Monitor / oil filter", "/products/monitor/"],
+  ["Other", "/products/other/"],
+];
+report.taxonomy = {
+  family_second_level: familyHrefs.map(([title, href]) => ({
+    title,
+    href,
+    ok: header.includes(`href="${href}" title="${title}"`),
+  })),
+  leftover_family_dump: (header.match(/href="\/products\/" title="(?!Products|All types)[^"]+"/g) || []),
+};
 
 console.log(JSON.stringify(report, null, 2));

@@ -1,112 +1,18 @@
 ---
-import Base from "../../layouts/Base.astro";
-import Breadcrumb from "../../components/Breadcrumb.astro";
-import ProductBox from "../../components/ProductBox.astro";
-import StageControls from "../../components/StageControls.astro";
-import { families, familyGroups, productsInFamily } from "../../lib/catalog";
-import { productImageSrc } from "../../lib/product-image";
+import ProductCategory from "../../components/ProductCategory.astro";
+import { groupCopy, productsInGroup } from "../../lib/catalog";
 
-const rows = familyGroups.oltc.flatMap((id) =>
-  productsInFamily(id).map((p) => ({
-    p,
-    fam: families.find((f) => f.id === p.family),
-  })),
-);
+const copy = groupCopy.oltc;
 ---
 
-<Base
-  title="On-load tap changers · Huaming"
-  description="An OLTC changes taps while the transformer is live. Oil types break the arc in oil. Vacuum types break it in a bottle."
->
-  <main id="main">
-    <div class="stage">
-      <div class="swiper-container stage-slider" data-loop="0" data-autoplay="0" data-autoplay-time="5000">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="swiper-image">
-              <img src="/images/products/cv2.png" alt="" width="1280" height="720" />
-            </div>
-            <div class="stage-content container bg-gradient">
-              <div class="text-container">
-                <h2><p>On-load tap changers</p></h2>
-                <span class="light">
-                  <p>
-                    An OLTC changes taps while the transformer is live. Oil types break the arc in
-                    oil. Vacuum types break it in a bottle. HWV sits on the tank; the rest sit in it.
-                  </p>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <StageControls />
-      </div>
-    </div>
-
-    <div class="introtext bg-white">
-      <div class="container">
-        <Breadcrumb
-          visible={false}
-          crumbs={[
-            { href: "/", label: "Home" },
-            { href: "/products/", label: "Products" },
-            { href: "/products/oltc/", label: "On-load tap changers" },
-          ]}
-        />
-        <h1>On-load tap changers</h1>
-        <div class="subline col-xl-12 col-xxl-10">
-          <p>An OLTC changes taps while the transformer is live.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <h2 class="headline">Technical data at a glance</h2>
-    </div>
-
-    <div class="tabelle table-gradient">
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Family</th>
-              <th>Note</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              rows.map(({ p, fam }) => (
-                <tr>
-                  <td>
-                    <a href={`/products/${p.slug}/`}>{p.name}</a>
-                  </td>
-                  <td>{fam?.name}</td>
-                  <td>{p.oneLiner}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="product-list-plugin">
-        <div id="portfolio-overview-products" class="grid">
-          {
-            rows.map(({ p, fam }) => (
-              <ProductBox
-                href={`/products/${p.slug}/`}
-                name={p.name}
-                intro={p.oneLiner}
-                image={productImageSrc(p.slug)}
-                facts={[...(p.ratings ?? []).slice(0, 3), fam?.name ?? ""]}
-              />
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </main>
-</Base>
+<ProductCategory
+  title={copy.title}
+  description={copy.blurb}
+  blurb={copy.blurb}
+  crumbs={[
+    { href: "/", label: "Home" },
+    { href: "/products/", label: "Products" },
+    { href: "/products/oltc/", label: copy.title },
+  ]}
+  items={productsInGroup("oltc")}
+/>

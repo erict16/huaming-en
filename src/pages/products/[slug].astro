@@ -2,37 +2,110 @@
 import Base from "../../layouts/Base.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import ProductBox from "../../components/ProductBox.astro";
+import ProductCategory from "../../components/ProductCategory.astro";
 import StageControls from "../../components/StageControls.astro";
-import { familyById, productBySlug, products } from "../../lib/catalog";
+import {
+  families,
+  familyById,
+  familyGroups,
+  groupCopy,
+  productBySlug,
+  products,
+  productsForListSlug,
+} from "../../lib/catalog";
 import { allDownloads } from "../../lib/downloads";
 import { formatKind, parseDocMeta } from "../../lib/doc-meta";
 import { formatBytes } from "../../lib/format";
 import { productImageSrc } from "../../lib/product-image";
 
 export function getStaticPaths() {
-  return products.map((p) => ({ params: { slug: p.slug } }));
+  const productSlugs = new Set(products.map((p) => p.slug));
+  const listIds = [...families.map((f) => f.id), "accessories"].filter((id) => !productSlugs.has(id));
+  return [
+    ...products.map((p) => ({ params: { slug: p.slug }, props: { kind: "pdp" as const } })),
+    ...listIds.map((id) => ({ params: { slug: id }, props: { kind: "list" as const } })),
+  ];
 }
 
-const oltcIds = ["oltc-oil", "oltc-vacuum", "oltc-dry", "oltc-gas", "oltc-reactive", "regulator"];
+interface Props {
+  kind: "pdp" | "list";
+}
 
-const { slug } = Astro.params;
-const product = productBySlug(slug!);
-if (!product) throw new Error(`unknown type ${slug}`);
-const photo = productImageSrc(product.slug);
-const files = allDownloads().filter((d) => d.products.includes(product.slug));
+const { kind } = Astro.props as Props;
+const slug = Astro.params.slug!;
+const oltcIds = familyGroups.oltc as readonly string[];
+
+let listTitle = "";
+let listBlurb = "";
+let listDesc = "";
+let listItems = productsForListSlug(slug);
+let listCrumbs: { href: string; label: string }[] = [];
+
+if (kind === "list") {
+  if (slug === "accessories") {
+    listTitle = groupCopy.accessories.title;
+    listBlurb = groupCopy.accessories.blurb;
+    listDesc = listBlurb;
+    listCrumbs = [
+      { href: "/", label: "Home" },
+      { href: "/products/", label: "Products" },
+      { href: "/products/accessories/", label: listTitle },
+    ];
+  } else {
+    const fam = familyById(slug);
+    if (!fam) throw new Error(`unknown list ${slug}`);
+    listTitle = fam.name;
+    listBlurb = fam.blurb;
+    listDesc = fam.blurb;
+    listCrumbs = [
+      { href: "/", label: "Home" },
+      { href: "/products/", label: "Products" },
+      ...(oltcIds.includes(slug) ? [{ href: "/products/oltc/", label: groupCopy.oltc.title }] : []),
+      ...((familyGroups.accessories as readonly string[]).includes(slug)
+        ? [{ href: "/products/accessories/", label: groupCopy.accessories.title }]
+        : []),
+      { href: `/products/${slug}/`, label: fam.name },
+    ];
+  }
+}
+
+const product = kind === "pdp" ? productBySlug(slug) : undefined;
+if (kind === "pdp" && !product) throw new Error(`unknown type ${slug}`);
+const photo = product ? productImageSrc(product.slug) : null;
+const files = product ? allDownloads().filter((d) => d.products.includes(product.slug)) : [];
 const note =
-  typeof (product as { note?: string }).note === "string" ? (product as { note: string }).note : null;
-const noPdf = product.slug === "chvt" && files.length === 0;
-const isOltc = oltcIds.includes(product.family);
-const sameFamily = products.filter((p) => p.slug !== product.slug && p.family === product.family);
-const oltcSiblings = isOltc
-  ? products.filter(
-      (p) => p.slug !== product.slug && p.family !== product.family && oltcIds.includes(p.family),
-    )
+  product && typeof (product as { note?: string }).note === "string"
+    ? (product as { note: string }).note
+    : null;
+const noPdf = product?.slug === "chvt" && files.length === 0;
+const isOltc = product ? oltcIds.includes(product.family) : false;
+const familyCrumb = product ? familyById(product.family) : undefined;
+const sameFamily = product
+  ? products.filter((p) => p.slug !== product.slug && p.family === product.family)
   : [];
+const oltcSiblings =
+  product && isOltc
+    ? products.filter(
+        (p) => p.slug !== product.slug && p.family !== product.family && oltcIds.includes(p.family),
+      )
+    : [];
 const related = [...sameFamily, ...oltcSiblings].slice(0, 6);
 ---
 
+{
+  kind === "list" ? (
+    <ProductCategory
+      title={listTitle}
+      description={listDesc}
+      blurb={listBlurb}
+      crumbs={listCrumbs}
+      items={listItems}
+    />
+  ) : null
+}
+
+{
+  kind === "pdp" && product ? (
 <Base title={`${product.name} · Huaming`} description={product.oneLiner}>
   <main id="main">
     <div class="product-detail-wrapper">
@@ -42,7 +115,16 @@ const related = [...sameFamily, ...oltcSiblings].slice(0, 6);
             crumbs={[
               { href: "/", label: "Home" },
               { href: "/products/", label: "Products" },
-              ...(isOltc ? [{ href: "/products/oltc/", label: "On-load tap changers" }] : []),
+              ...(isOltc ? [{ href: "/products/oltc/", label: groupCopy.oltc.title }] : []),
+              ...(product.family === "octc"
+                ? [{ href: "/products/octc/", label: groupCopy.octc.title }]
+                : []),
+              ...((familyGroups.accessories as readonly string[]).includes(product.family)
+                ? [{ href: "/products/accessories/", label: groupCopy.accessories.title }]
+                : []),
+              ...(familyCrumb && product.family !== "octc"
+                ? [{ href: `/products/${product.family}/`, label: familyCrumb.name }]
+                : []),
             ]}
           />
           <h1>{product.name}</h1>
@@ -189,3 +271,5 @@ const related = [...sameFamily, ...oltcSiblings].slice(0, 6);
     </div>
   </main>
 </Base>
+  ) : null
+}

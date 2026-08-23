@@ -1,0 +1,118 @@
+---
+import Base from "../layouts/Base.astro";
+import Breadcrumb from "./Breadcrumb.astro";
+import ProductBox from "./ProductBox.astro";
+import StageControls from "./StageControls.astro";
+import { families, type Product } from "../lib/catalog";
+import { productImageSrc } from "../lib/product-image";
+
+interface Crumb {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  blurb: string;
+  crumbs: Crumb[];
+  items: Product[];
+}
+
+const { title, description, blurb, crumbs, items } = Astro.props;
+const stageSrc = items.map((p) => productImageSrc(p.slug)).find(Boolean) ?? null;
+const rows = items.map((p) => ({
+  p,
+  fam: families.find((f) => f.id === p.family),
+}));
+---
+
+<Base title={`${title} · Huaming`} description={description}>
+  <main id="main">
+    {
+      stageSrc ? (
+        <div class="stage">
+          <div class="swiper-container stage-slider" data-loop="0" data-autoplay="0" data-autoplay-time="5000">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="swiper-image">
+                  <img src={stageSrc} alt="" width="1280" height="720" />
+                </div>
+                <div class="stage-content container bg-gradient">
+                  <div class="text-container">
+                    <h2>
+                      <p>{title}</p>
+                    </h2>
+                    <span class="light">
+                      <p>{blurb}</p>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <StageControls />
+          </div>
+        </div>
+      ) : null
+    }
+
+    <div class="introtext bg-white">
+      <div class="container">
+        <Breadcrumb visible={false} crumbs={crumbs} />
+        <h1>{title}</h1>
+        <div class="subline col-xl-12 col-xxl-10">
+          <p>{blurb}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2 class="headline">Technical data at a glance</h2>
+    </div>
+
+    <div class="tabelle table-gradient">
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Family</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              rows.map(({ p, fam }) => (
+                <tr>
+                  <td>
+                    <a href={`/products/${p.slug}/`}>{p.name}</a>
+                  </td>
+                  <td>{fam?.name}</td>
+                  <td>{p.oneLiner}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="product-list-plugin">
+        <div id="portfolio-overview-products" class="grid">
+          {
+            rows.map(({ p, fam }) => (
+              <ProductBox
+                href={`/products/${p.slug}/`}
+                name={p.name}
+                intro={p.oneLiner}
+                image={productImageSrc(p.slug)}
+                facts={[...(p.ratings ?? []).slice(0, 3), fam?.name ?? ""]}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </main>
+</Base>
