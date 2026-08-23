@@ -91,18 +91,22 @@ const rows = familyGroups.oltc.flatMap((id) =>
       </div>
     </div>
 
-    <div class="product-list-plugin">
-      {
-        rows.map(({ p, fam }) => (
-          <ProductBox
-            href={`/products/${p.slug}/`}
-            name={p.name}
-            intro={p.oneLiner}
-            image={productImageSrc(p.slug)}
-            facts={[...(p.ratings ?? []).slice(0, 3), fam?.name ?? ""]}
-          />
-        ))
-      }
+    <div class="container">
+      <div class="product-list-plugin">
+        <div id="portfolio-overview-products" class="grid">
+          {
+            rows.map(({ p, fam }) => (
+              <ProductBox
+                href={`/products/${p.slug}/`}
+                name={p.name}
+                intro={p.oneLiner}
+                image={productImageSrc(p.slug)}
+                facts={[...(p.ratings ?? []).slice(0, 3), fam?.name ?? ""]}
+              />
+            ))
+          }
+        </div>
+      </div>
     </div>
   </main>
 </Base>

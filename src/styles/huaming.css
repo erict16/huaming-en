@@ -1,6 +1,82 @@
-/* Huaming-only: logo is ours, not MR. Keep MR class names. */
+/* Huaming layout: photos are ~3:2 stills, not MR cinema crops. */
+body{
+  font-family:'Azo Sans',sans-serif;
+  color:#535252;
+}
 .logo.main-logo img.desktop-logo,
-.logo.modal-logo img.desktop-logo{object-fit:contain;height:auto;}
-/* layout.min.css starts .articleIntro .blueBox at opacity:0; MR vhs JS fades it. */
+.logo.modal-logo img.desktop-logo{
+  object-fit:contain;
+  width:7.5rem;
+  height:auto;
+  max-height:3.5rem;
+}
+
 .articleIntro .blueBox{opacity:1;}
 
+#portfolio-overview-products.grid .product-box.swiper-slide{
+  width:auto;
+  max-width:none;
+}
+
+/* Product cards: 3:2, whole unit visible, paper behind. */
+#portfolio-overview-products .product-box .swiper-image,
+.portfolio-overview-products .product-box .swiper-image{
+  padding-bottom:66.666%!important;
+  margin-bottom:1.25rem;
+  background:#f6f6f2;
+}
+#portfolio-overview-products .product-box .swiper-image .product-image,
+#portfolio-overview-products .product-box .swiper-image .product-image.medium{
+  height:100%!important;
+  max-height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+
+.teaser_products .swiper-slide .swiper-image,
+.product-swiper .product-box .swiper-image,
+.teaser_products .swiper-slide picture.product-image-wrapper,
+.teaser_newsimpulse .swiper-slide picture.product-image-wrapper{
+  display:block;
+  width:100%;
+  max-width:100%;
+  aspect-ratio:3/2;
+  overflow:hidden;
+  background:#f6f6f2;
+}
+.teaser_products .swiper-slide .swiper-image img,
+.product-swiper .product-box .swiper-image img,
+.teaser_newsimpulse .swiper-slide .swiper-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  background:#f6f6f2;
+}
+
+/* Stage: centered 3:2 still, not 37.5vw cover crop. */
+.stage .swiper-container .swiper-wrapper .swiper-slide .swiper-image{
+  width:min(100%,40rem);
+  margin-left:auto;
+  margin-right:auto;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  aspect-ratio:3/2;
+  background:#f6f6f2;
+}
+.stage .swiper-container .swiper-wrapper .swiper-slide .swiper-image img{
+  object-fit:contain!important;
+  object-position:center;
+  width:100%!important;
+  height:100%!important;
+}
+@media (min-width:1200px){
+  .stage .swiper-container .swiper-wrapper .swiper-slide .stage-content{
+    min-height:0!important;
+    height:auto!important;
+  }
+}
+.stage .swiper-image:not(:has(img)){
+  display:none;
+}

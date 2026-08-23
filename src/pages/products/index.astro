@@ -83,20 +83,22 @@ const weights = ["wc-biggest", "wc-big", "wc-normal", "wc-small"] as const;
       </div>
     </div>
 
-    <div class="product-list-plugin">
-      <div class="swiper-wrapper">
-        {
-          products.map((p) => (
-            <ProductBox
-              href={`/products/${p.slug}/`}
-              name={p.name}
-              intro={p.oneLiner}
-              image={productImageSrc(p.slug)}
-              facts={[families.find((f) => f.id === p.family)?.name ?? ""]}
-              tab={groupOf(p.family)}
-            />
-          ))
-        }
+    <div class="container">
+      <div class="product-list-plugin">
+        <div id="portfolio-overview-products" class="grid">
+          {
+            products.map((p) => (
+              <ProductBox
+                href={`/products/${p.slug}/`}
+                name={p.name}
+                intro={p.oneLiner}
+                image={productImageSrc(p.slug)}
+                facts={[families.find((f) => f.id === p.family)?.name ?? ""]}
+                tab={groupOf(p.family)}
+              />
+            ))
+          }
+        </div>
       </div>
     </div>
 
@@ -149,6 +151,7 @@ const weights = ["wc-biggest", "wc-big", "wc-normal", "wc-small"] as const;
   (function () {
     var tabs = document.querySelectorAll(".subnavi-big-button");
     var boxes = document.querySelectorAll(".product-list-plugin .product-box");
+    var words = document.querySelectorAll(".js-wordcloud-item");
     if (!tabs.length) return;
     function show(id) {
       tabs.forEach(function (t) {
@@ -156,6 +159,9 @@ const weights = ["wc-biggest", "wc-big", "wc-normal", "wc-small"] as const;
       });
       boxes.forEach(function (b) {
         b.hidden = b.getAttribute("data-tab") !== id;
+      });
+      words.forEach(function (w) {
+        w.hidden = w.getAttribute("data-tab") !== id;
       });
     }
     tabs.forEach(function (tab) {
