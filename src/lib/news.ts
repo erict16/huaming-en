@@ -149,11 +149,16 @@ export function newsBySlug(slug: string): NewsItem | undefined {
   return news.find((n) => n.slug === slug);
 }
 
-/** Existing Huaming files only. Do not invent event photos. */
-export function newsBandSrc(slug: string): string | null {
-  if (slug.startsWith("chvt-")) return "/images/products/chvt.png";
+/** Article photography only. Product stills are not 16:6 cover art. */
+export function newsArticlePhoto(slug: string): string | null {
   if (slug === "indonesia-twenty-years") {
     return "/images/00_HuaMing/articles/7-Twenty Years of Deep Engagement in Indonesia/7-5.png";
   }
   return null;
+}
+
+/** 3:2 contain plates on cards. Existing files only. */
+export function newsBandSrc(slug: string): string | null {
+  if (slug.startsWith("chvt-")) return "/images/products/chvt.png";
+  return newsArticlePhoto(slug);
 }

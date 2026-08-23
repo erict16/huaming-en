@@ -51,7 +51,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 43. [done] SV still aliases to CV (same leaflet) (cycle 29)
 44. [done] News index `.articleImage` from impulses.html (cycle 30)
 45. [done] News lead is gradient only; articleImage 3:2 contain (cycle 31)
-46. Next failing row in `docs/PAGE-AUDIT.md`. Paint, not only class formula.
+46. [done] Article 16:6 band: no product-still cover (cycle 32)
+47. Next failing row in `docs/PAGE-AUDIT.md`. Paint, not only class formula.
 
 ## Cycle log
 
@@ -86,3 +87,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 29: SV still aliases to existing CV.png (same technical-data PDF).
 - 30: news index articleImage 16:9. `/news` 30/30.
 - 31: news lead gradient only; slider stills 3:2 contain (249×166).
+- 32: CHVT article band navy only; Indonesia 7-5.png stays.

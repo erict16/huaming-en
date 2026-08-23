@@ -32,7 +32,7 @@ body{
 .teaser_articles .article-main-area .blue-teaser > img{
   display:none;
 }
-/* MR article band is 16:6 cover. Empty band was a white void; navy plate if we have no still. */
+/* MR article band is 16:6 cover. Product stills are not cover art; navy plate unless we have an article photo. */
 .articleIntro-image .background{
   background-color:#002a55;
   background-size:cover;

@@ -1,7 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
-import { news, newsBandSrc, newsBySlug } from "../../lib/news";
+import { news, newsArticlePhoto, newsBySlug } from "../../lib/news";
 
 export function getStaticPaths() {
   return news.map((n) => ({ params: { slug: n.slug } }));
@@ -11,7 +11,7 @@ const item = newsBySlug(Astro.params.slug!);
 if (!item) throw new Error("unknown news");
 const lead = item.body[0] ?? item.summary;
 const rest = item.body.slice(1);
-const band = newsBandSrc(item.slug);
+const band = newsArticlePhoto(item.slug);
 const bandStyle = band ? `background-image: url("${encodeURI(band)}")` : undefined;
 ---
 
