@@ -91,6 +91,13 @@ const CHROME_CLASSES = [
   "footer-subline",
   "footer-links",
   "goback-container",
+  "overflow-scroll",
+  "overflow-scroll-left",
+  "overflow-scroll-right",
+  "swiper-controls",
+  "swiper-pagination",
+  "swiper-button-prev",
+  "swiper-button-next",
 ];
 
 const TOKENS = [
