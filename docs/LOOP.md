@@ -66,6 +66,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 58. [done] About news swiper + list table/stage/intro frames (cycle 42)
 59. [done] Family list text-module.bg-grey before tables (cycle 43)
 60. [done] PDP related-services teasers + product-detail-btn (cycle 44)
+61. [done] About three textmedia (Management / History / Laboratory) (cycle 45)
+62. [done] News article quote + sourced numbers (cycle 46)
 
 ## Cycle log
 
@@ -113,3 +115,5 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 42: about teaser_newsimpulse; OLTC table frames. `/about` 44/44, `/products/oltc` 41/41.
 - 43: list text-module.bg-grey before tables. `/products/oltc` 44/44.
 - 44: PDP related-services + product-detail-btn. cv2 59/59.
+- 45: about three textmedia. `/about` 48/48.
+- 46: article quote + numbers. CHVT 43/43.

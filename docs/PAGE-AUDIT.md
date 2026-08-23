@@ -2,7 +2,7 @@
 
 Source of truth: `mirror/mr/` HTML+CSS. Formula scores in `docs/CLOSENESS.md` can be 100 while paint is still wrong.
 
-Updated: 2026-08-24 03:45 Asia/Shanghai. Cycle 44: PDP related-services.
+Updated: 2026-08-24 04:05 Asia/Shanghai. Cycle 46: article quote + numbers.
 
 | # | Route | MR | Formula | Paint / taxonomy | Status |
 |---|-------|----|---------|------------------|--------|
@@ -14,9 +14,9 @@ Updated: 2026-08-24 03:45 Asia/Shanghai. Cycle 44: PDP related-services.
 | 6 | `/products/oltc-oil/` … `/products/other/` | oltc.html shape | oltc-oil 32/32 | One list per family. Header second-level 10/10. | **pass** |
 | 7 | `/products/cv2/` (and 26 other PDPs) | vacutap-vi.html | cv2 59/59 | Facts + registers + related types + grey related-services (Downloads/Contact) + All types button. | **pass** |
 | 8 | `/downloads/` | downloadcenter.html | 46/46 | introtext + kind tabs + Search tab `downloadCenterInputWrapper`. downloadItem PDF icon + download-link. | **pass** |
-| 9 | `/about/` | company.html | 44/44 | introtext + numbers-module + news swiper. No factory photo. | **pass** |
+| 9 | `/about/` | company.html | 48/48 | introtext + numbers + three textmedia (no factory photo) + news swiper. | **pass** |
 | 10 | `/news/` | impulses.html | 36/36 | introtext + teaser_articles. Lead is gradient (no product-still cover). Slider plates 3:2 contain. | **pass** |
-| 11 | `/news/{slug}/` | impulse-article.html | 34/34 | articleIntro / blueBox. Navy 16:6 band. Indonesia 7-5.png only (article photo). No product-still cover. | **pass** |
+| 11 | `/news/{slug}/` | impulse-article.html | chvt 43/43 | articleIntro / quote / sourced numbers. Navy 16:6 band. No author photo. | **pass** |
 | 12 | `/contact/` | contact.html | 49/49 | introtext + powermail + contactfinder. | **pass** |
 | 13 | `/search/` | search.html | 47/47 | Client filter (static build has no query string). | **pass** |
 | 14 | `/404` | 404.html | 35/35 | textmedia-parallax, no MR photo. | **pass** |

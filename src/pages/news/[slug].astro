@@ -64,6 +64,52 @@ const bandStyle = band ? `background-image: url("${encodeURI(band)}")` : undefin
         </div>
       </div>
     </div>
+    <div class="frame frame-default frame-type-sitereinhausen_articlequote frame-layout-0 frame-space-before-noSpace">
+      <div class="quote">
+        <div class="background">
+          <div class="media-content">
+            <div class="container">
+              <div class="row">
+                <div
+                  class="quote-content col-8 col-s-8 col-lg-8 offset-4 offset-s-3 offset-sm-3 offset-md-2 offset-lg-2 offset-xl-1 offset-xxl-1"
+                >
+                  <p class="quote-text darkblue">{item.summary}</p>
+                  <p class="author">Live newsroom, {item.date}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {
+      item.figures?.length ? (
+        <div class="frame frame-default frame-type-sitereinhausen_articlenumbers frame-layout-0">
+          <div class="numbers-module bg-grey">
+            <div class="container">
+              <div class="number-headline">
+                <h2>From the article</h2>
+              </div>
+              <div class="numbers row two-column one-column-sm">
+                <div class="col-12 col-xxl-10 offset-xxl-1">
+                  <div class="row justify-content-sm-center justify-content-md-start">
+                    {item.figures.map((f) => (
+                      <div class="number col-12 col-md-6 col-sm-12">
+                        <span class="number-number">
+                          <span class="val">{f.val}</span>
+                          {f.unit ? <span>{f.unit}</span> : null}
+                        </span>
+                        <p class="number-label">{f.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null
+    }
     {
       rest.length ? (
         <div class="frame frame-default frame-type-sitereinhausen_text frame-layout-0">

@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="frame frame-default frame-type-sitereinhausen_textmedia frame-layout-0">
+  <div class="textmedia">
+    <div class="text-media-text bg-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-s-10 offset-s-1 col-sm-12 offset-sm-0 order-first d-block d-md-none">
+            <h2>{title}</h2>
+          </div>
+          <div
+            class="text-media col-12 col-s-10 offset-s-1 col-sm-8 offset-sm-2 col-md-6 offset-md-0 col-lg-4 offset-lg-1"
+          >
+            <h2 class="d-none d-md-block">{title}</h2>
+            <slot />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

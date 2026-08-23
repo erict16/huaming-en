@@ -1,3 +1,9 @@
+export type NewsFigure = {
+  val: string;
+  unit?: string;
+  label: string;
+};
+
 export type NewsItem = {
   slug: string;
   date: string;
@@ -5,6 +11,7 @@ export type NewsItem = {
   summary: string;
   body: string[];
   sourcePath: string;
+  figures?: NewsFigure[];
 };
 
 export const news: NewsItem[] = [
@@ -20,6 +27,10 @@ export const news: NewsItem[] = [
     ],
     sourcePath:
       "/component/content/article/huaming-chvt-converter-transformer-on-load-tap-changer-has-successfully-commissioned-at-longdong-800kv-hvdc-converter-station-in-china",
+    figures: [
+      { val: "800", unit: "kV", label: "Longdong HVDC" },
+      { val: "2025", label: "Commissioned 28 May" },
+    ],
   },
   {
     slug: "singapore-international-hq",
@@ -33,6 +44,10 @@ export const news: NewsItem[] = [
     ],
     sourcePath:
       "/component/content/article/huaming-power-equipment-opens-international-headquarters-in-singapore-to-leverage-opportunities-in-the-energy-transition-2",
+    figures: [
+      { val: "2025", label: "HQ opened 29 April" },
+      { val: "2022", label: "Singapore subsidiary" },
+    ],
   },
   {
     slug: "t-and-d-dubai-2025",
