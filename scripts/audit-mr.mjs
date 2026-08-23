@@ -127,6 +127,9 @@ const CHROME_CLASSES = [
   "frame-type-sitereinhausen_teaser",
   "frame-type-sitereinhausen_articlenumbers",
   "frame-type-sitereinhausen_teasernewsimpulse",
+  "frame-type-sitereinhausen_text",
+  "frame-type-sitereinhausen_footer",
+  "text-module",
 ];
 
 const INNER_BLUE_NAV = [
@@ -179,6 +182,8 @@ const HOME_BLOCKS = [
   { id: "numbers", re: /numbers-module/ },
   { id: "parallax", re: /textmedia-parallax/ },
   { id: "sticky-contact", re: /sticky-overlay-contact-wrapper-directlink|contact-icon/ },
+  { id: "home-text", re: /frame-type-sitereinhausen_text/ },
+  { id: "footer-frame", re: /frame-type-sitereinhausen_footer/ },
 ];
 
 function sha12(file) {
@@ -268,19 +273,19 @@ if (homeHtmlPath) {
 const pages = [
   { id: "/", route: "", mr: mrHome, extra: CHROME_CLASSES },
   { id: "/products", route: "products", mr: path.join(root, "mirror/mr/portfolio.html"), extra: ["introtext", "h1ToIntro", "subnavi-big", "subnavi-big-button", "wordcloud-container", "wordcloud", "js-wordcloud-item", "product-list-plugin", "teaser-module", "teaser_element", "textteaser-gradient", "frame-type-sitereinhausen_teaser"] },
-  { id: "/products/oltc", route: "products/oltc", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "table-white", "table-grey", "product-box", "product-keyfacts", "stage", "introtext", "breadcrumb", "subline", "frame-type-sitereinhausen_stage", "frame-type-sitereinhausen_introtext", "frame-type-sitereinhausen_table", "text-module", "text-wrapper", "cta-outline"] },
+  { id: "/products/oltc", route: "products/oltc", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "table-white", "table-grey", "product-box", "product-keyfacts", "stage", "introtext", "breadcrumb", "subline", "frame-type-sitereinhausen_stage", "frame-type-sitereinhausen_introtext", "frame-type-sitereinhausen_table", "text-module", "text-wrapper", "cta-outline", "textmedia", "frame-type-sitereinhausen_textmedia"] },
   { id: "/products/octc", route: "products/octc", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "introtext", "subline", "text-module", "frame-type-sitereinhausen_table", "frame-type-sitereinhausen_stage"] },
   { id: "/products/accessories", route: "products/accessories", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "introtext", "subline", "text-module", "frame-type-sitereinhausen_table", "frame-type-sitereinhausen_stage"] },
   { id: "/products/oltc-oil", route: "products/oltc-oil", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "introtext", "subline", "text-module", "frame-type-sitereinhausen_table", "frame-type-sitereinhausen_stage"] },
   { id: "/products/cv2", route: "products/cv2", mr: mrPdp, extra: ["product-detail-wrapper", "keyfacts", "keyfacts-list", "keyfact-headline", "download-center", "downloadcenter-rows", "downloadItem", "breadcrumb", "product-related-products", "teaser_products", "width-small", "icon-plus", "collapse-mobile-spec-number", "product-registers-container", "accordion", "accordion-js", "nav-pills", "tab-content", "tab-pane", "card-header", "tabelle", "table-wrapper", "download-name", "download-icon", "show-more-keyfacts-js", "show-less-keyfacts-js", "product-related-services", "product-detail-btn", "teaser-module", "two-column", "cta-outline", "intro"] },
   { id: "/contact", route: "contact", mr: path.join(root, "mirror/mr/contact.html"), extra: ["tx-powermail", "powermail_form", "powermail_fieldset", "powermail_input", "powermail_textarea", "powermail_submit", "cta-gradient", "powermail_label", "powermail_field", "frame-type-powermail_pi1", "placholder", "breadcrumb", "contactfinder", "subnavi-big", "subnavi-big-button", "contact-results-wrapper", "contact-results", "contact-teaser", "contact-person", "contact-info", "contact-info-name", "introtext", "h1ToIntro", "powermail_select", "powermail_fieldwrap_type_select", "powermail_fieldwrap_country"] },
   { id: "/downloads", route: "downloads", mr: path.join(root, "mirror/mr/downloadcenter.html"), extra: ["download-center", "downloadcenter-rows", "downloadItem", "dc-filter-container", "downloadCenter-filter", "downloadcenter-select-area", "breadcrumb", "introtext", "h1ToIntro", "subnavi-big", "subnavi-big-button", "downloadTabs", "tab-content", "downloadCenterInputWrapper", "kesearch_searchbox", "ke_search_sword_search", "download-name", "download-icon", "download-link", "icon"] },
-  { id: "/about", route: "about", mr: path.join(root, "mirror/mr/company.html"), extra: ["numbers-module", "number-headline", "number-number", "number-overline", "number-label", "numbers", "breadcrumb", "text-module", "text-wrapper", "frame-type-sitereinhausen_text", "headline", "introtext", "h1ToIntro", "teaser_newsimpulse", "newsimpulse-swiper", "frame-type-sitereinhausen_articlenumbers", "frame-type-sitereinhausen_teasernewsimpulse", "textmedia", "text-media", "text-media-text", "frame-type-sitereinhausen_textmedia"] },
+  { id: "/about", route: "about", mr: path.join(root, "mirror/mr/company.html"), extra: ["numbers-module", "number-headline", "number-number", "number-overline", "number-label", "numbers", "breadcrumb", "text-module", "text-wrapper", "frame-type-sitereinhausen_text", "headline", "introtext", "h1ToIntro", "teaser_newsimpulse", "newsimpulse-swiper", "frame-type-sitereinhausen_articlenumbers", "frame-type-sitereinhausen_teasernewsimpulse", "textmedia", "text-media", "text-media-text", "frame-type-sitereinhausen_textmedia", "quote", "quote-text", "quote-content", "author", "frame-type-sitereinhausen_articlequote"] },
   { id: "/news", route: "news", mr: path.join(root, "mirror/mr/impulses.html"), extra: ["teaser_articles", "article-main-area", "blue-teaser", "article-slider-area", "swiper-articles", "articleWrapper", "breadcrumb", "introtext", "h1ToIntro", "articleImage", "teaser-module", "teaser_element", "textteaser-gradient", "frame-type-sitereinhausen_teaser"] },
   { id: "/search", route: "search", mr: path.join(root, "mirror/mr/search.html"), extra: ["tx-kesearch-pi1", "kesearch_searchbox", "kesearchbox", "ke_search_sword_search", "frame-type-ke_search_pi1", "frame-type-ke_search_pi2", "searchbox-grid", "resetbutt", "resetButton", "submitbutt", "resultCounterInfo", "countedResults", "searchWord", "kesearch_results", "kesearch_pagebrowser_bottom", "load-more", "result-list-item", "result-title", "result-title-page", "result-teaser", "result-number"] },
   { id: "/404", route: "404", mr: path.join(root, "mirror/mr/404.html"), extra: ["textmedia-parallax", "color-blue", "parallax-bg", "media-content", "copy-content", "cta-outline", "frame-type-sitereinhausen_mediaparallax", "image-bg", "gradient-bg"] },
-  { id: "/legal/imprint", route: "legal/imprint", mr: path.join(root, "mirror/mr/imprint.html"), extra: ["text-module", "bg-white", "headline", "text-wrapper", "frame-type-sitereinhausen_text"] },
-  { id: "/legal/privacy", route: "legal/privacy", mr: path.join(root, "mirror/mr/imprint.html"), extra: ["text-module", "bg-white", "headline", "text-wrapper", "frame-type-sitereinhausen_text"] },
+  { id: "/legal/imprint", route: "legal/imprint", mr: path.join(root, "mirror/mr/imprint.html"), extra: ["text-module", "bg-white", "headline", "text-wrapper", "frame-type-sitereinhausen_text", "introtext", "h1ToIntro"] },
+  { id: "/legal/privacy", route: "legal/privacy", mr: path.join(root, "mirror/mr/imprint.html"), extra: ["text-module", "bg-white", "headline", "text-wrapper", "frame-type-sitereinhausen_text", "introtext", "h1ToIntro"] },
   { id: "/news/chvt-longdong-800kv", route: "news/chvt-longdong-800kv", mr: path.join(root, "mirror/mr/impulse-article.html"), extra: ["articleIntro", "articleIntro-image", "blueBox", "article-text", "article-text-left", "frame-type-sitereinhausen_articleintro", "box-left", "media-100-16-6", "quote", "quote-text", "quote-content", "author", "frame-type-sitereinhausen_articlequote", "numbers-module", "number-number", "frame-type-sitereinhausen_articlenumbers"] },
 ];
 

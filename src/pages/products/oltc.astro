@@ -1,5 +1,6 @@
 ---
 import ProductCategory from "../../components/ProductCategory.astro";
+import TextMedia from "../../components/TextMedia.astro";
 import { groupCopy, productsInFamily, productsInGroup } from "../../lib/catalog";
 
 const copy = groupCopy.oltc;
@@ -25,4 +26,9 @@ const other = productsInGroup("oltc").filter(
     { className: "table-white", heading: "Other on-load", items: other },
     { className: "table-grey", heading: "Oil", items: oil },
   ]}
-/>
+>
+  <TextMedia title="Laboratory">
+    <p>CNAS laboratory accreditation, 2009. Public pages list ISO 9001, ISO 14001, and ISO 18001.</p>
+    <p>Brochure wins if the shop text disagrees.</p>
+  </TextMedia>
+</ProductCategory>

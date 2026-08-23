@@ -2,26 +2,26 @@
 
 Source of truth: `mirror/mr/` HTML+CSS. Formula scores in `docs/CLOSENESS.md` can be 100 while paint is still wrong.
 
-Updated: 2026-08-24 04:25 Asia/Shanghai. Cycle 48: news teaser + Indonesia figures.
+Updated: 2026-08-24 04:46 Asia/Shanghai. Cycle 50: about quote + OLTC textmedia.
 
 | # | Route | MR | Formula | Paint / taxonomy | Status |
 |---|-------|----|---------|------------------|--------|
-| 1 | `/` | home.html | 111/111 | Stage, introtext, two teaser-modules, numbers, parallax, sticky contact. | **pass** |
+| 1 | `/` | home.html | 114/114 | Stage, introtext, teasers, numbers, parallax, factory/HQ text-module, sticky contact. | **pass** |
 | 2 | `/products/` | portfolio.html | 39/39 | Tabs + wordcloud + 12-col grid + teaser frame. Inner blue-nav. | **pass** |
-| 3 | `/products/oltc/` | oltc.html | 44/44 | Grey text-module then three table frames. Grid of 15. | **pass** |
+| 3 | `/products/oltc/` | oltc.html | 46/46 | Lab textmedia (no photo) + grey glance + three table frames. | **pass** |
 | 4 | `/products/octc/` | oltc.html shape | 36/36 | 3 boxes (WSL/WDG/ZWC). Table + stage frames. | **pass** |
 | 5 | `/products/accessories/` | oltc.html shape | 36/36 | 9 boxes (MDU+monitor+other). | **pass** |
 | 6 | `/products/oltc-oil/` … `/products/other/` | oltc.html shape | oltc-oil 36/36 | One list per family. Header second-level 10/10. | **pass** |
 | 7 | `/products/cv2/` (and 26 other PDPs) | vacutap-vi.html | cv2 59/59 | Facts + registers + related types + grey related-services (Downloads/Contact) + All types button. | **pass** |
 | 8 | `/downloads/` | downloadcenter.html | 46/46 | introtext + kind tabs + Search tab `downloadCenterInputWrapper`. downloadItem PDF icon + download-link. | **pass** |
-| 9 | `/about/` | company.html | 48/48 | introtext + numbers + three textmedia (no factory photo) + news swiper. | **pass** |
+| 9 | `/about/` | company.html | 53/53 | introtext + numbers + quote (chairman letter, no photo) + three textmedia + news. | **pass** |
 | 10 | `/news/` | impulses.html | 41/41 | introtext + teaser_articles + white teaser-module. No topicteaser graphic. | **pass** |
 | 11 | `/news/{slug}/` | impulse-article.html | chvt 43/43 | articleIntro / quote / sourced numbers. Navy 16:6 band. No author photo. | **pass** |
 | 12 | `/contact/` | contact.html | 53/53 | introtext + powermail (select About/Office) + contactfinder. | **pass** |
 | 13 | `/search/` | search.html | 47/47 | Client filter (static build has no query string). | **pass** |
 | 14 | `/404` | 404.html | 35/35 | textmedia-parallax, no MR photo. | **pass** |
-| 15 | `/legal/imprint/` | imprint.html | 31/31 | text-module, Shanghai + Singapore. | **pass** |
-| 16 | `/legal/privacy/` | imprint.html | 31/31 | text-module. | **pass** |
+| 15 | `/legal/imprint/` | imprint.html | 34/34 | introtext + text-module, Shanghai + Singapore. | **pass** |
+| 16 | `/legal/privacy/` | imprint.html | 34/34 | introtext + text-module. | **pass** |
 
 ## Header mega-nav (not a page, but it is the taxonomy)
 

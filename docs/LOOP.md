@@ -70,6 +70,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 62. [done] News article quote + sourced numbers (cycle 46)
 63. [done] Contact powermail_select About / Office (cycle 47)
 64. [done] News index teaser-module + Indonesia figures (cycle 48)
+65. [done] Home text-module + footer frame + legal introtext (cycle 49)
+66. [done] About quote + OLTC laboratory textmedia (cycle 50)
 
 ## Cycle log
 
@@ -121,3 +123,5 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 46: article quote + numbers. CHVT 43/43.
 - 47: contact powermail_select. `/contact` 53/53.
 - 48: news teaser-module; Indonesia 2004/2025. `/news` 41/41.
+- 49: home text-module + footer frame. `/` 114/114, structure 15/15.
+- 50: about quote; OLTC textmedia. `/about` 53/53, `/products/oltc` 46/46.
