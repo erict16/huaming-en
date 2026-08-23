@@ -40,7 +40,7 @@ import { offices } from "../lib/catalog";
               >
                 <h4>International mail is Singapore.</h4>
                 <fieldset class="powermail_fieldset powermail_fieldset_10 nolabel">
-                  <div class="powermail_fieldwrap powermail_fieldwrap_type_input no-label">
+                  <div class="powermail_fieldwrap powermail_fieldwrap_type_input powermail_fieldwrap_namevorname no-label">
                     <label for="powermail_field_namevorname" class="powermail_label">
                       Name<span class="mandatory">*</span>
                     </label>
@@ -57,7 +57,7 @@ import { offices } from "../lib/catalog";
                       <div class="placholder">Name</div>
                     </div>
                   </div>
-                  <div class="powermail_fieldwrap powermail_fieldwrap_type_input no-label">
+                  <div class="powermail_fieldwrap powermail_fieldwrap_type_input powermail_fieldwrap_e_mail no-label">
                     <label for="powermail_field_e_mail" class="powermail_label">
                       Email<span class="mandatory">*</span>
                     </label>
@@ -74,7 +74,7 @@ import { offices } from "../lib/catalog";
                       <div class="placholder">Email</div>
                     </div>
                   </div>
-                  <div class="powermail_fieldwrap powermail_fieldwrap_type_select no-label">
+                  <div class="powermail_fieldwrap powermail_fieldwrap_type_select powermail_fieldwrap_anrede no-label">
                     <label for="powermail_field_anrede" class="powermail_label">About</label>
                     <div class="powermail_field">
                       <select class="powermail_select" id="powermail_field_anrede" name="about">
@@ -100,7 +100,7 @@ import { offices } from "../lib/catalog";
                       <div class="placholder">Office</div>
                     </div>
                   </div>
-                  <div class="powermail_fieldwrap powermail_fieldwrap_type_input no-label">
+                  <div class="powermail_fieldwrap powermail_fieldwrap_type_input powermail_fieldwrap_firma no-label">
                     <label for="powermail_field_firma" class="powermail_label">Company</label>
                     <div class="powermail_field">
                       <input
@@ -114,7 +114,21 @@ import { offices } from "../lib/catalog";
                       <div class="placholder">Company</div>
                     </div>
                   </div>
-                  <div class="powermail_fieldwrap powermail_fieldwrap_type_textarea no-label">
+                  <div class="powermail_fieldwrap powermail_fieldwrap_type_input powermail_fieldwrap_telefon no-label">
+                    <label for="powermail_field_telefon" class="powermail_label">Telephone</label>
+                    <div class="powermail_field">
+                      <input
+                        placeholder="Telephone"
+                        class="powermail_input"
+                        id="powermail_field_telefon"
+                        type="tel"
+                        name="phone"
+                        value=""
+                      />
+                      <div class="placholder">Telephone</div>
+                    </div>
+                  </div>
+                  <div class="powermail_fieldwrap powermail_fieldwrap_type_textarea powermail_fieldwrap_ihrenachricht no-label">
                     <label for="powermail_field_ihrenachricht" class="powermail_label">
                       Message<span class="mandatory">*</span>
                     </label>
@@ -129,6 +143,7 @@ import { offices } from "../lib/catalog";
                         name="message"
                       ></textarea>
                       <div class="placholder">Message<span class="mandatory">*</span></div>
+                      <div class="textarea-length"></div>
                     </div>
                   </div>
                   <div class="powermail_fieldwrap powermail_fieldwrap_type_check powermail_fieldwrap_checkbox no-label">

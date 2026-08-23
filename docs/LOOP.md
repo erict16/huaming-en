@@ -80,6 +80,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 72. [done] Extra news figures from article bodies (cycle 56)
 73. [done] News topicteaser left/right from impulses.html (cycle 57)
 74. [done] Contact + downloads `frame-type-list` (cycle 58)
+75. [done] About + OLTC text-media-images from company.html (cycle 59)
+76. [done] Contact named powermail wraps + telephone (cycle 60)
 
 ## Cycle log
 
@@ -141,3 +143,5 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 56: Nigeria / factory-test / Pakistan figures from the body.
 - 57: news topicteaser left/right. `/news` 47/47.
 - 58: contactfinder + download-center `frame-type-list`. contact 56/56, downloads 50/50.
+- 59: about/OLTC text-media-images. `/about` 59/59, `/products/oltc` 51/51.
+- 60: contact named fieldwraps + telephone. `/contact` 63/63.

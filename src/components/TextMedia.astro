@@ -1,9 +1,11 @@
 ---
 interface Props {
   title: string;
+  image?: string;
+  caption?: string;
 }
 
-const { title } = Astro.props;
+const { title, image, caption } = Astro.props;
 ---
 
 <div class="frame frame-default frame-type-sitereinhausen_textmedia frame-layout-0">
@@ -20,6 +22,30 @@ const { title } = Astro.props;
             <h2 class="d-none d-md-block">{title}</h2>
             <slot />
           </div>
+          {
+            image ? (
+              <div class="text-media-images col-12 col-s-11 col-sm-10 col-md-6 offset-lg-1 offset-s-1 offset-sm-2 offset-md-0 order-first order-md-last">
+                <div class="modellSwiperGallery media-50-right-3-2">
+                  <div class="header-swiper-wrapper tabSliders-container">
+                    <div class="swiper-content-wrapper tabSliders-wrapper">
+                      <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                            <img class="media-element-image no-crop" src={image} alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {caption ? (
+                    <div class="row">
+                      <p class="col-12 media-description description-left col-lg-12">{caption}</p>
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+            ) : null
+          }
         </div>
       </div>
     </div>
