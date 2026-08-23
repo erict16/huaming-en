@@ -19,12 +19,14 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 11. [done] `/news` (cycle 2)
 12. [done] `/contact` form chrome (cycle 2)
 13. [done] 404 (cycle 2)
-14. [next] Curl CSS-referenced icons (`/fileadmin/user_upload/icons/`, `../Images/Icons/`) into public so arrows paint
-15. Motion check: stage Swiper + animate classes actually in dist JS
-16. Vercel preview URL
-17. Leftover selector/asset gaps from audits
+14. [done] Curl CSS-referenced icons into public so arrows paint (cycle 3)
+15. [next] Vercel preview URL (`npx vercel --yes`)
+16. Motion check: stage Swiper + animate classes actually in dist JS
+17. Strip unused eot/ttf/woff from @font-face (woff2 only)
+18. Leftover selector/asset gaps from audits
 
 ## Cycle log
 
 - 01: mirror + MR-source. closeness 0
 - 02: Astro + layout.min.css + mapped pages. closeness 100 on class/token formula; icon urls still 404
+- 03: 18 CSS icon SVGs mirrored; layout urls retargeted to `/_assets/` and `/fileadmin/`
