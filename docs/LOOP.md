@@ -29,7 +29,9 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 21. [done] Drop unused powermail `/typo3conf/` image urls in Basic.css (cycle 10)
 22. [done] Contact powermail class tree + downloads filter chrome (cycle 11)
 23. [done] About `numbers-module` + news `teaser_articles` / `articleWrapper` (cycle 12)
-24. Skip language modal and `.socialMedia`. Formula at target.
+24. [done] Search pi2 results chrome + client `?q=` filter (cycle 13)
+25. Inner breadcrumbs (`arrow-right.svg` between crumbs) on PDP / list / about / news / contact / downloads
+26. Skip language modal and `.socialMedia`. Formula at target.
 
 ## Cycle log
 
@@ -45,3 +47,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 10: Basic.css powermail `/typo3conf/` urls → `none`.
 - 11: contact `.tx-powermail` / `.powermail_form`; downloads `.dc-filter-container`.
 - 12: about numbers-module; news teaser_articles.
+- 13: search pi2 + client catalog filter. `/search` 29/29.

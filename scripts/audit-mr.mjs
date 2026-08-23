@@ -244,6 +244,7 @@ const pages = [
   { id: "/downloads", route: "downloads", mr: path.join(root, "mirror/mr/downloadcenter.html"), extra: ["download-center", "downloadcenter-rows", "downloadItem", "dc-filter-container", "downloadCenter-filter", "downloadcenter-select-area"] },
   { id: "/about", route: "about", mr: path.join(root, "mirror/mr/company.html"), extra: ["numbers-module", "number-headline", "number-number", "number-overline", "number-label", "numbers"] },
   { id: "/news", route: "news", mr: path.join(root, "mirror/mr/impulses.html"), extra: ["teaser_articles", "article-main-area", "blue-teaser", "article-slider-area", "swiper-articles", "articleWrapper"] },
+  { id: "/search", route: "search", mr: path.join(root, "mirror/mr/search.html"), extra: ["tx-kesearch-pi1", "kesearch_searchbox", "kesearchbox", "ke_search_sword_search", "frame-type-ke_search_pi2", "kesearch_results", "result-list-item", "searchbox-grid", "kesGreyButt"] },
 ];
 
 const report = {
