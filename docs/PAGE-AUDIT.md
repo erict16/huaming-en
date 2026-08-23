@@ -2,12 +2,12 @@
 
 Source of truth: `mirror/mr/` HTML+CSS. Formula scores in `docs/CLOSENESS.md` can be 100 while paint is still wrong.
 
-Updated: 2026-08-24 00:49 Asia/Shanghai. Cycle 25: PDP still 3:2 contain; home banner still cover.
+Updated: 2026-08-24 01:10 Asia/Shanghai. Cycle 27: mobile product cards full-width 3:2.
 
 | # | Route | MR | Formula | Paint / taxonomy | Status |
 |---|-------|----|---------|------------------|--------|
 | 1 | `/` | home.html | 99/99 | Stage 1265×448 cover at 1280. Logo contain. Product-swiper 3:2. | **pass** |
-| 2 | `/products/` | portfolio.html | 31/31 | Tabs + wordcloud + 12-col grid. Tabs filter in-page (MR does). | **pass** |
+| 2 | `/products/` | portfolio.html | 31/31 | Tabs + wordcloud + 12-col grid. Mobile stills full-width 3:2 (359×239 at 390), not MR 50% postage stamp. | **pass** |
 | 3 | `/products/oltc/` | oltc.html | 29/29 | Stage + table + grid. All 6 OLTC families. | **pass** |
 | 4 | `/products/octc/` | oltc.html shape | 26/26 | 3 boxes (WSL/WDG/ZWC). | **pass** |
 | 5 | `/products/accessories/` | oltc.html shape | 26/26 | 9 boxes (MDU+monitor+other). | **pass** |

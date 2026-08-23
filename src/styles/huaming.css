@@ -39,6 +39,15 @@ body{
   object-position:center;
 }
 
+/* MR mobile uses width:50% + padding-bottom:50% for portrait shots. Ours are 3:2. */
+@media (max-width:575.98px){
+  #portfolio-overview-products .product-box .swiper-image,
+  .portfolio-overview-products .product-box .swiper-image{
+    width:100%!important;
+    padding-bottom:66.666%!important;
+  }
+}
+
 .teaser_products .swiper-slide .swiper-image,
 .product-swiper .product-box .swiper-image,
 .teaser_products .swiper-slide picture.product-image-wrapper,

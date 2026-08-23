@@ -1,13 +1,13 @@
 # Overnight status
 
-Updated: 2026-08-24 01:06 Asia/Shanghai
+Updated: 2026-08-24 01:10 Asia/Shanghai
 Branch: `feat/mr-astro-lock`
 Hard stop: 2026-08-24 07:00 Asia/Shanghai
 Scheduler: `01a02f00e2d6` every 20m
 
 ## SHA
 
-HEAD after cycle 26. Cycle 25 was `0e06381`.
+HEAD after cycle 27. Cycle 26 was `f6f8d1a`.
 
 ## Preview
 
@@ -17,7 +17,7 @@ Vercel project `huaming-en` framework preset **astro**. SSO off.
 
 ## Now
 
-Closeness 100. Cycle 26: news article band is navy 16:6; CHVT and Indonesia use stills we already had. Language modal and `.socialMedia` skipped.
+Closeness 100. Cycle 27: mobile product cards are full-width 3:2 (MR 50% square). News band in cycle 26. Language modal and `.socialMedia` skipped.
 
 ## Do not
 
