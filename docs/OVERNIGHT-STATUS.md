@@ -1,13 +1,13 @@
 # Overnight status
 
-Updated: 2026-08-24 03:06 Asia/Shanghai
+Updated: 2026-08-24 03:26 Asia/Shanghai
 Branch: `feat/mr-astro-lock`
 Hard stop: 2026-08-24 07:00 Asia/Shanghai
 Scheduler: `01a02f00e2d6` every 20m
 
 ## SHA
 
-HEAD after cycle 40. Cycle 38 was `203bbfb`.
+HEAD after cycle 42. Cycle 40 was `8b8eea5`.
 
 ## Preview
 
@@ -17,7 +17,7 @@ Vercel project `huaming-en` framework preset **astro**. SSO off.
 
 ## Now
 
-Closeness 100. Cycle 39: home introtext + numbers. Cycle 40: home parallax CTA + sticky contact (no myReinhausen login). Language modal and `.socialMedia` skipped.
+Closeness 100. Cycle 41: home second teaser-module. Cycle 42: about news swiper + OLTC table frames. Language modal and `.socialMedia` skipped.
 
 ## Do not
 

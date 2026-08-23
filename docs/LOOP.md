@@ -62,6 +62,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 54. [done] Downloads + PDP downloadItem icon / download-link from downloadcenter.html (cycle 38)
 55. [done] Home introtext + numbers-module.bg-gradient from home.html (cycle 39)
 56. [done] Home textmedia-parallax + sticky contact overlay (cycle 40). Login skipped.
+57. [done] Home second teaser-module + teaserproduct frame (cycle 41)
+58. [done] About news swiper + list table/stage/intro frames (cycle 42)
 
 ## Cycle log
 
@@ -105,3 +107,5 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 38: downloadItem PDF icon + download-link on `/downloads` and PDP. `/downloads` 46/46.
 - 39: home introtext + numbers-module. `/` 107/107, structure 13/13.
 - 40: home parallax CTA (no MR photo) + sticky contact. Login skipped.
+- 41: home second teaser-module + teaserproduct frame. `/` 111/111.
+- 42: about teaser_newsimpulse; OLTC table frames. `/about` 44/44, `/products/oltc` 41/41.

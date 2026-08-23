@@ -1,14 +1,13 @@
 ---
 import Base from "../layouts/Base.astro";
+import NewsImpulse from "../components/NewsImpulse.astro";
 import ProductBox from "../components/ProductBox.astro";
 import { families, productBySlug } from "../lib/catalog";
 import { productImageSrc } from "../lib/product-image";
-import { news, newsBandSrc } from "../lib/news";
 
 const featured = ["cv2", "cm2", "shzv", "hwv", "wsl", "cma7"]
   .map((slug) => productBySlug(slug))
   .filter(Boolean);
-const latestNews = news.slice(0, 6);
 const stageSlides = [
   {
     src: "/images/products/cv2.png",
@@ -115,53 +114,7 @@ const stageSlides = [
       </div>
     </div>
 
-    <div class="teaser_newsimpulse bg-white">
-      <div class="container">
-        <div class="row">
-          <div class="swiper-container newsimpulse-swiper col-12" id="">
-            <div class="swiper-controls-container">
-              <h2>Latest news</h2>
-              <div class="swiper-controls">
-                <div class="swiper-button-prev swiper-button-prev-news">
-                  <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.26236 10.6805L-0.00410652 1.41408L1.41011 -0.0001297L12.1436 10.7334L1.3837 20.7315L0.0223022 19.2664L9.26236 10.6805Z" fill="currentColor"></path>
-                  </svg>
-                </div>
-                <div class="swiper-button-next swiper-button-next-news">
-                  <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.26236 10.6805L-0.00410652 1.41408L1.41011 -0.0001297L12.1436 10.7334L1.3837 20.7315L0.0223022 19.2664L9.26236 10.6805Z" fill="currentColor"></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-wrapper">
-              {
-                latestNews.map((item) => (
-                  <div class="swiper-slide">
-                    <a href={`/news/${item.slug}/`}>
-                      <div class="newsimpulse-image">
-                        {
-                          newsBandSrc(item.slug) ? (
-                            <img
-                              class="no-crop product-img"
-                              src={newsBandSrc(item.slug)!}
-                              alt=""
-                            />
-                          ) : null
-                        }
-                      </div>
-                      <p>{item.date}</p>
-                      <h3>{item.title}</h3>
-                      <p>{item.summary}</p>
-                    </a>
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <NewsImpulse />
 
     <div class="frame frame-default frame-type-sitereinhausen_teaserbig frame-layout-0">
       <div class="teaser-module bg-gradient">
@@ -217,6 +170,7 @@ const stageSlides = [
       </div>
     </div>
 
+    <div class="frame frame-default frame-type-sitereinhausen_teaserproduct frame-layout-0">
     <div class="teaser_products container">
       <div class="row">
         <div class="swiper-container product-swiper col-12" id="1">
@@ -253,6 +207,42 @@ const stageSlides = [
                 />
               ))
             }
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="frame frame-default frame-type-sitereinhausen_teaser frame-layout-0">
+      <div class="teaser-module bg-white">
+        <div class="container">
+          <div class="row">
+            <div class="text col-m-12 col-lg-12">
+              <div class="teaser-wrapper">
+                <div class="row">
+                  {
+                    [
+                      { href: "/downloads/", title: "Technical data as PDF.", cta: "Downloads" },
+                      { href: "/contact/", title: "International mail is Singapore.", cta: "Find a contact" },
+                      { href: "/news/", title: "From the live English newsroom.", cta: "News" },
+                    ].map((t) => (
+                      <div class="teaser_element col-lg-4 three-column">
+                        <div class="textteaser textteaser-outline">
+                          <div class="teaser-HeadlineAndText">
+                            <p class="headline">{t.title}</p>
+                          </div>
+                          <div>
+                            <a href={t.href} class="link">
+                              {t.cta}
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

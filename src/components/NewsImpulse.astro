@@ -1,0 +1,62 @@
+---
+import { news, newsBandSrc } from "../lib/news";
+
+interface Props {
+  heading?: string;
+}
+
+const { heading = "Latest news" } = Astro.props;
+const latest = news.slice(0, 6);
+---
+
+<div class="frame frame-default frame-type-sitereinhausen_teasernewsimpulse frame-layout-0">
+  <div class="teaser_newsimpulse bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="swiper-container newsimpulse-swiper col-12">
+          <div class="swiper-controls-container">
+            <h2>{heading}</h2>
+            <div class="swiper-controls">
+              <div class="swiper-button-prev swiper-button-prev-news">
+                <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M9.26236 10.6805L-0.00410652 1.41408L1.41011 -0.0001297L12.1436 10.7334L1.3837 20.7315L0.0223022 19.2664L9.26236 10.6805Z"
+                    fill="currentColor"></path>
+                </svg>
+              </div>
+              <div class="swiper-button-next swiper-button-next-news">
+                <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M9.26236 10.6805L-0.00410652 1.41408L1.41011 -0.0001297L12.1436 10.7334L1.3837 20.7315L0.0223022 19.2664L9.26236 10.6805Z"
+                    fill="currentColor"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-wrapper">
+            {
+              latest.map((item) => (
+                <div class="swiper-slide">
+                  <a href={`/news/${item.slug}/`}>
+                    <div class="newsimpulse-image">
+                      {newsBandSrc(item.slug) ? (
+                        <img class="no-crop product-img" src={newsBandSrc(item.slug)!} alt="" />
+                      ) : null}
+                    </div>
+                    <p>{item.date}</p>
+                    <h3>{item.title}</h3>
+                    <p>{item.summary}</p>
+                  </a>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

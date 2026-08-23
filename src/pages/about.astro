@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
+import NewsImpulse from "../components/NewsImpulse.astro";
 import { offices } from "../lib/catalog";
 ---
 
@@ -49,6 +50,7 @@ import { offices } from "../lib/catalog";
         </div>
       </div>
     </div>
+    <div class="frame frame-default frame-type-sitereinhausen_articlenumbers frame-layout-0">
       <div class="numbers-module bg-grey">
         <div class="container">
           <div class="number-headline">
@@ -82,6 +84,7 @@ import { offices } from "../lib/catalog";
           </div>
         </div>
       </div>
+    </div>
     <div class="frame frame-default frame-type-sitereinhausen_text frame-layout-0">
       <div class="text-module bg-white" style="position: relative;">
         <div class="container">
@@ -117,5 +120,6 @@ import { offices } from "../lib/catalog";
         </div>
       </div>
     </div>
+    <NewsImpulse heading="News from the company" />
   </main>
 </Base>
