@@ -53,7 +53,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 45. [done] News lead is gradient only; articleImage 3:2 contain (cycle 31)
 46. [done] Article 16:6 band: no product-still cover (cycle 32)
 47. [done] Inner `page-header-animation` + `.blue-nav` from oltc.html (cycle 33)
-48. Next leftover paint: `mobileTopNav` (mobile utility) or family `table-white` / `table-grey`. Language modal and `.socialMedia` still skipped.
+48. [done] `mobileTopNav` from home.html (cycle 34)
+49. Next leftover paint: family `table-white` / `table-grey` from oltc.html. Language modal and `.socialMedia` still skipped.
 
 ## Cycle log
 
@@ -90,3 +91,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 31: news lead gradient only; slider stills 3:2 contain (249×166).
 - 32: CHVT article band navy only; Indonesia 7-5.png stays.
 - 33: inner header `page-header-animation` + `.blue-nav`. Home stays sticky. PDP `#productName`.
+- 34: Header `.mobileTopNav` utility list. `/` 100/100.

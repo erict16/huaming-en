@@ -115,6 +115,7 @@ const CHROME_CLASSES = [
   "third-nav-toggler",
   "third-nav-toggler-li",
   "mobile-menu-third",
+  "mobileTopNav",
 ];
 
 const INNER_BLUE_NAV = [
@@ -124,6 +125,7 @@ const INNER_BLUE_NAV = [
   "blue-nav-body",
   "blue-nav-toggler",
   "light-menu",
+  "mobileTopNav",
 ];
 
 const TOKENS = [

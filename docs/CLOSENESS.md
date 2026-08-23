@@ -2,26 +2,26 @@
 
 Formula: `0.5 * selector_hit% + 0.3 * token_hit% + 0.2 * structure_pass%`
 
-Last audit: cycle 33. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mirror/mr`.
+Last audit: cycle 34. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mirror/mr`.
 
 | page | selector | token | structure | closeness |
 |------|----------|-------|-----------|----------:|
-| `/` | 99/99 | 22/22 | 9/9 | 100 |
-| `/products` | 36/36 | 22/22 | (selector) | 100 |
-| `/products/oltc` | 34/34 | 22/22 | (selector) | 100 |
-| `/products/octc` | 31/31 | 22/22 | (selector) | 100 |
-| `/products/accessories` | 31/31 | 22/22 | (selector) | 100 |
-| `/products/oltc-oil` | 31/31 | 22/22 | (selector) | 100 |
-| PDP `/products/cv2` | 38/38 | 22/22 | (selector) | 100 |
-| `/contact` | 48/48 | 22/22 | (selector) | 100 |
-| `/downloads` | 41/41 | 22/22 | (selector) | 100 |
-| `/about` | 38/38 | 22/22 | (selector) | 100 |
-| `/news` | 35/35 | 22/22 | (selector) | 100 |
-| `/search` | 46/46 | 22/22 | (selector) | 100 |
-| `/404` | 34/34 | 22/22 | (selector) | 100 |
-| `/legal/imprint` | 30/30 | 22/22 | (selector) | 100 |
-| `/legal/privacy` | 30/30 | 22/22 | (selector) | 100 |
-| `/news/chvt-longdong-800kv` | 33/33 | 22/22 | (selector) | 100 |
+| `/` | 100/100 | 22/22 | 9/9 | 100 |
+| `/products` | 37/37 | 22/22 | (selector) | 100 |
+| `/products/oltc` | 35/35 | 22/22 | (selector) | 100 |
+| `/products/octc` | 32/32 | 22/22 | (selector) | 100 |
+| `/products/accessories` | 32/32 | 22/22 | (selector) | 100 |
+| `/products/oltc-oil` | 32/32 | 22/22 | (selector) | 100 |
+| PDP `/products/cv2` | 39/39 | 22/22 | (selector) | 100 |
+| `/contact` | 49/49 | 22/22 | (selector) | 100 |
+| `/downloads` | 42/42 | 22/22 | (selector) | 100 |
+| `/about` | 39/39 | 22/22 | (selector) | 100 |
+| `/news` | 36/36 | 22/22 | (selector) | 100 |
+| `/search` | 47/47 | 22/22 | (selector) | 100 |
+| `/404` | 35/35 | 22/22 | (selector) | 100 |
+| `/legal/imprint` | 31/31 | 22/22 | (selector) | 100 |
+| `/legal/privacy` | 31/31 | 22/22 | (selector) | 100 |
+| `/news/chvt-longdong-800kv` | 34/34 | 22/22 | (selector) | 100 |
 
 Paint counts: `/products/oltc` 15 boxes, `/products/octc` 3, `/products/accessories` 9, `/products/oltc-oil` 4, `/products/oltc-vacuum` 6. Header family second-level 10/10.
 
