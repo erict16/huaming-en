@@ -2,17 +2,17 @@
 
 Source of truth: `mirror/mr/` HTML+CSS. Formula scores in `docs/CLOSENESS.md` can be 100 while paint is still wrong.
 
-Updated: 2026-08-24 03:26 Asia/Shanghai. Cycle 42: about news + list frames.
+Updated: 2026-08-24 03:45 Asia/Shanghai. Cycle 44: PDP related-services.
 
 | # | Route | MR | Formula | Paint / taxonomy | Status |
 |---|-------|----|---------|------------------|--------|
 | 1 | `/` | home.html | 111/111 | Stage, introtext, two teaser-modules, numbers, parallax, sticky contact. | **pass** |
 | 2 | `/products/` | portfolio.html | 39/39 | Tabs + wordcloud + 12-col grid + teaser frame. Inner blue-nav. | **pass** |
-| 3 | `/products/oltc/` | oltc.html | 41/41 | Three table frames: vacuum / other on-load / oil. Grid of 15. | **pass** |
+| 3 | `/products/oltc/` | oltc.html | 44/44 | Grey text-module then three table frames. Grid of 15. | **pass** |
 | 4 | `/products/octc/` | oltc.html shape | 32/32 | 3 boxes (WSL/WDG/ZWC). | **pass** |
 | 5 | `/products/accessories/` | oltc.html shape | 32/32 | 9 boxes (MDU+monitor+other). | **pass** |
 | 6 | `/products/oltc-oil/` … `/products/other/` | oltc.html shape | oltc-oil 32/32 | One list per family. Header second-level 10/10. | **pass** |
-| 7 | `/products/cv2/` (and 26 other PDPs) | vacutap-vi.html | cv2 52/52 | Facts + PDFs + related. Stage 3:2 contain. Keyfact labels from the rating string (Um / Positions). Empty headlines hidden. Registers: accordion + Technical Data / Downloads pills. Show all/less keyfacts. | **pass** |
+| 7 | `/products/cv2/` (and 26 other PDPs) | vacutap-vi.html | cv2 59/59 | Facts + registers + related types + grey related-services (Downloads/Contact) + All types button. | **pass** |
 | 8 | `/downloads/` | downloadcenter.html | 46/46 | introtext + kind tabs + Search tab `downloadCenterInputWrapper`. downloadItem PDF icon + download-link. | **pass** |
 | 9 | `/about/` | company.html | 44/44 | introtext + numbers-module + news swiper. No factory photo. | **pass** |
 | 10 | `/news/` | impulses.html | 36/36 | introtext + teaser_articles. Lead is gradient (no product-still cover). Slider plates 3:2 contain. | **pass** |

@@ -128,7 +128,16 @@ const related = [...sameFamily, ...oltcSiblings].slice(0, 6);
             ]}
           />
           <h1>{product.name}</h1>
-          <p>{product.oneLiner}</p>
+          {
+            familyCrumb ? (
+              <div class="subline col-xl-12 col-xxl-10">
+                <p>{familyCrumb.name}</p>
+              </div>
+            ) : null
+          }
+          <div class="intro col-xl-12">
+            <p>{product.oneLiner}</p>
+          </div>
         </div>
       </div>
 
@@ -252,6 +261,48 @@ const related = [...sameFamily, ...oltcSiblings].slice(0, 6);
           </div>
         ) : null
       }
+
+      <div class="product-related-services">
+        <div class="teaser-module bg-grey">
+          <div class="container">
+            <div class="row">
+              <div class="text col-m-12 col-lg-12">
+                <h2 class="headline">Also</h2>
+              </div>
+              <div class="text col-m-12 col-lg-12">
+                <div class="teaser-wrapper">
+                  <div class="row">
+                    <div class="teaser_element col-lg-6 two-column">
+                      <div class="textteaser textteaser-outline">
+                        <div class="teaser-HeadlineAndText">
+                          <p class="headline">Technical data as PDF</p>
+                        </div>
+                        <div>
+                          <a class="link" href="/downloads/">Downloads</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="teaser_element col-lg-6 two-column">
+                      <div class="textteaser textteaser-outline">
+                        <div class="teaser-HeadlineAndText">
+                          <p class="headline">International mail is Singapore</p>
+                        </div>
+                        <div>
+                          <a class="link" href="/contact/">Find a contact</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-detail-btn col">
+        <a class="cta cta-outline" href="/products/">All types</a>
+      </div>
     </div>
   </main>
 </Base>

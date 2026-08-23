@@ -64,6 +64,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 56. [done] Home textmedia-parallax + sticky contact overlay (cycle 40). Login skipped.
 57. [done] Home second teaser-module + teaserproduct frame (cycle 41)
 58. [done] About news swiper + list table/stage/intro frames (cycle 42)
+59. [done] Family list text-module.bg-grey before tables (cycle 43)
+60. [done] PDP related-services teasers + product-detail-btn (cycle 44)
 
 ## Cycle log
 
@@ -109,3 +111,5 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 40: home parallax CTA (no MR photo) + sticky contact. Login skipped.
 - 41: home second teaser-module + teaserproduct frame. `/` 111/111.
 - 42: about teaser_newsimpulse; OLTC table frames. `/about` 44/44, `/products/oltc` 41/41.
+- 43: list text-module.bg-grey before tables. `/products/oltc` 44/44.
+- 44: PDP related-services + product-detail-btn. cv2 59/59.
