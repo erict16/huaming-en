@@ -1,0 +1,8 @@
+mirror
+sketches
+docs
+.git
+.env*
+node_modules
+.astro
+dist

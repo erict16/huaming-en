@@ -9,6 +9,32 @@ const featured = ["cv2", "cm2", "shzv", "hwv", "wsl", "cma7"]
   .map((slug) => productBySlug(slug))
   .filter(Boolean);
 const latestNews = news.slice(0, 6);
+const stageSlides = [
+  {
+    src: "/images/products/cv2.png",
+    alt: "CV2 vacuum on-load tap changer",
+    title: "Tap changers for power transformers",
+    text: "On-load and de-energized types, vacuum and oil. Technical data as PDF. Standard lead time about 4–6 weeks.",
+    href: "/products/oltc/",
+    cta: "Find a type",
+  },
+  {
+    src: "/images/products/shzv.png",
+    alt: "SHZV vacuum on-load tap changer",
+    title: "Technical data as PDF",
+    text: "Leaflets, operating instructions, and type-test reports. No email gate.",
+    href: "/downloads/",
+    cta: "Downloads",
+  },
+  {
+    src: "/images/products/hwv.png",
+    alt: "HWV on-tank vacuum OLTC",
+    title: "Shanghai factory. Singapore HQ.",
+    text: "International mail is Singapore. Factory is Putuo, Shanghai.",
+    href: "/contact/",
+    cta: "Find a contact",
+  },
+];
 ---
 
 <Base title="Huaming — tap changers for power transformers">

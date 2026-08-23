@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import StageControls from "../../components/StageControls.astro";
 import { familyById, productBySlug, products } from "../../lib/catalog";
 import { allDownloads } from "../../lib/downloads";
 import { formatKind, parseDocMeta } from "../../lib/doc-meta";
@@ -56,6 +57,7 @@ const isOltc = oltcIds.includes(product.family);
                   </div>
                 </div>
               </div>
+              <StageControls />
             </div>
           </div>
         ) : null

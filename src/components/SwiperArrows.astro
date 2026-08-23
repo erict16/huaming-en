@@ -1,0 +1,21 @@
+---
+interface Props {
+  prevClass: string;
+  nextClass: string;
+}
+const { prevClass, nextClass } = Astro.props;
+const d =
+  "M9.26236 10.6805L-0.00410652 1.41408L1.41011 -0.0001297L12.1436 10.7334L1.3837 20.7315L0.0223022 19.2664L9.26236 10.6805Z";
+---
+<div class="swiper-controls">
+  <div class:list={["swiper-button-prev", prevClass]}>
+    <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d={d} fill="currentColor"></path>
+    </svg>
+  </div>
+  <div class:list={["swiper-button-next", nextClass]}>
+    <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d={d} fill="currentColor"></path>
+    </svg>
+  </div>
+</div>

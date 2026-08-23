@@ -85,6 +85,14 @@ const CHROME_CLASSES = [
   "product-keyfacts",
   "product-keyfact",
   "cta-slide",
+  "swiper-controls",
+  "swiper-pagination",
+  "swiper-button-next",
+  "swiper-button-prev",
+  "swiper-button-next-news",
+  "swiper-button-prev-news",
+  "swiper-button-next-product1",
+  "swiper-button-prev-product1",
   "footerUp",
   "footerDown",
   "footer-content",
@@ -137,6 +145,7 @@ const HOME_BLOCKS = [
   { id: "product-news", re: /teaser_products|teaser_newsimpulse/ },
   { id: "footerUp", re: /footerUp/ },
   { id: "footerDown", re: /footerDown/ },
+  { id: "stage-controls", re: /swiper-controls/ },
 ];
 
 function sha12(file) {
@@ -203,6 +212,26 @@ const ourCssText = existsSync(ourCss) ? readFileSync(ourCss, "utf8") : "";
 const tok = tokenHits(ourCssText);
 const tokPct = pct(tok.present.length, TOKENS.length);
 
+function fileHas(rel, re) {
+  const p = path.join(root, rel);
+  if (!existsSync(p)) return false;
+  return re.test(readFileSync(p, "utf8"));
+}
+const motion = {
+  stage_init: fileHas("dist/js/mr/stage.min.js", /initStageSlider/),
+  vendor_swiper: fileHas("dist/js/mr/vendor.min.js", /Swiper/),
+  scripts_product: fileHas("dist/js/mr/scripts.min.js", /product-swiper/),
+  scripts_news: fileHas("dist/js/mr/scripts.min.js", /newsimpulse-swiper/),
+  animate_fadeIn: existsSync(path.join(root, "src/styles/animate.min.css"))
+    && /fadeIn/.test(readFileSync(path.join(root, "src/styles/animate.min.css"), "utf8")),
+  home_stage_slides: 0,
+};
+const homeHtmlPath = findDistHtml("");
+if (homeHtmlPath) {
+  const h = readFileSync(homeHtmlPath, "utf8");
+  motion.home_stage_slides = (h.match(/data-swiper-autoplay="5000"/g) || []).length;
+}
+
 const pages = [
   { id: "/", route: "", mr: mrHome, extra: CHROME_CLASSES },
   { id: "/products/oltc", route: "products/oltc", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "product-keyfacts", "stage"] },
@@ -214,6 +243,7 @@ const report = {
   our_css: `src/styles/layout.min.css sha256 ${sha12(ourCss)} azo=${/Azo Sans/.test(ourCssText)} navy=${/#002a55/i.test(ourCssText)} gold=${/#e5bb29/i.test(ourCssText)}`,
   token_hit: `${tok.present.length}/${TOKENS.length}`,
   token_missing: tok.missing,
+  motion,
   pages: [],
 };
 

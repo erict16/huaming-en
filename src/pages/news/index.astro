@@ -1,5 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
+import StageControls from "../../components/StageControls.astro";
+import SwiperArrows from "../../components/SwiperArrows.astro";
 import { news } from "../../lib/news";
 ---
 
@@ -20,12 +22,17 @@ import { news } from "../../lib/news";
             </div>
           </div>
         </div>
+        <StageControls />
       </div>
     </div>
     <div class="teaser_newsimpulse bg-white">
       <div class="container">
         <div class="row">
-          <div class="swiper-container newsimpulse-swiper col-12">
+          <div class="swiper-container newsimpulse-swiper col-12" id="">
+            <div class="swiper-controls-container">
+              <h2>News</h2>
+              <SwiperArrows prevClass="swiper-button-prev-news" nextClass="swiper-button-next-news" />
+            </div>
             <div class="swiper-wrapper">
               {
                 news.map((item) => (

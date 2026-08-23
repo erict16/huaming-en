@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import StageControls from "../components/StageControls.astro";
 import { allDownloads } from "../lib/downloads";
 import { formatKind, parseDocMeta } from "../lib/doc-meta";
 import { formatBytes } from "../lib/format";
@@ -30,6 +31,7 @@ for (const d of files) {
             </div>
           </div>
         </div>
+        <StageControls />
       </div>
     </div>
 
