@@ -12,8 +12,12 @@ body{
 }
 
 .articleIntro .blueBox{opacity:1;}
-.teaser_articles .articleWrapper .articleImage{
-  aspect-ratio:16/9;
+.teaser_articles .articleWrapper .articleImage,
+.teaser_articles .articleWrapper .articleImage.media-16-9{
+  flex:0 0 auto;
+  width:100%;
+  height:auto!important;
+  aspect-ratio:3/2!important;
   background:#f6f6f2;
   overflow:hidden;
 }
@@ -23,6 +27,10 @@ body{
   object-fit:contain;
   object-position:center;
   background:#f6f6f2;
+}
+/* Product stills are not news photography. Do not cover-crop them into the tall lead. */
+.teaser_articles .article-main-area .blue-teaser > img{
+  display:none;
 }
 /* MR article band is 16:6 cover. Empty band was a white void; navy plate if we have no still. */
 .articleIntro-image .background{
