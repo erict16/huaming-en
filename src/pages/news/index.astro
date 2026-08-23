@@ -1,0 +1,47 @@
+---
+import Base from "../../layouts/Base.astro";
+import { news } from "../../lib/news";
+---
+
+<Base title="News · Huaming" description="Articles listed on the live English newsroom. Titles rewritten. No extra stories invented.">
+  <main id="main">
+    <div class="stage">
+      <div class="swiper-container stage-slider" data-loop="0" data-autoplay="0" data-autoplay-time="5000">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="swiper-image"></div>
+            <div class="stage-content container bg-gradient">
+              <div class="text-container">
+                <h2><p>News</p></h2>
+                <span class="light">
+                  <p>From the live English newsroom. We rewrote the titles. We did not invent extra stories.</p>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="teaser_newsimpulse bg-white">
+      <div class="container">
+        <div class="row">
+          <div class="swiper-container newsimpulse-swiper col-12">
+            <div class="swiper-wrapper">
+              {
+                news.map((item) => (
+                  <div class="swiper-slide">
+                    <a href={`/news/${item.slug}/`}>
+                      <p>{item.date}</p>
+                      <h3>{item.title}</h3>
+                      <p>{item.summary}</p>
+                    </a>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Base>

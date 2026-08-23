@@ -11,3 +11,6 @@ mirror/brochures/zip-extract/
 **/*.part
 .vercel
 .env*
+
+dist/
+.astro/

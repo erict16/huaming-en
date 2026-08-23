@@ -1,0 +1,66 @@
+---
+import Base from "../layouts/Base.astro";
+import { offices } from "../lib/catalog";
+---
+
+<Base title="About · Huaming" description="Shanghai Huaming Power Equipment Co., Ltd. makes tap changers for power transformers.">
+  <main id="main">
+    <div class="stage">
+      <div class="swiper-container stage-slider" data-loop="0" data-autoplay="0" data-autoplay-time="5000">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="swiper-image"></div>
+            <div class="stage-content container bg-gradient">
+              <div class="text-container">
+                <h2><p>About Huaming</p></h2>
+                <span class="light">
+                  <p>
+                    Shanghai factory. Singapore international headquarters. Tap changers for power
+                    transformers: on-load and de-energized, vacuum and oil, plus the motor drive.
+                  </p>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <p>
+        Legal name: Shanghai Huaming Power Equipment Co., Ltd. Credit code 913101076076323035. Factory
+        at No. 977 Tongpu Road, Putuo District, Shanghai 200333. International mail:
+        <a href="mailto:intl@huaming.com">intl@huaming.com</a>.
+      </p>
+      <p>
+        International headquarters: Huaming Power Equipment Singapore Pte. Ltd, Tai Seng Exchange (TSX)
+        Tower A #03-13, 1 Tai Seng Ave, Singapore 536464. The company announced that office on 29 April
+        2025.
+      </p>
+      <h2 class="headline">Facts</h2>
+      <ul>
+        <li>Shanghai company. Live home says founded 1989; history page starts the listed subsidiary in 1995.</li>
+        <li>Listed Shenzhen 2015, stock code 002270.SZ. Acquired Changzheng Electric in 2018.</li>
+        <li>Chairman: Xiao Yi (肖毅), general manager since 1995.</li>
+        <li>Tap changers in 150+ countries, including North Sea platforms and offshore wind (chairman letter).</li>
+        <li>Standard lead time about 4–6 weeks.</li>
+        <li>CNAS laboratory accreditation, 2009. Public pages list ISO 9001, ISO 14001, and ISO 18001.</li>
+        <li>Turkey plant 2016. Brazil and USA outlets 2019. Singapore subsidiary 2022. Indonesia plant 2025.</li>
+        <li>CHVT at Longdong ±800 kV HVDC, commissioned 28 May 2025.</li>
+      </ul>
+      <h2 class="headline">Offices</h2>
+      <ul>
+        {
+          offices.map((o) => (
+            <li>
+              <strong>{o.name}</strong>
+              <span> — {o.role}</span>
+              {o.lines.map((line) => (
+                <div>{line}</div>
+              ))}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,189 @@
+---
+import Base from "../layouts/Base.astro";
+import { families, productBySlug, products } from "../lib/catalog";
+import { productImageSrc } from "../lib/product-image";
+import { news } from "../lib/news";
+
+const featured = ["cv2", "cm2", "shzv", "hwv", "wsl", "cma7"]
+  .map((slug) => productBySlug(slug))
+  .filter(Boolean);
+const latestNews = news.slice(0, 6);
+---
+
+<Base title="Huaming — tap changers for power transformers">
+  <main id="main">
+    <div class="stage">
+      <div class="swiper-container stage-slider" data-loop="0" data-autoplay="1" data-autoplay-time="5000">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="swiper-image">
+              <img
+                src="/images/products/cv2.png"
+                alt="CV2 vacuum on-load tap changer"
+                width="1280"
+                height="720"
+              />
+            </div>
+            <div class="container d-none d-xl-block">
+              <div class="row">
+                <div class="col-lg-5 left">
+                  <div class="stage-content bg-gradient">
+                    <div class="text-container">
+                      <h2><p>Tap changers for power transformers</p></h2>
+                      <span class="light">
+                        <p>
+                          On-load and de-energized types, vacuum and oil. Technical data as PDF.
+                          Standard lead time about 4–6 weeks.
+                        </p>
+                      </span>
+                    </div>
+                    <a href="/products/oltc/" class="link-download">Find a type</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="stage-content container d-block d-xl-none bg-gradient">
+              <div class="row">
+                <div class="col-12">
+                  <h2><p>Tap changers for power transformers</p></h2>
+                  <span class="light">
+                    <p>
+                      On-load and de-energized types, vacuum and oil. Technical data as PDF. Standard
+                      lead time about 4–6 weeks.
+                    </p>
+                  </span>
+                  <a href="/products/oltc/" class="link-download">Find a type</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="teaser_newsimpulse bg-white">
+      <div class="container">
+        <div class="row">
+          <div class="swiper-container newsimpulse-swiper col-12">
+            <div class="swiper-controls-container">
+              <h2>Latest news</h2>
+            </div>
+            <div class="swiper-wrapper">
+              {
+                latestNews.map((item) => (
+                  <div class="swiper-slide">
+                    <a href={`/news/${item.slug}/`}>
+                      <div class="newsimpulse-image"></div>
+                      <p>{item.date}</p>
+                      <h3>{item.title}</h3>
+                      <p>{item.summary}</p>
+                    </a>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="frame frame-default frame-type-sitereinhausen_teaserbig frame-layout-0">
+      <div class="teaser-module bg-gradient">
+        <div class="container">
+          <div class="teaser-wrapper">
+            <div class="row">
+              <div class="col-m-12 col-lg-12">
+                <h2 class="headline headline-teaser-big">Types. Brochures. Offices.</h2>
+              </div>
+              <div class="col-m-12 col-lg-12">
+                <div class="teaser_element" style="margin-bottom: 0 !important;">
+                  <div class="textteaser-gradient">
+                    <a href="/products/" class="link">Open the product list</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              {
+                [
+                  {
+                    href: "/products/oltc/",
+                    title: "OLTC",
+                    text: "Changes taps while the transformer is live. Oil, vacuum, dry, gas.",
+                  },
+                  {
+                    href: "/downloads/",
+                    title: "Downloads",
+                    text: "Technical data, leaflets, operating instructions. No email gate.",
+                  },
+                  {
+                    href: "/about/",
+                    title: "Company",
+                    text: "Shanghai factory. Singapore international headquarters.",
+                  },
+                ].map((t) => (
+                  <div class="teaser_element col-lg-4 three-column">
+                    <div class="textteaser textteaser-outline">
+                      <div class="teaser-HeadlineAndText">
+                        <h3>{t.title}</h3>
+                        <p>{t.text}</p>
+                        <a href={t.href} class="link">
+                          Read more
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="teaser_products container">
+      <div class="row">
+        <div class="swiper-container product-swiper col-12">
+          <div class="swiper-controls-container">
+            <h2>Latest products</h2>
+          </div>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide cta-slide bg-gradient">
+              <a href="/products/" class="boxLink">
+                <h3>27 types. OLTC, OCTC, motor drive. Brochure wins if the shop text disagrees.</h3>
+                <div class="link-download"><div>All types</div></div>
+              </a>
+            </div>
+            {
+              featured.map((p) => {
+                const img = productImageSrc(p!.slug);
+                const fam = families.find((f) => f.id === p!.family);
+                return (
+                  <div class="swiper-slide product-box columns">
+                    <div class="product-box-inner">
+                      <div class="swiper-image">
+                        <a href={`/products/${p!.slug}/`}>
+                          {img ? (
+                            <img class="media-element-image no-crop product-image medium" src={img} alt="" />
+                          ) : null}
+                        </a>
+                      </div>
+                      <h4 class="product-title">{p!.name}</h4>
+                      <div class="product-intro">{p!.oneLiner}</div>
+                      <div class="product-keyfacts">
+                        <div class="product-keyfact">
+                          <span>·</span>
+                          {fam?.name}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Base>

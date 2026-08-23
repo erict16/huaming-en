@@ -1,0 +1,69 @@
+---
+import Base from "../../layouts/Base.astro";
+import { families, products } from "../../lib/catalog";
+import { productImageSrc } from "../../lib/product-image";
+---
+
+<Base title="Products · Huaming" description="On-load tap changers, de-energized tap changers, and motor drives.">
+  <main id="main">
+    <div class="stage">
+      <div class="swiper-container stage-slider" data-loop="0" data-autoplay="0" data-autoplay-time="5000">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="swiper-image"></div>
+            <div class="stage-content container bg-gradient">
+              <div class="text-container">
+                <h2><p>Products</p></h2>
+                <span class="light">
+                  <p>
+                    Three jobs: on-load tap changers, de-energized tap changers, and accessories (motor
+                    drives, monitors). Vacuum is a technology inside OLTC, not a third family.
+                  </p>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <p>
+        <a href="/products/oltc/">OLTC</a>
+        · OCTC · Accessories
+      </p>
+    </div>
+
+    <div class="product-list-plugin">
+      <div class="swiper-wrapper">
+        {
+          products.map((p) => {
+            const img = productImageSrc(p.slug);
+            const fam = families.find((f) => f.id === p.family);
+            return (
+              <div class="swiper-slide product-box columns">
+                <div class="product-box-inner">
+                  <div class="swiper-image">
+                    <a href={`/products/${p.slug}/`}>
+                      {img ? (
+                        <img class="media-element-image no-crop product-image medium" src={img} alt="" />
+                      ) : null}
+                    </a>
+                  </div>
+                  <h4 class="product-title">{p.name}</h4>
+                  <div class="product-intro">{p.oneLiner}</div>
+                  <div class="product-keyfacts">
+                    <div class="product-keyfact">
+                      <span>·</span>
+                      {fam?.name}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </main>
+</Base>

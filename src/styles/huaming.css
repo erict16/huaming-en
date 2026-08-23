@@ -1,0 +1,3 @@
+/* Huaming-only: logo is ours, not MR. Keep MR class names. */
+.logo.main-logo img.desktop-logo,
+.logo.modal-logo img.desktop-logo{object-fit:contain;height:auto;}

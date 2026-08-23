@@ -1,0 +1,69 @@
+---
+import Base from "../layouts/Base.astro";
+import { allDownloads } from "../lib/downloads";
+import { formatKind, parseDocMeta } from "../lib/doc-meta";
+import { formatBytes } from "../lib/format";
+
+const files = allDownloads();
+const byKind = new Map<string, typeof files>();
+for (const d of files) {
+  const list = byKind.get(d.kind) ?? [];
+  list.push(d);
+  byKind.set(d.kind, list);
+}
+---
+
+<Base title="Downloads · Huaming" description="Technical data, leaflets, operating instructions, and type-test reports. No email gate.">
+  <main id="main">
+    <div class="stage">
+      <div class="swiper-container stage-slider" data-loop="0" data-autoplay="0" data-autoplay-time="5000">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="swiper-image"></div>
+            <div class="stage-content container bg-gradient">
+              <div class="text-container">
+                <h2><p>Downloads</p></h2>
+                <span class="light">
+                  <p>Technical data, leaflets, operating instructions, and type-test reports. No email gate.</p>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="download-center">
+        <div class="downloadcenter-rows">
+          {
+            [...byKind.entries()].map(([kind, rows]) => (
+              <div class="downloadcenter-row" data-filter-category={kind}>
+                <div class="col-xl-3 col-xxl-4 downloadcenter-row-name">{formatKind(kind)}</div>
+                <div class="download-set">
+                  {rows.map((d) => {
+                    const meta = parseDocMeta(d.file, d.title);
+                    return (
+                      <a href={`/downloads/${d.file}`} class="downloadItem-link">
+                        <div class="downloadItem">
+                          <div class="downloadItem-label d-flex align-items-baseline">
+                            <div class="download-name">{d.title}</div>
+                          </div>
+                          <div class="downloadItem-info">
+                            {meta.docNo ? <span>{meta.docNo}</span> : null}
+                            {meta.year ? <span>{meta.year}</span> : null}
+                            <span>{formatBytes(d.bytes ?? 0)}</span>
+                          </div>
+                        </div>
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </main>
+</Base>

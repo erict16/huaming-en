@@ -1,0 +1,67 @@
+---
+import Base from "../layouts/Base.astro";
+import { offices } from "../lib/catalog";
+---
+
+<Base title="Contact · Huaming" description="International inquiries: intl@huaming.com. Singapore is the international headquarters. Shanghai is the factory.">
+  <main id="main">
+    <div class="stage">
+      <div class="swiper-container stage-slider" data-loop="0" data-autoplay="0" data-autoplay-time="5000">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="swiper-image"></div>
+            <div class="stage-content container bg-gradient">
+              <div class="text-container">
+                <h2><p>Contact</p></h2>
+                <span class="light">
+                  <p>
+                    International inquiries:
+                    <a href="mailto:intl@huaming.com">intl@huaming.com</a>. Singapore is the
+                    international headquarters. Shanghai is the factory.
+                  </p>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <form class="powermail" method="post" action="mailto:intl@huaming.com">
+        <div class="powermail_fieldwrap">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+        <div class="powermail_fieldwrap">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div class="powermail_fieldwrap">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit">Send</button>
+        <p>Or mail <a href="mailto:intl@huaming.com">intl@huaming.com</a> directly. This form does not post to a server.</p>
+      </form>
+      <h2 class="headline">Offices</h2>
+      <ul>
+        {
+          offices.map((o) => (
+            <li>
+              <p>{o.role}</p>
+              <p>{o.name}</p>
+              {o.lines.map((line) => (
+                <p>{line}</p>
+              ))}
+              {"email" in o && o.email ? (
+                <p>
+                  <a href={`mailto:${o.email}`}>{o.email}</a>
+                </p>
+              ) : null}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </main>
+</Base>

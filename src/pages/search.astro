@@ -1,0 +1,72 @@
+---
+import Base from "../layouts/Base.astro";
+import { products } from "../lib/catalog";
+import { allDownloads } from "../lib/downloads";
+import { news } from "../lib/news";
+
+const q = (Astro.url.searchParams.get("q") ?? "").trim().toLowerCase();
+const types = q
+  ? products.filter((p) => `${p.name} ${p.oneLiner} ${p.slug}`.toLowerCase().includes(q))
+  : [];
+const docs = q
+  ? allDownloads().filter((d) => `${d.title} ${d.file}`.toLowerCase().includes(q))
+  : [];
+const articles = q
+  ? news.filter((n) => `${n.title} ${n.summary}`.toLowerCase().includes(q))
+  : [];
+---
+
+<Base title="Search · Huaming">
+  <main id="main">
+    <div class="container">
+      <div class="tx-kesearch-pi1">
+        <form method="get" action="/search/" class="kesearch_searchbox">
+          <div class="kesearchbox">
+            <input
+              type="search"
+              class="ke_search_sword_search"
+              id="ke_search_sword"
+              name="q"
+              value={q}
+              placeholder="Search"
+              minlength="2"
+            />
+          </div>
+          <button type="submit">Search</button>
+        </form>
+      </div>
+      {
+        q ? (
+          <div>
+            <h2 class="headline">Types</h2>
+            <ul>
+              {types.map((p) => (
+                <li>
+                  <a href={`/products/${p.slug}/`}>{p.name}</a> — {p.oneLiner}
+                </li>
+              ))}
+            </ul>
+            <h2 class="headline">Downloads</h2>
+            <ul>
+              {docs.map((d) => (
+                <li>
+                  <a href={`/downloads/${d.file}`}>{d.title}</a>
+                </li>
+              ))}
+            </ul>
+            <h2 class="headline">News</h2>
+            <ul>
+              {articles.map((n) => (
+                <li>
+                  <a href={`/news/${n.slug}/`}>{n.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <p>Type at least two characters.</p>
+        )
+      }
+    </div>
+  </main>
+</Base>

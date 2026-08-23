@@ -1,0 +1,25 @@
+---
+import Base from "../../layouts/Base.astro";
+import { news, newsBySlug } from "../../lib/news";
+
+export function getStaticPaths() {
+  return news.map((n) => ({ params: { slug: n.slug } }));
+}
+
+const item = newsBySlug(Astro.params.slug!);
+if (!item) throw new Error("unknown news");
+---
+
+<Base title={`${item.title} · Huaming`} description={item.summary}>
+  <main id="main">
+    <div class="container">
+      <ul class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/news/">News</a></li>
+      </ul>
+      <p>{item.date}</p>
+      <h1>{item.title}</h1>
+      {item.body.map((p) => <p>{p}</p>)}
+    </div>
+  </main>
+</Base>

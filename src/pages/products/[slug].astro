@@ -1,0 +1,123 @@
+---
+import Base from "../../layouts/Base.astro";
+import { familyById, productBySlug, products } from "../../lib/catalog";
+import { allDownloads } from "../../lib/downloads";
+import { formatKind, parseDocMeta } from "../../lib/doc-meta";
+import { formatBytes } from "../../lib/format";
+import { productImageSrc } from "../../lib/product-image";
+
+export function getStaticPaths() {
+  return products.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const oltcIds = ["oltc-oil", "oltc-vacuum", "oltc-dry", "oltc-gas", "oltc-reactive", "regulator"];
+
+const { slug } = Astro.params;
+const product = productBySlug(slug!);
+if (!product) throw new Error(`unknown type ${slug}`);
+const family = familyById(product.family);
+const photo = productImageSrc(product.slug);
+const files = allDownloads().filter((d) => d.products.includes(product.slug));
+const note =
+  typeof (product as { note?: string }).note === "string" ? (product as { note: string }).note : null;
+const noPdf = product.slug === "chvt" && files.length === 0;
+const isOltc = oltcIds.includes(product.family);
+---
+
+<Base title={`${product.name} · Huaming`} description={product.oneLiner}>
+  <main id="main">
+    <div class="product-detail-wrapper">
+      <div class="introtext">
+        <div class="container">
+          <ul class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li><a href="/products/">Products</a></li>
+            {
+              isOltc ? (
+                <li>
+                  <a href="/products/oltc/">On-load tap changers</a>
+                </li>
+              ) : null
+            }
+          </ul>
+          <h1>{product.name}</h1>
+          <p>{product.oneLiner}</p>
+        </div>
+      </div>
+
+      {
+        photo ? (
+          <div class="stage">
+            <div class="swiper-container stage-slider" data-loop="0" data-autoplay="0" data-autoplay-time="5000">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="swiper-image">
+                    <img src={photo} alt={`${product.name} tap changer`} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : null
+      }
+
+      <div class="keyfacts bg-gradient">
+        <div class="container">
+          <h2 class="headline">Facts</h2>
+          <div class="key-facts">
+            <ol class="keyfacts-list row">
+              {
+                product.ratings.map((r) => (
+                  <li>
+                    <div class="keyfact-headline">{r}</div>
+                  </li>
+                ))
+              }
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-registers-container">
+        <div class="container">
+          <h2 class="headline">Downloads</h2>
+          {
+            noPdf ? (
+              <p>No English technical data PDF for CHVT on the live shop.</p>
+            ) : files.length === 0 ? (
+              <p>No brochure on this type yet.</p>
+            ) : (
+              <div class="download-center">
+                <div class="downloadcenter-rows">
+                  {files.map((d) => {
+                    const meta = parseDocMeta(d.file, d.title);
+                    return (
+                      <div class="downloadcenter-row" data-filter-category={d.kind}>
+                        <div class="col-xl-3 col-xxl-4 downloadcenter-row-name">{formatKind(d.kind)}</div>
+                        <div class="download-set">
+                          <a href={`/downloads/${d.file}`} class="downloadItem-link">
+                            <div class="downloadItem">
+                              <div class="downloadItem-label d-flex align-items-baseline">
+                                <div class="download-name">{d.title}</div>
+                              </div>
+                              <div class="downloadItem-info">
+                                {meta.docNo ? <span>{meta.docNo}</span> : null}
+                                {meta.year ? <span>{meta.year}</span> : null}
+                                <span>{formatBytes(d.bytes ?? 0)}</span>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )
+          }
+          {note ? <p>{note}</p> : null}
+        </div>
+      </div>
+    </div>
+  </main>
+</Base>

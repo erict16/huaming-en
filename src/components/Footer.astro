@@ -1,0 +1,68 @@
+---
+import { offices } from "../lib/catalog";
+const shanghai = offices.find((o) => o.id === "shanghai");
+const singapore = offices.find((o) => o.id === "singapore");
+---
+
+<div class="goback-container main-width footerDown">
+  <div class="goback">
+    <div id="scrollToTopBtn">
+      <span>Top</span>
+    </div>
+  </div>
+</div>
+
+<footer class="footerUp">
+  <div class="container">
+    <div class="row">
+      <div class="footer-content col-12 col-sm-4">
+        <div class="row">
+          <div class="col-12 col-s-8 col-sm-12 col-xxl-9">
+            <div class="text">
+              <h3>Questions?</h3>
+              <h4>International mail is Singapore.</h4>
+              <a href="/contact/">Find a contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-content col-12 col-sm-4">
+        <div class="row">
+          <div class="col-12 col-s-8 col-sm-12 col-xxl-9">
+            <div class="text">
+              <h3>Brochures?</h3>
+              <h4>Technical data as PDF. No email gate.</h4>
+              <a href="/downloads/">Downloads</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-content col-12 col-sm-4">
+        <div class="row">
+          <div class="col-12 col-s-8 col-sm-12 col-xxl-9">
+            <div class="text">
+              <h3>Type string?</h3>
+              <h4>Minimum adequate OLTC from the parameters.</h4>
+              <a href="https://erict16.github.io/oltc-selector/">Type selector</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="row footer-subline">
+      <div class="breadAndInfo col-12 col-lg-6">
+        <div class="footer-links">
+          <a href="/legal/imprint/">Imprint</a>
+          <a href="/legal/privacy/">Privacy</a>
+          <a href="https://www.huaming.com" lang="zh">中文</a>
+        </div>
+        <p>
+          {shanghai?.name}. Factory: {shanghai?.lines.join(", ")}. Singapore HQ: {
+            singapore?.lines.join(", ")
+          }
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
