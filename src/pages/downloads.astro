@@ -6,6 +6,7 @@ import { formatKind, parseDocMeta } from "../lib/doc-meta";
 import { formatBytes } from "../lib/format";
 
 const files = allDownloads();
+const kinds = [...new Set(files.map((d) => d.kind))];
 const byKind = new Map<string, typeof files>();
 for (const d of files) {
   const list = byKind.get(d.kind) ?? [];
@@ -37,6 +38,31 @@ for (const d of files) {
 
     <div class="container">
       <div class="download-center">
+        <div class="dc-filter-container">
+          <form action="/downloads/" class="downloadCenter-filter" method="get">
+            <div class="row">
+              <div class="downloadcenter-select-area col-12">
+                <div class="partial-select-area row">
+                  <div class="dropdown-selectarea col-12 col-s-6 col-md-4 col-lg-3">
+                    <select
+                      id="selectArea1-Products"
+                      name="kind"
+                      class="js-portfolio-selectarea"
+                      onchange="var v=this.value;document.querySelectorAll('.downloadcenter-row').forEach(function(r){r.hidden=!!v&&r.getAttribute('data-filter-category')!==v;});"
+                    >
+                      <option value="">All kinds</option>
+                      {
+                        kinds.map((k) => (
+                          <option value={k}>{formatKind(k)}</option>
+                        ))
+                      }
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
         <div class="downloadcenter-rows">
           {
             [...byKind.entries()].map(([kind, rows]) => (

@@ -28,23 +28,125 @@ import { offices } from "../lib/catalog";
         <StageControls />
       </div>
     </div>
+    <div class="frame frame-default frame-type-powermail_pi1 frame-layout-0">
+      <div class="tx-powermail">
+        <div class="container layout1">
+          <div class="row justify-content-center">
+            <div class="column-wrapper col-xxl-8 col-xl-8 col-lg-10 col-md-12 col-sm-10 col-s-12 col-xs-12 col-12">
+              <form
+                class="powermail_form powermail_form_7 layout1"
+                method="post"
+                action="mailto:intl@huaming.com"
+                enctype="text/plain"
+                data-validate="html5"
+              >
+                <h4>International mail is Singapore.</h4>
+                <fieldset class="powermail_fieldset powermail_fieldset_10 nolabel">
+                  <div class="powermail_fieldwrap powermail_fieldwrap_type_input no-label">
+                    <label for="powermail_field_namevorname" class="powermail_label">
+                      Name<span class="mandatory">*</span>
+                    </label>
+                    <div class="powermail_field">
+                      <input
+                        required
+                        placeholder="Name"
+                        class="powermail_input"
+                        id="powermail_field_namevorname"
+                        type="text"
+                        name="name"
+                        value=""
+                      />
+                      <div class="placholder">Name</div>
+                    </div>
+                  </div>
+                  <div class="powermail_fieldwrap powermail_fieldwrap_type_input no-label">
+                    <label for="powermail_field_e_mail" class="powermail_label">
+                      Email<span class="mandatory">*</span>
+                    </label>
+                    <div class="powermail_field">
+                      <input
+                        required
+                        placeholder="Email"
+                        class="powermail_input"
+                        id="powermail_field_e_mail"
+                        type="email"
+                        name="email"
+                        value=""
+                      />
+                      <div class="placholder">Email</div>
+                    </div>
+                  </div>
+                  <div class="powermail_fieldwrap powermail_fieldwrap_type_input no-label">
+                    <label for="powermail_field_firma" class="powermail_label">Company</label>
+                    <div class="powermail_field">
+                      <input
+                        placeholder="Company"
+                        class="powermail_input"
+                        id="powermail_field_firma"
+                        type="text"
+                        name="company"
+                        value=""
+                      />
+                      <div class="placholder">Company</div>
+                    </div>
+                  </div>
+                  <div class="powermail_fieldwrap powermail_fieldwrap_type_textarea no-label">
+                    <label for="powermail_field_ihrenachricht" class="powermail_label">
+                      Message<span class="mandatory">*</span>
+                    </label>
+                    <div class="powermail_field">
+                      <textarea
+                        required
+                        rows="5"
+                        cols="20"
+                        placeholder="Message"
+                        class="powermail_textarea"
+                        id="powermail_field_ihrenachricht"
+                        name="message"
+                      ></textarea>
+                      <div class="placholder">Message<span class="mandatory">*</span></div>
+                    </div>
+                  </div>
+                  <div class="powermail_fieldwrap powermail_fieldwrap_type_check powermail_fieldwrap_checkbox no-label">
+                    <label for="powermail_field_checkbox" class="powermail_label">Privacy</label>
+                    <div class="powermail_field">
+                      <div class="checkbox">
+                        <label>
+                          <input
+                            required
+                            class="powermail_checkbox"
+                            id="powermail_field_checkbox_1"
+                            type="checkbox"
+                            name="privacy"
+                            value="ok"
+                          />
+                          <span class="fake-box"></span>
+                          See our
+                          <a href="/legal/privacy/" class="link-download">Privacy</a>
+                          page.<span class="mandatory">*</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="powermail_fieldwrap d-flex justify-content-end powermail_fieldwrap_type_submit powermail_fieldwrap_submit no-label"
+                  >
+                    <div class="powermail_field">
+                      <button class="cta cta-gradient powermail_submit" type="submit">Send</button>
+                    </div>
+                  </div>
+                </fieldset>
+                <p>
+                  This form opens a mail to <a href="mailto:intl@huaming.com">intl@huaming.com</a>. It
+                  does not post to a server.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container">
-      <form class="powermail" method="post" action="mailto:intl@huaming.com">
-        <div class="powermail_fieldwrap">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" required />
-        </div>
-        <div class="powermail_fieldwrap">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required />
-        </div>
-        <div class="powermail_fieldwrap">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <button type="submit">Send</button>
-        <p>Or mail <a href="mailto:intl@huaming.com">intl@huaming.com</a> directly. This form does not post to a server.</p>
-      </form>
       <h2 class="headline">Offices</h2>
       <ul>
         {

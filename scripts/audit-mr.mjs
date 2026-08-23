@@ -240,6 +240,8 @@ const pages = [
   { id: "/", route: "", mr: mrHome, extra: CHROME_CLASSES },
   { id: "/products/oltc", route: "products/oltc", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "product-keyfacts", "stage"] },
   { id: "/products/cv2", route: "products/cv2", mr: mrPdp, extra: ["product-detail-wrapper", "keyfacts", "keyfacts-list", "keyfact-headline", "download-center", "downloadcenter-rows", "downloadItem", "breadcrumb"] },
+  { id: "/contact", route: "contact", mr: path.join(root, "mirror/mr/contact.html"), extra: ["tx-powermail", "powermail_form", "powermail_fieldset", "powermail_input", "powermail_textarea", "powermail_submit", "cta-gradient", "powermail_label", "powermail_field", "frame-type-powermail_pi1", "placholder"] },
+  { id: "/downloads", route: "downloads", mr: path.join(root, "mirror/mr/downloadcenter.html"), extra: ["download-center", "downloadcenter-rows", "downloadItem", "dc-filter-container", "downloadCenter-filter", "downloadcenter-select-area"] },
 ];
 
 const report = {
