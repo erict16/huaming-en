@@ -1,44 +1,24 @@
 # Overnight status
 
-Updated: 2026-08-19 01:20 CST
-SHA: 1fef2ce
+Updated: 2026-08-23 22:26 Asia/Shanghai
+Branch: `feat/mr-astro-lock`
+Hard stop: 2026-08-24 07:00 Asia/Shanghai
+Scheduler: `01a02f00e2d6` every 20m
 
-## Clock
+## SHA
 
-- Started: 00:15 CST 2026-08-19
-- Hard stop: **07:00 CST 2026-08-19**
-- Scheduler `01a015a8d8ee` every **30m**. After 07:00 it must no-op.
+Fill after commit.
 
-## Repo
+## Preview
 
-- Workdir: `~/Github/huaming-en` (vote locked; `_huaming-en-wip` is an empty leftover)
-- GitHub: https://github.com/erict16/huaming-en (private)
-- Preview: https://huaming-en.vercel.app
-- Branch: `feat/overnight-v1`
-- Plan winner: **01 Utility handbook**
-- Live home vote: marketing keep, copy keep, UX iterate (plate + now a real CV2 still)
+Vercel project `huaming-en`. Preview URL after first Astro deploy. GitHub `erict16/huaming-en` stays private.
 
-## File counts
+## Now
 
-- 62 PDFs in `public/downloads/` (catalog rows match disk)
-- 27 product types; **CHVT is the only type with no PDF**
-- 60 static routes
-- Product photos in `public/images/products/` for most types
+Cycle 1 done: live MR HTML/CSS/JS/fonts in `mirror/mr/`. `layout.min.css` is 857650 bytes. `docs/MR-source.md` quotes tokens from that file.
 
-## Done this fire
+Closeness `/`: 0 (no Astro yet). Next: scaffold Astro and paste CSS.
 
-- Replaced truncated urllib HTML with complete curl copies (0 files still at 192/256 KiB)
-- Full `mirror/MANIFEST.md` (54 HTML + 62 PDF checksums)
-- Product index shows type photos
-- About: official YouTube films, links only
+## Do not
 
-## Not finished
-
-- CHVT technical PDF (does not exist on the live shop)
-- Full `/images/` decorative tree (product stills are in)
-- Chinese huaming.com still 500
-
-## Blockers
-
-- `web_fetch` blocked (Clash 198.18.*)
-- No git-lfs
+Screenshots as score. OpenPencil. Inter / Source Serif. MR trademarks on the live copy.
