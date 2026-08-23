@@ -52,7 +52,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 44. [done] News index `.articleImage` from impulses.html (cycle 30)
 45. [done] News lead is gradient only; articleImage 3:2 contain (cycle 31)
 46. [done] Article 16:6 band: no product-still cover (cycle 32)
-47. Next failing row in `docs/PAGE-AUDIT.md`. Paint, not only class formula.
+47. [done] Inner `page-header-animation` + `.blue-nav` from oltc.html (cycle 33)
+48. Next leftover paint: `mobileTopNav` (mobile utility) or family `table-white` / `table-grey`. Language modal and `.socialMedia` still skipped.
 
 ## Cycle log
 
@@ -88,3 +89,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 30: news index articleImage 16:9. `/news` 30/30.
 - 31: news lead gradient only; slider stills 3:2 contain (249×166).
 - 32: CHVT article band navy only; Indonesia 7-5.png stays.
+- 33: inner header `page-header-animation` + `.blue-nav`. Home stays sticky. PDP `#productName`.

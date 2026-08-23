@@ -117,6 +117,15 @@ const CHROME_CLASSES = [
   "mobile-menu-third",
 ];
 
+const INNER_BLUE_NAV = [
+  "page-header-animation",
+  "blue-nav",
+  "blue-nav-header",
+  "blue-nav-body",
+  "blue-nav-toggler",
+  "light-menu",
+];
+
 const TOKENS = [
   { id: "navy", re: /#002a55/i },
   { id: "link-blue", re: /#075898/i },
@@ -269,7 +278,13 @@ const report = {
 for (const page of pages) {
   const htmlPath = findDistHtml(page.route);
   const html = htmlPath ? readFileSync(htmlPath, "utf8") : "";
-  const classes = page.id === "/" ? CHROME_CLASSES : [...new Set([...CHROME_CLASSES.slice(0, 20), ...page.extra])];
+  const innerHeader = CHROME_CLASSES.slice(0, 20).map((c) =>
+    c === "page-header-sticky" ? "page-header-animation" : c,
+  );
+  const classes =
+    page.id === "/"
+      ? CHROME_CLASSES
+      : [...new Set([...innerHeader, ...INNER_BLUE_NAV, ...page.extra])];
   const sel = classHits(html, classes);
   const stru = page.id === "/" ? structureHits(html) : { present: [], missing: [] };
   const selPct = pct(sel.present.length, classes.length);

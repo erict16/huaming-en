@@ -1,13 +1,13 @@
 # Overnight status
 
-Updated: 2026-08-24 02:06 Asia/Shanghai
+Updated: 2026-08-24 02:30 Asia/Shanghai
 Branch: `feat/mr-astro-lock`
 Hard stop: 2026-08-24 07:00 Asia/Shanghai
 Scheduler: `01a02f00e2d6` every 20m
 
 ## SHA
 
-HEAD after cycle 32. Cycle 31 was `0aeb88a`.
+HEAD after cycle 33. Cycle 32 was `c35a660`.
 
 ## Preview
 
@@ -17,7 +17,7 @@ Vercel project `huaming-en` framework preset **astro**. SSO off.
 
 ## Now
 
-Closeness 100. Cycle 32: article 16:6 band does not cover-crop product stills. Indonesia photo stays. Language modal and `.socialMedia` skipped.
+Closeness 100. Cycle 33: inner pages use `page-header-animation` + `.blue-nav`. Home stays sticky. Language modal and `.socialMedia` skipped.
 
 ## Do not
 
