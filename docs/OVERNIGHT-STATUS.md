@@ -17,7 +17,7 @@ Vercel project `huaming-en` framework preset **astro**. SSO off.
 
 ## Now
 
-Closeness still 100. Cycle 15: imprint/privacy `.text-module`, 404 `.textmedia-parallax`, inner hidden breadcrumbs. Formula at target. Language modal and `.socialMedia` skipped on purpose.
+Closeness 100 on mapped pages. Cycle 15: imprint/privacy `.text-module`, 404 `.textmedia-parallax`, inner `.breadcrumb.d-none`. Language modal and `.socialMedia` skipped on purpose.
 
 ## Do not
 
