@@ -98,6 +98,8 @@ const CHROME_CLASSES = [
   "footer-content",
   "footer-subline",
   "footer-links",
+  "icon-wrap",
+  "breadAndInfo",
   "goback-container",
   "overflow-scroll",
   "overflow-scroll-left",

@@ -2,11 +2,11 @@
 
 Formula: `0.5 * selector_hit% + 0.3 * token_hit% + 0.2 * structure_pass%`
 
-Last audit: cycle 17. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mirror/mr`.
+Last audit: cycle 18. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mirror/mr`.
 
 | page | selector | token | structure | closeness |
 |------|----------|-------|-----------|----------:|
-| `/` | 97/97 | 22/22 | 9/9 | 100 |
+| `/` | 99/99 | 22/22 | 9/9 | 100 |
 | `/products/oltc` | 29/29 | 22/22 | (selector) | 100 |
 | PDP `/products/cv2` | 33/33 | 22/22 | (selector) | 100 |
 | `/contact` | 32/32 | 22/22 | (selector) | 100 |
