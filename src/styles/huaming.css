@@ -12,6 +12,18 @@ body{
 }
 
 .articleIntro .blueBox{opacity:1;}
+.teaser_articles .articleWrapper .articleImage{
+  aspect-ratio:16/9;
+  background:#f6f6f2;
+  overflow:hidden;
+}
+.teaser_articles .articleWrapper .articleImage img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  background:#f6f6f2;
+}
 /* MR article band is 16:6 cover. Empty band was a white void; navy plate if we have no still. */
 .articleIntro-image .background{
   background-color:#002a55;

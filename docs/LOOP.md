@@ -49,7 +49,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 41. [done] Mobile product cards full-width 3:2 (cycle 27)
 42. [done] Home newsimpulse-image 3:2 plate + existing stills (cycle 28)
 43. [done] SV still aliases to CV (same leaflet) (cycle 29)
-44. Next failing row in `docs/PAGE-AUDIT.md`. Paint, not only class formula.
+44. [done] News index `.articleImage` from impulses.html (cycle 30)
+45. Next failing row in `docs/PAGE-AUDIT.md`. Paint, not only class formula.
 
 ## Cycle log
 
@@ -82,3 +83,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 27: mobile product-box stills width 100% 3:2 (MR was 50% square).
 - 28: home newsimpulse-image 3:2; CHVT/Indonesia stills. `/` 99/99.
 - 29: SV still aliases to existing CV.png (same technical-data PDF).
+- 30: news index articleImage 16:9. `/news` 30/30.

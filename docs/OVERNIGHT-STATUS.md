@@ -1,13 +1,13 @@
 # Overnight status
 
-Updated: 2026-08-24 01:30 Asia/Shanghai
+Updated: 2026-08-24 01:47 Asia/Shanghai
 Branch: `feat/mr-astro-lock`
 Hard stop: 2026-08-24 07:00 Asia/Shanghai
 Scheduler: `01a02f00e2d6` every 20m
 
 ## SHA
 
-HEAD after cycle 29. Cycle 28 was `e25b039`.
+HEAD after cycle 30. Cycle 29 was `ce2ec9a`.
 
 ## Preview
 
@@ -17,7 +17,7 @@ Vercel project `huaming-en` framework preset **astro**. SSO off.
 
 ## Now
 
-Closeness 100. Cycle 29: SV list/PDP uses existing CV still (same technical-data PDF). Language modal and `.socialMedia` skipped.
+Closeness 100. Cycle 30: news index `.articleImage` 16:9 plates; CHVT/Indonesia stills. Language modal and `.socialMedia` skipped.
 
 ## Do not
 

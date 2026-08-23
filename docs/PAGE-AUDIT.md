@@ -15,7 +15,7 @@ Updated: 2026-08-24 01:30 Asia/Shanghai. Cycle 29: SV uses existing CV still.
 | 7 | `/products/cv2/` (and 26 other PDPs) | vacutap-vi.html | cv2 33/33 | Facts + PDFs + related. Stage centered 3:2 contain. SV uses existing CV still (same leaflet). | **pass** |
 | 8 | `/downloads/` | downloadcenter.html | 36/36 | introtext + kind tabs + Search tab `downloadCenterInputWrapper`. | **pass** |
 | 9 | `/about/` | company.html | 33/33 | introtext + numbers-module. No factory photo (we do not have one). | **pass** |
-| 10 | `/news/` | impulses.html | 29/29 | introtext + teaser_articles. | **pass** |
+| 10 | `/news/` | impulses.html | 30/30 | introtext + teaser_articles + articleImage 16:9. CHVT/Indonesia stills. | **pass** |
 | 11 | `/news/{slug}/` | impulse-article.html | 28/28 | articleIntro / blueBox. Navy 16:6 band. CHVT stills + Indonesia 7-5.png where we already had files. | **pass** |
 | 12 | `/contact/` | contact.html | 43/43 | introtext + powermail + contactfinder. | **pass** |
 | 13 | `/search/` | search.html | 41/41 | Client filter (static build has no query string). | **pass** |

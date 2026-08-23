@@ -2,7 +2,7 @@
 
 Formula: `0.5 * selector_hit% + 0.3 * token_hit% + 0.2 * structure_pass%`
 
-Last audit: cycle 28. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mirror/mr`.
+Last audit: cycle 30. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mirror/mr`.
 
 | page | selector | token | structure | closeness |
 |------|----------|-------|-----------|----------:|
@@ -16,7 +16,7 @@ Last audit: cycle 28. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mi
 | `/contact` | 43/43 | 22/22 | (selector) | 100 |
 | `/downloads` | 36/36 | 22/22 | (selector) | 100 |
 | `/about` | 33/33 | 22/22 | (selector) | 100 |
-| `/news` | 29/29 | 22/22 | (selector) | 100 |
+| `/news` | 30/30 | 22/22 | (selector) | 100 |
 | `/search` | 41/41 | 22/22 | (selector) | 100 |
 | `/404` | 29/29 | 22/22 | (selector) | 100 |
 | `/legal/imprint` | 25/25 | 22/22 | (selector) | 100 |

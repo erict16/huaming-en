@@ -2,7 +2,9 @@
 import Base from "../../layouts/Base.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import SwiperArrows from "../../components/SwiperArrows.astro";
-import { news } from "../../lib/news";
+import { news, newsBandSrc } from "../../lib/news";
+
+const leadSrc = newsBandSrc(news[0].slug);
 ---
 
 <Base title="News · Huaming" description="Articles listed on the live English newsroom. Titles rewritten. No extra stories invented.">
@@ -28,6 +30,11 @@ import { news } from "../../lib/news";
           <div class="row">
             <div class="article-main-area col-lg-12 col-xl-6">
               <div class="blue-teaser bg-gradient">
+                {
+                  leadSrc ? (
+                    <img class="media-element-image no-crop" src={leadSrc} alt="" />
+                  ) : null
+                }
                 <div class="content">
                   <h2>{news[0].title}</h2>
                   <p>{news[0].summary}</p>
@@ -46,6 +53,17 @@ import { news } from "../../lib/news";
                       <div class="swiper-slide">
                         <a href={`/news/${item.slug}/`} class="link-wrap">
                           <div class="articleWrapper">
+                            <div class="articleImage media-16-9">
+                              {
+                                newsBandSrc(item.slug) ? (
+                                  <img
+                                    class="media-element-image no-crop"
+                                    src={newsBandSrc(item.slug)!}
+                                    alt=""
+                                  />
+                                ) : null
+                              }
+                            </div>
                             <div class="swiper-text-container">
                               <div class="swiper-text">
                                 <p>{item.date}</p>
