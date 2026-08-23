@@ -54,27 +54,33 @@ body{
   background:#f6f6f2;
 }
 
-/* Stage: centered 3:2 still, not 37.5vw cover crop. */
+/* Home stage: full-bleed banner. 3:2 stills cover a ~28rem strip. */
 .stage .swiper-container .swiper-wrapper .swiper-slide .swiper-image{
-  width:min(100%,40rem);
-  margin-left:auto;
-  margin-right:auto;
-  height:auto!important;
-  min-height:0!important;
-  max-height:none!important;
-  aspect-ratio:3/2;
-  background:#f6f6f2;
+  width:100%;
+  margin:0;
+  height:28rem!important;
+  min-height:28rem!important;
+  max-height:28rem!important;
+  aspect-ratio:auto;
+  background:#002a55;
 }
 .stage .swiper-container .swiper-wrapper .swiper-slide .swiper-image img{
-  object-fit:contain!important;
+  object-fit:cover!important;
   object-position:center;
   width:100%!important;
   height:100%!important;
 }
 @media (min-width:1200px){
   .stage .swiper-container .swiper-wrapper .swiper-slide .stage-content{
-    min-height:0!important;
-    height:auto!important;
+    min-height:28rem!important;
+    height:28rem!important;
+  }
+}
+@media (max-width:1199px){
+  .stage .swiper-container .swiper-wrapper .swiper-slide .swiper-image{
+    height:20rem!important;
+    min-height:20rem!important;
+    max-height:20rem!important;
   }
 }
 .stage .swiper-image:not(:has(img)){
