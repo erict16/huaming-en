@@ -36,5 +36,12 @@ const {
     <script src="/js/mr/stage.min.js" is:inline></script>
     <script src="/js/mr/text_media_slider.min.js" is:inline></script>
     <script src="/js/mr/numberTicker.min.js" is:inline></script>
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.jQuery) {
+          window.jQuery("form[name='form_kesearch_pi1']").off("submit");
+        }
+      });
+    </script>
   </body>
 </html>

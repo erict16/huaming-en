@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
 import ProductBox from "../../components/ProductBox.astro";
 import StageControls from "../../components/StageControls.astro";
 import { families, products } from "../../lib/catalog";
@@ -8,6 +9,9 @@ import { productImageSrc } from "../../lib/product-image";
 
 <Base title="Products · Huaming" description="On-load tap changers, de-energized tap changers, and motor drives.">
   <main id="main">
+    <div class="container">
+      <Breadcrumb crumbs={[{ href: "/", label: "Home" }]} visible={false} />
+    </div>
     <div class="stage">
       <div class="swiper-container stage-slider" data-loop="0" data-autoplay="0" data-autoplay-time="5000">
         <div class="swiper-wrapper">

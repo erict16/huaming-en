@@ -30,8 +30,9 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 22. [done] Contact powermail class tree + downloads filter chrome (cycle 11)
 23. [done] About `numbers-module` + news `teaser_articles` / `articleWrapper` (cycle 12)
 24. [done] Search pi2 results chrome + client `?q=` filter (cycle 13)
-25. Inner breadcrumbs (`arrow-right.svg` between crumbs) on PDP / list / about / news / contact / downloads
-26. Skip language modal and `.socialMedia`. Formula at target.
+25. [done] Inner breadcrumbs + search icon submit + PDP related row (cycle 14)
+26. Imprint / 404 inner chrome vs `imprint.html` / `404.html`
+27. Skip language modal and `.socialMedia`. Formula at target.
 
 ## Cycle log
 
@@ -48,3 +49,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 11: contact `.tx-powermail` / `.powermail_form`; downloads `.dc-filter-container`.
 - 12: about numbers-module; news teaser_articles.
 - 13: search pi2 + client catalog filter. `/search` 29/29.
+- 14: breadcrumb arrows; SearchBox icons; PDP related + keyfact wrappers. `/search` 41/41, cv2 33/33.

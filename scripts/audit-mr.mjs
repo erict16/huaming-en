@@ -238,13 +238,13 @@ if (homeHtmlPath) {
 
 const pages = [
   { id: "/", route: "", mr: mrHome, extra: CHROME_CLASSES },
-  { id: "/products/oltc", route: "products/oltc", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "product-keyfacts", "stage"] },
-  { id: "/products/cv2", route: "products/cv2", mr: mrPdp, extra: ["product-detail-wrapper", "keyfacts", "keyfacts-list", "keyfact-headline", "download-center", "downloadcenter-rows", "downloadItem", "breadcrumb"] },
+  { id: "/products/oltc", route: "products/oltc", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "product-keyfacts", "stage", "introtext", "breadcrumb", "subline"] },
+  { id: "/products/cv2", route: "products/cv2", mr: mrPdp, extra: ["product-detail-wrapper", "keyfacts", "keyfacts-list", "keyfact-headline", "download-center", "downloadcenter-rows", "downloadItem", "breadcrumb", "product-related-products", "teaser_products", "width-small", "icon-plus", "collapse-mobile-spec-number"] },
   { id: "/contact", route: "contact", mr: path.join(root, "mirror/mr/contact.html"), extra: ["tx-powermail", "powermail_form", "powermail_fieldset", "powermail_input", "powermail_textarea", "powermail_submit", "cta-gradient", "powermail_label", "powermail_field", "frame-type-powermail_pi1", "placholder"] },
   { id: "/downloads", route: "downloads", mr: path.join(root, "mirror/mr/downloadcenter.html"), extra: ["download-center", "downloadcenter-rows", "downloadItem", "dc-filter-container", "downloadCenter-filter", "downloadcenter-select-area"] },
   { id: "/about", route: "about", mr: path.join(root, "mirror/mr/company.html"), extra: ["numbers-module", "number-headline", "number-number", "number-overline", "number-label", "numbers"] },
   { id: "/news", route: "news", mr: path.join(root, "mirror/mr/impulses.html"), extra: ["teaser_articles", "article-main-area", "blue-teaser", "article-slider-area", "swiper-articles", "articleWrapper"] },
-  { id: "/search", route: "search", mr: path.join(root, "mirror/mr/search.html"), extra: ["tx-kesearch-pi1", "kesearch_searchbox", "kesearchbox", "ke_search_sword_search", "frame-type-ke_search_pi2", "kesearch_results", "result-list-item", "searchbox-grid", "kesGreyButt"] },
+  { id: "/search", route: "search", mr: path.join(root, "mirror/mr/search.html"), extra: ["tx-kesearch-pi1", "kesearch_searchbox", "kesearchbox", "ke_search_sword_search", "frame-type-ke_search_pi1", "frame-type-ke_search_pi2", "searchbox-grid", "resetbutt", "resetButton", "submitbutt", "resultCounterInfo", "countedResults", "searchWord", "kesearch_results", "kesearch_pagebrowser_bottom", "load-more", "result-list-item", "result-title", "result-title-page", "result-teaser", "result-number"] },
 ];
 
 const report = {

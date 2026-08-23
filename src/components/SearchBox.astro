@@ -1,0 +1,66 @@
+---
+const iconBase = "/_assets/4fe0297b88c3f75f81bce57218e3ae92/Images/Icons";
+---
+
+<div class="frame frame-default frame-type-ke_search_pi1 frame-layout-0">
+  <div class="tx-kesearch-pi1">
+    <div class="bg-grey">
+      <form method="get" id="form_kesearch_pi1" name="form_kesearch_pi1" action="/search/">
+        <div class="container">
+          <div class="row">
+            <div class="searchbox-grid col-10 offset-1 col-md-12 offset-md-0 col-lg-10 offset-lg-1 col-xxl-8 offset-xxl-2">
+              <fieldset class="kesearch_searchbox">
+                <div class="kesearchbox">
+                  <input
+                    type="search"
+                    class="ke_search_sword_search"
+                    id="ke_search_sword"
+                    name="q"
+                    value=""
+                    placeholder="Search"
+                    required
+                    minlength="2"
+                  />
+                  <div class="clearer">&nbsp;</div>
+                </div>
+                <input id="kesearchpagenumber" type="hidden" name="page" value="1" />
+                <input id="resetFilters" type="hidden" name="resetFilters" value="0" />
+                <div class="actions">
+                  <span class="resetbutt">
+                    <span class="resetButton">
+                      <span>
+                        <img
+                          class="desktop-logo"
+                          alt="clear"
+                          src={`${iconBase}/close.svg`}
+                          width="25"
+                          height="24"
+                        />
+                      </span>
+                    </span>
+                  </span>
+                  <span class="submitbutt">
+                    <button type="submit">
+                      <img
+                        class="desktop-logo"
+                        alt="Search"
+                        src={`${iconBase}/search_blue.svg`}
+                        width="34"
+                        height="34"
+                      />
+                    </button>
+                  </span>
+                </div>
+                <p id="resultCounterInfo">
+                  <br />
+                  <span id="countedResults">0</span> results found for
+                  <span id="searchWord"></span>
+                </p>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

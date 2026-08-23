@@ -1,0 +1,35 @@
+---
+interface Crumb {
+  href: string;
+  label: string;
+}
+interface Props {
+  crumbs: Crumb[];
+  visible?: boolean;
+}
+const { crumbs, visible = true } = Astro.props;
+const arrow = "/_assets/4fe0297b88c3f75f81bce57218e3ae92/Images/Icons/arrow-right.svg";
+---
+
+<ul class="breadcrumb d-none">
+  {
+    crumbs.map((c, i) => (
+      <li>
+        {i > 0 ? <img src={arrow} alt="right" height="12" width="12" /> : null}
+        <a href={c.href}>{c.label}</a>
+      </li>
+    ))
+  }
+</ul>
+{
+  visible ? (
+    <ul class="breadcrumb">
+      {crumbs.map((c, i) => (
+        <li>
+          {i > 0 ? <img src={arrow} alt="right" height="12" width="12" /> : null}
+          <a href={c.href}>{c.label}</a>
+        </li>
+      ))}
+    </ul>
+  ) : null
+}

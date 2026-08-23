@@ -1,4 +1,5 @@
 ---
+import SearchBox from "./SearchBox.astro";
 ---
 <div class="page-header page-header-sticky">
   <div class="top-nav">
@@ -436,27 +437,7 @@
               <div class="row">
                 <div class="col-xxl-8 offset-xxl-2 col-xl-10 offset-xl-1 col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-8 offset-sm-2 col-s-8 offset-s-2 col-10 offset-1">
                   <div id="keSearchWrapper">
-                    <div class="frame frame-default frame-type-ke_search_pi1 frame-layout-0">
-                      <div class="tx-kesearch-pi1">
-                        <div class="bg-grey">
-                          <form method="get" id="form_kesearch_pi1" name="form_kesearch_pi1" action="/search/">
-                            <div class="container">
-                              <div class="row">
-                                <div class="searchbox-grid col-10 offset-1 col-md-12 offset-md-0 col-lg-10 offset-lg-1 col-xxl-8 offset-xxl-2">
-                                  <fieldset class="kesearch_searchbox">
-                                    <div class="kesearchbox">
-                                      <input type="search" class="ke_search_sword_search" id="ke_search_sword" name="q" value="" placeholder="Search" required minlength="2" />
-                                      <div class="clearer">&nbsp;</div>
-                                    </div>
-                                    <button type="submit">Search</button>
-                                  </fieldset>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
+                    <SearchBox />
                   </div>
                 </div>
               </div>
@@ -467,3 +448,18 @@
     </div>
   </div>
 </div>
+<script is:inline>
+  (function () {
+    var modal = document.getElementById("searchModal");
+    if (!modal) return;
+    var input = modal.querySelector("#ke_search_sword");
+    var reset = modal.querySelector(".resetButton");
+    if (reset && input) {
+      reset.addEventListener("click", function () {
+        input.value = "";
+        input.focus();
+      });
+    }
+  })();
+</script>
+

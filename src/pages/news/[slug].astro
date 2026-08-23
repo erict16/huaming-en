@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
 import { news, newsBySlug } from "../../lib/news";
 
 export function getStaticPaths() {
@@ -13,10 +14,12 @@ if (!item) throw new Error("unknown news");
 <Base title={`${item.title} · Huaming`} description={item.summary}>
   <main id="main">
     <div class="container">
-      <ul class="breadcrumb">
-        <li><a href="/">Home</a></li>
-        <li><a href="/news/">News</a></li>
-      </ul>
+      <Breadcrumb
+        crumbs={[
+          { href: "/", label: "Home" },
+          { href: "/news/", label: "News" },
+        ]}
+      />
       <p>{item.date}</p>
       <h1>{item.title}</h1>
       {item.body.map((p) => <p>{p}</p>)}

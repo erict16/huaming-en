@@ -1,80 +1,61 @@
 ---
 import Base from "../layouts/Base.astro";
+import SearchBox from "../components/SearchBox.astro";
 import { products } from "../lib/catalog";
 import { allDownloads } from "../lib/downloads";
 import { news } from "../lib/news";
 
-const catalog = {
-  types: products.map((p) => ({
+const rows = [
+  ...products.map((p) => ({
     href: `/products/${p.slug}/`,
     title: p.name,
     teaser: p.oneLiner,
-    type: "page",
+    type: "page" as const,
   })),
-  docs: allDownloads().map((d) => ({
+  ...allDownloads().map((d) => ({
     href: `/downloads/${d.file}`,
     title: d.title,
     teaser: d.file,
-    type: "file",
+    type: "file" as const,
   })),
-  articles: news.map((n) => ({
+  ...news.map((n) => ({
     href: `/news/${n.slug}/`,
     title: n.title,
     teaser: n.summary,
-    type: "page",
+    type: "page" as const,
   })),
-};
+];
 ---
 
 <Base title="Search · Huaming" description="Search types, PDFs, and news.">
   <main id="main">
-    <div class="tx-kesearch-pi1">
-      <div class="bg-grey">
-        <form method="get" id="form_kesearch_pi1" name="form_kesearch_pi1" action="/search/">
-          <div class="container">
-            <div class="row">
-              <div class="searchbox-grid col-10 offset-1 col-md-12 offset-md-0 col-lg-10 offset-lg-1 col-xxl-8 offset-xxl-2">
-                <fieldset class="kesearch_searchbox">
-                  <div class="kesearchbox">
-                    <input
-                      type="search"
-                      class="ke_search_sword_search"
-                      id="ke_search_sword"
-                      name="q"
-                      value=""
-                      placeholder="Search"
-                      minlength="2"
-                    />
-                    <div class="clearer">&nbsp;</div>
-                  </div>
-                  <input id="kesearchpagenumber" type="hidden" name="page" value="1" />
-                  <input id="resetFilters" type="hidden" name="resetFilters" value="0" />
-                  <div class="actions">
-                    <span class="resetbutt">
-                      <span class="resetButton"><span>Clear</span></span>
-                    </span>
-                    <span class="submitbutt">
-                      <input class="kesGreyButt" type="submit" value="Search" />
-                    </span>
-                  </div>
-                  <p id="resultCounterInfo">
-                    <br />
-                    <span id="countedResults">0</span> results found for
-                    <span id="searchWord"></span>
-                  </p>
-                </fieldset>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
+    <SearchBox />
 
     <div class="frame frame-default frame-type-ke_search_pi2 frame-layout-0">
       <div class="tx-kesearch-pi1">
         <div class="container">
-          <div id="kesearch_num_results"></div>
+          <input type="hidden" id="resultCounter" value="0" />
           <div id="kesearch_results">
+            {
+              rows.map((r, i) => (
+                <div
+                  class={`result-list-item result-list-item-type-${r.type}`}
+                  data-search={`${r.title} ${r.teaser} ${r.href}`.toLowerCase()}
+                  hidden
+                >
+                  <div class="result-number">{i + 1}.</div>
+                  <div class="result-title-page">
+                    <a href={r.href}>{r.title}</a>
+                  </div>
+                  <div class="result-teaser">{r.teaser}</div>
+                  <div class="add-info">
+                    <div class="result-title">
+                      <a href={r.href}>{r.href}</a>
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
             <div class="load-more">
               <div class="content">Show more</div>
             </div>
@@ -83,65 +64,58 @@ const catalog = {
         </div>
       </div>
     </div>
-    <template id="kesearch_item_tpl">
-      <div class="result-list-item result-list-item-type-page">
-        <div class="result-number">1.</div>
-        <div class="result-title"><a href="/">Home</a></div>
-        <div class="result-teaser"></div>
-      </div>
-    </template>
+    <script is:inline>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const raw = (params.get("q") || "").trim();
+        const q = raw.toLowerCase();
+        document.querySelectorAll(".ke_search_sword_search").forEach(function (el) {
+          if (raw) el.value = raw;
+        });
+        document.querySelectorAll("main .resetButton").forEach(function (el) {
+          el.addEventListener("click", function () {
+            window.location.href = "/search/";
+          });
+        });
+        const items = Array.from(document.querySelectorAll("#kesearch_results .result-list-item"));
+        const more = document.querySelector("#kesearch_results .load-more");
+        const PAGE = 10;
+        let shown = 0;
+        items.forEach(function (el) {
+          const hay = el.getAttribute("data-search") || "";
+          const hit = q.length >= 2 && hay.indexOf(q) !== -1;
+          if (!hit) {
+            el.hidden = true;
+            return;
+          }
+          shown += 1;
+          const num = el.querySelector(".result-number");
+          if (num) num.textContent = shown + ".";
+          el.hidden = shown > PAGE;
+        });
+        if (more) more.hidden = shown <= PAGE;
+        document.querySelectorAll("#countedResults").forEach(function (el) {
+          el.textContent = String(shown);
+        });
+        document.querySelectorAll("#searchWord").forEach(function (el) {
+          el.textContent = q.length >= 2 ? raw : "";
+        });
+        const counter = document.getElementById("resultCounter");
+        if (counter) counter.value = String(shown);
+        document.querySelectorAll("#resultCounterInfo").forEach(function (el) {
+          el.style.display = shown > 0 ? "block" : "none";
+        });
+        if (more) {
+          more.addEventListener("click", function () {
+            items.forEach(function (el) {
+              const hay = el.getAttribute("data-search") || "";
+              const hit = q.length >= 2 && hay.indexOf(q) !== -1;
+              if (hit) el.hidden = false;
+            });
+            more.hidden = true;
+          });
+        }
+      })();
+    </script>
   </main>
 </Base>
-
-<script is:inline define:vars={{ catalog }}>
-  (function () {
-    const params = new URLSearchParams(window.location.search);
-    const qRaw = (params.get("q") || "").trim();
-    const q = qRaw.toLowerCase();
-    const input = document.getElementById("ke_search_sword");
-    if (input && qRaw) input.value = qRaw;
-    const box = document.getElementById("kesearch_results");
-    const num = document.getElementById("kesearch_num_results");
-    const counted = document.getElementById("countedResults");
-    const word = document.getElementById("searchWord");
-    const reset = document.querySelector(".resetButton");
-    if (reset) {
-      reset.addEventListener("click", function () {
-        window.location.href = "/search/";
-      });
-    }
-    if (word) word.textContent = qRaw;
-    if (!box) return;
-    function esc(s) {
-      return String(s)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;");
-    }
-    if (q.length < 2) {
-      if (num) num.textContent = "";
-      if (counted) counted.textContent = "0";
-      box.innerHTML =
-        '<div class="load-more"><div class="content">Show more</div></div>';
-      return;
-    }
-    const rows = [...catalog.types, ...catalog.docs, ...catalog.articles].filter((r) =>
-      `${r.title} ${r.teaser} ${r.href}`.toLowerCase().includes(q),
-    );
-    if (num) num.textContent = rows.length + " results";
-    if (counted) counted.textContent = String(rows.length);
-    const items = rows
-      .map(
-        (r, i) =>
-          `<div class="result-list-item result-list-item-type-${esc(r.type)}">
-            <div class="result-number">${i + 1}.</div>
-            <div class="result-title"><a href="${esc(r.href)}">${esc(r.title)}</a></div>
-            <div class="result-teaser">${esc(r.teaser)}</div>
-          </div>`,
-      )
-      .join("");
-    box.innerHTML =
-      items + '<div class="load-more"><div class="content">Show more</div></div>';
-  })();
-</script>

@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
 import ProductBox from "../../components/ProductBox.astro";
 import StageControls from "../../components/StageControls.astro";
 import { families, familyGroups, productsInFamily } from "../../lib/catalog";
@@ -39,6 +40,23 @@ const rows = familyGroups.oltc.flatMap((id) =>
           </div>
         </div>
         <StageControls />
+      </div>
+    </div>
+
+    <div class="introtext bg-white">
+      <div class="container">
+        <Breadcrumb
+          hidden
+          crumbs={[
+            { href: "/", label: "Home" },
+            { href: "/products/", label: "Products" },
+            { href: "/products/oltc/", label: "On-load tap changers" },
+          ]}
+        />
+        <h1>On-load tap changers</h1>
+        <div class="subline col-xl-12 col-xxl-10">
+          <p>An OLTC changes taps while the transformer is live.</p>
+        </div>
       </div>
     </div>
 
