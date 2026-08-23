@@ -1,13 +1,13 @@
 # Overnight status
 
-Updated: 2026-08-24 04:05 Asia/Shanghai
+Updated: 2026-08-24 04:25 Asia/Shanghai
 Branch: `feat/mr-astro-lock`
 Hard stop: 2026-08-24 07:00 Asia/Shanghai
 Scheduler: `01a02f00e2d6` every 20m
 
 ## SHA
 
-HEAD after cycle 46. Cycle 44 was `b0782fb`.
+HEAD after cycle 48. Cycle 46 was `97af445`.
 
 ## Preview
 
@@ -17,7 +17,7 @@ Vercel project `huaming-en` framework preset **astro**. SSO off.
 
 ## Now
 
-Closeness 100. Cycle 45: about textmedia. Cycle 46: article quote + sourced numbers. Language modal and `.socialMedia` skipped.
+Closeness 100. Cycle 47: contact selects. Cycle 48: news teaser-module + Indonesia figures. Language modal and `.socialMedia` skipped.
 
 ## Do not
 

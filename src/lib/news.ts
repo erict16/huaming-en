@@ -94,6 +94,10 @@ export const news: NewsItem[] = [
     ],
     sourcePath:
       "/component/content/article/shanghai-huaming-twenty-years-of-deep-engagement-in-indonesia-building-a-trusted-brand-for-customers",
+    figures: [
+      { val: "2004", label: "First tap changer into Indonesia" },
+      { val: "2025", label: "Indonesia plant" },
+    ],
   },
   {
     slug: "nigeria-tcn-seminar",

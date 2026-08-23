@@ -68,6 +68,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 60. [done] PDP related-services teasers + product-detail-btn (cycle 44)
 61. [done] About three textmedia (Management / History / Laboratory) (cycle 45)
 62. [done] News article quote + sourced numbers (cycle 46)
+63. [done] Contact powermail_select About / Office (cycle 47)
+64. [done] News index teaser-module + Indonesia figures (cycle 48)
 
 ## Cycle log
 
@@ -117,3 +119,5 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 44: PDP related-services + product-detail-btn. cv2 59/59.
 - 45: about three textmedia. `/about` 48/48.
 - 46: article quote + numbers. CHVT 43/43.
+- 47: contact powermail_select. `/contact` 53/53.
+- 48: news teaser-module; Indonesia 2004/2025. `/news` 41/41.
