@@ -26,7 +26,7 @@ Skip on purpose: language modal, footer `.socialMedia`, MR analytics/CMP.
 | `/products/accessories/` | `oltc.html` shape | MDU + monitor + other |
 | `/products/{family}/` | `oltc.html` shape | one family: oltc-oil, oltc-vacuum, oltc-dry, oltc-gas, oltc-reactive, regulator, mdu, monitor, other |
 | `/products/{type}/` | `vacutap-vi.html` | PDP facts + PDFs + related. Breadcrumb includes family list. |
-| `/downloads/` | `downloadcenter.html` | introtext, kind tabs, rows. Next: `downloadCenterInputWrapper` search. |
+| `/downloads/` | `downloadcenter.html` | introtext, kind tabs, rows, `downloadCenterInputWrapper` search |
 | `/about/` | `company.html` | introtext (no empty stage), text-module, numbers-module |
 | `/news/` | `impulses.html` | introtext + teaser_articles |
 | `/news/{slug}/` | `impulse-article.html` | articleIntro + blueBox |

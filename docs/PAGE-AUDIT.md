@@ -13,7 +13,7 @@ Updated: 2026-08-24 00:30 Asia/Shanghai. After this cycle: family list URLs + He
 | 5 | `/products/accessories/` | oltc.html shape | 26/26 | 9 boxes (MDU+monitor+other). | **pass** |
 | 6 | `/products/oltc-oil/` … `/products/other/` | oltc.html shape | oltc-oil 26/26 | One list per family. Header second-level 10/10. | **pass** |
 | 7 | `/products/cv2/` (and 26 other PDPs) | vacutap-vi.html | cv2 33/33 | Facts + PDFs + related. Breadcrumb now includes family list. | **pass** (spot-check CV2, WSL, CMA7) |
-| 8 | `/downloads/` | downloadcenter.html | 33/33 | introtext + kind tabs. Missing `downloadCenterInputWrapper` search. | **gap** |
+| 8 | `/downloads/` | downloadcenter.html | 36/36 | introtext + kind tabs + Search tab `downloadCenterInputWrapper`. | **pass** |
 | 9 | `/about/` | company.html | 33/33 | introtext + numbers-module. No factory photo (we do not have one). | **pass** |
 | 10 | `/news/` | impulses.html | 29/29 | introtext + teaser_articles. | **pass** |
 | 11 | `/news/{slug}/` | impulse-article.html | 28/28 | articleIntro / blueBox. No article photo (MR has one). | **pass** (layout) |
@@ -43,8 +43,7 @@ Updated: 2026-08-24 00:30 Asia/Shanghai. After this cycle: family list URLs + He
 
 ## Next failing row (overnight)
 
-1. Downloads search chrome (`downloadCenterInputWrapper`) vs `downloadcenter.html`.
-2. Home/PDP stage crop if a still looks wrong at 1280 and 390.
-3. News article image band is empty (MR has a photo). Do not invent photos.
+1. Home/PDP stage crop if a still looks wrong at 1280 and 390.
+2. News article image band is empty (MR has a photo). Do not invent photos.
 
 Skip: language modal, `.socialMedia`.

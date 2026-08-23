@@ -55,6 +55,11 @@ for (const d of files) {
                     </li>
                   ))
                 }
+                <li class="nav-item subnavi-big-button">
+                  <a class="nav-link" href="#tabcontent-search" data-kind="search" role="tab">
+                    <h3>Search</h3>
+                  </a>
+                </li>
               </ul>
               <div class="down-button rotate180">
                 <img
@@ -74,7 +79,7 @@ for (const d of files) {
             <div class="dc-filter-container">
               <form action="/downloads/" class="downloadCenter-filter" method="get">
                 <div class="row">
-                  <div class="downloadcenter-select-area col-12">
+                  <div class="downloadcenter-select-area col-12" id="downloadSelectWrap">
                     <div class="partial-select-area row">
                       <div class="dropdown-selectarea col-12 col-s-6 col-md-4 col-lg-3">
                         <select id="selectArea1-Products" name="kind" class="js-portfolio-selectarea">
@@ -86,6 +91,49 @@ for (const d of files) {
                           }
                         </select>
                       </div>
+                    </div>
+                  </div>
+                  <div class="tx-kesearch-pi1 downloadCenterInputWrapper" hidden>
+                    <div class="searchbox-grid col-12 col-lg-9 col-xxl-8">
+                      <fieldset class="kesearch_searchbox">
+                        <div class="kesearchbox">
+                          <input
+                            class="ke_search_sword_search"
+                            type="search"
+                            id="ke_search_sword"
+                            name="q"
+                            placeholder="Search"
+                            value=""
+                            minlength="4"
+                          />
+                          <div class="actions">
+                            <span class="resetbutt">
+                              <span class="resetButton">
+                                <span>
+                                  <img
+                                    class="desktop-logo"
+                                    alt="clear"
+                                    src="/_assets/4fe0297b88c3f75f81bce57218e3ae92/Images/Icons/close.svg"
+                                    width="25"
+                                    height="24"
+                                  />
+                                </span>
+                              </span>
+                            </span>
+                            <span class="submitbutt">
+                              <button type="submit">
+                                <img
+                                  class="desktop-logo"
+                                  alt="Search"
+                                  src="/_assets/4fe0297b88c3f75f81bce57218e3ae92/Images/Icons/search_blue.svg"
+                                  width="34"
+                                  height="34"
+                                />
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </fieldset>
                     </div>
                   </div>
                 </div>
@@ -100,7 +148,11 @@ for (const d of files) {
                       {rows.map((d) => {
                         const meta = parseDocMeta(d.file, d.title);
                         return (
-                          <a href={`/downloads/${d.file}`} class="downloadItem-link">
+                          <a
+                            href={`/downloads/${d.file}`}
+                            class="downloadItem-link"
+                            data-search={`${d.title} ${d.file} ${meta.docNo ?? ""}`.toLowerCase()}
+                          >
                             <div class="downloadItem">
                               <div class="downloadItem-label d-flex align-items-baseline">
                                 <div class="download-name">{d.title}</div>
@@ -130,10 +182,24 @@ for (const d of files) {
   (function () {
     var tabs = document.querySelectorAll("#downloadTabs a[data-kind]");
     var rows = document.querySelectorAll(".downloadcenter-row");
+    var items = document.querySelectorAll(".downloadItem-link");
     var select = document.getElementById("selectArea1-Products");
-    function filter(kind) {
+    var searchWrap = document.querySelector(".downloadCenterInputWrapper");
+    var selectWrap = document.getElementById("downloadSelectWrap");
+    var input = document.getElementById("ke_search_sword");
+    var reset = document.querySelector(".downloadCenterInputWrapper .resetButton");
+    function apply(kind, q) {
+      var searching = kind === "search";
+      var needle = (q || "").trim().toLowerCase();
+      items.forEach(function (el) {
+        var hay = el.getAttribute("data-search") || "";
+        var kindOk = !kind || searching || el.closest(".downloadcenter-row").getAttribute("data-filter-category") === kind;
+        var textOk = !searching || needle.length < 4 || hay.indexOf(needle) !== -1;
+        el.hidden = !(kindOk && textOk);
+      });
       rows.forEach(function (r) {
-        r.hidden = !!kind && r.getAttribute("data-filter-category") !== kind;
+        var any = r.querySelector(".downloadItem-link:not([hidden])");
+        r.hidden = !any;
       });
       tabs.forEach(function (a) {
         var on = a.getAttribute("data-kind") === kind;
@@ -141,17 +207,43 @@ for (const d of files) {
         var li = a.closest(".subnavi-big-button");
         if (li) li.classList.toggle("active", on);
       });
-      if (select) select.value = kind || "";
+      if (select) select.value = searching ? "" : kind || "";
+      if (searchWrap) searchWrap.hidden = !searching;
+      if (selectWrap) selectWrap.hidden = searching;
     }
+    var kind = "";
     tabs.forEach(function (a) {
       a.addEventListener("click", function (e) {
         e.preventDefault();
-        filter(a.getAttribute("data-kind") || "");
+        kind = a.getAttribute("data-kind") || "";
+        apply(kind, input && input.value);
+        if (kind === "search" && input) input.focus();
       });
     });
     if (select) {
       select.addEventListener("change", function () {
-        filter(select.value);
+        kind = select.value;
+        apply(kind, "");
+      });
+    }
+    var form = document.querySelector(".downloadCenter-filter");
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        kind = "search";
+        apply(kind, input && input.value);
+      });
+    }
+    if (input) {
+      input.addEventListener("input", function () {
+        if (kind === "search") apply("search", input.value);
+      });
+    }
+    if (reset && input) {
+      reset.addEventListener("click", function () {
+        input.value = "";
+        apply("search", "");
+        input.focus();
       });
     }
   })();
