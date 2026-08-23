@@ -12,6 +12,12 @@ body{
 }
 
 .articleIntro .blueBox{opacity:1;}
+/* MR article band is 16:6 cover. Empty band was a white void; navy plate if we have no still. */
+.articleIntro-image .background{
+  background-color:#002a55;
+  background-size:cover;
+  background-position:center;
+}
 
 #portfolio-overview-products.grid .product-box.swiper-slide{
   width:auto;

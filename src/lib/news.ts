@@ -148,3 +148,12 @@ export const news: NewsItem[] = [
 export function newsBySlug(slug: string): NewsItem | undefined {
   return news.find((n) => n.slug === slug);
 }
+
+/** Existing Huaming files only. Do not invent event photos. */
+export function newsBandSrc(slug: string): string | null {
+  if (slug.startsWith("chvt-")) return "/images/products/chvt.png";
+  if (slug === "indonesia-twenty-years") {
+    return "/images/00_HuaMing/articles/7-Twenty Years of Deep Engagement in Indonesia/7-5.png";
+  }
+  return null;
+}

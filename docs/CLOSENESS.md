@@ -2,7 +2,7 @@
 
 Formula: `0.5 * selector_hit% + 0.3 * token_hit% + 0.2 * structure_pass%`
 
-Last audit: cycle 24. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mirror/mr`.
+Last audit: cycle 26. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mirror/mr`.
 
 | page | selector | token | structure | closeness |
 |------|----------|-------|-----------|----------:|
@@ -27,4 +27,4 @@ Paint counts: `/products/oltc` 15 boxes, `/products/octc` 3, `/products/accessor
 
 Target by morning: `/` ≥ 85, OLTC list + one PDP ≥ 75. Formula at target.
 
-Leftover (not in formula): language modal; footer `.socialMedia` omitted on purpose. News article photo band empty (no invented photos).
+Leftover (not in formula): language modal; footer `.socialMedia` omitted on purpose.

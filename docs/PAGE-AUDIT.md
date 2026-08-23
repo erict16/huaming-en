@@ -16,7 +16,7 @@ Updated: 2026-08-24 00:49 Asia/Shanghai. Cycle 25: PDP still 3:2 contain; home b
 | 8 | `/downloads/` | downloadcenter.html | 36/36 | introtext + kind tabs + Search tab `downloadCenterInputWrapper`. | **pass** |
 | 9 | `/about/` | company.html | 33/33 | introtext + numbers-module. No factory photo (we do not have one). | **pass** |
 | 10 | `/news/` | impulses.html | 29/29 | introtext + teaser_articles. | **pass** |
-| 11 | `/news/{slug}/` | impulse-article.html | 28/28 | articleIntro / blueBox. No article photo (MR has one). | **pass** (layout) |
+| 11 | `/news/{slug}/` | impulse-article.html | 28/28 | articleIntro / blueBox. Navy 16:6 band. CHVT stills + Indonesia 7-5.png where we already had files. | **pass** |
 | 12 | `/contact/` | contact.html | 43/43 | introtext + powermail + contactfinder. | **pass** |
 | 13 | `/search/` | search.html | 41/41 | Client filter (static build has no query string). | **pass** |
 | 14 | `/404` | 404.html | 29/29 | textmedia-parallax, no MR photo. | **pass** |
@@ -43,6 +43,6 @@ Updated: 2026-08-24 00:49 Asia/Shanghai. Cycle 25: PDP still 3:2 contain; home b
 
 ## Next failing row (overnight)
 
-1. News article image band is empty (MR has a photo). Do not invent photos.
+None required. Formula at target. Language modal and `.socialMedia` skipped.
 
 Skip: language modal, `.socialMedia`.

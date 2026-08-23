@@ -1,7 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
-import { news, newsBySlug } from "../../lib/news";
+import { news, newsBandSrc, newsBySlug } from "../../lib/news";
 
 export function getStaticPaths() {
   return news.map((n) => ({ params: { slug: n.slug } }));
@@ -11,6 +11,8 @@ const item = newsBySlug(Astro.params.slug!);
 if (!item) throw new Error("unknown news");
 const lead = item.body[0] ?? item.summary;
 const rest = item.body.slice(1);
+const band = newsBandSrc(item.slug);
+const bandStyle = band ? `background-image: url("${encodeURI(band)}")` : undefined;
 ---
 
 <Base title={`${item.title} · Huaming`} description={item.summary}>
@@ -18,8 +20,8 @@ const rest = item.body.slice(1);
     <div class="frame frame-default frame-type-sitereinhausen_articleintro frame-layout-0">
       <div class="articleIntro">
         <div class="articleIntro-image">
-          <div class="background media-100-16-6 d-none d-md-block"></div>
-          <div class="background media-100-16-6 d-block d-md-none"></div>
+          <div class="background media-100-16-6 d-none d-md-block" style={bandStyle}></div>
+          <div class="background media-100-16-6 d-block d-md-none" style={bandStyle}></div>
         </div>
         <div class="container">
           <div class="row">
