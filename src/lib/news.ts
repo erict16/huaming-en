@@ -109,6 +109,7 @@ export const news: NewsItem[] = [
     ],
     sourcePath:
       "/component/content/article/huaming-technical-seminar-successfully-held-in-nigeria-for-tcn",
+    figures: [{ val: "2024", label: "Abuja seminar, 6 June" }],
   },
   {
     slug: "chvt-factory-test",
@@ -119,6 +120,10 @@ export const news: NewsItem[] = [
       "23 April 2024 newsroom: CHVT passed factory tests at Xi’an Xidian on a ±800 kV converter transformer, intended for Qingyang Station on Longdong–Shandong.",
     ],
     sourcePath: "/component/content/article/milestone-achievement",
+    figures: [
+      { val: "800", unit: "kV", label: "Qingyang Station converter transformer" },
+      { val: "2024", label: "Factory test 23 April" },
+    ],
   },
   {
     slug: "pakistan-seminar",
@@ -130,6 +135,9 @@ export const news: NewsItem[] = [
     ],
     sourcePath:
       "/component/content/article/huaming-technical-seminar-on-tap-changer-successfully-held-in-pakistan",
+    figures: [
+      { val: "2024", label: "Lahore seminar, 10 January" },
+    ],
   },
   {
     slug: "municipal-technology-center",

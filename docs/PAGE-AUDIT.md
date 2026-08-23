@@ -2,17 +2,17 @@
 
 Source of truth: `mirror/mr/` HTML+CSS. Formula scores in `docs/CLOSENESS.md` can be 100 while paint is still wrong.
 
-Updated: 2026-08-24 05:26 Asia/Shanghai. Cycle 54: news article InnerTeaser.
+Updated: 2026-08-24 05:46 Asia/Shanghai. Cycle 56: extra news figures.
 
 | # | Route | MR | Formula | Paint / taxonomy | Status |
 |---|-------|----|---------|------------------|--------|
 | 1 | `/` | home.html | 114/114 | Stage, introtext, teasers, numbers, parallax, factory/HQ text-module, sticky contact. | **pass** |
 | 2 | `/products/` | portfolio.html | 39/39 | Tabs + wordcloud + 12-col grid + teaser frame. Inner blue-nav. | **pass** |
 | 3 | `/products/oltc/` | oltc.html | 48/48 | Lab textmedia + tables + InnerTeaser. | **pass** |
-| 4 | `/products/octc/` | oltc.html shape | 36/36 | 3 boxes (WSL/WDG/ZWC). Table + stage frames. | **pass** |
-| 5 | `/products/accessories/` | oltc.html shape | 36/36 | 9 boxes (MDU+monitor+other). | **pass** |
-| 6 | `/products/oltc-oil/` … `/products/other/` | oltc.html shape | oltc-oil 36/36 | One list per family. Header second-level 10/10. | **pass** |
-| 7 | `/products/cv2/` (and 26 other PDPs) | vacutap-vi.html | cv2 59/59 | Facts + registers + related types + grey related-services (Downloads/Contact) + All types button. | **pass** |
+| 4 | `/products/octc/` | oltc.html shape | 38/38 | 3 boxes + InnerTeaser. | **pass** |
+| 5 | `/products/accessories/` | oltc.html shape | 38/38 | 9 boxes + InnerTeaser. | **pass** |
+| 6 | `/products/oltc-oil/` … `/products/other/` | oltc.html shape | oltc-oil 38/38 | One list per family + InnerTeaser. | **pass** |
+| 7 | `/products/cv2/` (and 26 other PDPs) | vacutap-vi.html | cv2 60/60 | Facts + registers + related + related-services + All types + InnerTeaser. | **pass** |
 | 8 | `/downloads/` | downloadcenter.html | 49/49 | introtext + kind tabs + Search tab + InnerTeaser. | **pass** |
 | 9 | `/about/` | company.html | 55/55 | introtext + numbers + quote + textmedia + news + InnerTeaser. | **pass** |
 | 10 | `/news/` | impulses.html | 41/41 | introtext + teaser_articles + white teaser-module. No topicteaser graphic. | **pass** |

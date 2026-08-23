@@ -3,6 +3,7 @@ import Base from "../../layouts/Base.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import ProductBox from "../../components/ProductBox.astro";
 import ProductCategory from "../../components/ProductCategory.astro";
+import InnerTeaser from "../../components/InnerTeaser.astro";
 import ProductRegisters from "../../components/ProductRegisters.astro";
 import StageControls from "../../components/StageControls.astro";
 import {
@@ -304,6 +305,7 @@ const related = [...sameFamily, ...oltcSiblings].slice(0, 6);
         <a class="cta cta-outline" href="/products/">All types</a>
       </div>
     </div>
+    <InnerTeaser />
   </main>
 </Base>
   ) : null

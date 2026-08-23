@@ -76,6 +76,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 68. [done] 404 text-module + InnerTeaser (cycle 52)
 69. [done] About + legal InnerTeaser (cycle 53)
 70. [done] News article InnerTeaser (cycle 54)
+71. [done] PDP InnerTeaser (cycle 55)
+72. [done] Extra news figures from article bodies (cycle 56)
 
 ## Cycle log
 
@@ -133,3 +135,5 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 52: 404 text-module. `/404` 39/39.
 - 53: about + legal InnerTeaser. `/about` 55/55.
 - 54: news article InnerTeaser. CHVT 45/45.
+- 55: PDP InnerTeaser. cv2 60/60.
+- 56: Nigeria / factory-test / Pakistan figures from the body.
