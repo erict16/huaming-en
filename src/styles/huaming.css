@@ -68,6 +68,22 @@ body{
   object-position:center;
   background:#f6f6f2;
 }
+/* Home news cards: empty .newsimpulse-image collapsed. 3:2 plate, not MR 1:1. */
+.teaser_newsimpulse .swiper-slide .newsimpulse-image{
+  display:block;
+  width:100%;
+  aspect-ratio:3/2!important;
+  overflow:hidden;
+  background:#f6f6f2;
+}
+.teaser_newsimpulse .swiper-slide .newsimpulse-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  background:#f6f6f2;
+  aspect-ratio:3/2!important;
+}
 
 /* Home / category banners (have overlay): full-bleed cover strip. */
 .stage .swiper-container .swiper-wrapper .swiper-slide .swiper-image{

@@ -47,7 +47,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 39. [done] PDP stage 3:2 contain; home banner stays cover (cycle 25)
 40. [done] News article image band: navy plate + existing stills only (cycle 26)
 41. [done] Mobile product cards full-width 3:2 (cycle 27)
-42. Next failing row in `docs/PAGE-AUDIT.md`. Paint, not only class formula.
+42. [done] Home newsimpulse-image 3:2 plate + existing stills (cycle 28)
+43. Next failing row in `docs/PAGE-AUDIT.md`. Paint, not only class formula.
 
 ## Cycle log
 
@@ -78,3 +79,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 25: PDP still centered 3:2 contain (768×512); home stage 1265×448 cover.
 - 26: news articleIntro-image navy plate; CHVT/Indonesia stills that already exist.
 - 27: mobile product-box stills width 100% 3:2 (MR was 50% square).
+- 28: home newsimpulse-image 3:2; CHVT/Indonesia stills. `/` 99/99.
