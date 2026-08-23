@@ -12,6 +12,9 @@ body{
 }
 
 .articleIntro .blueBox{opacity:1;}
+.keyfacts .keyfact-headline:has(p:empty){
+  display:none;
+}
 .teaser_articles .articleWrapper .articleImage,
 .teaser_articles .articleWrapper .articleImage.media-16-9{
   flex:0 0 auto;

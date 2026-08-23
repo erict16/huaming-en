@@ -2,7 +2,7 @@
 
 Source of truth: `mirror/mr/` HTML+CSS. Formula scores in `docs/CLOSENESS.md` can be 100 while paint is still wrong.
 
-Updated: 2026-08-24 02:34 Asia/Shanghai. Cycle 35: OLTC list three tables.
+Updated: 2026-08-24 02:37 Asia/Shanghai. Cycle 36: PDP keyfact headlines.
 
 | # | Route | MR | Formula | Paint / taxonomy | Status |
 |---|-------|----|---------|------------------|--------|
@@ -12,7 +12,7 @@ Updated: 2026-08-24 02:34 Asia/Shanghai. Cycle 35: OLTC list three tables.
 | 4 | `/products/octc/` | oltc.html shape | 32/32 | 3 boxes (WSL/WDG/ZWC). | **pass** |
 | 5 | `/products/accessories/` | oltc.html shape | 32/32 | 9 boxes (MDU+monitor+other). | **pass** |
 | 6 | `/products/oltc-oil/` … `/products/other/` | oltc.html shape | oltc-oil 32/32 | One list per family. Header second-level 10/10. | **pass** |
-| 7 | `/products/cv2/` (and 26 other PDPs) | vacutap-vi.html | cv2 39/39 | Facts + PDFs + related. Stage centered 3:2 contain. SV uses existing CV still. PDP `#productName`. | **pass** |
+| 7 | `/products/cv2/` (and 26 other PDPs) | vacutap-vi.html | cv2 39/39 | Facts + PDFs + related. Stage 3:2 contain. Keyfact labels from the rating string (Um / Positions). Empty headlines hidden. | **pass** |
 | 8 | `/downloads/` | downloadcenter.html | 42/42 | introtext + kind tabs + Search tab `downloadCenterInputWrapper`. | **pass** |
 | 9 | `/about/` | company.html | 39/39 | introtext + numbers-module. No factory photo (we do not have one). | **pass** |
 | 10 | `/news/` | impulses.html | 36/36 | introtext + teaser_articles. Lead is gradient (no product-still cover). Slider plates 3:2 contain. | **pass** |

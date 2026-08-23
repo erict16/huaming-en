@@ -9,6 +9,7 @@ import {
   familyById,
   familyGroups,
   groupCopy,
+  keyfactParts,
   productBySlug,
   products,
   productsForListSlug,
@@ -163,14 +164,17 @@ const related = [...sameFamily, ...oltcSiblings].slice(0, 6);
                   data-attr-collapse-tablet="5"
                 >
                   {
-                    product.ratings.map((r) => (
-                      <li class="col-12 col-s-6 col-lg-6 white">
-                        <div class="keyfact-headline">
-                          <p></p>
-                        </div>
-                        <p>{r}</p>
-                      </li>
-                    ))
+                    product.ratings.map((r, i) => {
+                      const fact = keyfactParts(r, familyCrumb?.name ?? "", i);
+                      return (
+                        <li class="col-12 col-s-6 col-lg-6 white">
+                          <div class="keyfact-headline">
+                            <p>{fact.label}</p>
+                          </div>
+                          <p>{fact.body}</p>
+                        </li>
+                      );
+                    })
                   }
                 </ol>
               </div>

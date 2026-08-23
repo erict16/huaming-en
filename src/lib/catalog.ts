@@ -69,3 +69,19 @@ export function productsForListSlug(slug: string): Product[] {
 export function listHref(id: string): string {
   return `/products/${id}/`;
 }
+
+/** Labels taken from the rating string. Empty label → hide the headline in CSS. */
+export function keyfactParts(
+  rating: string,
+  familyName: string,
+  index: number,
+): { label: string; body: string } {
+  const um = rating.match(/^Um\s+(.+)/i);
+  if (um) return { label: "Um", body: um[1] };
+  const pos = rating.match(/^Positions?:\s*(.+)/i);
+  if (pos) return { label: "Positions", body: pos[1] };
+  const step = rating.match(/^Step voltage\s+(.+)/i);
+  if (step) return { label: "Step voltage", body: step[1] };
+  if (index === 0 && familyName) return { label: familyName, body: rating };
+  return { label: "", body: rating };
+}

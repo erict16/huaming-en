@@ -55,7 +55,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 47. [done] Inner `page-header-animation` + `.blue-nav` from oltc.html (cycle 33)
 48. [done] `mobileTopNav` from home.html (cycle 34)
 49. [done] OLTC list `table-gradient` / `table-white` / `table-grey` from oltc.html (cycle 35)
-50. Next leftover paint: PDP `keyfact-headline` labels. Language modal and `.socialMedia` still skipped.
+50. [done] PDP `keyfact-headline` labels from the rating string (cycle 36)
+51. Language modal and `.socialMedia` still skipped.
 
 ## Cycle log
 
@@ -94,3 +95,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 33: inner header `page-header-animation` + `.blue-nav`. Home stays sticky. PDP `#productName`.
 - 34: Header `.mobileTopNav` utility list. `/` 100/100.
 - 35: OLTC list three tables (vacuum / other / oil). `/products/oltc` 37/37.
+- 36: PDP keyfact-headline labels from rating strings; empty headlines hidden.
