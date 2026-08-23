@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import ProductBox from "../../components/ProductBox.astro";
 import { families, familyGroups, productsInFamily } from "../../lib/catalog";
 import { productImageSrc } from "../../lib/product-image";
 
@@ -36,6 +37,7 @@ const rows = familyGroups.oltc.flatMap((id) =>
             </div>
           </div>
         </div>
+        <StageControls />
       </div>
     </div>
 
@@ -72,36 +74,15 @@ const rows = familyGroups.oltc.flatMap((id) =>
 
     <div class="product-list-plugin">
       {
-        rows.map(({ p, fam }) => {
-          const img = productImageSrc(p.slug);
-          return (
-            <div class="swiper-slide product-box columns">
-              <div class="product-box-inner">
-                <div class="swiper-image">
-                  <a href={`/products/${p.slug}/`}>
-                    {img ? (
-                      <img class="media-element-image no-crop product-image medium" src={img} alt="" />
-                    ) : null}
-                  </a>
-                </div>
-                <h4 class="product-title">{p.name}</h4>
-                <div class="product-intro">{p.oneLiner}</div>
-                <div class="product-keyfacts">
-                  {(p.ratings ?? []).slice(0, 3).map((r) => (
-                    <div class="product-keyfact">
-                      <span>·</span>
-                      {r}
-                    </div>
-                  ))}
-                  <div class="product-keyfact">
-                    <span>·</span>
-                    {fam?.name}
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-        })
+        rows.map(({ p, fam }) => (
+          <ProductBox
+            href={`/products/${p.slug}/`}
+            name={p.name}
+            intro={p.oneLiner}
+            image={productImageSrc(p.slug)}
+            facts={[...(p.ratings ?? []).slice(0, 3), fam?.name ?? ""]}
+          />
+        ))
       }
     </div>
   </main>

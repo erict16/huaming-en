@@ -1,0 +1,44 @@
+---
+interface Props {
+  href: string;
+  name: string;
+  intro: string;
+  image?: string | null;
+  facts?: string[];
+}
+const { href, name, intro, image, facts = [] } = Astro.props;
+---
+
+<div class="swiper-slide product-box columns">
+  <div class="product-box-inner">
+    <div class="swiper-image">
+      <a href={href}>
+        <picture class="product-image-wrapper">
+          {
+            image ? (
+              <img class="media-element-image no-crop product-image medium" src={image} alt="" />
+            ) : null
+          }
+        </picture>
+      </a>
+    </div>
+    <div class="swiper-text-container">
+      <div class="swiper-text">
+        <h4 class="product-title">{name}</h4>
+        <div class="product-intro">{intro}</div>
+        {
+          facts.length ? (
+            <div class="product-keyfacts">
+              {facts.map((f) => (
+                <div class="product-keyfact">
+                  <span>·</span>
+                  {f}
+                </div>
+              ))}
+            </div>
+          ) : null
+        }
+      </div>
+    </div>
+  </div>
+</div>

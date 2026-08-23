@@ -23,7 +23,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 15. [done] Strip unused eot/ttf/woff from @font-face (cycle 4)
 16. [done] Vercel preview Astro build. URL in STATUS. `vercel curl` confirms classes/tokens (cycle 5)
 17. [done] Stage swiper-controls + mega-nav overflow-scroll (cycle 6). MR home does not use fadeIn classes in HTML; motion is stage.min.js.
-18. [next] Redeploy preview; leftover CSS /typo3conf/powermail gifs (unused)
+18. [done] Product-box inner wrappers: product-image-wrapper + swiper-text-container (cycle 7)
+19. Leftover: mobile `third-nav-toggler`, language modal, TYPO3 frame-type classes. Optional.
 
 ## Cycle log
 
@@ -33,3 +34,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 04: Azo @font-face woff2-only; vercel.json framework astro. CLI deploy still Next until redeploy.
 - 05: Preview live. `vercel curl` home/oltc/cv2/chvt. closeness 100 on live HTML+CSS.
 - 06: Stage `.swiper-controls` + mega-nav `.overflow-scroll` from home.html.
+- 07: ProductBox MR inner wrappers. Home selector 85/85.

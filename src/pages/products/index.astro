@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import ProductBox from "../../components/ProductBox.astro";
 import { families, products } from "../../lib/catalog";
 import { productImageSrc } from "../../lib/product-image";
 ---
@@ -24,6 +25,7 @@ import { productImageSrc } from "../../lib/product-image";
             </div>
           </div>
         </div>
+        <StageControls />
       </div>
     </div>
 
@@ -37,31 +39,15 @@ import { productImageSrc } from "../../lib/product-image";
     <div class="product-list-plugin">
       <div class="swiper-wrapper">
         {
-          products.map((p) => {
-            const img = productImageSrc(p.slug);
-            const fam = families.find((f) => f.id === p.family);
-            return (
-              <div class="swiper-slide product-box columns">
-                <div class="product-box-inner">
-                  <div class="swiper-image">
-                    <a href={`/products/${p.slug}/`}>
-                      {img ? (
-                        <img class="media-element-image no-crop product-image medium" src={img} alt="" />
-                      ) : null}
-                    </a>
-                  </div>
-                  <h4 class="product-title">{p.name}</h4>
-                  <div class="product-intro">{p.oneLiner}</div>
-                  <div class="product-keyfacts">
-                    <div class="product-keyfact">
-                      <span>·</span>
-                      {fam?.name}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })
+          products.map((p) => (
+            <ProductBox
+              href={`/products/${p.slug}/`}
+              name={p.name}
+              intro={p.oneLiner}
+              image={productImageSrc(p.slug)}
+              facts={[families.find((f) => f.id === p.family)?.name ?? ""]}
+            />
+          ))
         }
       </div>
     </div>

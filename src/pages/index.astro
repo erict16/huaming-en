@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
-import { families, productBySlug, products } from "../lib/catalog";
+import ProductBox from "../components/ProductBox.astro";
+import { families, productBySlug } from "../lib/catalog";
 import { productImageSrc } from "../lib/product-image";
 import { news } from "../lib/news";
 
@@ -15,48 +16,49 @@ const latestNews = news.slice(0, 6);
     <div class="stage">
       <div class="swiper-container stage-slider" data-loop="0" data-autoplay="1" data-autoplay-time="5000">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="swiper-image">
-              <img
-                src="/images/products/cv2.png"
-                alt="CV2 vacuum on-load tap changer"
-                width="1280"
-                height="720"
-              />
-            </div>
-            <div class="container d-none d-xl-block">
-              <div class="row">
-                <div class="col-lg-5 left">
-                  <div class="stage-content bg-gradient">
-                    <div class="text-container">
-                      <h2><p>Tap changers for power transformers</p></h2>
-                      <span class="light">
-                        <p>
-                          On-load and de-energized types, vacuum and oil. Technical data as PDF.
-                          Standard lead time about 4–6 weeks.
-                        </p>
-                      </span>
+          {
+            stageSlides.map((s) => (
+              <div class="swiper-slide" data-swiper-autoplay="5000">
+                <div class="swiper-image">
+                  <img src={s.src} alt={s.alt} width="1280" height="720" />
+                </div>
+                <div class="container d-none d-xl-block">
+                  <div class="row">
+                    <div class="col-lg-5 left">
+                      <div class="stage-content bg-gradient">
+                        <div class="text-container">
+                          <h2>
+                            <p>{s.title}</p>
+                          </h2>
+                          <span class="light">
+                            <p>{s.text}</p>
+                          </span>
+                        </div>
+                        <a href={s.href} class="link-download">
+                          {s.cta}
+                        </a>
+                      </div>
                     </div>
-                    <a href="/products/oltc/" class="link-download">Find a type</a>
+                  </div>
+                </div>
+                <div class="stage-content container d-block d-xl-none bg-gradient">
+                  <div class="row">
+                    <div class="col-12">
+                      <h2>
+                        <p>{s.title}</p>
+                      </h2>
+                      <span class="light">
+                        <p>{s.text}</p>
+                      </span>
+                      <a href={s.href} class="link-download">
+                        {s.cta}
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="stage-content container d-block d-xl-none bg-gradient">
-              <div class="row">
-                <div class="col-12">
-                  <h2><p>Tap changers for power transformers</p></h2>
-                  <span class="light">
-                    <p>
-                      On-load and de-energized types, vacuum and oil. Technical data as PDF. Standard
-                      lead time about 4–6 weeks.
-                    </p>
-                  </span>
-                  <a href="/products/oltc/" class="link-download">Find a type</a>
-                </div>
-              </div>
-            </div>
-          </div>
+            ))
+          }
         </div>
         <div class="container swiper-controls">
           <div class="row col-12">
@@ -71,7 +73,7 @@ const latestNews = news.slice(0, 6);
     <div class="teaser_newsimpulse bg-white">
       <div class="container">
         <div class="row">
-          <div class="swiper-container newsimpulse-swiper col-12">
+          <div class="swiper-container newsimpulse-swiper col-12" id="">
             <div class="swiper-controls-container">
               <h2>Latest news</h2>
               <div class="swiper-controls">
@@ -162,16 +164,16 @@ const latestNews = news.slice(0, 6);
 
     <div class="teaser_products container">
       <div class="row">
-        <div class="swiper-container product-swiper col-12">
+        <div class="swiper-container product-swiper col-12" id="1">
           <div class="swiper-controls-container">
             <h2>Latest products</h2>
             <div class="swiper-controls">
-              <div class="swiper-button-prev swiper-button-prev-product">
+              <div class="swiper-button-prev swiper-button-prev-product1">
                 <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M9.26236 10.6805L-0.00410652 1.41408L1.41011 -0.0001297L12.1436 10.7334L1.3837 20.7315L0.0223022 19.2664L9.26236 10.6805Z" fill="currentColor"></path>
                 </svg>
               </div>
-              <div class="swiper-button-next swiper-button-next-product">
+              <div class="swiper-button-next swiper-button-next-product1">
                 <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M9.26236 10.6805L-0.00410652 1.41408L1.41011 -0.0001297L12.1436 10.7334L1.3837 20.7315L0.0223022 19.2664L9.26236 10.6805Z" fill="currentColor"></path>
                 </svg>
@@ -186,31 +188,15 @@ const latestNews = news.slice(0, 6);
               </a>
             </div>
             {
-              featured.map((p) => {
-                const img = productImageSrc(p!.slug);
-                const fam = families.find((f) => f.id === p!.family);
-                return (
-                  <div class="swiper-slide product-box columns">
-                    <div class="product-box-inner">
-                      <div class="swiper-image">
-                        <a href={`/products/${p!.slug}/`}>
-                          {img ? (
-                            <img class="media-element-image no-crop product-image medium" src={img} alt="" />
-                          ) : null}
-                        </a>
-                      </div>
-                      <h4 class="product-title">{p!.name}</h4>
-                      <div class="product-intro">{p!.oneLiner}</div>
-                      <div class="product-keyfacts">
-                        <div class="product-keyfact">
-                          <span>·</span>
-                          {fam?.name}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })
+              featured.map((p) => (
+                <ProductBox
+                  href={`/products/${p!.slug}/`}
+                  name={p!.name}
+                  intro={p!.oneLiner}
+                  image={productImageSrc(p!.slug)}
+                  facts={[families.find((f) => f.id === p!.family)?.name ?? ""]}
+                />
+              ))
             }
           </div>
         </div>

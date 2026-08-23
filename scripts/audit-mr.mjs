@@ -98,6 +98,9 @@ const CHROME_CLASSES = [
   "swiper-pagination",
   "swiper-button-prev",
   "swiper-button-next",
+  "product-image-wrapper",
+  "swiper-text",
+  "swiper-text-container",
 ];
 
 const TOKENS = [
