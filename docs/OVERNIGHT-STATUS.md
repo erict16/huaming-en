@@ -1,13 +1,13 @@
 # Overnight status
 
-Updated: 2026-08-24 05:06 Asia/Shanghai
+Updated: 2026-08-24 05:26 Asia/Shanghai
 Branch: `feat/mr-astro-lock`
 Hard stop: 2026-08-24 07:00 Asia/Shanghai
 Scheduler: `01a02f00e2d6` every 20m
 
 ## SHA
 
-HEAD after cycle 52. Cycle 50 was `721f9a9`.
+HEAD after cycle 54. Cycle 52 was `1d6743f`.
 
 ## Preview
 
@@ -17,7 +17,7 @@ Vercel project `huaming-en` framework preset **astro**. SSO off.
 
 ## Now
 
-Closeness 100. Cycle 51: InnerTeaser on leftover inner pages. Cycle 52: 404 text-module. Language modal and `.socialMedia` skipped.
+Closeness 100. Cycle 53: about + legal InnerTeaser. Cycle 54: news article InnerTeaser. Language modal and `.socialMedia` skipped.
 
 ## Do not
 

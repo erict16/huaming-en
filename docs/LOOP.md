@@ -74,6 +74,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 66. [done] About quote + OLTC laboratory textmedia (cycle 50)
 67. [done] InnerTeaser on contact / downloads / search / family lists (cycle 51)
 68. [done] 404 text-module + InnerTeaser (cycle 52)
+69. [done] About + legal InnerTeaser (cycle 53)
+70. [done] News article InnerTeaser (cycle 54)
 
 ## Cycle log
 
@@ -129,3 +131,5 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 50: about quote; OLTC textmedia. `/about` 53/53, `/products/oltc` 46/46.
 - 51: InnerTeaser on contact/downloads/search/lists. contact 55/55.
 - 52: 404 text-module. `/404` 39/39.
+- 53: about + legal InnerTeaser. `/about` 55/55.
+- 54: news article InnerTeaser. CHVT 45/45.

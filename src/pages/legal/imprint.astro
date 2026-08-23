@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
+import InnerTeaser from "../../components/InnerTeaser.astro";
 import { offices } from "../../lib/catalog";
 
 const shanghai = offices.find((o) => o.id === "shanghai");
@@ -91,5 +92,6 @@ const singapore = offices.find((o) => o.id === "singapore");
         </div>
       </div>
     </div>
+    <InnerTeaser />
   </main>
 </Base>

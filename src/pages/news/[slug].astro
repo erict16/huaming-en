@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
+import InnerTeaser from "../../components/InnerTeaser.astro";
 import { news, newsArticlePhoto, newsBySlug } from "../../lib/news";
 
 export function getStaticPaths() {
@@ -129,5 +130,6 @@ const bandStyle = band ? `background-image: url("${encodeURI(band)}")` : undefin
         </div>
       ) : null
     }
+    <InnerTeaser />
   </main>
 </Base>
