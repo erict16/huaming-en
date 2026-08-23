@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import InnerTeaser from "../components/InnerTeaser.astro";
 import SearchBox from "../components/SearchBox.astro";
 import { products } from "../lib/catalog";
 import { allDownloads } from "../lib/downloads";
@@ -113,5 +114,6 @@ const rows = [
         }
       })();
     </script>
+    <InnerTeaser />
   </main>
 </Base>

@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
+import InnerTeaser from "../components/InnerTeaser.astro";
 import { offices } from "../lib/catalog";
 ---
 
@@ -258,6 +259,7 @@ import { offices } from "../lib/catalog";
         </div>
       </div>
     </div>
+    <InnerTeaser />
     <script is:inline>
       (function () {
         var tabs = document.querySelectorAll(".js-contactfinder-tab");

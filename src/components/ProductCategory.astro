@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Breadcrumb from "./Breadcrumb.astro";
+import InnerTeaser from "./InnerTeaser.astro";
 import ProductBox from "./ProductBox.astro";
 import StageControls from "./StageControls.astro";
 import { families, type Product } from "../lib/catalog";
@@ -158,5 +159,6 @@ const rows = items.map((p) => ({
         </div>
       </div>
     </div>
+    <InnerTeaser />
   </main>
 </Base>

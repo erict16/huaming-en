@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
+import InnerTeaser from "../components/InnerTeaser.astro";
 import ProductDownloadRows from "../components/ProductDownloadRows.astro";
 import { allDownloads } from "../lib/downloads";
 import { formatKind } from "../lib/doc-meta";
@@ -138,6 +139,7 @@ const kinds = [...new Set(files.map((d) => d.kind))];
         </div>
       </div>
     </div>
+    <InnerTeaser />
   </main>
 </Base>
 

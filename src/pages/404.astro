@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import InnerTeaser from "../components/InnerTeaser.astro";
 ---
 
 <Base title="404 · Huaming" description="This page is not on the English catalogue.">
@@ -28,5 +29,23 @@ import Base from "../layouts/Base.astro";
         </div>
       </div>
     </div>
+    <div class="frame frame-default frame-type-sitereinhausen_text frame-layout-0">
+      <div class="text-module bg-white" style="position: relative;">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-6 col-lg-5 offset-lg-1">
+              <h2 class="headline mb-sm-0">Types and PDFs are still on the catalogue.</h2>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-5">
+              <div class="text-wrapper">
+                <p>The URL may be wrong, or the page moved. Search still works.</p>
+                <a href="/search/" class="cta cta-outline mb-0">Search</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <InnerTeaser />
   </main>
 </Base>
