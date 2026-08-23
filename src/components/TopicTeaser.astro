@@ -1,0 +1,88 @@
+---
+import SwiperArrows from "./SwiperArrows.astro";
+import { newsArticlePhoto, newsBandSrc, type NewsItem } from "../lib/news";
+
+interface Props {
+  side: "left" | "right";
+  swiperId: string;
+  lead: NewsItem;
+  slides: NewsItem[];
+}
+
+const { side, swiperId, lead, slides } = Astro.props;
+const leadPhoto = newsArticlePhoto(lead.slug);
+---
+
+<div class="frame frame-default frame-type-sitereinhausen_topicteaser frame-layout-0 frame-space-before-half">
+  <div class="bg-">
+    <div class:list={["teaser_articles", side]}>
+      <div class="container">
+        <div class="row">
+          <div class="article-main-area col-lg-12 col-xl-6">
+            <div class="blue-teaser bg-gradient">
+              <div class="image">
+                {
+                  leadPhoto ? (
+                    <img class="media-element-image no-crop" src={leadPhoto} alt="" />
+                  ) : (
+                    <div class="image-placeholder"></div>
+                  )
+                }
+              </div>
+              <div class="content">
+                <h2>{lead.title}</h2>
+                <p>{lead.summary}</p>
+                <a class="cta cta-outline cta-outline-white mb-0" href={`/news/${lead.slug}/`}>
+                  Learn more
+                </a>
+              </div>
+            </div>
+            <div class="anim-overlay bg-secColor"></div>
+          </div>
+          <div class="article-slider-area col-lg-12 col-xl-6">
+            <div class="swiper-container swiper-articles" id={swiperId} data-initialSlide="0">
+              <SwiperArrows
+                prevClass={`swiper-button-prev${swiperId}`}
+                nextClass={`swiper-button-next${swiperId}`}
+              />
+              <div class="swiper-wrapper">
+                {
+                  slides.map((item, i) => (
+                    <div class="swiper-slide" data-iterator={slides.length - i}>
+                      <a href={`/news/${item.slug}/`} class="link-wrap">
+                        <div data-date="0">
+                          <div class="articleWrapper">
+                            <div class="articleImage media-16-9">
+                              {newsBandSrc(item.slug) ? (
+                                <img
+                                  class="media-element-image no-crop"
+                                  src={newsBandSrc(item.slug)!}
+                                  alt=""
+                                />
+                              ) : null}
+                            </div>
+                            <div class="swiper-text-container">
+                              <div class="swiper-text">
+                                <div class="news-overview-item-text">
+                                  <h4 class="product-title">{item.title}</h4>
+                                  <p class="intro">{item.summary}</p>
+                                </div>
+                                <div class="link-download">
+                                  <a href={`/news/${item.slug}/`}>Read more</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

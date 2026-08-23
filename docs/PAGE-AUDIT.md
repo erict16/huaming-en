@@ -2,7 +2,7 @@
 
 Source of truth: `mirror/mr/` HTML+CSS. Formula scores in `docs/CLOSENESS.md` can be 100 while paint is still wrong.
 
-Updated: 2026-08-24 05:46 Asia/Shanghai. Cycle 56: extra news figures.
+Updated: 2026-08-24 06:07 Asia/Shanghai. Cycle 58: list frames.
 
 | # | Route | MR | Formula | Paint / taxonomy | Status |
 |---|-------|----|---------|------------------|--------|
@@ -13,11 +13,11 @@ Updated: 2026-08-24 05:46 Asia/Shanghai. Cycle 56: extra news figures.
 | 5 | `/products/accessories/` | oltc.html shape | 38/38 | 9 boxes + InnerTeaser. | **pass** |
 | 6 | `/products/oltc-oil/` … `/products/other/` | oltc.html shape | oltc-oil 38/38 | One list per family + InnerTeaser. | **pass** |
 | 7 | `/products/cv2/` (and 26 other PDPs) | vacutap-vi.html | cv2 60/60 | Facts + registers + related + related-services + All types + InnerTeaser. | **pass** |
-| 8 | `/downloads/` | downloadcenter.html | 49/49 | introtext + kind tabs + Search tab + InnerTeaser. | **pass** |
+| 8 | `/downloads/` | downloadcenter.html | 50/50 | introtext + kind tabs + Search tab + list frame + InnerTeaser. | **pass** |
 | 9 | `/about/` | company.html | 55/55 | introtext + numbers + quote + textmedia + news + InnerTeaser. | **pass** |
-| 10 | `/news/` | impulses.html | 41/41 | introtext + teaser_articles + white teaser-module. No topicteaser graphic. | **pass** |
+| 10 | `/news/` | impulses.html | 47/47 | introtext + three topicteaser rows (left/right). Indonesia photo only. | **pass** |
 | 11 | `/news/{slug}/` | impulse-article.html | chvt 45/45 | articleIntro / quote / sourced numbers + InnerTeaser. | **pass** |
-| 12 | `/contact/` | contact.html | 55/55 | introtext + powermail + contactfinder + InnerTeaser. | **pass** |
+| 12 | `/contact/` | contact.html | 56/56 | introtext + powermail + contactfinder list frame + InnerTeaser. | **pass** |
 | 13 | `/search/` | search.html | 50/50 | Client filter + InnerTeaser. | **pass** |
 | 14 | `/404` | 404.html | 39/39 | parallax + text-module + InnerTeaser. No MR photo. | **pass** |
 | 15 | `/legal/imprint/` | imprint.html | 36/36 | introtext + text-module + InnerTeaser. | **pass** |

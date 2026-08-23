@@ -78,6 +78,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 70. [done] News article InnerTeaser (cycle 54)
 71. [done] PDP InnerTeaser (cycle 55)
 72. [done] Extra news figures from article bodies (cycle 56)
+73. [done] News topicteaser left/right from impulses.html (cycle 57)
+74. [done] Contact + downloads `frame-type-list` (cycle 58)
 
 ## Cycle log
 
@@ -137,3 +139,5 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 54: news article InnerTeaser. CHVT 45/45.
 - 55: PDP InnerTeaser. cv2 60/60.
 - 56: Nigeria / factory-test / Pakistan figures from the body.
+- 57: news topicteaser left/right. `/news` 47/47.
+- 58: contactfinder + download-center `frame-type-list`. contact 56/56, downloads 50/50.

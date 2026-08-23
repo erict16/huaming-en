@@ -2,7 +2,7 @@
 
 Formula: `0.5 * selector_hit% + 0.3 * token_hit% + 0.2 * structure_pass%`
 
-Last audit: cycle 56. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mirror/mr`.
+Last audit: cycle 58. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mirror/mr`.
 
 | page | selector | token | structure | closeness |
 |------|----------|-------|-----------|----------:|
@@ -13,10 +13,10 @@ Last audit: cycle 56. Source: `dist/*.html` + `src/styles/layout.min.css` vs `mi
 | `/products/accessories` | 38/38 | 22/22 | (selector) | 100 |
 | `/products/oltc-oil` | 38/38 | 22/22 | (selector) | 100 |
 | PDP `/products/cv2` | 60/60 | 22/22 | (selector) | 100 |
-| `/contact` | 55/55 | 22/22 | (selector) | 100 |
-| `/downloads` | 49/49 | 22/22 | (selector) | 100 |
+| `/contact` | 56/56 | 22/22 | (selector) | 100 |
+| `/downloads` | 50/50 | 22/22 | (selector) | 100 |
 | `/about` | 55/55 | 22/22 | (selector) | 100 |
-| `/news` | 41/41 | 22/22 | (selector) | 100 |
+| `/news` | 47/47 | 22/22 | (selector) | 100 |
 | `/search` | 50/50 | 22/22 | (selector) | 100 |
 | `/404` | 39/39 | 22/22 | (selector) | 100 |
 | `/legal/imprint` | 36/36 | 22/22 | (selector) | 100 |
