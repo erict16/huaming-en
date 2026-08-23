@@ -21,8 +21,8 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 13. [done] 404 (cycle 2)
 14. [done] Curl CSS-referenced icons into public so arrows paint (cycle 3)
 15. [done] Strip unused eot/ttf/woff from @font-face (cycle 4)
-16. [next] Vercel preview URL — vercel.json now Astro; last CLI deploy still failed as Next
-17. Motion check: stage Swiper + animate classes actually in dist JS
+16. [done] Vercel preview Astro build. URL in STATUS. `vercel curl` confirms classes/tokens (cycle 5)
+17. [next] Motion: stage Swiper init + animate.css classes if MR home uses them
 18. Leftover selector/asset gaps from audits
 
 ## Cycle log
@@ -31,3 +31,4 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 02: Astro + layout.min.css + mapped pages. closeness 100 on class/token formula; icon urls still 404
 - 03: 18 CSS icon SVGs mirrored; layout urls retargeted to `/_assets/` and `/fileadmin/`
 - 04: Azo @font-face woff2-only; vercel.json framework astro. CLI deploy still Next until redeploy.
+- 05: Preview live. `vercel curl` home/oltc/cv2/chvt. closeness 100 on live HTML+CSS.
