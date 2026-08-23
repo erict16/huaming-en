@@ -11,16 +11,28 @@ interface Crumb {
   label: string;
 }
 
+interface TableGroup {
+  className: string;
+  heading?: string | null;
+  items: Product[];
+}
+
 interface Props {
   title: string;
   description: string;
   blurb: string;
   crumbs: Crumb[];
   items: Product[];
+  tableGroups?: TableGroup[];
 }
 
-const { title, description, blurb, crumbs, items } = Astro.props;
+const { title, description, blurb, crumbs, items, tableGroups } = Astro.props;
 const stageSrc = items.map((p) => productImageSrc(p.slug)).find(Boolean) ?? null;
+const groups: TableGroup[] = (
+  tableGroups && tableGroups.length
+    ? tableGroups
+    : [{ className: "table-gradient", heading: null, items }]
+).filter((g) => g.items.length);
 const rows = items.map((p) => ({
   p,
   fam: families.find((f) => f.id === p.family),
@@ -70,32 +82,44 @@ const rows = items.map((p) => ({
       <h2 class="headline">Technical data at a glance</h2>
     </div>
 
-    <div class="tabelle table-gradient">
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Family</th>
-              <th>Note</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              rows.map(({ p, fam }) => (
-                <tr>
-                  <td>
-                    <a href={`/products/${p.slug}/`}>{p.name}</a>
-                  </td>
-                  <td>{fam?.name}</td>
-                  <td>{p.oneLiner}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
-    </div>
+    {
+      groups.map((g) => (
+        <div class={`tabelle ${g.className}`}>
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-lg-10 offset-lg-1">
+                {g.heading ? <h3>{g.heading}</h3> : null}
+                <div class="table-wrapper">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Type</th>
+                        <th>Family</th>
+                        <th>Note</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {g.items.map((p) => {
+                        const fam = families.find((f) => f.id === p.family);
+                        return (
+                          <tr>
+                            <td>
+                              <a href={`/products/${p.slug}/`}>{p.name}</a>
+                            </td>
+                            <td>{fam?.name}</td>
+                            <td>{p.oneLiner}</td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
 
     <div class="container">
       <div class="product-list-plugin">

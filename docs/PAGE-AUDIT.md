@@ -2,13 +2,13 @@
 
 Source of truth: `mirror/mr/` HTML+CSS. Formula scores in `docs/CLOSENESS.md` can be 100 while paint is still wrong.
 
-Updated: 2026-08-24 02:32 Asia/Shanghai. Cycle 34: Header `.mobileTopNav`.
+Updated: 2026-08-24 02:34 Asia/Shanghai. Cycle 35: OLTC list three tables.
 
 | # | Route | MR | Formula | Paint / taxonomy | Status |
 |---|-------|----|---------|------------------|--------|
 | 1 | `/` | home.html | 100/100 | Stage 1265×448 cover at 1280. Logo contain. Product-swiper 3:2. News cards 3:2 plates. `.mobileTopNav`. | **pass** |
 | 2 | `/products/` | portfolio.html | 37/37 | Tabs + wordcloud + 12-col grid. Inner header animation + blue-nav. Mobile stills full-width 3:2. | **pass** |
-| 3 | `/products/oltc/` | oltc.html | 35/35 | Stage + table + grid. All 6 OLTC families. Inner blue-nav. | **pass** |
+| 3 | `/products/oltc/` | oltc.html | 37/37 | Three tables: vacuum / other on-load / oil. Grid of 15. Inner blue-nav. | **pass** |
 | 4 | `/products/octc/` | oltc.html shape | 32/32 | 3 boxes (WSL/WDG/ZWC). | **pass** |
 | 5 | `/products/accessories/` | oltc.html shape | 32/32 | 9 boxes (MDU+monitor+other). | **pass** |
 | 6 | `/products/oltc-oil/` … `/products/other/` | oltc.html shape | oltc-oil 32/32 | One list per family. Header second-level 10/10. | **pass** |
@@ -47,6 +47,6 @@ Home: `page-header-sticky`, no `.blue-nav`. Inner: `page-header-animation` + `.b
 
 ## Next failing row (overnight)
 
-None required. Leftover paint: family `table-white` / `table-grey`. Language modal and `.socialMedia` skipped.
+None required. Leftover paint: PDP `keyfact-headline`. Language modal and `.socialMedia` skipped.
 
 Skip: language modal, `.socialMedia`.

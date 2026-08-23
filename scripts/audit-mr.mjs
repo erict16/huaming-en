@@ -252,7 +252,7 @@ if (homeHtmlPath) {
 const pages = [
   { id: "/", route: "", mr: mrHome, extra: CHROME_CLASSES },
   { id: "/products", route: "products", mr: path.join(root, "mirror/mr/portfolio.html"), extra: ["introtext", "h1ToIntro", "subnavi-big", "subnavi-big-button", "wordcloud-container", "wordcloud", "js-wordcloud-item", "product-list-plugin", "teaser-module", "teaser_element", "textteaser-gradient"] },
-  { id: "/products/oltc", route: "products/oltc", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "product-keyfacts", "stage", "introtext", "breadcrumb", "subline"] },
+  { id: "/products/oltc", route: "products/oltc", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "table-white", "table-grey", "product-box", "product-keyfacts", "stage", "introtext", "breadcrumb", "subline"] },
   { id: "/products/octc", route: "products/octc", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "introtext", "subline"] },
   { id: "/products/accessories", route: "products/accessories", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "introtext", "subline"] },
   { id: "/products/oltc-oil", route: "products/oltc-oil", mr: mrOltc, extra: ["product-list-plugin", "tabelle", "table-gradient", "product-box", "introtext", "subline"] },

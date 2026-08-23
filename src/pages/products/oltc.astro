@@ -1,8 +1,13 @@
 ---
 import ProductCategory from "../../components/ProductCategory.astro";
-import { groupCopy, productsInGroup } from "../../lib/catalog";
+import { groupCopy, productsInFamily, productsInGroup } from "../../lib/catalog";
 
 const copy = groupCopy.oltc;
+const vacuum = productsInFamily("oltc-vacuum");
+const oil = productsInFamily("oltc-oil");
+const other = productsInGroup("oltc").filter(
+  (p) => p.family !== "oltc-vacuum" && p.family !== "oltc-oil",
+);
 ---
 
 <ProductCategory
@@ -15,4 +20,9 @@ const copy = groupCopy.oltc;
     { href: "/products/oltc/", label: copy.title },
   ]}
   items={productsInGroup("oltc")}
+  tableGroups={[
+    { className: "table-gradient", heading: "Vacuum", items: vacuum },
+    { className: "table-white", heading: "Other on-load", items: other },
+    { className: "table-grey", heading: "Oil", items: oil },
+  ]}
 />
