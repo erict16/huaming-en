@@ -57,6 +57,9 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 49. [done] OLTC list `table-gradient` / `table-white` / `table-grey` from oltc.html (cycle 35)
 50. [done] PDP `keyfact-headline` labels from the rating string (cycle 36)
 51. Language modal and `.socialMedia` still skipped.
+52. [done] PDP product-registers accordion + nav-pills from vacutap-vi.html (cycle 37)
+53. [done] PDP show-more/less keyfacts siblings (cycle 37)
+54. [done] Downloads + PDP downloadItem icon / download-link from downloadcenter.html (cycle 38)
 
 ## Cycle log
 
@@ -96,3 +99,5 @@ Hard stop: 2026-08-24 07:00 Asia/Shanghai.
 - 34: Header `.mobileTopNav` utility list. `/` 100/100.
 - 35: OLTC list three tables (vacuum / other / oil). `/products/oltc` 37/37.
 - 36: PDP keyfact-headline labels from rating strings; empty headlines hidden.
+- 37: PDP product-registers accordion + pills; show-all keyfacts. cv2 52/52.
+- 38: downloadItem PDF icon + download-link on `/downloads` and PDP. `/downloads` 46/46.

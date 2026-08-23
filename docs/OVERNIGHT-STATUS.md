@@ -1,13 +1,13 @@
 # Overnight status
 
-Updated: 2026-08-24 02:37 Asia/Shanghai
+Updated: 2026-08-24 02:48 Asia/Shanghai
 Branch: `feat/mr-astro-lock`
 Hard stop: 2026-08-24 07:00 Asia/Shanghai
 Scheduler: `01a02f00e2d6` every 20m
 
 ## SHA
 
-HEAD after cycle 36. Cycle 35 was `3330008`.
+HEAD after cycle 38. Cycle 36 was `7606cae`.
 
 ## Preview
 
@@ -17,7 +17,7 @@ Vercel project `huaming-en` framework preset **astro**. SSO off.
 
 ## Now
 
-Closeness 100. Cycle 36: PDP keyfact labels from the rating string. Language modal and `.socialMedia` skipped.
+Closeness 100. Cycle 37: PDP product-registers accordion + pills. Cycle 38: downloadItem PDF icon + download-link. Language modal and `.socialMedia` skipped.
 
 ## Do not
 

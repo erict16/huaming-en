@@ -1,0 +1,41 @@
+---
+import { keyfactParts } from "../lib/catalog";
+
+interface Props {
+  ratings: string[];
+}
+
+const { ratings } = Astro.props;
+---
+
+{
+  ratings.length ? (
+    <div class="tabelle table-">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-10 offset-lg-1">
+            <div class="table-wrapper highlight-first-column">
+              <table>
+                {ratings.map((r, i) => {
+                  const fact = keyfactParts(r, "", i);
+                  return fact.label ? (
+                    <tr>
+                      <td class="bold">{fact.label}</td>
+                      <td>{fact.body}</td>
+                    </tr>
+                  ) : (
+                    <tr>
+                      <td class="bold" colspan="2">
+                        {fact.body}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ) : null
+}

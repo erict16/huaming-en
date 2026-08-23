@@ -3,6 +3,7 @@ import Base from "../../layouts/Base.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import ProductBox from "../../components/ProductBox.astro";
 import ProductCategory from "../../components/ProductCategory.astro";
+import ProductRegisters from "../../components/ProductRegisters.astro";
 import StageControls from "../../components/StageControls.astro";
 import {
   families,
@@ -15,8 +16,6 @@ import {
   productsForListSlug,
 } from "../../lib/catalog";
 import { allDownloads } from "../../lib/downloads";
-import { formatKind, parseDocMeta } from "../../lib/doc-meta";
-import { formatBytes } from "../../lib/format";
 import { productImageSrc } from "../../lib/product-image";
 
 export function getStaticPaths() {
@@ -177,52 +176,33 @@ const related = [...sameFamily, ...oltcSiblings].slice(0, 6);
                     })
                   }
                 </ol>
+                <a class="show-all show-more-keyfacts-js">
+                  <div class="show-all-icon">
+                    <svg viewBox="0 0 491.996 491.996" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M484.132,124.986l-16.116-16.228c-5.072-5.068-11.82-7.86-19.032-7.86c-7.208,0-13.964,2.792-19.036,7.86l-183.84,183.848 L62.056,108.554c-5.064-5.068-11.82-7.856-19.028-7.856s-13.968,2.788-19.036,7.856l-16.12,16.128 c-10.496,10.488-10.496,27.572,0,38.06l219.136,219.924c5.064,5.064,11.812,8.632,19.084,8.632h0.084 c7.212,0,13.96-3.572,19.024-8.632l218.932-219.328c5.072-5.064,7.856-12.016,7.864-19.224 C491.996,136.902,489.204,130.046,484.132,124.986z"
+                      ></path>
+                    </svg>
+                  </div>
+                  Show all
+                </a>
+                <a class="show-all show-less-keyfacts-js" style="display:none;">
+                  <div class="show-all-icon">
+                    <svg viewBox="0 0 492 492" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M7.9,367L24,383.2c5.1,5.1,11.8,7.9,19,7.9c7.2,0,14-2.8,19-7.9l183.8-183.8l184.1,184.1 c5.1,5.1,11.8,7.9,19,7.9c7.2,0,14-2.8,19-7.9l16.1-16.1c10.5-10.5,10.5-27.6,0-38.1L265,109.3c-5.1-5.1-11.8-8.6-19.1-8.6h-0.1 c-7.2,0-14,3.6-19,8.6L7.9,328.7c-5.1,5.1-7.9,12-7.9,19.2C0,355.1,2.8,362,7.9,367z"
+                      ></path>
+                    </svg>
+                  </div>
+                  Show less
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="product-registers-container">
-        <div class="container">
-          <h2 class="headline">Downloads</h2>
-          {
-            noPdf ? (
-              <p>No English technical data PDF for CHVT on the live shop.</p>
-            ) : files.length === 0 ? (
-              <p>No brochure on this type yet.</p>
-            ) : (
-              <div class="download-center">
-                <div class="downloadcenter-rows">
-                  {files.map((d) => {
-                    const meta = parseDocMeta(d.file, d.title);
-                    return (
-                      <div class="downloadcenter-row" data-filter-category={d.kind}>
-                        <div class="col-xl-3 col-xxl-4 downloadcenter-row-name">{formatKind(d.kind)}</div>
-                        <div class="download-set">
-                          <a href={`/downloads/${d.file}`} class="downloadItem-link">
-                            <div class="downloadItem">
-                              <div class="downloadItem-label d-flex align-items-baseline">
-                                <div class="download-name">{d.title}</div>
-                              </div>
-                              <div class="downloadItem-info">
-                                {meta.docNo ? <span>{meta.docNo}</span> : null}
-                                {meta.year ? <span>{meta.year}</span> : null}
-                                <span>{formatBytes(d.bytes ?? 0)}</span>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )
-          }
-          {note ? <p>{note}</p> : null}
-        </div>
-      </div>
+      <ProductRegisters slug={product.slug} ratings={product.ratings} files={files} noPdf={noPdf} note={note} />
 
       {
         related.length ? (

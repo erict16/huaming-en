@@ -1,0 +1,101 @@
+---
+import type { Download } from "../lib/catalog";
+import { formatKind, parseDocMeta } from "../lib/doc-meta";
+import { formatBytes } from "../lib/format";
+
+interface Props {
+  files: Download[];
+  noPdf?: boolean;
+  note?: string | null;
+  id: string;
+  wrapCenter?: boolean;
+}
+
+const { files, noPdf = false, note = null, id, wrapCenter = true } = Astro.props;
+const byKind = new Map<string, Download[]>();
+for (const d of files) {
+  const list = byKind.get(d.kind) ?? [];
+  list.push(d);
+  byKind.set(d.kind, list);
+}
+---
+
+{
+  noPdf ? (
+    <p>No English technical data PDF for CHVT on the live shop.</p>
+  ) : files.length === 0 ? (
+    <p>No brochure on this type yet.</p>
+  ) : (
+    <div class={wrapCenter ? "download-center" : undefined}>
+      <div id={`download-result-content-${id}`}>
+        <div class="downloadcenter-rows">
+          {[...byKind.entries()].map(([kind, rows]) => (
+            <div class="downloadcenter-row" data-filter-category={kind}>
+              <div class="row">
+                <div class="col-xl-3 col-xxl-4 downloadcenter-row-name">{formatKind(kind)}</div>
+                <div class="col-xl-9 col-xxl-8">
+                  {rows.map((d) => {
+                    const meta = parseDocMeta(d.file, d.title);
+                    return (
+                      <div class="download-set">
+                        <a
+                          href={`/downloads/${d.file}`}
+                          class="downloadItem-link"
+                          data-lang-code="en"
+                          data-search={`${d.title} ${d.file} ${meta.docNo ?? ""}`.toLowerCase()}
+                        >
+                          <div class="downloadItem">
+                            <div class="downloadItem-label d-flex align-items-baseline">
+                              <div class="icon">
+                                <img src="/fileadmin/__fileicons/icon-pdf_20.svg" width="20" height="20" alt="" />
+                              </div>
+                              <div class="download-name">{d.title}</div>
+                            </div>
+                            <div class="downloadItem-info">
+                              {meta.year ? <div class="version">Version: {meta.year}</div> : null}
+                              {meta.docNo ? <span>{meta.docNo}</span> : null}
+                              <span>{formatBytes(d.bytes ?? 0)}</span>
+                              <div class="download-link ml-auto d-flex">
+                                <span class="download-icon">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="#075898"
+                                    width="26"
+                                    height="11.469"
+                                    viewBox="0 0 26 11.469"
+                                  >
+                                    <g transform="translate(0 0.707)">
+                                      <line
+                                        x2="26"
+                                        transform="translate(0 9.762)"
+                                        fill="none"
+                                        stroke=""
+                                        stroke-width="2"
+                                      ></line>
+                                      <path
+                                        d="M19.03,0l-6,6-6-6"
+                                        transform="translate(-0.029)"
+                                        fill="none"
+                                        stroke-width="2"
+                                      ></path>
+                                    </g>
+                                  </svg>
+                                </span> Download
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+{note ? <p>{note}</p> : null}
