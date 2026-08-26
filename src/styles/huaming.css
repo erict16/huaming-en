@@ -251,6 +251,16 @@ body{
 .hm-util{display:flex;gap:1.1rem;font-size:.75rem;}
 .hm-util a{color:rgba(255,255,255,.82);text-decoration:none;}
 .hm-util a:hover,.hm-primary a:hover{color:#fff;}
+.hm-search{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  width:2.25rem;
+  height:2.25rem;
+  flex:0 0 auto;
+}
+.hm-search:hover{color:#fff;}
 .hm-menu{display:none;position:relative;}
 .hm-menu summary{
   list-style:none;
@@ -400,4 +410,58 @@ main{
   background:none!important;
 }
 .hm-foot a:hover{text-decoration:underline;text-underline-offset:.16em;}
+
+/* InnerTeaser and leftover Reinhausen gold → navy/steel. Layout unchanged. */
+.textteaser.textteaser-gradient-bg,
+.textteaser.textteaser-gradient-bg:hover{
+  background-image:none!important;
+  background-color:#00428C!important;
+  color:#fff!important;
+}
+.textteaser.textteaser-gradient-bg:hover{
+  background-color:#00356f!important;
+}
+.textteaser.textteaser-gradient-bg .headline,
+.textteaser.textteaser-gradient-bg .teaser-HeadlineAndText .headline,
+.textteaser.textteaser-gradient-bg p{
+  color:#fff!important;
+  font-family:"IBM Plex Sans",sans-serif!important;
+}
+.textteaser .link,
+.textteaser a.link,
+.textteaser .link:hover,
+.bg-gradient .link,
+.bg-gradient a.link-download,
+.bg-gradient a.link-download:hover{
+  color:#fff!important;
+}
+.textteaser .link::before,
+.textteaser a.link::before,
+.bg-gradient .link-download::before,
+a.link-download::before{
+  filter:brightness(0) invert(1);
+}
+.textteaser-outline:hover,
+.cta-outline:not(:focus):hover{
+  border-color:#0071A9!important;
+  color:#00428C!important;
+  box-shadow:inset 0 0 0 .125rem #0071A9!important;
+}
+.cta-gradient::after{
+  background-image:none!important;
+  background:#0071A9!important;
+}
+.link:hover,
+a.link:hover,
+.link-download:hover,
+a.link-download:hover,
+.download:hover,
+a.show-all:not(:focus):hover,
+.breadcrumb li a:hover{
+  color:#0071A9!important;
+}
+.bg-secColor,
+.anim-overlay.bg-secColor{
+  background-color:#00428C!important;
+}
 

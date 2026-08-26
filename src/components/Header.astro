@@ -25,6 +25,12 @@ const product = slug ? productBySlug(slug) : undefined;
       <a href="/downloads/">Downloads</a>
       <a href="/contact/">Contact</a>
     </nav>
+    <a class="hm-search" href="/search/" aria-label="Search">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.3-4.3"></path>
+      </svg>
+    </a>
     <details class="hm-menu">
       <summary>Menu</summary>
       <nav aria-label="Primary mobile">
@@ -33,6 +39,7 @@ const product = slug ? productBySlug(slug) : undefined;
         <a href="/news/">News</a>
         <a href="/downloads/">Downloads</a>
         <a href="/contact/">Contact</a>
+        <a href="/search/">Search</a>
       </nav>
     </details>
   </div>
