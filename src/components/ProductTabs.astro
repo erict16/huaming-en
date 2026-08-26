@@ -1,0 +1,26 @@
+---
+interface Props {
+  current?: "all" | "oltc" | "octc" | "accessories";
+  filter?: boolean;
+}
+const { current = "all", filter = false } = Astro.props;
+const tabs = [
+  { id: "oltc", href: "/products/oltc/", label: "On-load" },
+  { id: "octc", href: "/products/octc/", label: "De-energized" },
+  { id: "accessories", href: "/products/accessories/", label: "Accessories" },
+] as const;
+---
+
+<nav class="hm-tabs" aria-label="Product families" data-filter={filter ? "1" : "0"}>
+  {
+    tabs.map((t) => (
+      <a
+        href={t.href}
+        data-tab={t.id}
+        class:list={[{ "is-on": current === t.id || (current === "all" && t.id === "oltc" && filter) }]}
+      >
+        {t.label}
+      </a>
+    ))
+  }
+</nav>

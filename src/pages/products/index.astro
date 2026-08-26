@@ -1,7 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
-import Breadcrumb from "../../components/Breadcrumb.astro";
-import ProductBox from "../../components/ProductBox.astro";
+import ProductTabs from "../../components/ProductTabs.astro";
 import { families, familyGroups, products } from "../../lib/catalog";
 import { productImageSrc } from "../../lib/product-image";
 
@@ -11,182 +10,66 @@ function groupOf(familyId: string): "oltc" | "octc" | "accessories" {
   return "accessories";
 }
 
-const featured = ["cv2", "cm2", "shzv", "hwv", "wsl", "cma7"];
-const weights = ["wc-biggest", "wc-big", "wc-normal", "wc-small"] as const;
+const rows = products.map((p) => ({
+  href: `/products/${p.slug}/`,
+  name: p.name,
+  intro: p.oneLiner,
+  image: productImageSrc(p.slug),
+  tab: groupOf(p.family),
+  family: families.find((f) => f.id === p.family)?.name ?? "",
+}));
 ---
 
-<Base title="Products · Huaming" description="On-load tap changers, de-energized tap changers, and motor drives.">
-  <main id="main">
-    <div class="frame frame-default frame-type-sitereinhausen_introtext frame-layout-0">
-      <div class="introtext bg-white">
-        <div class="container">
-          <Breadcrumb crumbs={[{ href: "/", label: "Home" }]} visible={false} />
-          <div>
-            <h1 class="h1ToIntro">Products. Types. Brochures.</h1>
-          </div>
-          <div class="row">
-            <div class="intro col-xl-12 col-xxl-10">
-              <p>
-                Three jobs: on-load tap changers, de-energized tap changers, and accessories (motor drives,
-                monitors). Vacuum is a technology inside OLTC, not a third family.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+<Base title="Types · Huaming" description="On-load tap changers, de-energized tap changers, motor drives, and accessories. Technical data as PDF.">
+  <main id="main" class="hm-list">
+    <div class="hm-wrap hm-list-intro">
+      <h1>Types</h1>
+      <p class="hm-list-lede">
+        On-load and de-energized tap changers, plus motor drives and accessories. Technical data as PDF.
+        Shanghai factory. Singapore headquarters.
+      </p>
+      <ProductTabs current="all" filter />
     </div>
 
-    <div class="frame frame-default frame-type-list frame-layout-0">
-      <div class="subnavi-big">
-        <div class="container">
-          <div style="position: relative">
-            <ul class="scrollbar scrollbar-horizontal scrollbar-black">
-              <li class="subnavi-big-button active" data-tab="oltc">
-                <h3>On-load tap changers</h3>
-              </li>
-              <li class="subnavi-big-button" data-tab="octc">
-                <h3>De-energized</h3>
-              </li>
-              <li class="subnavi-big-button" data-tab="accessories">
-                <h3>Accessories</h3>
-              </li>
-            </ul>
-            <img
-              class="down-button d-block d-s-none"
-              alt=""
-              src="/_assets/4fe0297b88c3f75f81bce57218e3ae92/Images/Icons/arrow-down-blue.svg"
-              width="24"
-              height="24"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div class="wordcloud-container bg-gradient">
-        <div class="container">
-          <ul class="wordcloud">
-            {
-              products.map((p, i) => (
-                <li
-                  class="js-wordcloud-item"
-                  data-tab={groupOf(p.family)}
-                  data-weight={featured.includes(p.slug) ? "wc-biggest" : weights[i % 4]}
-                >
-                  <a class="wordcloud-link" href={`/products/${p.slug}/`}>
-                    {p.name}
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
-      <div class="wordcloud-container noHit pt-0">
-        <div class="container pt-0">
-          <p>Click a type name to open that product page.</p>
-        </div>
-      </div>
-      <div class="solution-results" style="display:none;">
-        <div class="container">
-          <div class="wordcloud-items">
-            <h2 id="defaultHeadline">
-              Results for „<span id="selectedWordCloudItemDisplay" data-item=""></span>"
-            </h2>
-          </div>
-          <div class="tab-navi-solutions">
-            <ul class="scrollbar scrollbar-horizontal scrollbar-black">
-              <li class="js-change-solutionTabNavi" data-tab="products">Types</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="product-list-plugin">
-        <div id="portfolio-overview-products" class="grid">
-          {
-            products.map((p) => (
-              <ProductBox
-                href={`/products/${p.slug}/`}
-                name={p.name}
-                intro={p.oneLiner}
-                image={productImageSrc(p.slug)}
-                facts={[families.find((f) => f.id === p.family)?.name ?? ""]}
-                tab={groupOf(p.family)}
-              />
-            ))
-          }
-        </div>
-      </div>
-    </div>
-
-    <div class="frame frame-default frame-type-sitereinhausen_teaser frame-layout-0">
-    <div class="teaser-module bg-white">
-      <div class="container">
-        <div class="row">
-          <div class="text col-m-12 col-lg-12">
-            <div class="teaser-wrapper">
-              <div class="row">
-                <div class="teaser_element col-lg-4 three-column">
-                  <div class="textteaser textteaser-gradient textteaser-gradient-bg">
-                    <div class="teaser-HeadlineAndText">
-                      <p class="headline">Search our complete range?</p>
-                    </div>
-                    <div>
-                      <a href="/search/" class="link">Search</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="teaser_element col-lg-4 three-column">
-                  <div class="textteaser textteaser-gradient textteaser-gradient-bg">
-                    <div class="teaser-HeadlineAndText">
-                      <p class="headline">Technical data as PDF?</p>
-                    </div>
-                    <div>
-                      <a href="/downloads/" class="link">Downloads</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="teaser_element col-lg-4 three-column">
-                  <div class="textteaser textteaser-gradient textteaser-gradient-bg">
-                    <div class="teaser-HeadlineAndText">
-                      <p class="headline">News from the factory?</p>
-                    </div>
-                    <div>
-                      <a href="/news/" class="link">News</a>
-                    </div>
-                  </div>
-                </div>
+    <div class="hm-wrap">
+      <div class="hm-type-grid" id="type-grid">
+        {
+          rows.map((t) => (
+            <a class="hm-type" href={t.href} data-tab={t.tab}>
+              <div class="hm-thumb">
+                {t.image ? <img src={t.image} alt="" width="600" height="414" /> : null}
               </div>
-            </div>
-          </div>
-        </div>
+              <span class="hm-code">{t.name}</span>
+              <span class="hm-one">{t.intro}</span>
+            </a>
+          ))
+        }
       </div>
-    </div>
+      <p class="hm-list-pdf">
+        <a href="/downloads/">Technical data (PDF)</a>
+        {" · "}
+        <a href="/contact/">Singapore office</a>
+      </p>
     </div>
   </main>
 </Base>
 
 <script is:inline>
   (function () {
-    var tabs = document.querySelectorAll(".subnavi-big-button");
-    var boxes = document.querySelectorAll(".product-list-plugin .product-box");
-    var words = document.querySelectorAll(".js-wordcloud-item");
+    var tabs = document.querySelectorAll(".hm-tabs[data-filter='1'] a");
+    var boxes = document.querySelectorAll("#type-grid .hm-type");
     if (!tabs.length) return;
     function show(id) {
       tabs.forEach(function (t) {
-        t.classList.toggle("active", t.getAttribute("data-tab") === id);
+        t.classList.toggle("is-on", t.getAttribute("data-tab") === id);
       });
       boxes.forEach(function (b) {
         b.hidden = b.getAttribute("data-tab") !== id;
       });
-      words.forEach(function (w) {
-        w.hidden = w.getAttribute("data-tab") !== id;
-      });
     }
     tabs.forEach(function (tab) {
-      tab.addEventListener("click", function () {
+      tab.addEventListener("click", function (e) {
+        e.preventDefault();
         show(tab.getAttribute("data-tab"));
       });
     });

@@ -1,8 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
-import Breadcrumb from "./Breadcrumb.astro";
 import InnerTeaser from "./InnerTeaser.astro";
 import ProductBox from "./ProductBox.astro";
+import ProductTabs from "./ProductTabs.astro";
 import StageControls from "./StageControls.astro";
 import { families, type Product } from "../lib/catalog";
 import { productImageSrc } from "../lib/product-image";
@@ -71,16 +71,22 @@ const rows = items.map((p) => ({
       ) : null
     }
 
-    <div class="frame frame-default frame-type-sitereinhausen_introtext frame-layout-0">
-    <div class="introtext bg-white">
-      <div class="container">
-        <Breadcrumb visible={false} crumbs={crumbs} />
+    <div class="hm-list hm-list-family">
+      <div class="hm-wrap hm-list-intro">
         <h1>{title}</h1>
-        <div class="subline col-xl-12 col-xxl-10">
-          <p>{blurb}</p>
-        </div>
+        <p class="hm-list-lede">{blurb}</p>
+        <ProductTabs
+          current={
+            crumbs.some((c) => c.href.includes("/oltc"))
+              ? "oltc"
+              : crumbs.some((c) => c.href.includes("/octc"))
+                ? "octc"
+                : crumbs.some((c) => c.href.includes("/accessories"))
+                  ? "accessories"
+                  : "all"
+          }
+        />
       </div>
-    </div>
     </div>
 
     <slot />
