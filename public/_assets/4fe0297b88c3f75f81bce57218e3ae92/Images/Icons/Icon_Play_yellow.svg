@@ -27,7 +27,7 @@
     </defs>
     <g transform="translate(-220 -2718)">
         <path class="a" d="M12.5,0,25,22H0Z" transform="translate(259 2731) rotate(90)" />
-        <g class="b" transform="translate(220 2718)" style="stroke: #E5BB29">
+        <g class="b" transform="translate(220 2718)" style="stroke: #0071A9">
             <circle class="c" cx="25" cy="25" r="25" />
             <circle class="d" cx="25" cy="25" r="24" />
         </g>
