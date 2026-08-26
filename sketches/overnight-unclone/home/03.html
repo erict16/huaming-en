@@ -8,187 +8,94 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --navy: #00428C;
-      --steel: #0071A9;
-      --ink: #262626;
-      --canvas: #ffffff;
-      --rule: #d1d1d1;
-      --band: #eef1f4;
-    }
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      background: var(--canvas);
-      color: var(--ink);
-      font-family: "IBM Plex Sans", sans-serif;
-      line-height: 1.5;
-    }
-    a { color: var(--steel); }
-    .sketch-note {
-      margin: 0;
-      padding: 0.5rem 1.25rem;
-      background: var(--band);
-      font-size: 0.75rem;
-    }
-    .rail { background: var(--steel); color: #fff; font-size: 0.75rem; }
-    .rail .inner, .lower .inner {
-      width: min(72rem, calc(100% - 2.5rem));
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-    }
-    .rail .inner { justify-content: flex-end; gap: 1.15rem; min-height: 1.85rem; }
-    .rail a { color: #fff; text-decoration: none; }
-    .lower { background: var(--canvas); border-bottom: 1px solid var(--rule); }
-    .lower .inner { min-height: 3.75rem; gap: 2rem; }
-    .logo img { display: block; height: 2rem; width: auto; }
-    nav.primary { display: flex; align-items: stretch; gap: 0.25rem; }
-    nav.primary > a, .has-fly > a {
-      display: flex; align-items: center; padding: 0 0.9rem;
-      color: var(--ink); text-decoration: none; font-size: 0.9375rem; font-weight: 500;
-    }
-    .has-fly { position: relative; display: flex; }
-    .fly {
-      display: none; position: absolute; top: 100%; left: 0; min-width: 13rem;
-      margin: 0; padding: 0.4rem 0; list-style: none; background: #fff;
-      border: 1px solid var(--rule); z-index: 20;
-    }
-    .has-fly:hover .fly, .has-fly:focus-within .fly { display: block; }
-    .fly a { display: block; padding: 0.4rem 0.9rem; color: var(--ink); text-decoration: none; font-size: 0.875rem; }
-    .fly a:hover { background: var(--band); color: var(--navy); }
-    .page { width: min(72rem, calc(100% - 2.5rem)); margin: 0 auto; padding: 2.25rem 0 3rem; }
-    h1 {
-      margin: 0;
-      font-size: clamp(1.65rem, 2.8vw, 2.1rem);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      max-width: 18ch;
-    }
-    .lede { margin: 0.75rem 0 0; max-width: 40rem; }
-    .meta {
-      display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
-      margin: 1.25rem 0 0; padding: 0.85rem 0;
-      border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
-      font-size: 0.875rem; color: #3a3a3a;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1.75rem;
-      font-size: 0.9375rem;
-    }
-    th {
-      text-align: left;
-      background: var(--navy);
-      color: #fff;
-      font-weight: 500;
-      font-size: 0.75rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.6rem 0.75rem;
-    }
-    td { padding: 0.7rem 0.75rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
-    tbody tr:hover { background: var(--band); }
-    td.type a { color: var(--navy); font-weight: 600; text-decoration: none; }
-    td.type a:hover { text-decoration: underline; }
-    footer.quiet {
-      border-top: 1px solid var(--rule);
-      padding: 1.25rem 0;
-      font-size: 0.8125rem;
-      color: #3a3a3a;
-    }
-    footer.quiet .inner {
-      width: min(72rem, calc(100% - 2.5rem));
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    footer.quiet a { color: var(--ink); text-decoration: none; }
+    :root { --navy:#00428C; --steel:#0071A9; --ink:#262626; --canvas:#ffffff; --rule:#d1d1d1; --band:#eef1f4; }
+    * { box-sizing:border-box; }
+    html, body { margin:0; background:var(--canvas); color:var(--ink); font-family:"IBM Plex Sans",sans-serif; line-height:1.5; }
+    a { color:var(--steel); }
+    .note { margin:0; padding:.45rem 1.25rem; background:var(--band); font-size:.75rem; }
+    .rail { background:var(--steel); color:#fff; font-size:.75rem; }
+    .rail .inner, .lower .inner { width:min(72rem, calc(100% - 2.5rem)); margin:0 auto; display:flex; align-items:center; }
+    .rail .inner { justify-content:flex-end; gap:1.15rem; min-height:1.85rem; }
+    .rail a { color:#fff; text-decoration:none; }
+    .lower { background:#fff; border-bottom:1px solid var(--rule); }
+    .lower .inner { min-height:3.75rem; gap:2rem; }
+    .logo img { display:block; height:2rem; width:auto; }
+    nav.primary { display:flex; gap:.25rem; }
+    nav.primary a { color:var(--ink); text-decoration:none; font-size:.9375rem; font-weight:500; padding:0 .9rem; }
+    .hero { background:var(--band); padding:1.25rem 1.25rem 0; }
+    .hero figure { width:min(72rem,100%); margin:0 auto; aspect-ratio:3/2; background:#fff; }
+    .hero img { width:100%; height:100%; object-fit:contain; }
+    .page { width:min(72rem, calc(100% - 2.5rem)); margin:0 auto; padding:1.5rem 0 2rem; }
+    h1 { margin:0; font-size:clamp(1.65rem,2.8vw,2.15rem); font-weight:600; letter-spacing:-.02em; max-width:18ch; }
+    .lede { margin:.6rem 0 0; max-width:42rem; }
+    .kicker { margin:0 0 .35rem; font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:#3a3a3a; }
+    table { width:100%; border-collapse:collapse; margin-top:1.5rem; font-size:.875rem; }
+    th { text-align:left; background:var(--navy); color:#fff; font-weight:500; font-size:.6875rem; letter-spacing:.06em; text-transform:uppercase; padding:.55rem .7rem; }
+    td { padding:.65rem .7rem; border-bottom:1px solid var(--rule); vertical-align:middle; }
+    td img { width:4.5rem; height:3rem; object-fit:contain; background:var(--band); display:block; }
+    td.type a { color:var(--navy); font-weight:600; text-decoration:none; }
+    .news { background:var(--band); padding:1.75rem 0; }
+    .news .page { padding-top:0; padding-bottom:0; }
+    .news ul { margin:0; padding:0; list-style:none; }
+    .news li { padding:.8rem 0; border-bottom:1px solid var(--rule); }
+    .news time { display:block; font-size:.75rem; color:#3a3a3a; }
+    .news a { color:var(--navy); font-weight:600; text-decoration:none; }
+    footer { border-top:1px solid var(--rule); padding:1.15rem 0; font-size:.8125rem; color:#3a3a3a; }
+    footer .page { display:flex; justify-content:space-between; padding:0; }
+    footer a { color:var(--ink); text-decoration:none; }
   </style>
 </head>
 <body>
-  <p class="sketch-note">03 · Steel rail + catalog rows. Homepage sketch. Not for production.</p>
+  <p class="note">03 · Steel rail. ABB document-forward family table under a large still. Sketch only.</p>
   <header>
-    <div class="rail">
-      <div class="inner">
-        <a href="/news/">News</a>
-        <a href="/downloads/">Downloads</a>
-        <a href="/contact/">Contact</a>
-      </div>
-    </div>
+    <div class="rail"><div class="inner"><a href="/news/">News</a><a href="/downloads/">Downloads</a><a href="/contact/">Contact</a></div></div>
     <div class="lower">
       <div class="inner">
         <a class="logo" href="/" aria-label="Huaming home"><img src="logo.png" alt="" width="120" height="36" /></a>
         <nav class="primary" aria-label="Primary">
-          <div class="has-fly">
-            <a href="/products/">Products</a>
-            <ul class="fly">
-              <li><a href="/products/oltc/">On-load</a></li>
-              <li><a href="/products/octc/">De-energized</a></li>
-              <li><a href="/products/accessories/">Motor drives</a></li>
-            </ul>
-          </div>
+          <a href="/products/">Products</a>
           <a href="/about/">About</a>
           <a href="/news/">News</a>
         </nav>
       </div>
     </div>
   </header>
-  <main class="page">
-    <h1>Tap changers for power transformers</h1>
-    <p class="lede">On-load and de-energized. Vacuum and oil. Technical data as PDF.</p>
-    <p class="meta">
-      <span>Shanghai factory</span>
-      <span>Singapore HQ</span>
-      <span>Lead time about 4–6 weeks</span>
-    </p>
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Kind</th>
-          <th>PDF</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="type"><a href="/products/cv2/">CV2</a></td>
-          <td>Vacuum on-load, selector switch</td>
-          <td><a href="/downloads/">Technical data</a></td>
-        </tr>
-        <tr>
-          <td class="type"><a href="/products/cm2/">CM2</a></td>
-          <td>Vacuum on-load, CM envelope</td>
-          <td><a href="/downloads/">Technical data</a></td>
-        </tr>
-        <tr>
-          <td class="type"><a href="/products/shzv/">SHZV</a></td>
-          <td>Vacuum on-load</td>
-          <td><a href="/downloads/">Technical data</a></td>
-        </tr>
-        <tr>
-          <td class="type"><a href="/products/hwv/">HWV</a></td>
-          <td>On-tank vacuum</td>
-          <td><a href="/downloads/">Technical data</a></td>
-        </tr>
-        <tr>
-          <td class="type"><a href="/products/wsl/">WSL</a></td>
-          <td>De-energized, cage</td>
-          <td><a href="/downloads/">Leaflet</a></td>
-        </tr>
-        <tr>
-          <td class="type"><a href="/products/cma7/">CMA7</a></td>
-          <td>Motor drive</td>
-          <td><a href="/downloads/">Operating instruction</a></td>
-        </tr>
-      </tbody>
-    </table>
+  <main>
+    <section class="hero" aria-label="Featured type">
+      <figure>
+        <img src="hwv.png" alt="HWV on-tank vacuum on-load tap changer" width="600" height="414" />
+      </figure>
+    </section>
+    <section class="page">
+      <p class="kicker">Type HWV · on-tank vacuum</p>
+      <h1>Tap changers for power transformers</h1>
+      <p class="lede">On-load and de-energized. Vacuum and oil. Technical data as PDF. Typical lead time 4–6 weeks. Factory in Shanghai. International mail through Singapore.</p>
+      <table>
+        <thead>
+          <tr><th></th><th>Type</th><th>Kind</th><th>PDF</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><img src="cv2.png" alt="" width="600" height="414" /></td><td class="type"><a href="/products/cv2/">CV2</a></td><td>Vacuum on-load</td><td><a href="/downloads/">Technical data</a></td></tr>
+          <tr><td><img src="cm2.png" alt="" width="600" height="414" /></td><td class="type"><a href="/products/cm2/">CM2</a></td><td>Vacuum, CM envelope</td><td><a href="/downloads/">Technical data</a></td></tr>
+          <tr><td><img src="shzv.png" alt="" width="600" height="414" /></td><td class="type"><a href="/products/shzv/">SHZV</a></td><td>Vacuum on-load</td><td><a href="/downloads/">Technical data</a></td></tr>
+          <tr><td><img src="hwv.png" alt="" width="600" height="414" /></td><td class="type"><a href="/products/hwv/">HWV</a></td><td>On-tank vacuum</td><td><a href="/downloads/">Technical data</a></td></tr>
+          <tr><td><img src="wsl.jpg" alt="" width="838" height="578" /></td><td class="type"><a href="/products/wsl/">WSL</a></td><td>De-energized, cage</td><td><a href="/downloads/">Leaflet</a></td></tr>
+          <tr><td><img src="cma7.jpg" alt="" width="836" height="577" /></td><td class="type"><a href="/products/cma7/">CMA7</a></td><td>Motor drive</td><td><a href="/downloads/">Operating instruction</a></td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="news" aria-label="News">
+      <div class="page">
+        <h2 style="margin:0 0 .5rem;font-size:1.05rem;">News</h2>
+        <ul>
+          <li><time datetime="2025-05-28">28 May 2025</time><a href="/news/chvt-longdong-800kv/">CHVT in service at Longdong ±800 kV</a></li>
+          <li><time datetime="2025-04-29">29 April 2025</time><a href="/news/singapore-international-hq/">International headquarters opens in Singapore</a></li>
+        </ul>
+      </div>
+    </section>
   </main>
-  <footer class="quiet">
-    <div class="inner">
+  <footer>
+    <div class="page">
       <p>Shanghai Huaming Power Equipment Co., Ltd. · intl@huaming.com</p>
       <p><a href="/downloads/">Downloads</a> · <a href="/contact/">Contact</a></p>
     </div>

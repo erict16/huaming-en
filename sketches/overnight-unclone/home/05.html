@@ -8,105 +8,54 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --navy: #00428C;
-      --steel: #0071A9;
-      --ink: #262626;
-      --canvas: #ffffff;
-      --rule: #d1d1d1;
-      --band: #eef1f4;
-    }
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      background: var(--canvas);
-      color: var(--ink);
-      font-family: "IBM Plex Sans", sans-serif;
-      line-height: 1.5;
-    }
-    a { color: var(--steel); }
-    .sketch-note {
-      margin: 0;
-      padding: 0.5rem 1.25rem;
-      background: var(--band);
-      font-size: 0.75rem;
-    }
-    header.ink { background: var(--ink); color: #fff; }
-    header.ink .inner {
-      width: min(72rem, calc(100% - 2.5rem));
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      min-height: 3.25rem;
-      gap: 1.75rem;
-    }
-    .logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
-    .logo img { height: 1.4rem; width: auto; filter: brightness(0) invert(1); }
-    .logo .mark-rule { width: 2px; height: 1.15rem; background: var(--steel); }
-    nav.primary { display: flex; gap: 1.35rem; }
-    nav.primary a {
-      color: #fff; text-decoration: none; font-size: 0.6875rem;
-      font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
-    }
-    .spacer { flex: 1; }
-    nav.util { display: flex; gap: 1rem; }
-    nav.util a {
-      color: rgba(255,255,255,0.7); text-decoration: none;
-      font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .page { width: min(52rem, calc(100% - 2.5rem)); margin: 0 auto; padding: 2rem 0 3rem; }
-    h1 {
-      margin: 0;
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-    .lede { margin: 0.5rem 0 0; font-size: 0.9375rem; }
-    dl {
-      display: grid;
-      grid-template-columns: 9.5rem minmax(0, 1fr);
-      gap: 0;
-      margin: 1.75rem 0 0;
-      border-top: 1px solid var(--rule);
-    }
-    dt, dd {
-      margin: 0;
-      padding: 0.7rem 0.85rem 0.7rem 0;
-      border-bottom: 1px solid var(--rule);
-      font-size: 0.9375rem;
-    }
-    dt { font-weight: 600; color: var(--navy); }
-    .nums { font-variant-numeric: tabular-nums; }
-    h2 { margin: 2rem 0 0.5rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #3a3a3a; }
-    .dl-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
-    .dl-list li {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.55rem 0;
-      border-bottom: 1px solid var(--rule);
-      font-size: 0.875rem;
-    }
-    .dl-list a { color: var(--navy); text-decoration: none; font-weight: 600; }
-    footer.quiet {
-      background: var(--ink);
-      color: rgba(255,255,255,0.8);
-      padding: 1.15rem 0;
-      font-size: 0.75rem;
-    }
-    footer.quiet .inner {
-      width: min(52rem, calc(100% - 2.5rem));
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    footer.quiet a { color: #fff; text-decoration: none; }
+    :root { --navy:#00428C; --steel:#0071A9; --ink:#262626; --canvas:#ffffff; --rule:#d1d1d1; --band:#eef1f4; }
+    * { box-sizing:border-box; }
+    html, body { margin:0; background:var(--canvas); color:var(--ink); font-family:"IBM Plex Sans",sans-serif; line-height:1.5; }
+    a { color:var(--steel); }
+    .note { margin:0; padding:.45rem 1.25rem; background:var(--band); font-size:.75rem; }
+    header.ink { background:var(--ink); color:#fff; }
+    header.ink .inner { width:min(72rem, calc(100% - 2.5rem)); margin:0 auto; display:flex; align-items:center; min-height:3.25rem; gap:1.75rem; }
+    .logo { display:flex; align-items:center; gap:.7rem; text-decoration:none; }
+    .logo img { height:1.4rem; width:auto; filter:brightness(0) invert(1); }
+    .logo .mark-rule { width:2px; height:1.15rem; background:var(--steel); }
+    nav.primary { display:flex; gap:1.35rem; }
+    nav.primary a { color:#fff; text-decoration:none; font-size:.6875rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase; }
+    .spacer { flex:1; }
+    nav.util { display:flex; gap:1rem; }
+    nav.util a { color:rgba(255,255,255,.7); text-decoration:none; font-size:.6875rem; letter-spacing:.08em; text-transform:uppercase; }
+    .hero { background:var(--ink); padding:1.25rem 1.25rem 0; }
+    .hero figure { width:min(72rem,100%); margin:0 auto; aspect-ratio:3/2; background:#1a1a1a; }
+    .hero img { width:100%; height:100%; object-fit:contain; mix-blend-mode:screen; }
+    .spec { background:var(--ink); color:#fff; border-top:1px solid #3a3a3a; }
+    .spec dl { width:min(72rem, calc(100% - 2.5rem)); margin:0 auto; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0; }
+    @media (max-width:800px){ .spec dl { grid-template-columns:1fr 1fr; } }
+    .spec div { padding:1rem 1rem 1.15rem 0; border-right:1px solid #3a3a3a; }
+    .spec dt { font-size:.6875rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.65); }
+    .spec dd { margin:.25rem 0 0; font-weight:600; }
+    .spec a { color:#fff; }
+    .intro { width:min(72rem, calc(100% - 2.5rem)); margin:0 auto; padding:1.75rem 0 1.25rem; }
+    h1 { margin:0; font-size:1.5rem; font-weight:600; letter-spacing:-.02em; }
+    .lede { margin:.45rem 0 0; font-size:.9375rem; max-width:40rem; }
+    .strip { padding:0 0 2rem; }
+    .wrap { width:min(72rem, calc(100% - 2.5rem)); margin:0 auto; }
+    h2 { margin:0 0 .75rem; font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; color:#3a3a3a; }
+    .row { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); border-top:1px solid var(--rule); }
+    @media (max-width:900px){ .row { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+    .cell { text-decoration:none; color:inherit; padding:.75rem .75rem .75rem 0; border-bottom:1px solid var(--rule); }
+    .thumb { aspect-ratio:3/2; background:var(--band); }
+    .thumb img { width:100%; height:100%; object-fit:contain; }
+    .code { display:block; margin-top:.4rem; font-weight:600; color:var(--navy); letter-spacing:.04em; }
+    .news { background:var(--band); padding:1.5rem 0; }
+    .news ul { margin:0; padding:0; list-style:none; }
+    .news li { display:flex; justify-content:space-between; gap:1rem; padding:.65rem 0; border-bottom:1px solid var(--rule); font-size:.875rem; }
+    .news a { color:var(--navy); font-weight:600; text-decoration:none; }
+    footer { background:var(--ink); color:rgba(255,255,255,.8); padding:1.1rem 0; font-size:.75rem; }
+    footer .wrap { display:flex; justify-content:space-between; flex-wrap:wrap; gap:.75rem; }
+    footer a { color:#fff; text-decoration:none; }
   </style>
 </head>
 <body>
-  <p class="sketch-note">05 · Ink bar + spec-first dense homepage. Homepage sketch. Not for production.</p>
+  <p class="note">05 · Ink bar. Hitachi Energy data strip under the still. Sketch only.</p>
   <header class="ink">
     <div class="inner">
       <a class="logo" href="/" aria-label="Huaming home">
@@ -126,34 +75,50 @@
       </nav>
     </div>
   </header>
-  <main class="page">
-    <h1>Tap changers for power transformers</h1>
-    <p class="lede">On-load and de-energized. Vacuum and oil.</p>
-    <dl>
-      <dt>Lead time</dt>
-      <dd class="nums">About 4–6 weeks</dd>
-      <dt>Factory</dt>
-      <dd>Shanghai</dd>
-      <dt>International HQ</dt>
-      <dd>Singapore</dd>
-      <dt>Documents</dt>
-      <dd>Technical data as PDF. No email gate. <a href="/downloads/">Downloads</a></dd>
-      <dt>Mail</dt>
-      <dd><a href="mailto:intl@huaming.com">intl@huaming.com</a> · <a href="/contact/">Contact</a></dd>
-    </dl>
-    <h2>Types on this list</h2>
-    <ul class="dl-list">
-      <li><a href="/products/cv2/">CV2</a> <span>Vacuum OLTC</span></li>
-      <li><a href="/products/cm2/">CM2</a> <span>Vacuum, CM envelope</span></li>
-      <li><a href="/products/shzv/">SHZV</a> <span>Vacuum OLTC</span></li>
-      <li><a href="/products/hwv/">HWV</a> <span>On-tank vacuum</span></li>
-      <li><a href="/products/wsl/">WSL</a> <span>De-energized, cage</span></li>
-      <li><a href="/products/cma7/">CMA7</a> <span>Motor drive</span></li>
-    </ul>
+  <main>
+    <section class="hero" aria-label="Featured type">
+      <figure>
+        <img src="cv2.png" alt="CV2 vacuum on-load tap changer" width="600" height="414" />
+      </figure>
+    </section>
+    <section class="spec" aria-label="Order facts">
+      <dl>
+        <div><dt>Lead time</dt><dd>4–6 weeks</dd></div>
+        <div><dt>Factory</dt><dd>Shanghai</dd></div>
+        <div><dt>Headquarters</dt><dd>Singapore</dd></div>
+        <div><dt>Documents</dt><dd><a href="/downloads/">PDF library</a></dd></div>
+      </dl>
+    </section>
+    <section class="intro">
+      <h1>Tap changers for power transformers</h1>
+      <p class="lede">On-load and de-energized. Vacuum and oil. Type names, datasheets, and the Singapore mailbox are on this page.</p>
+    </section>
+    <section class="strip" aria-label="Types">
+      <div class="wrap">
+        <h2>Types</h2>
+        <div class="row">
+          <a class="cell" href="/products/cv2/"><div class="thumb"><img src="cv2.png" alt="" width="600" height="414" /></div><span class="code">CV2</span></a>
+          <a class="cell" href="/products/cm2/"><div class="thumb"><img src="cm2.png" alt="" width="600" height="414" /></div><span class="code">CM2</span></a>
+          <a class="cell" href="/products/shzv/"><div class="thumb"><img src="shzv.png" alt="" width="600" height="414" /></div><span class="code">SHZV</span></a>
+          <a class="cell" href="/products/hwv/"><div class="thumb"><img src="hwv.png" alt="" width="600" height="414" /></div><span class="code">HWV</span></a>
+          <a class="cell" href="/products/wsl/"><div class="thumb"><img src="wsl.jpg" alt="" width="838" height="578" /></div><span class="code">WSL</span></a>
+          <a class="cell" href="/products/cma7/"><div class="thumb"><img src="cma7.jpg" alt="" width="836" height="577" /></div><span class="code">CMA7</span></a>
+        </div>
+      </div>
+    </section>
+    <section class="news" aria-label="News">
+      <div class="wrap">
+        <h2>News</h2>
+        <ul>
+          <li><a href="/news/chvt-longdong-800kv/">CHVT in service at Longdong ±800 kV</a> <time datetime="2025-05-28">28 May 2025</time></li>
+          <li><a href="/news/singapore-international-hq/">International headquarters, Singapore</a> <time datetime="2025-04-29">29 Apr 2025</time></li>
+        </ul>
+      </div>
+    </section>
   </main>
-  <footer class="quiet">
-    <div class="inner">
-      <p>Shanghai Huaming Power Equipment Co., Ltd.</p>
+  <footer>
+    <div class="wrap">
+      <p>Shanghai Huaming Power Equipment Co., Ltd. · intl@huaming.com</p>
       <p><a href="/downloads/">Downloads</a> · <a href="/contact/">Contact</a></p>
     </div>
   </footer>

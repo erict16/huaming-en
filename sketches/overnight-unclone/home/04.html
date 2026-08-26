@@ -8,100 +8,48 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --navy: #00428C;
-      --steel: #0071A9;
-      --ink: #262626;
-      --canvas: #ffffff;
-      --rule: #d1d1d1;
-      --band: #eef1f4;
-    }
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      background: var(--canvas);
-      color: var(--ink);
-      font-family: "IBM Plex Sans", sans-serif;
-      line-height: 1.5;
-    }
-    a { color: var(--steel); }
-    .sketch-note {
-      margin: 0;
-      padding: 0.5rem 1.25rem;
-      background: var(--band);
-      font-size: 0.75rem;
-    }
-    header.grid {
-      display: grid;
-      grid-template-columns: 11.5rem minmax(0, 1fr);
-      border-bottom: 1px solid var(--rule);
-      background: var(--canvas);
-    }
-    .lockup {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 0.25rem;
-      padding: 0.85rem 1.1rem;
-      border-right: 1px solid var(--rule);
-      text-decoration: none;
-      color: var(--navy);
-    }
-    .lockup img { height: 1.65rem; width: auto; }
-    .lockup .name { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.04em; }
-    .lockup .sub { font-size: 0.625rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #3a3a3a; }
-    .pane { display: flex; flex-direction: column; min-height: 4.5rem; }
-    .util { display: flex; justify-content: flex-end; gap: 1rem; padding: 0.4rem 1.25rem 0; font-size: 0.75rem; }
-    .util a { color: #3a3a3a; text-decoration: none; }
-    nav.primary { display: flex; align-items: center; gap: 1.5rem; padding: 0.35rem 1.25rem 0.7rem; flex: 1; }
-    nav.primary a { color: var(--ink); text-decoration: none; font-size: 1rem; font-weight: 500; }
-    nav.primary a:hover { color: var(--navy); }
-    .first { width: min(72rem, calc(100% - 2.5rem)); margin: 0 auto; padding: 2.5rem 0 1.5rem; }
-    h1 {
-      margin: 0;
-      font-size: clamp(1.75rem, 3vw, 2.25rem);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      max-width: 16ch;
-    }
-    .lede { margin: 0.85rem 0 0; max-width: 38rem; }
-    .places {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      margin-top: 2rem;
-      border-top: 1px solid var(--rule);
-      background: var(--band);
-    }
-    @media (max-width: 700px) { .places { grid-template-columns: 1fr; } }
-    .places article {
-      padding: 1.25rem 1.5rem;
-      border-right: 1px solid var(--rule);
-    }
-    .places article:last-child { border-right: 0; }
-    .places h2 { margin: 0; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #3a3a3a; font-weight: 600; }
-    .places p { margin: 0.4rem 0 0; font-size: 0.9375rem; }
-    .types { width: min(72rem, calc(100% - 2.5rem)); margin: 0 auto; padding: 2rem 0 3rem; }
-    .types h2 { margin: 0 0 0.75rem; font-size: 1.125rem; }
-    .types ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
-    .types li { display: grid; grid-template-columns: 6rem minmax(0, 1fr); gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--rule); align-items: center; }
-    .types img { max-height: 3.25rem; max-width: 5.5rem; mix-blend-mode: multiply; }
-    .types a { color: var(--navy); font-weight: 600; text-decoration: none; }
-    footer.quiet {
-      border-top: 1px solid var(--rule);
-      padding: 1.25rem 1.5rem;
-      font-size: 0.8125rem;
-      color: #3a3a3a;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    footer.quiet a { color: var(--ink); text-decoration: none; }
+    :root { --navy:#00428C; --steel:#0071A9; --ink:#262626; --canvas:#ffffff; --rule:#d1d1d1; --band:#eef1f4; }
+    * { box-sizing:border-box; }
+    html, body { margin:0; background:var(--canvas); color:var(--ink); font-family:"IBM Plex Sans",sans-serif; line-height:1.5; }
+    a { color:var(--steel); }
+    .note { margin:0; padding:.45rem 1.25rem; background:var(--band); font-size:.75rem; }
+    header.grid { display:grid; grid-template-columns:11.5rem minmax(0,1fr); border-bottom:1px solid var(--rule); }
+    .lockup { display:flex; flex-direction:column; justify-content:center; gap:.25rem; padding:.85rem 1.1rem; border-right:1px solid var(--rule); text-decoration:none; color:var(--navy); }
+    .lockup img { height:1.65rem; width:auto; }
+    .lockup .name { font-size:.8125rem; font-weight:600; letter-spacing:.04em; }
+    .lockup .sub { font-size:.625rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:#3a3a3a; }
+    .pane { display:flex; flex-direction:column; min-height:4.5rem; }
+    .util { display:flex; justify-content:flex-end; gap:1rem; padding:.4rem 1.25rem 0; font-size:.75rem; }
+    .util a { color:#3a3a3a; text-decoration:none; }
+    nav.primary { display:flex; align-items:center; gap:1.5rem; padding:.35rem 1.25rem .7rem; flex:1; }
+    nav.primary a { color:var(--ink); text-decoration:none; font-size:1rem; font-weight:500; }
+    .hero { background:var(--band); }
+    .hero figure { width:100%; margin:0; aspect-ratio:3/2; max-height:70vh; background:#fff; }
+    .hero img { width:100%; height:100%; object-fit:contain; }
+    .intro { width:min(72rem, calc(100% - 2.5rem)); margin:0 auto; padding:1.75rem 0 1.25rem; }
+    h1 { margin:0; font-size:clamp(1.75rem,3vw,2.35rem); font-weight:600; letter-spacing:-.02em; max-width:16ch; }
+    .lede { margin:.7rem 0 0; max-width:40rem; }
+    .cta { display:inline-flex; align-items:center; gap:.4rem; margin-top:1rem; background:var(--navy); color:#fff; text-decoration:none; font-size:.875rem; font-weight:600; padding:.7rem 1rem; }
+    .strip { padding:0 0 2rem; }
+    .wrap { width:min(72rem, calc(100% - 2.5rem)); margin:0 auto; }
+    h2 { margin:0 0 .85rem; font-size:1.05rem; font-weight:600; }
+    .row { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:.75rem; }
+    @media (max-width:900px){ .row { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+    .cell { text-decoration:none; color:inherit; }
+    .thumb { aspect-ratio:3/2; background:var(--band); border:1px solid var(--rule); }
+    .thumb img { width:100%; height:100%; object-fit:contain; }
+    .code { display:block; margin-top:.4rem; font-weight:600; color:var(--navy); }
+    .news { border-top:1px solid var(--rule); padding:1.75rem 0; }
+    .news-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+    @media (max-width:700px){ .news-grid { grid-template-columns:1fr; } }
+    .news article time { display:block; font-size:.75rem; color:#3a3a3a; }
+    .news article a { color:var(--navy); font-weight:600; text-decoration:none; font-size:1.05rem; }
+    footer { border-top:1px solid var(--rule); padding:1.15rem 1.5rem; font-size:.8125rem; color:#3a3a3a; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+    footer a { color:var(--ink); text-decoration:none; }
   </style>
 </head>
 <body>
-  <p class="sketch-note">04 · Left lockup + factory/contact band + types. Homepage sketch. Not for production.</p>
+  <p class="note">04 · Left lockup. MR homepage sequence (hero / types / news) without their chrome. Sketch only.</p>
   <header class="grid">
     <a class="lockup" href="/" aria-label="Huaming home">
       <img src="logo.png" alt="" width="100" height="30" />
@@ -122,34 +70,52 @@
     </div>
   </header>
   <main>
-    <div class="first">
-      <h1>Tap changers for power transformers</h1>
-      <p class="lede">On-load and de-energized. Vacuum and oil. Technical data as PDF. Lead time about 4–6 weeks.</p>
-    </div>
-    <section class="places" aria-label="Factory and office">
-      <article>
-        <h2>Factory</h2>
-        <p>Shanghai Huaming Power Equipment Co., Ltd.<br />No. 977 Tongpu Road, Putuo District, Shanghai 200333</p>
-      </article>
-      <article>
-        <h2>International HQ</h2>
-        <p>Huaming Power Equipment Singapore Pte. Ltd<br />1 Tai Seng Ave, Singapore 536464 · <a href="mailto:intl@huaming.com">intl@huaming.com</a></p>
-      </article>
+    <section class="hero" aria-label="Featured type">
+      <figure>
+        <img src="shzv.png" alt="SHZV vacuum on-load tap changer" width="600" height="414" />
+      </figure>
     </section>
-    <section class="types">
-      <h2>Types</h2>
-      <ul>
-        <li><img src="cv2.png" alt="" /><div><a href="/products/cv2/">CV2</a> · Vacuum OLTC</div></li>
-        <li><img src="cm2.png" alt="" /><div><a href="/products/cm2/">CM2</a> · Vacuum, CM envelope</div></li>
-        <li><img src="shzv.png" alt="" /><div><a href="/products/shzv/">SHZV</a> · Vacuum OLTC</div></li>
-        <li><img src="hwv.png" alt="" /><div><a href="/products/hwv/">HWV</a> · On-tank vacuum</div></li>
-        <li><img src="wsl.jpg" alt="" /><div><a href="/products/wsl/">WSL</a> · De-energized, cage</div></li>
-        <li><img src="cma7.jpg" alt="" /><div><a href="/products/cma7/">CMA7</a> · Motor drive</div></li>
-      </ul>
+    <section class="intro">
+      <h1>Tap changers for power transformers</h1>
+      <p class="lede">On-load and de-energized. Vacuum and oil. Shanghai factory. Singapore headquarters. Technical data as PDF. Typical lead time 4–6 weeks.</p>
+      <a class="cta" href="/downloads/">
+        Technical data
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+      </a>
+    </section>
+    <section class="strip" aria-label="Types">
+      <div class="wrap">
+        <h2>Types</h2>
+        <div class="row">
+          <a class="cell" href="/products/cv2/"><div class="thumb"><img src="cv2.png" alt="" width="600" height="414" /></div><span class="code">CV2</span></a>
+          <a class="cell" href="/products/cm2/"><div class="thumb"><img src="cm2.png" alt="" width="600" height="414" /></div><span class="code">CM2</span></a>
+          <a class="cell" href="/products/shzv/"><div class="thumb"><img src="shzv.png" alt="" width="600" height="414" /></div><span class="code">SHZV</span></a>
+          <a class="cell" href="/products/hwv/"><div class="thumb"><img src="hwv.png" alt="" width="600" height="414" /></div><span class="code">HWV</span></a>
+          <a class="cell" href="/products/wsl/"><div class="thumb"><img src="wsl.jpg" alt="" width="838" height="578" /></div><span class="code">WSL</span></a>
+          <a class="cell" href="/products/cma7/"><div class="thumb"><img src="cma7.jpg" alt="" width="836" height="577" /></div><span class="code">CMA7</span></a>
+        </div>
+      </div>
+    </section>
+    <section class="news" aria-label="News">
+      <div class="wrap">
+        <h2>News</h2>
+        <div class="news-grid">
+          <article>
+            <time datetime="2025-05-28">28 May 2025</time>
+            <p style="margin:.35rem 0 0;"><a href="/news/chvt-longdong-800kv/">CHVT in service at Longdong ±800 kV</a></p>
+            <p style="margin:.35rem 0 0;font-size:.875rem;">Converter-transformer on-load tap changer commissioned on the Longdong HVDC link.</p>
+          </article>
+          <article>
+            <time datetime="2025-04-29">29 April 2025</time>
+            <p style="margin:.35rem 0 0;"><a href="/news/singapore-international-hq/">International headquarters, Singapore</a></p>
+            <p style="margin:.35rem 0 0;font-size:.875rem;">Huaming Power Equipment Singapore Pte. Ltd opened at Tai Seng Exchange.</p>
+          </article>
+        </div>
+      </div>
     </section>
   </main>
-  <footer class="quiet">
-    <p>Shanghai Huaming Power Equipment Co., Ltd.</p>
+  <footer>
+    <p>Shanghai Huaming Power Equipment Co., Ltd. · intl@huaming.com</p>
     <p><a href="/downloads/">Downloads</a> · <a href="/contact/">Contact</a></p>
   </footer>
 </body>
