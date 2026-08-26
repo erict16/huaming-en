@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Header 04 · top-nav density / letter-spacing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #00428C;
+      --steel: #0071A9;
+      --ink: #262626;
+      --canvas: #ffffff;
+      --rule: #d1d1d1;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: "IBM Plex Sans", sans-serif;
+    }
+    .sketch-note {
+      margin: 0;
+      padding: 0.55rem 1.5rem;
+      background: #eef1f4;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+    .page-header { background: var(--canvas); }
+    .wrap {
+      width: min(72rem, calc(100% - 2.5rem));
+      margin-inline: auto;
+    }
+    /* DELTA: denser utility row. Current is 0.8rem / 300 / 0.42px / 1.25rem gaps. */
+    .top-nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.85rem;
+      padding: 0.55rem 0 0;
+      list-style: none;
+      margin: 0;
+    }
+    .top-nav a {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.6875rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .top-nav a:hover { color: var(--steel); }
+    .main-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 2.5rem 0;
+    }
+    .logo img {
+      display: block;
+      width: 7.5rem;
+      height: auto;
+      max-height: 3.5rem;
+      object-fit: contain;
+    }
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex: 1;
+    }
+    .main-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      line-height: 2.25rem;
+      padding: 0 1.875rem 0 0;
+    }
+    .main-nav a:hover { color: var(--steel); }
+    .chevron {
+      width: 10px;
+      height: 10px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: rotate(45deg);
+      margin-top: -4px;
+    }
+    .search {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .search svg { display: block; }
+    .dummy {
+      min-height: 40vh;
+      padding: 3rem 1.5rem;
+      color: #3a3a3a;
+    }
+    .dummy p { max-width: 36rem; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <p class="sketch-note">04 · Top-nav density / letter-spacing only. IBM Plex Sans. Not for production.</p>
+  <header class="page-header">
+    <div class="wrap">
+      <ul class="top-nav">
+        <li><a href="/news/">News</a></li>
+        <li><a href="/downloads/">Downloads</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="main-header">
+        <a class="logo" href="/" aria-label="Huaming home">
+          <img src="logo.png" alt="Huaming" width="160" height="48" />
+        </a>
+        <ul class="main-nav">
+          <li>
+            <a href="/products/">Products <span class="chevron" aria-hidden="true"></span></a>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/news/">News</a></li>
+        </ul>
+        <button class="search" type="button" aria-label="Search">
+          <svg width="22" height="22" viewBox="0 0 25 25" fill="none" aria-hidden="true">
+            <circle cx="10.5" cy="10.5" r="7" stroke="currentColor" stroke-width="2" />
+            <path d="M16 16l6 6" stroke="currentColor" stroke-width="2" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="dummy">
+    <p>Voltage regulation for power transformers. Header sketch only.</p>
+  </div>
+</body>
+</html>
