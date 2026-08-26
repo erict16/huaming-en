@@ -3,17 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Header 05 · bar height / padding</title>
+  <title>Header 05 · ink bar, small-caps nav</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --navy: #00428C;
       --steel: #0071A9;
       --ink: #262626;
       --canvas: #ffffff;
-      --rule: #d1d1d1;
     }
     * { box-sizing: border-box; }
     html, body {
@@ -24,130 +23,97 @@
     }
     .sketch-note {
       margin: 0;
-      padding: 0.55rem 1.5rem;
+      padding: 0.5rem 1.25rem;
       background: #eef1f4;
       font-size: 0.75rem;
-      letter-spacing: 0.04em;
-      color: var(--ink);
     }
-    .page-header { background: var(--canvas); }
-    .wrap {
+    header.ink {
+      background: var(--ink);
+      color: #fff;
+    }
+    .inner {
       width: min(72rem, calc(100% - 2.5rem));
-      margin-inline: auto;
-    }
-    .top-nav {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1.25rem;
-      padding: 0.45rem 0 0;
-      list-style: none;
-      margin: 0;
-    }
-    .top-nav a {
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 300;
-      font-size: 0.8rem;
-      letter-spacing: 0.42px;
-    }
-    .top-nav a:hover { color: var(--steel); }
-    /* DELTA: main row 1.05rem padding, ~3.5rem bar. Current is 2.5rem / 6.3rem. */
-    .main-header {
+      margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      padding: 1.05rem 0;
-      min-height: 3.5rem;
+      min-height: 3.25rem;
+      gap: 1.75rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+      color: #fff;
     }
     .logo img {
       display: block;
-      width: 7.5rem;
-      height: auto;
-      max-height: 3.5rem;
-      object-fit: contain;
+      height: 1.4rem;
+      width: auto;
+      filter: brightness(0) invert(1);
     }
-    .main-nav {
+    .logo .mark-rule {
+      width: 2px;
+      height: 1.15rem;
+      background: var(--steel);
+    }
+    nav.primary {
       display: flex;
-      align-items: center;
-      gap: 0;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      flex: 1;
+      gap: 1.35rem;
     }
-    .main-nav a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      color: var(--ink);
+    nav.primary a {
+      color: #fff;
       text-decoration: none;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      line-height: 2.25rem;
-      padding: 0 1.875rem 0 0;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
-    .main-nav a:hover { color: var(--steel); }
-    .chevron {
-      width: 10px;
-      height: 10px;
-      border-right: 1.5px solid currentColor;
-      border-bottom: 1.5px solid currentColor;
-      transform: rotate(45deg);
-      margin-top: -4px;
+    nav.primary a:hover { color: #b8d4e8; }
+    .spacer { flex: 1; }
+    nav.util {
+      display: flex;
+      gap: 1rem;
     }
-    .search {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.5rem;
-      height: 2.5rem;
-      border: 0;
-      background: transparent;
-      color: var(--ink);
-      cursor: pointer;
+    nav.util a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.6875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
-    .search svg { display: block; }
+    nav.util a:hover { color: #fff; }
     .dummy {
-      min-height: 40vh;
-      padding: 3rem 1.5rem;
+      max-width: 40rem;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
       color: #3a3a3a;
     }
-    .dummy p { max-width: 36rem; margin: 0 auto; }
   </style>
 </head>
 <body>
-  <p class="sketch-note">05 · Sticky bar height / padding only. IBM Plex Sans. Not for production.</p>
-  <header class="page-header">
-    <div class="wrap">
-      <ul class="top-nav">
-        <li><a href="/news/">News</a></li>
-        <li><a href="/downloads/">Downloads</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul>
-      <div class="main-header">
-        <a class="logo" href="/" aria-label="Huaming home">
-          <img src="logo.png" alt="Huaming" width="160" height="48" />
-        </a>
-        <ul class="main-nav">
-          <li>
-            <a href="/products/">Products <span class="chevron" aria-hidden="true"></span></a>
-          </li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/news/">News</a></li>
-        </ul>
-        <button class="search" type="button" aria-label="Search">
-          <svg width="22" height="22" viewBox="0 0 25 25" fill="none" aria-hidden="true">
-            <circle cx="10.5" cy="10.5" r="7" stroke="currentColor" stroke-width="2" />
-            <path d="M16 16l6 6" stroke="currentColor" stroke-width="2" />
-          </svg>
-        </button>
-      </div>
+  <p class="sketch-note">05 · Ink full-bleed bar, small-caps nav, small mark. Header system sketch. Not for production.</p>
+  <header class="ink">
+    <div class="inner">
+      <a class="logo" href="/" aria-label="Huaming home">
+        <img src="logo.png" alt="" width="90" height="28" />
+        <span class="mark-rule" aria-hidden="true"></span>
+      </a>
+      <nav class="primary" aria-label="Primary">
+        <a href="/products/">Products</a>
+        <a href="/about/">About</a>
+        <a href="/news/">News</a>
+      </nav>
+      <span class="spacer"></span>
+      <nav class="util" aria-label="Utility">
+        <a href="/news/">News</a>
+        <a href="/downloads/">Downloads</a>
+        <a href="/contact/">Contact</a>
+      </nav>
     </div>
   </header>
   <div class="dummy">
-    <p>Voltage regulation for power transformers. Header sketch only.</p>
+    <p>Voltage regulation for power transformers. Header chrome only.</p>
   </div>
 </body>
 </html>

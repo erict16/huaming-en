@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Header 03 · logo size / left inset</title>
+  <title>Header 03 · steel rail + text flyout</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --navy: #00428C;
@@ -24,130 +24,130 @@
     }
     .sketch-note {
       margin: 0;
-      padding: 0.55rem 1.5rem;
+      padding: 0.5rem 1.25rem;
       background: #eef1f4;
       font-size: 0.75rem;
-      letter-spacing: 0.04em;
-      color: var(--ink);
     }
-    .page-header { background: var(--canvas); }
-    /* DELTA: wrap flush-left (1rem inset). Current chrome uses ~1.25rem + 7.5rem mark. */
-    .wrap {
-      width: min(72rem, calc(100% - 2rem));
-      margin-inline: 1rem auto;
+    .rail {
+      background: var(--steel);
+      color: #fff;
+      font-size: 0.75rem;
     }
-    .top-nav {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1.25rem;
-      padding: 0.85rem 0 0;
-      list-style: none;
-      margin: 0;
-    }
-    .top-nav a {
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 300;
-      font-size: 0.8rem;
-      letter-spacing: 0.42px;
-    }
-    .top-nav a:hover { color: var(--steel); }
-    .main-header {
+    .rail .inner,
+    .lower .inner {
+      width: min(72rem, calc(100% - 2.5rem));
+      margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      padding: 2.5rem 0;
     }
-    /* DELTA: wordmark 5.25rem, not the 7.5rem seal-scale lockup. */
+    .rail .inner {
+      justify-content: flex-end;
+      gap: 1.15rem;
+      min-height: 1.85rem;
+    }
+    .rail a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .rail a:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+    .lower {
+      background: var(--canvas);
+      border-bottom: 1px solid var(--rule);
+    }
+    .lower .inner {
+      min-height: 3.75rem;
+      gap: 2rem;
+    }
     .logo img {
       display: block;
-      width: 5.25rem;
-      height: auto;
-      max-height: 2.5rem;
-      object-fit: contain;
+      height: 2rem;
+      width: auto;
     }
-    .main-nav {
+    nav.primary {
+      display: flex;
+      align-items: stretch;
+      gap: 0.25rem;
+    }
+    nav.primary > a,
+    .has-fly > a {
       display: flex;
       align-items: center;
-      gap: 0;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      flex: 1;
-    }
-    .main-nav a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
+      padding: 0 0.9rem;
       color: var(--ink);
       text-decoration: none;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      line-height: 2.25rem;
-      padding: 0 1.875rem 0 0;
+      font-size: 0.9375rem;
+      font-weight: 500;
     }
-    .main-nav a:hover { color: var(--steel); }
-    .chevron {
-      width: 10px;
-      height: 10px;
-      border-right: 1.5px solid currentColor;
-      border-bottom: 1.5px solid currentColor;
-      transform: rotate(45deg);
-      margin-top: -4px;
+    nav.primary > a:hover,
+    .has-fly:hover > a,
+    .has-fly:focus-within > a {
+      color: var(--navy);
     }
-    .search {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.5rem;
-      height: 2.5rem;
-      border: 0;
-      background: transparent;
+    .has-fly { position: relative; display: flex; }
+    .fly {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 13rem;
+      margin: 0;
+      padding: 0.4rem 0;
+      list-style: none;
+      background: var(--canvas);
+      border: 1px solid var(--rule);
+      z-index: 20;
+    }
+    .has-fly:hover .fly,
+    .has-fly:focus-within .fly { display: block; }
+    .fly a {
+      display: block;
+      padding: 0.4rem 0.9rem;
       color: var(--ink);
-      cursor: pointer;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 400;
     }
-    .search svg { display: block; }
+    .fly a:hover { background: #eef1f4; color: var(--navy); }
     .dummy {
-      min-height: 40vh;
-      padding: 3rem 1.5rem;
+      max-width: 40rem;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
       color: #3a3a3a;
     }
-    .dummy p { max-width: 36rem; margin: 0 auto; }
   </style>
 </head>
 <body>
-  <p class="sketch-note">03 · Logo size / left inset only. IBM Plex Sans. Not for production.</p>
-  <header class="page-header">
-    <div class="wrap">
-      <ul class="top-nav">
-        <li><a href="/news/">News</a></li>
-        <li><a href="/downloads/">Downloads</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul>
-      <div class="main-header">
+  <p class="sketch-note">03 · Steel top rail + white lower nav, text flyout. Header system sketch. Not for production.</p>
+  <header>
+    <div class="rail">
+      <div class="inner">
+        <a href="/news/">News</a>
+        <a href="/downloads/">Downloads</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </div>
+    <div class="lower">
+      <div class="inner">
         <a class="logo" href="/" aria-label="Huaming home">
-          <img src="logo.png" alt="Huaming" width="160" height="48" />
+          <img src="logo.png" alt="" width="120" height="36" />
         </a>
-        <ul class="main-nav">
-          <li>
-            <a href="/products/">Products <span class="chevron" aria-hidden="true"></span></a>
-          </li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/news/">News</a></li>
-        </ul>
-        <button class="search" type="button" aria-label="Search">
-          <svg width="22" height="22" viewBox="0 0 25 25" fill="none" aria-hidden="true">
-            <circle cx="10.5" cy="10.5" r="7" stroke="currentColor" stroke-width="2" />
-            <path d="M16 16l6 6" stroke="currentColor" stroke-width="2" />
-          </svg>
-        </button>
+        <nav class="primary" aria-label="Primary">
+          <div class="has-fly">
+            <a href="/products/">Products</a>
+            <ul class="fly">
+              <li><a href="/products/oltc/">On-load</a></li>
+              <li><a href="/products/octc/">De-energized</a></li>
+              <li><a href="/products/accessories/">Motor drives</a></li>
+            </ul>
+          </div>
+          <a href="/about/">About</a>
+          <a href="/news/">News</a>
+        </nav>
       </div>
     </div>
   </header>
   <div class="dummy">
-    <p>Voltage regulation for power transformers. Header sketch only.</p>
+    <p>Voltage regulation for power transformers. Hover Products for a text flyout. Header chrome only.</p>
   </div>
 </body>
 </html>

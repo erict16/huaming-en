@@ -1,13 +1,13 @@
-# Header sketches — overnight-unclone cycle 1
+# Header systems — overnight-unclone cycle 1b
 
-Baseline in every file is the current `Header.astro` IA (logo, Products / About / News, top strip News / Downloads / Contact, search) on white, IBM Plex Sans, Huaming navy/steel/ink. One delta per file. Not implemented in `src/`.
+Not the micro pass. Each file is a different header architecture. Same IA: Products / About / News, utility News / Downloads / Contact. IBM Plex Sans. Navy / steel / ink / white.
 
-**01 — Nav type scale / weight.** Main links are 0.875rem / 500 instead of 1rem / 700. Still a manufacturer bar: sentence case, same items, same search. Less copied Reinhausen because the live MR/clone chrome is the heavy 16px bold row; a medium 14px row is the datasheet-site register without becoming a startup pill nav.
+**01 — Single compact bar.** One 3.5rem white row: modest HM mark, text primary, utility as small text on the same bar after a hairline split. Still OEM: dense, no pills, no campaign stage. A stranger would not say Reinhausen because that chrome is a tall two-deck white frame with a giant mark; this is one working toolbar.
 
-**02 — Hairline under the header.** A 1px `#d1d1d1` rule under the white bar. Everything else (tall padding, bold nav, 7.5rem mark) stays. Still OEM: the page is a sheet with a cut. Less copied Reinhausen because that header is meant to float into the stage with no rule; the hairline is the catalog/spec tell.
+**02 — Navy solid bar.** Full `#00428C` field, white type, 3px steel rule under the bar. Mark inverted to white plus the word Huaming. Still OEM: manufacturer site, not a landing. A stranger would not say Reinhausen because that header is a white page-top with a circular seal; this is a painted identity bar in Huaming navy.
 
-**03 — Logo size / left inset.** Wordmark 5.25rem, wrap inset 1rem, not the 7.5rem seal-scale lockup. Same type, same top strip. Still OEM: HM sits as a wordmark, not a badge. Less copied Reinhausen because the clone inherits the large circular-mark presence; Huaming’s lockup is a horizontal HM, and shrinking it stops mimicking that seal.
+**03 — Steel rail + text flyout.** Thin `#0071A9` utility rail, then a short white nav with a CSS text flyout (On-load / De-energized / Motor drives). Still OEM: two decks, but a color rail and a list, not a carousel. A stranger would not say Reinhausen because that Products menu is a mega swiper; this is a paper flyout, and the top strip is steel, not a floating light row.
 
-**04 — Top-nav density / letter-spacing.** Utility row is 0.6875rem, weight 500, 0.14em uppercase, 0.85rem gaps, instead of 0.8rem / 300 / 0.42px. Main bar unchanged. Still OEM: News / Downloads / Contact as a tight spec strip. Less copied Reinhausen because that top row is airy light sentence-case; tracked uppercase is the engineering-utility register.
+**04 — Left lockup column.** Small mark, name, and “Tap changers” stacked in an 11.5rem column with a vertical rule; links live in the right pane. Still OEM: nameplate beside the nav, like a machine plate. A stranger would not say Reinhausen because that logo is a large centered-left seal in a tall pad; this is a side lockup, not a wordmark block.
 
-**05 — Sticky bar height / padding.** Main row padding 1.05rem, bar about 3.5rem, instead of 2.5rem padding / 6.3rem nav height. Type, logo, and top strip stay. Still OEM: two-row chrome, same IA. Less copied Reinhausen because the tall floating header is the MR fingerprint; a shorter bar reads as a working site header, not a campaign frame.
+**05 — Ink full-bleed, small-caps.** `#262626` bar, 1.4rem mark, steel tick, uppercase tracked primary. Still OEM: quiet, precise, no glow. A stranger would not say Reinhausen because that header is white and large; this is a dark instrument strip with the logo as a mark, not a giant wordmark.
