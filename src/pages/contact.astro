@@ -143,7 +143,6 @@ import { offices } from "../lib/catalog";
                         name="message"
                       ></textarea>
                       <div class="placholder">Message<span class="mandatory">*</span></div>
-                      <div class="textarea-length"></div>
                     </div>
                   </div>
                   <div class="powermail_fieldwrap powermail_fieldwrap_type_check powermail_fieldwrap_checkbox no-label">
@@ -171,7 +170,9 @@ import { offices } from "../lib/catalog";
                     class="powermail_fieldwrap d-flex justify-content-end powermail_fieldwrap_type_submit powermail_fieldwrap_submit no-label"
                   >
                     <div class="powermail_field">
-                      <button class="cta cta-gradient powermail_submit" type="submit">Send</button>
+                      <button class="cta cta-gradient powermail_submit" type="submit" value="Send">
+                        Send
+                      </button>
                     </div>
                   </div>
                 </fieldset>
@@ -295,6 +296,9 @@ import { offices } from "../lib/catalog";
         });
         cards.forEach(function (c) {
           c.hidden = c.getAttribute("data-tab") !== "international";
+        });
+        document.querySelectorAll(".tx-powermail *").forEach(function (n) {
+          if (n.childNodes.length === 1 && n.textContent.trim() === "undefined") n.remove();
         });
       })();
     </script>

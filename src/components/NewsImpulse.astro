@@ -42,11 +42,11 @@ const latest = news.slice(0, 6);
               latest.map((item) => (
                 <div class="swiper-slide">
                   <a href={`/news/${item.slug}/`}>
-                    <div class="newsimpulse-image">
-                      {newsBandSrc(item.slug) ? (
-                        <img class="no-crop product-img" src={newsBandSrc(item.slug)!} alt="" />
-                      ) : null}
-                    </div>
+                    {newsBandSrc(item.slug) ? (
+                      <div class="newsimpulse-image">
+                        <img class="no-crop product-img" src={newsBandSrc(item.slug)!} alt="" width="600" height="414" />
+                      </div>
+                    ) : null}
                     <p>{item.date}</p>
                     <h3>{item.title}</h3>
                     <p>{item.summary}</p>

@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { side, swiperId, lead, slides } = Astro.props;
-const leadPhoto = newsArticlePhoto(lead.slug);
+const leadPhoto = newsArticlePhoto(lead.slug) ?? newsBandSrc(lead.slug);
 ---
 
 <div class="frame frame-default frame-type-sitereinhausen_topicteaser frame-layout-0 frame-space-before-half">
@@ -20,15 +20,13 @@ const leadPhoto = newsArticlePhoto(lead.slug);
         <div class="row">
           <div class="article-main-area col-lg-12 col-xl-6">
             <div class="blue-teaser bg-gradient">
-              <div class="image">
-                {
-                  leadPhoto ? (
+              {
+                leadPhoto ? (
+                  <div class="image">
                     <img class="media-element-image no-crop" src={leadPhoto} alt="" />
-                  ) : (
-                    <div class="image-placeholder"></div>
-                  )
-                }
-              </div>
+                  </div>
+                ) : null
+              }
               <div class="content">
                 <h2>{lead.title}</h2>
                 <p>{lead.summary}</p>
@@ -52,15 +50,17 @@ const leadPhoto = newsArticlePhoto(lead.slug);
                       <a href={`/news/${item.slug}/`} class="link-wrap">
                         <div data-date="0">
                           <div class="articleWrapper">
-                            <div class="articleImage media-16-9">
-                              {newsBandSrc(item.slug) ? (
+                            {newsBandSrc(item.slug) ? (
+                              <div class="articleImage media-16-9">
                                 <img
                                   class="media-element-image no-crop"
                                   src={newsBandSrc(item.slug)!}
                                   alt=""
+                                  width="600"
+                                  height="414"
                                 />
-                              ) : null}
-                            </div>
+                              </div>
+                            ) : null}
                             <div class="swiper-text-container">
                               <div class="swiper-text">
                                 <div class="news-overview-item-text">
