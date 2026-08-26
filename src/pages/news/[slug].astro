@@ -1,6 +1,5 @@
 ---
 import Base from "../../layouts/Base.astro";
-import Breadcrumb from "../../components/Breadcrumb.astro";
 import InnerTeaser from "../../components/InnerTeaser.astro";
 import { news, newsArticlePhoto, newsBySlug } from "../../lib/news";
 
@@ -10,126 +9,50 @@ export function getStaticPaths() {
 
 const item = newsBySlug(Astro.params.slug!);
 if (!item) throw new Error("unknown news");
-const lead = item.body[0] ?? item.summary;
-const rest = item.body.slice(1);
-const band = newsArticlePhoto(item.slug);
-const bandStyle = band ? `background-image: url("${encodeURI(band)}")` : undefined;
+const photo = newsArticlePhoto(item.slug);
 ---
 
 <Base title={`${item.title} · Huaming`} description={item.summary}>
-  <main id="main">
-    <div class="frame frame-default frame-type-sitereinhausen_articleintro frame-layout-0">
-      <div class="articleIntro">
-        <div class="articleIntro-image">
-          <div class="background media-100-16-6 d-none d-md-block" style={bandStyle}></div>
-          <div class="background media-100-16-6 d-block d-md-none" style={bandStyle}></div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <div class="blueBox d-block d-xl-none">
-                <h1>{item.title}</h1>
-                <div class="intro">
-                  <p style="margin-bottom: 0;">{item.summary}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="d-flex box-left full-width">
-              <div class="col-12 col-lg-6 d-none d-xl-block">
-                <div class="blueBox">
-                  <h1>{item.title}</h1>
-                  <div class="intro">
-                    <p style="margin-bottom: 0;">{item.summary}</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-xl-6">
-                <Breadcrumb
-                  crumbs={[
-                    { href: "/", label: "Home" },
-                    { href: "/news/", label: "News" },
-                  ]}
-                />
-              </div>
-            </div>
-            <div class="col-12 col-xl-6 offset-xl-6">
-              <div class="article-text intro article-text-left">
-                <p>{item.date}. {lead}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="frame frame-default frame-type-sitereinhausen_articlequote frame-layout-0 frame-space-before-noSpace">
-      <div class="quote">
-        <div class="background">
-          <div class="media-content">
-            <div class="container">
-              <div class="row">
-                <div
-                  class="quote-content col-8 col-s-8 col-lg-8 offset-4 offset-s-3 offset-sm-3 offset-md-2 offset-lg-2 offset-xl-1 offset-xxl-1"
-                >
-                  <p class="quote-text darkblue">{item.summary}</p>
-                  <p class="author">Live newsroom, {item.date}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <main id="main" class="hm-list hm-article">
+    <div class="hm-wrap hm-list-intro">
+      <p class="hm-pdp-kicker">
+        <a href="/news/">News</a>
+        {" · "}
+        <time datetime={item.date}>{item.date}</time>
+      </p>
+      <h1>{item.title}</h1>
+      <p class="hm-list-lede">{item.summary}</p>
     </div>
     {
-      item.figures?.length ? (
-        <div class="frame frame-default frame-type-sitereinhausen_articlenumbers frame-layout-0">
-          <div class="numbers-module bg-grey">
-            <div class="container">
-              <div class="number-headline">
-                <h2>From the article</h2>
-              </div>
-              <div class="numbers row two-column one-column-sm">
-                <div class="col-12 col-xxl-10 offset-xxl-1">
-                  <div class="row justify-content-sm-center justify-content-md-start">
-                    {item.figures.map((f) => (
-                      <div class="number col-12 col-md-6 col-sm-12">
-                        <span class="number-number">
-                          <span class="val">{f.val}</span>
-                          {f.unit ? <span>{f.unit}</span> : null}
-                        </span>
-                        <p class="number-label">{f.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      photo ? (
+        <figure class="hm-wrap hm-article-photo">
+          <img src={photo} alt="" />
+        </figure>
       ) : null
     }
-    {
-      rest.length ? (
-        <div class="frame frame-default frame-type-sitereinhausen_text frame-layout-0">
-          <div class="text-module bg-white" style="position: relative;">
-            <div class="container">
-              <div class="row">
-                <div class="col-12 col-sm-6 col-lg-5 offset-lg-1">
-                  <div class="text-wrapper">
-                    {rest.map((p) => (
-                      <p>{p}</p>
-                    ))}
-                  </div>
-                </div>
+    <div class="hm-wrap hm-article-body">
+      {item.body.map((p) => (
+        <p>{p}</p>
+      ))}
+      {
+        item.figures?.length ? (
+          <dl class="hm-facts">
+            {item.figures.map((f) => (
+              <div>
+                <dt>
+                  {f.val}
+                  {f.unit ? ` ${f.unit}` : ""}
+                </dt>
+                <dd>{f.label}</dd>
               </div>
-            </div>
-          </div>
-        </div>
-      ) : null
-    }
+            ))}
+          </dl>
+        ) : null
+      }
+      <p class="hm-list-pdf">
+        <a href="/news/">All news</a>
+      </p>
+    </div>
     <InnerTeaser />
   </main>
 </Base>

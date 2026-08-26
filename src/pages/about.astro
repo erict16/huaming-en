@@ -1,165 +1,131 @@
 ---
 import Base from "../layouts/Base.astro";
-import Breadcrumb from "../components/Breadcrumb.astro";
 import InnerTeaser from "../components/InnerTeaser.astro";
-import NewsImpulse from "../components/NewsImpulse.astro";
-import TextMedia from "../components/TextMedia.astro";
 import { offices } from "../lib/catalog";
+import { news } from "../lib/news";
 ---
 
 <Base title="About · Huaming" description="Shanghai Huaming Power Equipment Co., Ltd. makes tap changers for power transformers.">
-  <main id="main">
-    <div class="frame frame-default frame-type-sitereinhausen_introtext frame-layout-0">
-      <div class="introtext bg-white">
-        <div class="container">
-          <Breadcrumb crumbs={[{ href: "/", label: "Home" }]} visible={false} />
-          <div>
-            <h1 class="h1ToIntro">About Huaming</h1>
-          </div>
-          <div class="row">
-            <div class="intro col-xl-12 col-xxl-10">
-              <p>
-                Shanghai factory. Singapore international headquarters. Tap changers for power
-                transformers: on-load and de-energized, vacuum and oil, plus the motor drive.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="frame frame-default frame-type-sitereinhausen_text frame-layout-0">
-      <div class="text-module bg-white" style="position: relative;">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-sm-6 col-lg-5 offset-lg-1">
-              <h2 class="headline mb-sm-0">Shanghai factory. Singapore international headquarters.</h2>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-5">
-              <div class="text-wrapper">
-                <p>
-                  Legal name: Shanghai Huaming Power Equipment Co., Ltd. Credit code 913101076076323035.
-                  Factory at No. 977 Tongpu Road, Putuo District, Shanghai 200333. International mail:
-                  <a href="mailto:intl@huaming.com">intl@huaming.com</a>.
-                </p>
-                <p>
-                  International headquarters: Huaming Power Equipment Singapore Pte. Ltd, Tai Seng Exchange
-                  (TSX) Tower A #03-13, 1 Tai Seng Ave, Singapore 536464. The company announced that office
-                  on 29 April 2025.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="frame frame-default frame-type-sitereinhausen_articlenumbers frame-layout-0">
-      <div class="numbers-module bg-grey">
-        <div class="container">
-          <div class="number-headline">
-            <h2>Figures, data, facts</h2>
-          </div>
-          <div class="numbers row three-column three-column-sm">
-            <div class="col-12 col-xxl-10 offset-xxl-1">
-              <div class="row justify-content-sm-center justify-content-md-start">
-                <div class="number three-column col-12 col-md-4 three-column-sm col-sm-4">
-                  <span class="number-overline bolder">Founded</span>
-                  <span class="number-number"><span class="val">1989</span></span>
-                  <p class="number-label">Shanghai. History page starts the listed subsidiary in 1995.</p>
-                </div>
-                <div class="number three-column col-12 col-md-4 three-column-sm col-sm-4">
-                  <span class="number-overline bolder">Countries</span>
-                  <span class="number-number"><span class="val">150</span></span>
-                  <p class="number-label">Tap changers in 150+ countries (chairman letter).</p>
-                </div>
-                <div class="number three-column col-12 col-md-4 three-column-sm col-sm-4">
-                  <span class="number-overline bolder">Lead time</span>
-                  <span class="number-number"><span class="val">6</span></span>
-                  <p class="number-label">About 4–6 weeks, standard.</p>
-                </div>
-                <div class="number three-column col-12 col-md-4 three-column-sm col-sm-4">
-                  <span class="number-overline bolder">Listed</span>
-                  <span class="number-number"><span class="val">2015</span></span>
-                  <p class="number-label">Shenzhen 002270.SZ. Changzheng Electric 2018.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="frame frame-default frame-type-sitereinhausen_articlequote frame-layout-0 frame-space-before-half">
-      <div class="quote">
-        <div class="background">
-          <div class="media-content">
-            <div class="container">
-              <div class="row">
-                <div
-                  class="quote-content col-8 col-s-8 col-lg-8 offset-4 offset-s-3 offset-sm-3 offset-md-2 offset-lg-2 offset-xl-1 offset-xxl-1"
-                >
-                  <p class="quote-text darkblue">Tap changers in 150+ countries.</p>
-                  <p class="author">Chairman letter</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <TextMedia
-      title="Management"
-      image="/images/00_HuaMing/about/chariman-raw.png"
-      caption="Xiao Yi. General manager since 1995."
-    >
-      <p>
-        <strong>Xiao Yi (肖毅)</strong>
-        <br />
-        General manager since 1995.
+  <main id="main" class="hm-list hm-about">
+    <div class="hm-wrap hm-list-intro">
+      <h1>About Huaming</h1>
+      <p class="hm-list-lede">
+        Shanghai factory. Singapore international headquarters. Tap changers for power transformers:
+        on-load and de-energized, vacuum and oil, plus the motor drive.
       </p>
-    </TextMedia>
-    <TextMedia
-      title="History"
-      image="/images/00_HuaMing/about/about-photo.jpg"
-      caption="Shanghai factory, Putuo."
-    >
-      <p>
-        Shanghai Huaming Power Equipment Co., Ltd. History page starts the listed subsidiary in 1995. Factory
-        work from 1989. Listed Shenzhen 002270.SZ, 2015.
-      </p>
-      <p>Turkey plant 2016. Brazil and USA outlets 2019. Singapore subsidiary 2022. Indonesia plant 2025.</p>
-    </TextMedia>
-    <TextMedia
-      title="Laboratory"
-      image="/images/00_HuaMing/home/engineers-helmets-standing-by-factory.png"
-      caption="Shanghai factory. CNAS laboratory accreditation, 2009."
-    >
-      <p>CNAS laboratory accreditation, 2009. Public pages list ISO 9001, ISO 14001, and ISO 18001.</p>
-      <p>CHVT at Longdong ±800 kV HVDC, commissioned 28 May 2025.</p>
-    </TextMedia>
-    <div class="frame frame-default frame-type-sitereinhausen_text frame-layout-0">
-      <div class="text-module bg-white" style="position: relative;">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-sm-6 col-lg-5 offset-lg-1">
-              <h2 class="headline">Offices</h2>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-5">
-              <div class="text-wrapper">
-                {
-                  offices.map((o) => (
-                    <p>
-                      <strong>{o.name}</strong>
-                      {` ${o.role}. `}
-                      {o.lines.join(", ")}
-                    </p>
-                  ))
-                }
-              </div>
-            </div>
-          </div>
-        </div>
+    </div>
+
+    <div class="hm-wrap hm-about-split">
+      <h2>Shanghai factory. Singapore headquarters.</h2>
+      <div>
+        <p>
+          Legal name: Shanghai Huaming Power Equipment Co., Ltd. Credit code 913101076076323035. Factory
+          at No. 977 Tongpu Road, Putuo District, Shanghai 200333. International mail:{" "}
+          <a href="mailto:intl@huaming.com">intl@huaming.com</a>.
+        </p>
+        <p>
+          International headquarters: Huaming Power Equipment Singapore Pte. Ltd, Tai Seng Exchange (TSX)
+          Tower A #03-13, 1 Tai Seng Ave, Singapore 536464. The company announced that office on 29 April
+          2025.
+        </p>
       </div>
     </div>
-    <NewsImpulse heading="News from the company" />
+
+    <dl class="hm-wrap hm-facts">
+      <div>
+        <dt>Founded</dt>
+        <dd>1989. History page starts the listed subsidiary in 1995.</dd>
+      </div>
+      <div>
+        <dt>Countries</dt>
+        <dd>Tap changers in 150+ countries (chairman letter).</dd>
+      </div>
+      <div>
+        <dt>Lead time</dt>
+        <dd>About 4–6 weeks, standard.</dd>
+      </div>
+      <div>
+        <dt>Listed</dt>
+        <dd>Shenzhen 002270.SZ, 2015. Changzheng Electric 2018.</dd>
+      </div>
+    </dl>
+
+    <div class="hm-wrap hm-about-media">
+      <div>
+        <h2>Management</h2>
+        <p><strong>Xiao Yi (肖毅)</strong><br />General manager since 1995.</p>
+      </div>
+      <figure>
+        <img src="/images/00_HuaMing/about/chariman-raw.png" alt="Xiao Yi. General manager since 1995." />
+        <figcaption>Xiao Yi. General manager since 1995.</figcaption>
+      </figure>
+    </div>
+    <div class="hm-wrap hm-about-media">
+      <div>
+        <h2>History</h2>
+        <p>
+          Shanghai Huaming Power Equipment Co., Ltd. History page starts the listed subsidiary in 1995.
+          Factory work from 1989. Listed Shenzhen 002270.SZ, 2015.
+        </p>
+        <p>Turkey plant 2016. Brazil and USA outlets 2019. Singapore subsidiary 2022. Indonesia plant 2025.</p>
+      </div>
+      <figure>
+        <img src="/images/00_HuaMing/about/about-photo.jpg" alt="Shanghai factory, Putuo." />
+        <figcaption>Shanghai factory, Putuo.</figcaption>
+      </figure>
+    </div>
+    <div class="hm-wrap hm-about-media">
+      <div>
+        <h2>Laboratory</h2>
+        <p>CNAS laboratory accreditation, 2009. Public pages list ISO 9001, ISO 14001, and ISO 18001.</p>
+        <p>CHVT at Longdong ±800 kV HVDC, commissioned 28 May 2025.</p>
+      </div>
+      <figure>
+        <img
+          src="/images/00_HuaMing/home/engineers-helmets-standing-by-factory.png"
+          alt="Shanghai factory. CNAS laboratory accreditation, 2009."
+        />
+        <figcaption>Shanghai factory. CNAS laboratory accreditation, 2009.</figcaption>
+      </figure>
+    </div>
+
+    <div class="hm-wrap">
+      <h2 class="hm-more-h">Offices</h2>
+      <div class="hm-offices">
+        {
+          offices.map((o) => (
+            <article>
+              <p class="hm-place">{o.role}</p>
+              <h2>{o.name}</h2>
+              {o.lines.map((line) => (
+                <p>{line}</p>
+              ))}
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <section class="hm-news hm-about-news" aria-label="News">
+      <div class="hm-wrap">
+        <h2>News</h2>
+        <ul>
+          {
+            news.slice(0, 4).map((item, i) => (
+              <li>
+                <span class="hm-n">{String(i + 1).padStart(2, "0")}</span>
+                <div>
+                  <a href={`/news/${item.slug}/`}>{item.title}</a>
+                  <p>{item.summary}</p>
+                </div>
+                <time datetime={item.date}>{item.date}</time>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="hm-list-pdf"><a href="/news/">All news</a></p>
+      </div>
+    </section>
     <InnerTeaser />
   </main>
 </Base>

@@ -1,35 +1,35 @@
 ---
 import Base from "../../layouts/Base.astro";
-import Breadcrumb from "../../components/Breadcrumb.astro";
 import InnerTeaser from "../../components/InnerTeaser.astro";
-import TopicTeaser from "../../components/TopicTeaser.astro";
 import { news } from "../../lib/news";
-
-const groups = [
-  { side: "left" as const, id: "1", lead: news[0], slides: news.slice(1, 4) },
-  { side: "right" as const, id: "2", lead: news[5], slides: news.slice(6, 9) },
-  { side: "left" as const, id: "3", lead: news[9], slides: [news[10], news[11], news[4]] },
-];
 ---
 
 <Base title="News · Huaming" description="Articles listed on the live English newsroom. Titles rewritten. No extra stories invented.">
-  <main id="main">
-    <div class="frame frame-default frame-type-sitereinhausen_introtext frame-layout-0">
-      <div class="introtext bg-white">
-        <div class="container">
-          <Breadcrumb crumbs={[{ href: "/", label: "Home" }]} visible={false} />
-          <div>
-            <h1 class="h1ToIntro">News</h1>
-          </div>
-          <div class="row">
-            <div class="intro col-xl-12 col-xxl-10">
-              <p>From the live English newsroom. We rewrote the titles. We did not invent extra stories.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <main id="main" class="hm-list">
+    <div class="hm-wrap hm-list-intro">
+      <h1>News</h1>
+      <p class="hm-list-lede">
+        From the live English newsroom. Titles rewritten. No extra stories invented.
+      </p>
     </div>
-    {groups.map((g) => <TopicTeaser side={g.side} swiperId={g.id} lead={g.lead} slides={g.slides} />)}
+    <section class="hm-news" aria-label="News">
+      <div class="hm-wrap">
+        <ul>
+          {
+            news.map((item, i) => (
+              <li>
+                <span class="hm-n">{String(i + 1).padStart(2, "0")}</span>
+                <div>
+                  <a href={`/news/${item.slug}/`}>{item.title}</a>
+                  <p>{item.summary}</p>
+                </div>
+                <time datetime={item.date}>{item.date}</time>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
     <InnerTeaser />
   </main>
 </Base>
