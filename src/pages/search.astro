@@ -1,7 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
 import InnerTeaser from "../components/InnerTeaser.astro";
-import SearchBox from "../components/SearchBox.astro";
 import { products } from "../lib/catalog";
 import { allDownloads } from "../lib/downloads";
 import { news } from "../lib/news";
@@ -29,91 +28,91 @@ const rows = [
 ---
 
 <Base title="Search · Huaming" description="Search types, PDFs, and news.">
-  <main id="main">
-    <SearchBox />
-
-    <div class="frame frame-default frame-type-ke_search_pi2 frame-layout-0">
-      <div class="tx-kesearch-pi1">
-        <div class="container">
-          <input type="hidden" id="resultCounter" value="0" />
-          <div id="kesearch_results">
-            {
-              rows.map((r, i) => (
-                <div
-                  class={`result-list-item result-list-item-type-${r.type}`}
-                  data-search={`${r.title} ${r.teaser} ${r.href}`.toLowerCase()}
-                  hidden
-                >
-                  <div class="result-number">{i + 1}.</div>
-                  <div class="result-title result-title-page">
-                    <a href={r.href}>{r.title}</a>
-                  </div>
-                  <div class="result-teaser">{r.teaser}</div>
-                  <div class="add-info">{r.type}</div>
-                </div>
-              ))
-            }
-            <div class="load-more">
-              <div class="content">Show more</div>
-            </div>
-          </div>
-          <div id="kesearch_pagebrowser_bottom"></div>
-        </div>
-      </div>
+  <main id="main" class="hm-list hm-search-page">
+    <div class="hm-wrap hm-list-intro">
+      <h1>Search</h1>
+      <p class="hm-list-lede">Types, PDFs, and news. Two characters or more.</p>
+      <form class="hm-docs-search" method="get" action="/search/" id="form_kesearch_pi1">
+        <label class="hm-label" for="ke_search_sword">
+          Query
+          <input
+            class="hm-field ke_search_sword_search"
+            type="search"
+            id="ke_search_sword"
+            name="q"
+            required
+            minlength="2"
+            placeholder="CM2, SHZV, Longdong…"
+          />
+        </label>
+        <button class="hm-submit" type="submit">Search</button>
+        <p id="resultCounterInfo" hidden>
+          <span id="countedResults">0</span> results
+          <span id="searchWord"></span>
+        </p>
+        <input id="resultCounter" type="hidden" value="0" />
+      </form>
     </div>
-    <script is:inline>
-      (function () {
-        const params = new URLSearchParams(window.location.search);
-        const raw = (params.get("q") || "").trim();
-        const q = raw.toLowerCase();
-        document.querySelectorAll(".ke_search_sword_search").forEach(function (el) {
-          if (raw) el.value = raw;
-        });
-        document.querySelectorAll("main .resetButton").forEach(function (el) {
-          el.addEventListener("click", function () {
-            window.location.href = "/search/";
-          });
-        });
-        const items = Array.from(document.querySelectorAll("#kesearch_results .result-list-item"));
-        const more = document.querySelector("#kesearch_results .load-more");
-        const PAGE = 10;
-        let shown = 0;
-        items.forEach(function (el) {
-          const hay = el.getAttribute("data-search") || "";
-          const hit = q.length >= 2 && hay.indexOf(q) !== -1;
-          if (!hit) {
-            el.hidden = true;
-            return;
-          }
-          shown += 1;
-          const num = el.querySelector(".result-number");
-          if (num) num.textContent = shown + ".";
-          el.hidden = shown > PAGE;
-        });
-        if (more) more.hidden = shown <= PAGE;
-        document.querySelectorAll("#countedResults").forEach(function (el) {
-          el.textContent = String(shown);
-        });
-        document.querySelectorAll("#searchWord").forEach(function (el) {
-          el.textContent = q.length >= 2 ? raw : "";
-        });
-        const counter = document.getElementById("resultCounter");
-        if (counter) counter.value = String(shown);
-        document.querySelectorAll("#resultCounterInfo").forEach(function (el) {
-          el.style.display = shown > 0 ? "block" : "none";
-        });
-        if (more) {
-          more.addEventListener("click", function () {
-            items.forEach(function (el) {
-              const hay = el.getAttribute("data-search") || "";
-              const hit = q.length >= 2 && hay.indexOf(q) !== -1;
-              if (hit) el.hidden = false;
-            });
-            more.hidden = true;
-          });
-        }
-      })();
-    </script>
+    <div class="hm-wrap hm-results" id="kesearch_results">
+      {
+        rows.map((r) => (
+          <div class="hm-result" data-search={`${r.title} ${r.teaser} ${r.href}`.toLowerCase()} hidden>
+            <a href={r.href}>{r.title}</a>
+            <p>{r.teaser}</p>
+          </div>
+        ))
+      }
+      <p class="hm-load-more" id="load-more" hidden>
+        <button class="hm-submit" type="button">Show more</button>
+      </p>
+    </div>
     <InnerTeaser />
   </main>
 </Base>
+
+<script is:inline>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var raw = (params.get("q") || "").trim();
+    var q = raw.toLowerCase();
+    document.querySelectorAll(".ke_search_sword_search").forEach(function (el) {
+      if (raw) el.value = raw;
+    });
+    var items = Array.from(document.querySelectorAll("#kesearch_results .hm-result"));
+    var more = document.getElementById("load-more");
+    var PAGE = 10;
+    var shown = 0;
+    items.forEach(function (el) {
+      var hay = el.getAttribute("data-search") || "";
+      var hit = q.length >= 2 && hay.indexOf(q) !== -1;
+      if (!hit) {
+        el.hidden = true;
+        return;
+      }
+      shown += 1;
+      el.hidden = shown > PAGE;
+    });
+    if (more) more.hidden = shown <= PAGE;
+    document.querySelectorAll("#countedResults").forEach(function (el) {
+      el.textContent = String(shown);
+    });
+    document.querySelectorAll("#searchWord").forEach(function (el) {
+      el.textContent = q.length >= 2 ? raw : "";
+    });
+    var counter = document.getElementById("resultCounter");
+    if (counter) counter.value = String(shown);
+    document.querySelectorAll("#resultCounterInfo").forEach(function (el) {
+      el.hidden = shown === 0;
+    });
+    if (more) {
+      more.addEventListener("click", function () {
+        items.forEach(function (el) {
+          var hay = el.getAttribute("data-search") || "";
+          var hit = q.length >= 2 && hay.indexOf(q) !== -1;
+          if (hit) el.hidden = false;
+        });
+        more.hidden = true;
+      });
+    }
+  })();
+</script>

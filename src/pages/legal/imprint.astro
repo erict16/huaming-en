@@ -1,6 +1,5 @@
 ---
 import Base from "../../layouts/Base.astro";
-import Breadcrumb from "../../components/Breadcrumb.astro";
 import InnerTeaser from "../../components/InnerTeaser.astro";
 import { offices } from "../../lib/catalog";
 
@@ -9,88 +8,61 @@ const singapore = offices.find((o) => o.id === "singapore");
 ---
 
 <Base title="Imprint · Huaming" description="Legal notice for the English catalogue.">
-  <main id="main">
-    <div class="frame frame-default frame-type-sitereinhausen_introtext frame-layout-0">
-      <div class="introtext bg-white">
-        <div class="container">
-          <Breadcrumb crumbs={[{ href: "/", label: "Home" }]} visible={false} />
-          <div>
-            <h1 class="h1ToIntro">Imprint</h1>
-          </div>
-          <div class="row">
-            <div class="intro col-xl-12 col-xxl-10">
-              <p>Shanghai is the factory. Singapore is the international headquarters.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <main id="main" class="hm-list">
+    <div class="hm-wrap hm-list-intro">
+      <h1>Imprint</h1>
+      <p class="hm-list-lede">Shanghai is the factory. Singapore is the international headquarters.</p>
     </div>
-    <div class="frame frame-default frame-type-sitereinhausen_text frame-layout-0">
-      <div class="text-module bg-white" style="position: relative;">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-lg-10 offset-lg-1">
-              <h2 class="headline">Imprint</h2>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-5 offset-lg-1">
-              <h3 class="headline">Shanghai is the factory. Singapore is the international headquarters.</h3>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-5">
-              <div class="text-wrapper">
-                {
-                  shanghai ? (
-                    <>
-                      <p>
-                        <strong>{shanghai.name}</strong>
-                      </p>
-                      <p>
-                        {shanghai.lines.map((line) => (
-                          <>
-                            {line}
-                            <br />
-                          </>
-                        ))}
-                        {shanghai.creditCode ? <>Credit code {shanghai.creditCode}</> : null}
-                      </p>
-                    </>
-                  ) : null
-                }
-                {
-                  singapore ? (
-                    <>
-                      <p>
-                        <strong>{singapore.name}</strong>
-                      </p>
-                      <p>
-                        {singapore.role}.
-                        {singapore.lines.map((line) => (
-                          <>
-                            <br />
-                            {line}
-                          </>
-                        ))}
-                      </p>
-                    </>
-                  ) : null
-                }
-                <p>
-                  Email: <a href="mailto:intl@huaming.com">intl@huaming.com</a>
-                </p>
-                {
-                  shanghai?.web ? (
-                    <p>
-                      Web:{" "}
-                      <a href={shanghai.web} target="_blank" rel="noreferrer">
-                        huaming.com
-                      </a>
-                    </p>
-                  ) : null
-                }
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="hm-wrap hm-article-body">
+      {
+        shanghai ? (
+          <>
+            <p>
+              <strong>{shanghai.name}</strong>
+            </p>
+            <p>
+              {shanghai.lines.map((line) => (
+                <>
+                  {line}
+                  <br />
+                </>
+              ))}
+              {shanghai.creditCode ? <>Credit code {shanghai.creditCode}</> : null}
+            </p>
+          </>
+        ) : null
+      }
+      {
+        singapore ? (
+          <>
+            <p>
+              <strong>{singapore.name}</strong>
+            </p>
+            <p>
+              {singapore.role}.
+              {singapore.lines.map((line) => (
+                <>
+                  <br />
+                  {line}
+                </>
+              ))}
+            </p>
+          </>
+        ) : null
+      }
+      <p>
+        Email: <a href="mailto:intl@huaming.com">intl@huaming.com</a>
+      </p>
+      {
+        shanghai?.web ? (
+          <p>
+            Web:{" "}
+            <a href={shanghai.web} target="_blank" rel="noreferrer">
+              huaming.com
+            </a>
+          </p>
+        ) : null
+      }
     </div>
     <InnerTeaser />
   </main>

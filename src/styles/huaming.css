@@ -785,4 +785,14 @@ a.show-all:not(:focus):hover,
 .hm-about a::before,
 .hm-about a::after{content:none!important;display:none!important;}
 
+.hm-search-page .hm-docs-search{max-width:28rem;}
+.hm-search-page .hm-submit{margin-top:.35rem;}
+.hm-result{padding:.85rem 0;border-bottom:1px solid #d1d1d1;}
+.hm-result a{color:#00428C;font-weight:600;text-decoration:none;}
+.hm-result a:hover{text-decoration:underline;}
+.hm-result p{margin:.25rem 0 0;font-size:.875rem;color:#3a3a3a;}
+.hm-load-more{margin:1.25rem 0 2rem;}
+.hm-search-page a::before,
+.hm-search-page a::after{content:none!important;display:none!important;}
+
 

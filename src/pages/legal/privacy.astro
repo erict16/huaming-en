@@ -1,51 +1,20 @@
 ---
 import Base from "../../layouts/Base.astro";
-import Breadcrumb from "../../components/Breadcrumb.astro";
 import InnerTeaser from "../../components/InnerTeaser.astro";
 ---
 
 <Base title="Privacy · Huaming" description="This catalogue is a static site. Forms do not post to a Huaming server.">
-  <main id="main">
-    <div class="frame frame-default frame-type-sitereinhausen_introtext frame-layout-0">
-      <div class="introtext bg-white">
-        <div class="container">
-          <Breadcrumb crumbs={[{ href: "/", label: "Home" }]} visible={false} />
-          <div>
-            <h1 class="h1ToIntro">Privacy</h1>
-          </div>
-          <div class="row">
-            <div class="intro col-xl-12 col-xxl-10">
-              <p>This catalogue is a static site. Forms do not post to a Huaming server.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <main id="main" class="hm-list">
+    <div class="hm-wrap hm-list-intro">
+      <h1>Privacy</h1>
+      <p class="hm-list-lede">This catalogue is a static site. Forms do not post to a Huaming server.</p>
     </div>
-    <div class="frame frame-default frame-type-sitereinhausen_text frame-layout-0">
-      <div class="text-module bg-white" style="position: relative;">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-lg-10 offset-lg-1">
-              <h2 class="headline">Privacy</h2>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-5 offset-lg-1">
-              <h3 class="headline">No account. No cookie banner. Mail is Singapore.</h3>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-5">
-              <div class="text-wrapper">
-                <p>
-                  This catalogue is a static site. Search and contact forms do not post to a Huaming
-                  server.
-                </p>
-                <p>
-                  If you write to <a href="mailto:intl@huaming.com">intl@huaming.com</a>, that mail
-                  goes to the international headquarters in Singapore.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="hm-wrap hm-article-body">
+      <p>Search and contact forms do not post to a Huaming server.</p>
+      <p>
+        If you write to <a href="mailto:intl@huaming.com">intl@huaming.com</a>, that mail goes to the
+        international headquarters in Singapore.
+      </p>
     </div>
     <InnerTeaser />
   </main>
