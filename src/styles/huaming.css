@@ -522,4 +522,48 @@ a.show-all:not(:focus):hover,
 .hm-list-pdf a::after{content:none!important;display:none!important;background:none!important;}
 .hm-list-family{padding-bottom:0;}
 .hm-list-intro{padding-top:.5rem;}
+.hm-spec-intro{padding:1.25rem 0 .5rem;}
+.hm-spec-intro h2,
+.hm-spec h3{
+  margin:0 0 .5rem;
+  font-size:1.05rem;
+  font-weight:600;
+  color:#262626;
+}
+.hm-spec-intro p{margin:0;max-width:42rem;font-size:.9375rem;}
+.hm-spec{padding:0 0 1.75rem;}
+.hm-spec-scroll{overflow-x:auto;border:1px solid #d1d1d1;}
+.hm-spec table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.875rem;
+  text-align:left;
+}
+.hm-spec th{
+  background:#00428C;
+  color:#fff;
+  font-weight:500;
+  font-size:.6875rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  padding:.65rem .75rem;
+}
+.hm-spec td{
+  padding:.65rem .75rem;
+  border-bottom:1px solid #d1d1d1;
+  vertical-align:top;
+  color:#262626;
+}
+.hm-spec tbody tr:last-child td{border-bottom:0;}
+.hm-spec tbody tr:hover{background:#eef1f4;}
+.hm-spec a{color:#0071A9;text-decoration:none;font-weight:600;}
+.hm-spec a:hover{text-decoration:underline;text-underline-offset:.16em;}
+.hm-spec a::before,
+.hm-spec a::after,
+.hm-spec-intro a::before,
+.hm-spec-intro a::after{
+  content:none!important;
+  display:none!important;
+}
+.hm-family-stills{padding:0 0 2rem;}
 

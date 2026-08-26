@@ -91,64 +91,52 @@ const rows = items.map((p) => ({
 
     <slot />
 
-    <div class="frame frame-default frame-type-sitereinhausen_text frame-layout-0 frame-space-before-half">
-      <div class="text-module bg-grey" style="position: relative;">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-sm-10 col-lg-10 col-xl-8 offset-sm-1 offset-lg-1 offset-xl-2 col">
-              <h2 class="headline">Technical data at a glance</h2>
-              <div class="text-wrapper">
-                <p>The tables list types in this family. Brochure wins if the shop text disagrees.</p>
-                <a href="/downloads/" class="cta cta-outline mb-0">Downloads</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="hm-wrap hm-spec-intro">
+      <h2>Types in this family</h2>
+      <p>
+        Type, kind, and a PDF link. Brochure wins if the shop text disagrees.{" "}
+        <a href="/downloads/">Downloads</a>
+      </p>
     </div>
 
     {
       groups.map((g) => (
-        <div class="frame frame-default frame-type-sitereinhausen_table frame-layout-0">
-        <div class={`tabelle ${g.className}`}>
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-lg-10 offset-lg-1">
-                {g.heading ? <h3>{g.heading}</h3> : null}
-                <div class="table-wrapper">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Type</th>
-                        <th>Family</th>
-                        <th>Note</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {g.items.map((p) => {
-                        const fam = families.find((f) => f.id === p.family);
-                        return (
-                          <tr>
-                            <td>
-                              <a href={`/products/${p.slug}/`}>{p.name}</a>
-                            </td>
-                            <td>{fam?.name}</td>
-                            <td>{p.oneLiner}</td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+        <div class="hm-wrap hm-spec">
+          {g.heading ? <h3>{g.heading}</h3> : null}
+          <div class="hm-spec-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Kind</th>
+                  <th>Note</th>
+                  <th>PDF</th>
+                </tr>
+              </thead>
+              <tbody>
+                {g.items.map((p) => {
+                  const fam = families.find((f) => f.id === p.family);
+                  return (
+                    <tr>
+                      <td>
+                        <a href={`/products/${p.slug}/`}>{p.name}</a>
+                      </td>
+                      <td>{fam?.name}</td>
+                      <td>{p.oneLiner}</td>
+                      <td>
+                        <a href="/downloads/">Technical data</a>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
-        </div>
         </div>
       ))
     }
 
-    <div class="container">
+    <div class="hm-wrap hm-family-stills">
       <div class="product-list-plugin">
         <div id="portfolio-overview-products" class="grid">
           {
