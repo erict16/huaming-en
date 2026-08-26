@@ -671,4 +671,73 @@ a.show-all:not(:focus):hover,
 .hm-pdp-also a::after{content:none!important;display:none!important;}
 .hm-pdp .card-header{background:#fff;border:1px solid #d1d1d1;color:#262626;}
 
+.hm-docs .downloadcenter-row-name{
+  font-size:.75rem;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#3a3a3a;
+  padding:.75rem 0 .35rem;
+}
+.hm-docs .downloadItem-link{
+  display:block;
+  color:#262626;
+  text-decoration:none;
+  padding:.65rem 0;
+  border-bottom:1px solid #d1d1d1;
+}
+.hm-docs .download-name{color:#00428C;font-weight:600;}
+.hm-docs .downloadItem-link:hover .download-name{color:#0071A9;}
+.hm-docs .download-link{color:#0071A9;font-weight:600;}
+.hm-docs .downloadItem-link::before,
+.hm-docs .downloadItem-link::after{content:none!important;display:none!important;}
+.hm-docs-search{margin:0 0 1.25rem;max-width:24rem;}
+.hm-label{display:block;font-size:.8125rem;font-weight:500;margin:0 0 .85rem;}
+.hm-field{
+  display:block;
+  width:100%;
+  min-height:2.75rem;
+  margin-top:.3rem;
+  border:1px solid #d1d1d1;
+  border-radius:2px;
+  padding:.45rem .7rem;
+  font:inherit;
+  color:#262626;
+  background:#fff;
+}
+.hm-field:focus{border-color:#0071A9;outline:2px solid color-mix(in srgb,#0071A9 35%,transparent);}
+.hm-form{max-width:36rem;padding:0 0 2.5rem;}
+.hm-form h2{font-size:1.05rem;font-weight:600;margin:0 0 1rem;}
+.hm-check{display:flex;gap:.5rem;align-items:flex-start;font-size:.875rem;margin:0 0 1rem;}
+.hm-submit{
+  display:inline-flex;
+  align-items:center;
+  min-height:2.75rem;
+  padding:0 1.05rem;
+  background:#00428C;
+  color:#fff;
+  border:0;
+  border-radius:2px;
+  font:inherit;
+  font-weight:600;
+  cursor:pointer;
+}
+.hm-submit:hover{background:#00356f;}
+.hm-form-note{margin:.75rem 0 0;font-size:.8125rem;color:#3a3a3a;}
+.hm-offices{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1.5rem 2rem;
+  padding:0 0 2rem;
+}
+@media (max-width:700px){.hm-offices{grid-template-columns:1fr;}}
+.hm-offices article{border-top:1px solid #d1d1d1;padding-top:.85rem;}
+.hm-offices h2{margin:0;font-size:1rem;font-weight:600;}
+.hm-offices p{margin:.25rem 0 0;font-size:.875rem;}
+.hm-place{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:#3a3a3a;}
+.hm-more-h{font-size:1.05rem;font-weight:600;margin:0 0 1rem;}
+.hm-contact a{color:#0071A9;}
+.hm-contact a::before,
+.hm-contact a::after{content:none!important;display:none!important;background:none!important;}
+
 

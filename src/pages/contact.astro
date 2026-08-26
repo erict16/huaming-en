@@ -1,306 +1,114 @@
 ---
 import Base from "../layouts/Base.astro";
-import Breadcrumb from "../components/Breadcrumb.astro";
 import InnerTeaser from "../components/InnerTeaser.astro";
 import { offices } from "../lib/catalog";
+
+const shanghai = offices.find((o) => o.id === "shanghai");
+const singapore = offices.find((o) => o.id === "singapore");
+const others = offices.filter((o) => o.id !== "shanghai" && o.id !== "singapore");
 ---
 
 <Base title="Contact · Huaming" description="International inquiries: intl@huaming.com. Singapore is the international headquarters. Shanghai is the factory.">
-  <main id="main">
-    <div class="frame frame-default frame-type-sitereinhausen_introtext frame-layout-0">
-      <div class="introtext bg-white">
-        <div class="container">
-          <Breadcrumb crumbs={[{ href: "/", label: "Home" }]} visible={false} />
-          <div>
-            <h1 class="h1ToIntro">Contact</h1>
-          </div>
-          <div class="row">
-            <div class="intro col-xl-12 col-xxl-10">
+  <main id="main" class="hm-list hm-contact">
+    <div class="hm-wrap hm-list-intro">
+      <h1>Contact</h1>
+      <p class="hm-list-lede">
+        International inquiries:{" "}
+        <a href="mailto:intl@huaming.com">intl@huaming.com</a>. Singapore is the international
+        headquarters. Shanghai is the factory.
+      </p>
+    </div>
+
+    <div class="hm-wrap hm-offices">
+      {
+        [singapore, shanghai].filter(Boolean).map((o) => (
+          <article>
+            <p class="hm-place">{o!.role}</p>
+            <h2>{o!.name}</h2>
+            {o!.lines.map((line) => (
+              <p>{line}</p>
+            ))}
+            {"email" in o! && o!.email ? (
               <p>
-                International inquiries:
-                <a href="mailto:intl@huaming.com">intl@huaming.com</a>. Singapore is the
-                international headquarters. Shanghai is the factory.
+                <a href={`mailto:${o!.email}`}>{o!.email}</a>
               </p>
-            </div>
+            ) : null}
+          </article>
+        ))
+      }
+    </div>
+
+    <form class="hm-wrap hm-form" method="post" action="mailto:intl@huaming.com" enctype="text/plain">
+      <h2>Write Singapore</h2>
+      <label class="hm-label">
+        Name
+        <input class="hm-field" required name="name" autocomplete="name" />
+      </label>
+      <label class="hm-label">
+        Email
+        <input class="hm-field" required type="email" name="email" autocomplete="email" />
+      </label>
+      <label class="hm-label">
+        About
+        <select class="hm-field" name="about">
+          <option value="OLTC">On-load tap changer</option>
+          <option value="OCTC">De-energized tap changer</option>
+          <option value="Accessories">Motor drive / monitor</option>
+          <option value="Brochure">Brochure</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+      <label class="hm-label">
+        Office
+        <select class="hm-field" name="office">
+          <option value="Singapore">Singapore HQ</option>
+          <option value="Shanghai">Shanghai factory</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+      <label class="hm-label">
+        Company
+        <input class="hm-field" name="company" autocomplete="organization" />
+      </label>
+      <label class="hm-label">
+        Telephone
+        <input class="hm-field" type="tel" name="phone" autocomplete="tel" />
+      </label>
+      <label class="hm-label">
+        Message
+        <textarea class="hm-field" required name="message" rows="5"></textarea>
+      </label>
+      <label class="hm-check">
+        <input required type="checkbox" name="privacy" value="ok" />
+        I have read the <a href="/legal/privacy/">Privacy</a> page.
+      </label>
+      <button class="hm-submit" type="submit">Send to intl@huaming.com</button>
+      <p class="hm-form-note">This form opens your mail app. It does not post to a server.</p>
+    </form>
+
+    {
+      others.length ? (
+        <div class="hm-wrap">
+          <h2 class="hm-more-h">Other offices</h2>
+          <div class="hm-offices">
+            {others.map((o) => (
+              <article>
+                <p class="hm-place">{o.role}</p>
+                <h2>{o.name}</h2>
+                {o.lines.map((line) => (
+                  <p>{line}</p>
+                ))}
+                {"email" in o && o.email ? (
+                  <p>
+                    <a href={`mailto:${o.email}`}>{o.email}</a>
+                  </p>
+                ) : null}
+              </article>
+            ))}
           </div>
         </div>
-      </div>
-    </div>
-    <div class="frame frame-default frame-type-powermail_pi1 frame-layout-0">
-      <div class="tx-powermail">
-        <div class="container layout1">
-          <div class="row justify-content-center">
-            <div class="column-wrapper col-xxl-8 col-xl-8 col-lg-10 col-md-12 col-sm-10 col-s-12 col-xs-12 col-12">
-              <form
-                class="powermail_form powermail_form_7 layout1"
-                method="post"
-                action="mailto:intl@huaming.com"
-                enctype="text/plain"
-                data-validate="html5"
-              >
-                <h4>International mail is Singapore.</h4>
-                <fieldset class="powermail_fieldset powermail_fieldset_10 nolabel">
-                  <div class="powermail_fieldwrap powermail_fieldwrap_type_input powermail_fieldwrap_namevorname no-label">
-                    <label for="powermail_field_namevorname" class="powermail_label">
-                      Name<span class="mandatory">*</span>
-                    </label>
-                    <div class="powermail_field">
-                      <input
-                        required
-                        placeholder="Name"
-                        class="powermail_input"
-                        id="powermail_field_namevorname"
-                        type="text"
-                        name="name"
-                        value=""
-                      />
-                      <div class="placholder">Name</div>
-                    </div>
-                  </div>
-                  <div class="powermail_fieldwrap powermail_fieldwrap_type_input powermail_fieldwrap_e_mail no-label">
-                    <label for="powermail_field_e_mail" class="powermail_label">
-                      Email<span class="mandatory">*</span>
-                    </label>
-                    <div class="powermail_field">
-                      <input
-                        required
-                        placeholder="Email"
-                        class="powermail_input"
-                        id="powermail_field_e_mail"
-                        type="email"
-                        name="email"
-                        value=""
-                      />
-                      <div class="placholder">Email</div>
-                    </div>
-                  </div>
-                  <div class="powermail_fieldwrap powermail_fieldwrap_type_select powermail_fieldwrap_anrede no-label">
-                    <label for="powermail_field_anrede" class="powermail_label">About</label>
-                    <div class="powermail_field">
-                      <select class="powermail_select" id="powermail_field_anrede" name="about">
-                        <option value="">About</option>
-                        <option value="OLTC">On-load tap changer</option>
-                        <option value="OCTC">De-energized tap changer</option>
-                        <option value="Accessories">Motor drive / monitor</option>
-                        <option value="Brochure">Brochure</option>
-                        <option value="Other">Other</option>
-                      </select>
-                      <div class="placholder">About</div>
-                    </div>
-                  </div>
-                  <div class="powermail_fieldwrap powermail_fieldwrap_type_select powermail_fieldwrap_country no-label">
-                    <label for="powermail_field_country" class="powermail_label">Office</label>
-                    <div class="powermail_field">
-                      <select class="powermail_select" id="powermail_field_country" name="office">
-                        <option value="">Office</option>
-                        <option value="Singapore">Singapore HQ</option>
-                        <option value="Shanghai">Shanghai factory</option>
-                        <option value="Other">Other</option>
-                      </select>
-                      <div class="placholder">Office</div>
-                    </div>
-                  </div>
-                  <div class="powermail_fieldwrap powermail_fieldwrap_type_input powermail_fieldwrap_firma no-label">
-                    <label for="powermail_field_firma" class="powermail_label">Company</label>
-                    <div class="powermail_field">
-                      <input
-                        placeholder="Company"
-                        class="powermail_input"
-                        id="powermail_field_firma"
-                        type="text"
-                        name="company"
-                        value=""
-                      />
-                      <div class="placholder">Company</div>
-                    </div>
-                  </div>
-                  <div class="powermail_fieldwrap powermail_fieldwrap_type_input powermail_fieldwrap_telefon no-label">
-                    <label for="powermail_field_telefon" class="powermail_label">Telephone</label>
-                    <div class="powermail_field">
-                      <input
-                        placeholder="Telephone"
-                        class="powermail_input"
-                        id="powermail_field_telefon"
-                        type="tel"
-                        name="phone"
-                        value=""
-                      />
-                      <div class="placholder">Telephone</div>
-                    </div>
-                  </div>
-                  <div class="powermail_fieldwrap powermail_fieldwrap_type_textarea powermail_fieldwrap_ihrenachricht no-label">
-                    <label for="powermail_field_ihrenachricht" class="powermail_label">
-                      Message<span class="mandatory">*</span>
-                    </label>
-                    <div class="powermail_field">
-                      <textarea
-                        required
-                        rows="5"
-                        cols="20"
-                        placeholder="Message"
-                        class="powermail_textarea"
-                        id="powermail_field_ihrenachricht"
-                        name="message"
-                      ></textarea>
-                      <div class="placholder">Message<span class="mandatory">*</span></div>
-                    </div>
-                  </div>
-                  <div class="powermail_fieldwrap powermail_fieldwrap_type_check powermail_fieldwrap_checkbox no-label">
-                    <label for="powermail_field_checkbox" class="powermail_label">Privacy</label>
-                    <div class="powermail_field">
-                      <div class="checkbox">
-                        <label>
-                          <input
-                            required
-                            class="powermail_checkbox"
-                            id="powermail_field_checkbox_1"
-                            type="checkbox"
-                            name="privacy"
-                            value="ok"
-                          />
-                          <span class="fake-box"></span>
-                          See our
-                          <a href="/legal/privacy/" class="link-download">Privacy</a>
-                          page.<span class="mandatory">*</span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="powermail_fieldwrap d-flex justify-content-end powermail_fieldwrap_type_submit powermail_fieldwrap_submit no-label"
-                  >
-                    <div class="powermail_field">
-                      <button class="cta cta-gradient powermail_submit" type="submit" value="Send">
-                        Send
-                      </button>
-                    </div>
-                  </div>
-                </fieldset>
-                <p>
-                  This form opens a mail to <a href="mailto:intl@huaming.com">intl@huaming.com</a>. It
-                  does not post to a server.
-                </p>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="frame frame-default frame-type-list frame-layout-0">
-    <div class="contactfinder">
-      <div class="subnavi-big">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <ul class="scrollbar scrollbar-horizontal scrollbar-black">
-                <li class="js-contactfinder-tab subnavi-big-button active" data-tab="international">
-                  <h3>International</h3>
-                </li>
-                <li class="js-contactfinder-tab subnavi-big-button" data-tab="factory">
-                  <h3>Factory</h3>
-                </li>
-                <li class="js-contactfinder-tab subnavi-big-button" data-tab="offices">
-                  <h3>Offices</h3>
-                </li>
-              </ul>
-              <img
-                class="down-button d-block d-s-none rotate180"
-                alt=""
-                src="/_assets/4fe0297b88c3f75f81bce57218e3ae92/Images/Icons/arrow-down-blue.svg"
-                width="24"
-                height="24"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="contact-results-wrapper">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <h2 id="contactHeadline">Offices</h2>
-              <div id="contactContent" class="contact-results">
-                <div class="teaser-wrapper">
-                  <div class="row">
-                    {
-                      offices.map((o, i) => {
-                        const tab =
-                          o.id === "singapore" ? "international" : o.id === "shanghai" ? "factory" : "offices";
-                        const mail = "email" in o && typeof o.email === "string" ? o.email : null;
-                        const web = "web" in o && typeof o.web === "string" ? o.web : null;
-                        return (
-                          <div
-                            class={`teaser_element col-lg-6 two-column aorder--${i}`}
-                            data-tab={tab}
-                          >
-                            <div class="textteaser contact-teaser textteaser-outline">
-                              <div class="contact-person"></div>
-                              <div class="contact-info">
-                                <div class="header">
-                                  <div class="top-wrap">
-                                    <p class="contact-info-name">
-                                      <strong>{o.name}</strong>
-                                    </p>
-                                  </div>
-                                  <p>
-                                    {o.role}
-                                    <br />
-                                    {o.lines.map((line) => (
-                                      <>
-                                        {line}
-                                        <br />
-                                      </>
-                                    ))}
-                                    {mail ? (
-                                      <a href={`mailto:${mail}`}>{mail}</a>
-                                    ) : null}
-                                    {mail && web ? <br /> : null}
-                                    {web ? (
-                                      <a href={web} target="_blank" rel="noreferrer">
-                                        {web.replace(/^https?:\/\//, "")}
-                                      </a>
-                                    ) : null}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })
-                    }
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
+      ) : null
+    }
     <InnerTeaser />
-    <script is:inline>
-      (function () {
-        var tabs = document.querySelectorAll(".js-contactfinder-tab");
-        var cards = document.querySelectorAll(".contact-results .teaser_element");
-        if (!tabs.length) return;
-        tabs.forEach(function (tab) {
-          tab.addEventListener("click", function () {
-            var id = tab.getAttribute("data-tab");
-            tabs.forEach(function (t) {
-              t.classList.toggle("active", t === tab);
-            });
-            cards.forEach(function (c) {
-              c.hidden = c.getAttribute("data-tab") !== id;
-            });
-          });
-        });
-        cards.forEach(function (c) {
-          c.hidden = c.getAttribute("data-tab") !== "international";
-        });
-        document.querySelectorAll(".tx-powermail *").forEach(function (n) {
-          if (n.childNodes.length === 1 && n.textContent.trim() === "undefined") n.remove();
-        });
-      })();
-    </script>
   </main>
 </Base>
