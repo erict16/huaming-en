@@ -1,324 +1,92 @@
 ---
 import Base from "../layouts/Base.astro";
-import NewsImpulse from "../components/NewsImpulse.astro";
-import ProductBox from "../components/ProductBox.astro";
-import { families, productBySlug } from "../lib/catalog";
+import { productBySlug } from "../lib/catalog";
+import { news } from "../lib/news";
 import { productImageSrc } from "../lib/product-image";
 
-const featured = ["cv2", "cm2", "shzv", "hwv", "wsl", "cma7"]
-  .map((slug) => productBySlug(slug))
-  .filter(Boolean);
-const stageSlides = [
-  {
-    src: "/images/products/cv2.png",
-    alt: "CV2 vacuum on-load tap changer",
-    title: "Tap changers for power transformers",
-    text: "On-load and de-energized types, vacuum and oil. Technical data as PDF. Standard lead time about 4–6 weeks.",
-    href: "/products/oltc/",
-    cta: "Find a type",
-  },
-  {
-    src: "/images/products/shzv.png",
-    alt: "SHZV vacuum on-load tap changer",
-    title: "Technical data as PDF",
-    text: "Leaflets, operating instructions, and type-test reports. No email gate.",
-    href: "/downloads/",
-    cta: "Downloads",
-  },
-  {
-    src: "/images/products/hwv.png",
-    alt: "HWV on-tank vacuum OLTC",
-    title: "Shanghai factory. Singapore HQ.",
-    text: "International mail is Singapore. Factory is Putuo, Shanghai.",
-    href: "/contact/",
-    cta: "Find a contact",
-  },
-];
+const strip = [
+  { slug: "cv2", kind: "Vacuum OLTC" },
+  { slug: "cm2", kind: "Vacuum, CM envelope" },
+  { slug: "shzv", kind: "Vacuum OLTC" },
+  { slug: "hwv", kind: "On-tank vacuum" },
+  { slug: "wsl", kind: "De-energized, cage" },
+  { slug: "cma7", kind: "Motor drive" },
+]
+  .map((row) => {
+    const p = productBySlug(row.slug);
+    if (!p) return null;
+    return { ...row, name: p.name, href: `/products/${p.slug}/`, src: productImageSrc(p.slug) };
+  })
+  .filter((row): row is NonNullable<typeof row> => Boolean(row));
+
+const homeNews = news.slice(0, 2);
+const heroSrc = productImageSrc("cm2") ?? "/images/products/cm2.png";
 ---
 
 <Base title="Huaming — tap changers for power transformers">
-  <main id="main">
-    <div class="stage">
-      <div class="swiper-container stage-slider" data-loop="0" data-autoplay="1" data-autoplay-time="5000">
-        <div class="swiper-wrapper">
+  <main id="main" class="hm-home">
+    <section class="hm-hero" aria-label="Featured type">
+      <figure>
+        <img src={heroSrc} alt="CM2 vacuum on-load tap changer" width="600" height="414" />
+      </figure>
+    </section>
+
+    <section class="hm-ribbon">
+      <div class="hm-ribbon-inner">
+        <div>
+          <h1>Tap changers for power transformers</h1>
+          <p class="hm-lede">
+            Vacuum CM2 in the oil CM envelope. On-load and de-energized types across the range. Shanghai
+            factory. Singapore headquarters.
+          </p>
+        </div>
+        <ul class="hm-meta">
+          <li>Typical lead time 4–6 weeks</li>
+          <li><a href="/downloads/">Technical data (PDF)</a></li>
+          <li><a href="mailto:intl@huaming.com">intl@huaming.com</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="hm-strip" aria-label="Types">
+      <div class="hm-wrap">
+        <h2>Types</h2>
+        <div class="hm-row">
           {
-            stageSlides.map((s) => (
-              <div class="swiper-slide" data-swiper-autoplay="5000">
-                <div class="swiper-image">
-                  <img src={s.src} alt={s.alt} width="600" height="414" />
+            strip.map((t) => (
+              <a class="hm-cell" href={t.href}>
+                <div class="hm-thumb">
+                  {t.src ? (
+                    <img src={t.src} alt="" width="600" height="414" />
+                  ) : null}
                 </div>
-                <div class="container d-none d-xl-block">
-                  <div class="row">
-                    <div class="col-lg-5 left">
-                      <div class="stage-content bg-gradient">
-                        <div class="text-container">
-                          <h2>
-                            <p>{s.title}</p>
-                          </h2>
-                          <span class="light">
-                            <p>{s.text}</p>
-                          </span>
-                        </div>
-                        <a href={s.href} class="link-download">
-                          {s.cta}
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="stage-content container d-block d-xl-none bg-gradient">
-                  <div class="row">
-                    <div class="col-12">
-                      <h2>
-                        <p>{s.title}</p>
-                      </h2>
-                      <span class="light">
-                        <p>{s.text}</p>
-                      </span>
-                      <a href={s.href} class="link-download">
-                        {s.cta}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <span class="hm-code">{t.name}</span>
+                <span class="hm-one">{t.kind}</span>
+              </a>
             ))
           }
         </div>
-        <div class="container swiper-controls">
-          <div class="row col-12">
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-          </div>
-        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="frame frame-default frame-type-sitereinhausen_introtext frame-layout-0">
-      <div class="introtext bg-white">
-        <div class="container">
-          <h1>Tap changers for power transformers</h1>
-          <div class="row">
-            <div class="subline col-xl-12 col-xxl-10">
-              <p>On-load and de-energized. Vacuum and oil.</p>
-            </div>
-            <div class="intro col-xl-12 col-xxl-10">
-              <p>
-                Shanghai factory. Singapore international headquarters. Technical data as PDF. Standard lead
-                time about 4–6 weeks.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <NewsImpulse />
-
-    <div class="frame frame-default frame-type-sitereinhausen_teaserbig frame-layout-0">
-      <div class="teaser-module bg-gradient">
-        <div class="container">
-          <div class="teaser-wrapper">
-            <div class="row">
-              <div class="col-m-12 col-lg-12">
-                <h2 class="headline headline-teaser-big">Types. Brochures. Offices.</h2>
-              </div>
-              <div class="col-m-12 col-lg-12">
-                <div class="teaser_element" style="margin-bottom: 0 !important;">
-                  <div class="textteaser-gradient">
-                    <a href="/products/" class="link">Open the product list</a>
-                  </div>
+    <section class="hm-news" aria-label="News">
+      <div class="hm-wrap">
+        <h2>News</h2>
+        <ul>
+          {
+            homeNews.map((item, i) => (
+              <li>
+                <span class="hm-n">{String(i + 1).padStart(2, "0")}</span>
+                <div>
+                  <a href={`/news/${item.slug}/`}>{item.title}</a>
+                  <p>{item.summary}</p>
                 </div>
-              </div>
-            </div>
-            <div class="row">
-              {
-                [
-                  {
-                    href: "/products/oltc/",
-                    title: "OLTC",
-                    text: "Changes taps while the transformer is live. Oil, vacuum, dry, gas.",
-                  },
-                  {
-                    href: "/downloads/",
-                    title: "Downloads",
-                    text: "Technical data, leaflets, operating instructions. No email gate.",
-                  },
-                  {
-                    href: "/about/",
-                    title: "Company",
-                    text: "Shanghai factory. Singapore international headquarters.",
-                  },
-                ].map((t) => (
-                  <div class="teaser_element col-lg-4 three-column">
-                    <div class="textteaser textteaser-outline">
-                      <div class="teaser-HeadlineAndText">
-                        <h3>{t.title}</h3>
-                        <p>{t.text}</p>
-                        <a href={t.href} class="link">
-                          Read more
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-        </div>
+                <time datetime={item.date}>{item.date}</time>
+              </li>
+            ))
+          }
+        </ul>
       </div>
-    </div>
-
-    <div class="frame frame-default frame-type-sitereinhausen_teaserproduct frame-layout-0">
-    <div class="teaser_products container">
-      <div class="row">
-        <div class="swiper-container product-swiper col-12" id="1">
-          <div class="swiper-controls-container">
-            <h2>Latest products</h2>
-            <div class="swiper-controls">
-              <div class="swiper-button-prev swiper-button-prev-product1">
-                <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.26236 10.6805L-0.00410652 1.41408L1.41011 -0.0001297L12.1436 10.7334L1.3837 20.7315L0.0223022 19.2664L9.26236 10.6805Z" fill="currentColor"></path>
-                </svg>
-              </div>
-              <div class="swiper-button-next swiper-button-next-product1">
-                <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.26236 10.6805L-0.00410652 1.41408L1.41011 -0.0001297L12.1436 10.7334L1.3837 20.7315L0.0223022 19.2664L9.26236 10.6805Z" fill="currentColor"></path>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-wrapper">
-            <div class="swiper-slide cta-slide bg-gradient">
-              <a href="/products/" class="boxLink">
-                <h3>27 types. OLTC, OCTC, motor drive. Brochure wins if the shop text disagrees.</h3>
-                <div class="link-download"><div>All types</div></div>
-              </a>
-            </div>
-            {
-              featured.map((p) => (
-                <ProductBox
-                  href={`/products/${p!.slug}/`}
-                  name={p!.name}
-                  intro={p!.oneLiner}
-                  image={productImageSrc(p!.slug)}
-                  facts={[families.find((f) => f.id === p!.family)?.name ?? ""]}
-                />
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-
-    <div class="frame frame-default frame-type-sitereinhausen_teaser frame-layout-0">
-      <div class="teaser-module bg-white">
-        <div class="container">
-          <div class="row">
-            <div class="text col-m-12 col-lg-12">
-              <div class="teaser-wrapper">
-                <div class="row">
-                  {
-                    [
-                      { href: "/downloads/", title: "Technical data as PDF.", cta: "Downloads" },
-                      { href: "/contact/", title: "International mail is Singapore.", cta: "Find a contact" },
-                      { href: "/news/", title: "From the live English newsroom.", cta: "News" },
-                    ].map((t) => (
-                      <div class="teaser_element col-lg-4 three-column">
-                        <div class="textteaser textteaser-outline">
-                          <div class="teaser-HeadlineAndText">
-                            <p class="headline">{t.title}</p>
-                          </div>
-                          <div>
-                            <a href={t.href} class="link">
-                              {t.cta}
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    ))
-                  }
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="frame frame-default frame-type-sitereinhausen_articlenumbers frame-layout-0">
-      <div class="numbers-module bg-gradient">
-        <div class="container">
-          <div class="number-headline">
-            <h2>Huaming in numbers</h2>
-          </div>
-          <div class="numbers row three-column one-column-sm">
-            <div class="col-12 col-xxl-10 offset-xxl-1">
-              <div class="row justify-content-sm-center justify-content-md-start">
-                <div class="number three-column col-12 col-md-4 one-column-sm col-sm-12">
-                  <span class="number-overline bolder">Founded</span>
-                  <span class="number-number"><span class="val">1989</span></span>
-                  <p class="number-label">Shanghai. History page starts the listed subsidiary in 1995.</p>
-                </div>
-                <div class="number three-column col-12 col-md-4 one-column-sm col-sm-12">
-                  <span class="number-overline bolder">Countries</span>
-                  <span class="number-number"><span class="val">150</span></span>
-                  <p class="number-label">Tap changers in 150+ countries (chairman letter).</p>
-                </div>
-                <div class="number three-column col-12 col-md-4 one-column-sm col-sm-12">
-                  <span class="number-overline bolder">Listed</span>
-                  <span class="number-number"><span class="val">2015</span></span>
-                  <p class="number-label">Shenzhen 002270.SZ. Changzheng Electric 2018.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="frame frame-default frame-type-sitereinhausen_mediaparallax frame-layout-0">
-      <div class="textmedia-parallax color-blue">
-        <div class="parallax-bg"></div>
-        <div class="background image-bg gradient-bg">
-          <div class="media-content">
-            <div class="container">
-              <div class="row">
-                <div class="col-12 col-s-11 col-sm-10 col-md-6 col-lg-5 offset-lg-1">
-                  <h2>Shanghai factory. Singapore HQ.</h2>
-                  <div class="copy-content">
-                    <p>International mail is Singapore. Factory is Putuo, Shanghai.</p>
-                  </div>
-                  <a href="/contact/" class="cta cta-outline">Find a contact</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="frame frame-default frame-type-sitereinhausen_text frame-layout-0">
-      <div class="text-module bg-white" style="position: relative;">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-sm-6 col-lg-5 offset-lg-1">
-              <h2 class="headline mb-sm-0">Shanghai factory. Singapore international headquarters.</h2>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-5">
-              <div class="text-wrapper">
-                <p>
-                  Legal name: Shanghai Huaming Power Equipment Co., Ltd. International mail is Singapore.
-                  Factory is Putuo, Shanghai.
-                </p>
-                <a href="/about/" class="cta cta-outline mb-0">About</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   </main>
 </Base>
