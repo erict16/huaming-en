@@ -4,7 +4,6 @@ import Breadcrumb from "../../components/Breadcrumb.astro";
 import ProductBox from "../../components/ProductBox.astro";
 import ProductCategory from "../../components/ProductCategory.astro";
 import InnerTeaser from "../../components/InnerTeaser.astro";
-import NewsImpulse from "../../components/NewsImpulse.astro";
 import ProductRegisters from "../../components/ProductRegisters.astro";
 import StageControls from "../../components/StageControls.astro";
 import {
@@ -109,38 +108,28 @@ const related = [...sameFamily, ...oltcSiblings].slice(0, 6);
 {
   kind === "pdp" && product ? (
 <Base title={`${product.name} · Huaming`} description={product.oneLiner}>
-  <main id="main">
+  <main id="main" class="hm-pdp">
     <div class="product-detail-wrapper">
-      <div class="introtext">
-        <div class="container">
-          <Breadcrumb
-            crumbs={[
-              { href: "/", label: "Home" },
-              { href: "/products/", label: "Products" },
-              ...(isOltc ? [{ href: "/products/oltc/", label: groupCopy.oltc.title }] : []),
-              ...(product.family === "octc"
-                ? [{ href: "/products/octc/", label: groupCopy.octc.title }]
-                : []),
-              ...((familyGroups.accessories as readonly string[]).includes(product.family)
-                ? [{ href: "/products/accessories/", label: groupCopy.accessories.title }]
-                : []),
-              ...(familyCrumb && product.family !== "octc"
-                ? [{ href: `/products/${product.family}/`, label: familyCrumb.name }]
-                : []),
-            ]}
-          />
-          <h1>{product.name}</h1>
-          {
-            familyCrumb ? (
-              <div class="subline col-xl-12 col-xxl-10">
-                <p>{familyCrumb.name}</p>
-              </div>
-            ) : null
-          }
-          <div class="intro col-xl-12">
-            <p>{product.oneLiner}</p>
-          </div>
-        </div>
+      <div class="hm-wrap hm-pdp-intro">
+        <Breadcrumb
+          crumbs={[
+            { href: "/", label: "Home" },
+            { href: "/products/", label: "Products" },
+            ...(isOltc ? [{ href: "/products/oltc/", label: groupCopy.oltc.title }] : []),
+            ...(product.family === "octc"
+              ? [{ href: "/products/octc/", label: groupCopy.octc.title }]
+              : []),
+            ...((familyGroups.accessories as readonly string[]).includes(product.family)
+              ? [{ href: "/products/accessories/", label: groupCopy.accessories.title }]
+              : []),
+            ...(familyCrumb && product.family !== "octc"
+              ? [{ href: `/products/${product.family}/`, label: familyCrumb.name }]
+              : []),
+          ]}
+        />
+        <h1>{product.name}</h1>
+        {familyCrumb ? <p class="hm-pdp-kicker">{familyCrumb.name}</p> : null}
+        <p class="hm-pdp-lede">{product.oneLiner}</p>
       </div>
 
       {
@@ -160,153 +149,62 @@ const related = [...sameFamily, ...oltcSiblings].slice(0, 6);
         ) : null
       }
 
-      <div class="keyfacts bg-gradient">
-        <div class="container">
-          <div class="row">
-            <div class="col-m-12 col-lg-4 offset-lg-1">
-              <h2 class="headline">Facts</h2>
-            </div>
-            <div class="keyfact width-small icon-plus col-m-12 col-lg-6 offset-lg-1">
-              <div class="key-facts">
-                <ol
-                  class="keyfacts-list row collapse-mobile-spec-number collapse-tablet-spec-number"
-                  data-attr-collapse-mobile="5"
-                  data-attr-collapse-tablet="5"
-                >
-                  {
-                    product.ratings.map((r, i) => {
-                      const fact = keyfactParts(r, familyCrumb?.name ?? "", i);
-                      return (
-                        <li class="col-12 col-s-6 col-lg-6 white">
-                          <div class="keyfact-headline">
-                            <p>{fact.label}</p>
-                          </div>
-                          <p>{fact.body}</p>
-                        </li>
-                      );
-                    })
-                  }
-                </ol>
-                <a class="show-all show-more-keyfacts-js">
-                  <div class="show-all-icon">
-                    <svg viewBox="0 0 491.996 491.996" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M484.132,124.986l-16.116-16.228c-5.072-5.068-11.82-7.86-19.032-7.86c-7.208,0-13.964,2.792-19.036,7.86l-183.84,183.848 L62.056,108.554c-5.064-5.068-11.82-7.856-19.028-7.856s-13.968,2.788-19.036,7.856l-16.12,16.128 c-10.496,10.488-10.496,27.572,0,38.06l219.136,219.924c5.064,5.064,11.812,8.632,19.084,8.632h0.084 c7.212,0,13.96-3.572,19.024-8.632l218.932-219.328c5.072-5.064,7.856-12.016,7.864-19.224 C491.996,136.902,489.204,130.046,484.132,124.986z"
-                      ></path>
-                    </svg>
-                  </div>
-                  Show all
-                </a>
-                <a class="show-all show-less-keyfacts-js" style="display:none;">
-                  <div class="show-all-icon">
-                    <svg viewBox="0 0 492 492" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M7.9,367L24,383.2c5.1,5.1,11.8,7.9,19,7.9c7.2,0,14-2.8,19-7.9l183.8-183.8l184.1,184.1 c5.1,5.1,11.8,7.9,19,7.9c7.2,0,14-2.8,19-7.9l16.1-16.1c10.5-10.5,10.5-27.6,0-38.1L265,109.3c-5.1-5.1-11.8-8.6-19.1-8.6h-0.1 c-7.2,0-14,3.6-19,8.6L7.9,328.7c-5.1,5.1-7.9,12-7.9,19.2C0,355.1,2.8,362,7.9,367z"
-                      ></path>
-                    </svg>
-                  </div>
-                  Show less
-                </a>
-              </div>
-            </div>
-          </div>
+      <div class="hm-wrap hm-spec">
+        <h2>Facts</h2>
+        <div class="hm-spec-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {product.ratings.map((r, i) => {
+                const fact = keyfactParts(r, familyCrumb?.name ?? "", i);
+                return (
+                  <tr>
+                    <th scope="row">{fact.label || "From the plate"}</th>
+                    <td>{fact.body}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
       </div>
 
-      <ProductRegisters slug={product.slug} ratings={product.ratings} files={files} noPdf={noPdf} note={note} />
+      <div class="hm-wrap hm-pdp-regs">
+        <ProductRegisters slug={product.slug} ratings={product.ratings} files={files} noPdf={noPdf} note={note} />
+      </div>
 
       {
         related.length ? (
-          <div class="product-related-products">
-            <div class="teaser_products container">
-              <div class="row">
-                <div class="swiper-container product-swiper col-12" id="teaserproduct-show">
-                  <div class="swiper-controls-container">
-                    <h2>Related types</h2>
-                    <div class="swiper-controls">
-                      <div class="swiper-button-prev swiper-button-prev-productteaserproduct-show">
-                        <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M9.26236 10.6805L-0.00410652 1.41408L1.41011 -0.0001297L12.1436 10.7334L1.3837 20.7315L0.0223022 19.2664L9.26236 10.6805Z"
-                            fill="currentColor"
-                          />
-                        </svg>
-                      </div>
-                      <div class="swiper-button-next swiper-button-next-productteaserproduct-show">
-                        <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M9.26236 10.6805L-0.00410652 1.41408L1.41011 -0.0001297L12.1436 10.7334L1.3837 20.7315L0.0223022 19.2664L9.26236 10.6805Z"
-                            fill="currentColor"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-wrapper">
-                    {related.map((p) => (
-                      <ProductBox
-                        href={`/products/${p.slug}/`}
-                        name={p.name}
-                        intro={p.oneLiner}
-                        image={productImageSrc(p.slug)}
-                        facts={[familyById(p.family)?.name ?? ""]}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
+          <div class="hm-wrap hm-pdp-related">
+            <h2>Related types</h2>
+            <div class="hm-type-grid">
+              {related.map((p) => (
+                <ProductBox
+                  href={`/products/${p.slug}/`}
+                  name={p.name}
+                  intro={p.oneLiner}
+                  image={productImageSrc(p.slug)}
+                  facts={[familyById(p.family)?.name ?? ""]}
+                />
+              ))}
             </div>
           </div>
         ) : null
       }
 
-      <div class="product-related-services">
-        <div class="teaser-module bg-grey">
-          <div class="container">
-            <div class="row">
-              <div class="text col-m-12 col-lg-12">
-                <h2 class="headline">Also</h2>
-              </div>
-              <div class="text col-m-12 col-lg-12">
-                <div class="teaser-wrapper">
-                  <div class="row">
-                    <div class="teaser_element col-lg-6 two-column">
-                      <div class="textteaser textteaser-outline">
-                        <div class="teaser-HeadlineAndText">
-                          <p class="headline">Technical data as PDF</p>
-                        </div>
-                        <div>
-                          <a class="link" href="/downloads/">Downloads</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="teaser_element col-lg-6 two-column">
-                      <div class="textteaser textteaser-outline">
-                        <div class="teaser-HeadlineAndText">
-                          <p class="headline">International mail is Singapore</p>
-                        </div>
-                        <div>
-                          <a class="link" href="/contact/">Find a contact</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-detail-btn col">
-        <a class="cta cta-outline" href="/products/">All types</a>
-      </div>
+      <p class="hm-wrap hm-pdp-also">
+        <a href="/downloads/">Technical data (PDF)</a>
+        {" · "}
+        <a href="/contact/">Singapore office</a>
+        {" · "}
+        <a href="/products/">All types</a>
+      </p>
     </div>
-    <NewsImpulse heading="News" />
     <InnerTeaser />
   </main>
 </Base>
