@@ -398,10 +398,25 @@ main{
 .hm-foot{
   background:#00428C;
   color:#fff;
-  padding:1.25rem 0;
+  padding:1.75rem 0 1.5rem;
   font-size:.8125rem;
 }
-.hm-foot .hm-wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.hm-foot-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1.5rem 2rem;
+}
+@media (max-width:800px){
+  .hm-foot-grid{grid-template-columns:1fr;}
+}
+.hm-foot-label{
+  margin:0 0 .45rem;
+  font-size:.75rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.72);
+}
+.hm-foot p{margin:.25rem 0 0;}
 .hm-foot a{color:#fff;text-decoration:none;}
 .hm-foot a::before,
 .hm-foot a::after{
@@ -742,22 +757,33 @@ a.show-all:not(:focus):hover,
 
 .hm-about-split{
   display:grid;
-  grid-template-columns:minmax(12rem,18rem) minmax(0,1fr);
+  grid-template-columns:1fr 1fr;
   gap:1.5rem 2rem;
+  align-items:start;
   padding:0 0 1.75rem;
 }
 @media (max-width:800px){.hm-about-split{grid-template-columns:1fr;}}
 .hm-about-split h2{margin:0;font-size:1.25rem;font-weight:600;letter-spacing:-.02em;}
 .hm-facts{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-columns:repeat(4,minmax(0,1fr));
   gap:0;
-  margin:0 0 2rem;
+  margin:0 auto 2rem;
   padding:0;
-  border-top:1px solid #d1d1d1;
+  border:1px solid #d1d1d1;
 }
-@media (max-width:700px){.hm-facts{grid-template-columns:1fr;}}
-.hm-facts > div{padding:.85rem 1rem .85rem 0;border-bottom:1px solid #d1d1d1;}
+@media (max-width:900px){.hm-facts{grid-template-columns:1fr 1fr;}}
+@media (max-width:560px){.hm-facts{grid-template-columns:1fr;}}
+.hm-facts > div{
+  padding:1rem 1.1rem;
+  border-right:1px solid #d1d1d1;
+  border-bottom:0;
+}
+.hm-facts > div:last-child{border-right:0;}
+@media (max-width:900px){
+  .hm-facts > div{border-bottom:1px solid #d1d1d1;}
+  .hm-facts > div:nth-child(2n){border-right:0;}
+}
 .hm-facts dt{font-weight:600;color:#00428C;}
 .hm-facts dd{margin:.25rem 0 0;font-size:.875rem;}
 .hm-about-media{
@@ -769,8 +795,8 @@ a.show-all:not(:focus):hover,
 }
 @media (max-width:800px){.hm-about-media{grid-template-columns:1fr;}}
 .hm-about-media h2{margin:0 0 .5rem;font-size:1.05rem;font-weight:600;}
-.hm-about-media figure{margin:0;background:#eef1f4;}
-.hm-about-media img{display:block;width:100%;height:auto;object-fit:contain;max-height:22rem;}
+.hm-about-media figure{margin:0;background:#eef1f4;display:flex;flex-direction:column;align-items:center;}
+.hm-about-media img{display:block;width:auto;max-width:100%;height:auto;object-fit:contain;max-height:22rem;margin-inline:auto;}
 .hm-about-media figcaption{font-size:.75rem;color:#3a3a3a;padding:.4rem .1rem 0;}
 .hm-about-news{margin:0;}
 .hm-article-photo{margin:0 auto 1.5rem;background:#eef1f4;}

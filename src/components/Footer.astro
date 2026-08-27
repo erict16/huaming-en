@@ -5,19 +5,41 @@ const singapore = offices.find((o) => o.id === "singapore");
 ---
 
 <footer class="hm-foot">
-  <div class="hm-wrap">
-    <p>
-      {shanghai?.name ?? "Shanghai Huaming Power Equipment Co., Ltd."}
-      {singapore ? " · Singapore HQ" : ""}
-    </p>
-    <p>
-      <a href="/downloads/">Downloads</a>
-      {" · "}
-      <a href="/contact/">Contact</a>
-      {" · "}
-      <a href="/legal/imprint/">Imprint</a>
-      {" · "}
-      <a href="/legal/privacy/">Privacy</a>
-    </p>
+  <div class="hm-wrap hm-foot-grid">
+    <div>
+      <p class="hm-foot-label">Factory</p>
+      <p>{shanghai?.name ?? "Shanghai Huaming Power Equipment Co., Ltd."}</p>
+      {
+        shanghai?.lines.map((line) => (
+          <p>{line}</p>
+        ))
+      }
+      {shanghai?.creditCode ? <p>Credit code {shanghai.creditCode}</p> : null}
+    </div>
+    <div>
+      <p class="hm-foot-label">International headquarters</p>
+      <p>{singapore?.name ?? "Huaming Power Equipment Singapore Pte. Ltd"}</p>
+      {
+        singapore?.lines.map((line) => (
+          <p>{line}</p>
+        ))
+      }
+      <p>
+        <a href="mailto:intl@huaming.com">intl@huaming.com</a>
+      </p>
+    </div>
+    <div>
+      <p class="hm-foot-label">Catalogue</p>
+      <p><a href="/products/">Products</a></p>
+      <p><a href="/downloads/">Downloads</a></p>
+      <p><a href="/about/">About</a></p>
+      <p><a href="/news/">News</a></p>
+      <p><a href="/contact/">Contact</a></p>
+      <p>
+        <a href="/legal/imprint/">Imprint</a>
+        {" · "}
+        <a href="/legal/privacy/">Privacy</a>
+      </p>
+    </div>
   </div>
 </footer>
