@@ -30,6 +30,13 @@
     .place { margin:0; font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; opacity:.75; }
     h2 { margin:.35rem 0 0; font-size:1.35rem; font-weight:600; }
     article p { margin:.7rem 0 0; font-size:.9375rem; }
+    .latest { width:min(72rem, calc(100% - 2rem)); margin:0 auto; padding:1.25rem 0 1.5rem; }
+    .latest h2 { margin:0 0 .75rem; font-size:1.15rem; font-weight:600; letter-spacing:-.02em; color:var(--navy); }
+    .latest .row { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:.5rem; }
+    .latest a { text-decoration:none; color:var(--navy); font-size:.8rem; font-weight:600; }
+    .latest .t { aspect-ratio:3/2; background:var(--band); border:1px solid var(--rule); }
+    .latest img { width:100%; height:100%; object-fit:contain; }
+    @media (max-width:800px){ .latest .row { grid-template-columns:repeat(3,1fr); } }
     .news { padding:1.3rem 0; border-top:1px solid var(--rule); }
     .news .in, footer .in { width:min(72rem, calc(100% - 2rem)); margin:0 auto; }
     .news a { color:var(--navy); font-weight:600; text-decoration:none; }
@@ -69,6 +76,17 @@
         <p>Opened 29 April 2025. Mail: <a href="mailto:intl@huaming.com">intl@huaming.com</a>.</p>
         <p><a href="/contact/">Write Singapore</a></p>
       </article>
+    </section>
+    <section class="latest">
+      <h2>Latest products</h2>
+      <div class="row">
+        <a href="/products/cv2/"><div class="t"><img src="cv2.png" alt="" width="600" height="414" /></div>CV2</a>
+        <a href="/products/cm2/"><div class="t"><img src="cm2.png" alt="" width="600" height="414" /></div>CM2</a>
+        <a href="/products/shzv/"><div class="t"><img src="shzv.png" alt="" width="600" height="414" /></div>SHZV</a>
+        <a href="/products/hwv/"><div class="t"><img src="hwv.png" alt="" width="600" height="414" /></div>HWV</a>
+        <a href="/products/wsl/"><div class="t"><img src="wsl.jpg" alt="" width="838" height="578" /></div>WSL</a>
+        <a href="/products/cma7/"><div class="t"><img src="cma7.jpg" alt="" width="836" height="577" /></div>CMA7</a>
+      </div>
     </section>
     <section class="news">
       <div class="in">

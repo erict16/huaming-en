@@ -30,6 +30,13 @@
     .letter li { padding:.35rem 0; border-bottom:1px solid var(--rule); }
     .news { background:var(--band); padding:1.15rem 1.75rem; }
     .news a { color:var(--navy); font-weight:600; text-decoration:none; }
+    .latest { width:min(72rem, calc(100% - 2rem)); margin:0 auto; padding:1.25rem 0 1.5rem; }
+    .latest h2 { margin:0 0 .75rem; font-size:1.15rem; font-weight:600; letter-spacing:-.02em; color:var(--navy); }
+    .latest .row { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:.5rem; }
+    .latest a { text-decoration:none; color:var(--navy); font-size:.8rem; font-weight:600; }
+    .latest .t { aspect-ratio:3/2; background:var(--band); border:1px solid var(--rule); }
+    .latest img { width:100%; height:100%; object-fit:contain; }
+    @media (max-width:800px){ .latest .row { grid-template-columns:repeat(3,1fr); } }
     footer { background:var(--navy); color:#fff; padding:1rem 1.75rem; font-size:.8125rem; display:flex; justify-content:space-between; }
     footer a { color:#fff; text-decoration:none; }
     @media (max-width:800px){ .fold { grid-template-columns:1fr; } }
@@ -66,6 +73,17 @@
           <p style="margin:0;"><a href="/news/singapore-international-hq/">Singapore headquarters, 29 April 2025</a></p>
           <p style="margin:.35rem 0 0;"><a href="/news/chvt-longdong-800kv/">Longdong ±800 kV, 28 May 2025</a></p>
         </div>
+      </div>
+    </section>
+    <section class="latest">
+      <h2>Latest products</h2>
+      <div class="row">
+        <a href="/products/cv2/"><div class="t"><img src="cv2.png" alt="" width="600" height="414" /></div>CV2</a>
+        <a href="/products/cm2/"><div class="t"><img src="cm2.png" alt="" width="600" height="414" /></div>CM2</a>
+        <a href="/products/shzv/"><div class="t"><img src="shzv.png" alt="" width="600" height="414" /></div>SHZV</a>
+        <a href="/products/hwv/"><div class="t"><img src="hwv.png" alt="" width="600" height="414" /></div>HWV</a>
+        <a href="/products/wsl/"><div class="t"><img src="wsl.jpg" alt="" width="838" height="578" /></div>WSL</a>
+        <a href="/products/cma7/"><div class="t"><img src="cma7.jpg" alt="" width="836" height="577" /></div>CMA7</a>
       </div>
     </section>
   </main>

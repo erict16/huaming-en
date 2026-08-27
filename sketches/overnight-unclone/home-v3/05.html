@@ -34,6 +34,13 @@
     .news h2 { margin:0 0 .5rem; font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; color:#3a3a3a; }
     .news a { color:var(--navy); font-weight:600; text-decoration:none; display:block; margin:0 0 .75rem; }
     .news time { display:block; font-size:.75rem; font-weight:400; color:#3a3a3a; }
+    .latest { width:min(72rem, calc(100% - 2rem)); margin:0 auto; padding:1.25rem 0 1.5rem; }
+    .latest h2 { margin:0 0 .75rem; font-size:1.15rem; font-weight:600; letter-spacing:-.02em; color:var(--navy); }
+    .latest .row { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:.5rem; }
+    .latest a { text-decoration:none; color:var(--navy); font-size:.8rem; font-weight:600; }
+    .latest .t { aspect-ratio:3/2; background:var(--band); border:1px solid var(--rule); }
+    .latest img { width:100%; height:100%; object-fit:contain; }
+    @media (max-width:800px){ .latest .row { grid-template-columns:repeat(3,1fr); } }
     footer { background:var(--navy); color:#fff; padding:1rem 0; font-size:.8125rem; }
     footer .in { width:min(72rem, calc(100% - 2rem)); margin:0 auto; display:flex; justify-content:space-between; }
     footer a { color:#fff; text-decoration:none; }
@@ -72,6 +79,17 @@
         <a href="/news/chvt-longdong-800kv/"><time datetime="2025-05-28">28 May 2025</time>CHVT in service at Longdong ±800 kV</a>
         <a href="/about/">Company</a>
       </aside>
+    </section>
+    <section class="latest">
+      <h2>Latest products</h2>
+      <div class="row">
+        <a href="/products/cv2/"><div class="t"><img src="cv2.png" alt="" width="600" height="414" /></div>CV2</a>
+        <a href="/products/cm2/"><div class="t"><img src="cm2.png" alt="" width="600" height="414" /></div>CM2</a>
+        <a href="/products/shzv/"><div class="t"><img src="shzv.png" alt="" width="600" height="414" /></div>SHZV</a>
+        <a href="/products/hwv/"><div class="t"><img src="hwv.png" alt="" width="600" height="414" /></div>HWV</a>
+        <a href="/products/wsl/"><div class="t"><img src="wsl.jpg" alt="" width="838" height="578" /></div>WSL</a>
+        <a href="/products/cma7/"><div class="t"><img src="cma7.jpg" alt="" width="836" height="577" /></div>CMA7</a>
+      </div>
     </section>
   </main>
   <footer><div class="in"><p>Turkey 2016 · Brazil and USA 2019 · Indonesia 2025</p><p><a href="/contact/">Contact</a></p></div></footer>
