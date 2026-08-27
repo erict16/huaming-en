@@ -7,18 +7,17 @@ import { productImageSrc } from "../lib/product-image";
 const shanghai = offices.find((o) => o.id === "shanghai");
 const singapore = offices.find((o) => o.id === "singapore");
 
-const strip = [
-  { slug: "cv2", kind: "Vacuum OLTC" },
-  { slug: "cm2", kind: "Vacuum, CM envelope" },
-  { slug: "shzv", kind: "Vacuum OLTC" },
-  { slug: "hwv", kind: "On-tank vacuum" },
-  { slug: "wsl", kind: "De-energized, cage" },
-  { slug: "cma7", kind: "Motor drive" },
-]
-  .map((row) => {
-    const p = productBySlug(row.slug);
+const featured = ["cv2", "cm2", "shzv", "hwv", "wsl", "cma7"]
+  .map((slug) => {
+    const p = productBySlug(slug);
     if (!p) return null;
-    return { ...row, name: p.name, href: `/products/${p.slug}/`, src: productImageSrc(p.slug) };
+    return {
+      slug,
+      name: p.name,
+      blurb: p.oneLiner,
+      href: `/products/${p.slug}/`,
+      src: productImageSrc(p.slug),
+    };
   })
   .filter((row): row is NonNullable<typeof row> => Boolean(row));
 
@@ -84,24 +83,68 @@ const homeNews = news.slice(0, 2);
       </article>
     </section>
 
-    <section class="hm-strip" aria-label="Latest products">
+    <section class="hm-feat" aria-label="Featured Products">
       <div class="hm-wrap">
-        <h2>Latest products</h2>
-        <div class="hm-row">
+        <div class="hm-feat-head">
+          <h2>Featured Products</h2>
+          <div class="hm-feat-nav">
+            <button type="button" class="hm-feat-prev" aria-label="Previous products">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m15 18-6-6 6-6"></path>
+              </svg>
+            </button>
+            <button type="button" class="hm-feat-next" aria-label="Next products">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 18 6-6-6-6"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="hm-feat-track">
           {
-            strip.map((t) => (
-              <a class="hm-cell" href={t.href}>
-                <div class="hm-thumb">
-                  {t.src ? <img src={t.src} alt="" width="600" height="414" /> : null}
-                </div>
-                <span class="hm-code">{t.name}</span>
-                <span class="hm-one">{t.kind}</span>
-              </a>
+            featured.map((t) => (
+              <article class="hm-feat-card">
+                <a class="hm-feat-still" href={t.href} tabindex="-1">
+                  {t.src ? <img src={t.src} alt="" width="600" height="400" /> : null}
+                </a>
+                <h3>{t.name}</h3>
+                <p>{t.blurb}</p>
+                <a class="hm-feat-go" href={t.href}>Show product</a>
+              </article>
             ))
           }
         </div>
       </div>
     </section>
+    <script is:inline>
+      (function () {
+        var track = document.querySelector(".hm-feat-track");
+        var prev = document.querySelector(".hm-feat-prev");
+        var next = document.querySelector(".hm-feat-next");
+        if (!track || !prev || !next) return;
+        function step() {
+          var card = track.querySelector(".hm-feat-card");
+          if (!card) return 0;
+          var styles = getComputedStyle(track);
+          var gap = parseFloat(styles.columnGap || styles.gap) || 0;
+          return card.getBoundingClientRect().width + gap;
+        }
+        function sync() {
+          var max = track.scrollWidth - track.clientWidth - 4;
+          prev.disabled = track.scrollLeft <= 4;
+          next.disabled = track.scrollLeft >= max;
+        }
+        prev.addEventListener("click", function () {
+          track.scrollBy({ left: -step(), behavior: "smooth" });
+        });
+        next.addEventListener("click", function () {
+          track.scrollBy({ left: step(), behavior: "smooth" });
+        });
+        track.addEventListener("scroll", sync, { passive: true });
+        window.addEventListener("resize", sync);
+        sync();
+      })();
+    </script>
 
     <section class="hm-news" aria-label="Latest news">
       <div class="hm-wrap">
