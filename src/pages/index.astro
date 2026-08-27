@@ -1,5 +1,5 @@
 ---
-import Base from "../layouts/Base.astro";
+import Home from "../layouts/Home.astro";
 import HeroWaves from "../components/HeroWaves.astro";
 import { offices, productBySlug } from "../lib/catalog";
 import { news } from "../lib/news";
@@ -25,143 +25,157 @@ const featured = ["cv2", "cm2", "shzv", "hwv", "wsl", "cma7"]
 const homeNews = news.slice(0, 2);
 ---
 
-<Base title="Huaming — tap changers for power transformers">
-  <main id="main" class="hm-home">
-    <section class="hm-stage">
+<Home title="Huaming — tap changers for power transformers">
+  <main id="main">
+    <section class="relative min-h-[32rem] overflow-hidden bg-paper text-ink lg:min-h-[36rem]">
       <HeroWaves />
-      <div class="hm-wrap">
-        <div class="hm-stage-copy">
-          <p class="hm-kicker">Shanghai Huaming Power Equipment</p>
-          <h1>Welcome to Huaming</h1>
-          <p class="hm-lede">
+      <div
+        class="pointer-events-none absolute inset-y-0 left-0 z-[1] w-[min(46rem,62%)] bg-gradient-to-r from-paper via-paper/95 to-transparent max-[800px]:w-full max-[800px]:bg-gradient-to-b"
+        aria-hidden="true"
+      >
+      </div>
+      <div class="relative z-[2] mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="max-w-xl py-16 sm:py-20 lg:py-24">
+          <p class="text-xs font-medium uppercase tracking-[0.12em] text-mute">
+            Shanghai Huaming Power Equipment
+          </p>
+          <h1 class="mt-2 max-w-[12ch] text-5xl font-semibold tracking-tight text-navy sm:text-6xl sm:leading-[1.08]">
+            Welcome to Huaming
+          </h1>
+          <p class="mt-5 max-w-xl text-lg leading-7 text-ink sm:text-xl sm:leading-8">
             We make tap changers for power transformers. The factory is in Putuo, Shanghai. International
             headquarters opened in Singapore in 2025.
           </p>
-          <p class="hm-acts">
-            <a href="/products/">Products</a>
-            <a href="/downloads/">Downloads</a>
-            <a href="/contact/">Contact</a>
+          <p class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-steel">
+            <a class="hover:underline hover:underline-offset-[0.16em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel" href="/products/">Products</a>
+            <a class="hover:underline hover:underline-offset-[0.16em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel" href="/downloads/">Downloads</a>
+            <a class="hover:underline hover:underline-offset-[0.16em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel" href="/contact/">Contact</a>
           </p>
         </div>
       </div>
     </section>
-    <figure class="hm-stage-photo">
+
+    <figure class="mx-auto max-w-7xl px-6 pt-10 lg:px-8 lg:pt-12">
       <img
+        class="block h-auto max-h-[28rem] w-full bg-paper object-cover object-center"
         src="/images/00_HuaMing/about/about-photo.jpg"
         alt="Shanghai factory, Putuo."
       />
-      <figcaption>Shanghai factory, No. 977 Tongpu Road, Putuo.</figcaption>
+      <figcaption class="pt-3 pb-2 text-xs text-mute">
+        Shanghai factory, No. 977 Tongpu Road, Putuo.
+      </figcaption>
     </figure>
 
-    <section class="hm-homes" aria-label="Factory and headquarters">
-      <article class="hm-home-factory">
-        <p class="hm-place">Factory</p>
-        <h2>Shanghai</h2>
-        <p class="hm-legal">{shanghai?.name ?? "Shanghai Huaming Power Equipment Co., Ltd."}</p>
-        {
-          shanghai ? (
-            shanghai.lines.map((line) => (
-              <p>{line}</p>
-            ))
-          ) : (
-            <p>No. 977 Tongpu Road, Putuo District, Shanghai 200333, China.</p>
-          )
-        }
-        <p>Founded 1989. Listed Shenzhen 002270.SZ in 2015. CNAS laboratory since 2009.</p>
-        <p class="hm-col-cta"><a href="/about/">Company</a></p>
-      </article>
-      <article class="hm-home-hq">
-        <p class="hm-place">International headquarters</p>
-        <h2>Singapore</h2>
-        <p class="hm-legal">{singapore?.name ?? "Huaming Power Equipment Singapore Pte. Ltd"}</p>
-        {
-          singapore
-            ? singapore.lines.map((line) => (
-                <p>{line}</p>
-              ))
-            : null
-        }
-        <p>Opened 29 April 2025.</p>
-        <p><a href="mailto:intl@huaming.com">intl@huaming.com</a></p>
-        <p class="hm-col-cta"><a href="/contact/">Write Singapore</a></p>
-      </article>
+    <section class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24" aria-label="Factory and headquarters">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <article class="flex flex-col bg-paper px-8 py-10 lg:px-10 lg:py-12">
+          <p class="text-xs font-medium uppercase tracking-[0.12em] text-mute">Factory</p>
+          <h2 class="mt-1 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Shanghai</h2>
+          <p class="mt-6 font-semibold text-ink">
+            {shanghai?.name ?? "Shanghai Huaming Power Equipment Co., Ltd."}
+          </p>
+          {
+            shanghai ? (
+              shanghai.lines.map((line) => <p class="mt-1.5 text-base leading-6 text-ink">{line}</p>)
+            ) : (
+              <p class="mt-1.5 text-base leading-6 text-ink">
+                No. 977 Tongpu Road, Putuo District, Shanghai 200333, China.
+              </p>
+            )
+          }
+          <p class="mt-1.5 text-base leading-6 text-ink">
+            Founded 1989. Listed Shenzhen 002270.SZ in 2015. CNAS laboratory since 2009.
+          </p>
+          <p class="mt-auto pt-10">
+            <a
+              class="font-semibold text-steel hover:underline hover:underline-offset-[0.16em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel"
+              href="/about/"
+            >
+              Company
+            </a>
+          </p>
+        </article>
+        <article class="flex flex-col bg-navy px-8 py-10 text-white lg:px-10 lg:py-12">
+          <p class="text-xs font-medium uppercase tracking-[0.12em] text-white/85">
+            International headquarters
+          </p>
+          <h2 class="mt-1 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Singapore</h2>
+          <p class="mt-6 font-semibold">
+            {singapore?.name ?? "Huaming Power Equipment Singapore Pte. Ltd"}
+          </p>
+          {
+            singapore
+              ? singapore.lines.map((line) => <p class="mt-1.5 text-base leading-6">{line}</p>)
+              : null
+          }
+          <p class="mt-1.5 text-base leading-6">Opened 29 April 2025.</p>
+          <p class="mt-1.5 text-base leading-6">
+            <a
+              class="font-semibold text-white hover:underline hover:underline-offset-[0.16em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              href="mailto:intl@huaming.com"
+            >
+              intl@huaming.com
+            </a>
+          </p>
+          <p class="mt-auto pt-10">
+            <a
+              class="font-semibold text-white hover:underline hover:underline-offset-[0.16em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              href="/contact/"
+            >
+              Write Singapore
+            </a>
+          </p>
+        </article>
+      </div>
     </section>
 
-    <section class="hm-feat" aria-label="Featured Products">
-      <div class="hm-wrap">
-        <div class="hm-feat-head">
-          <h2>Featured Products</h2>
-          <div class="hm-feat-nav">
-            <button type="button" class="hm-feat-prev" aria-label="Previous products">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="m15 18-6-6 6-6"></path>
-              </svg>
-            </button>
-            <button type="button" class="hm-feat-next" aria-label="Next products">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="m9 18 6-6-6-6"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="hm-feat-track">
+    <section class="bg-white py-16 lg:py-24" aria-label="Featured Products">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <h2 class="text-4xl font-semibold tracking-tight text-navy sm:text-5xl">Featured Products</h2>
+        <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {
             featured.map((t) => (
-              <article class="hm-feat-card">
-                <a class="hm-feat-still" href={t.href} tabindex="-1">
-                  {t.src ? <img src={t.src} alt="" width="600" height="400" /> : null}
+              <article class="flex flex-col gap-3">
+                <a class="block aspect-[3/2] bg-paper px-4 py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy" href={t.href} tabindex="-1">
+                  {t.src ? (
+                    <img class="size-full object-contain object-center" src={t.src} alt="" width="600" height="400" />
+                  ) : null}
                 </a>
-                <h3>{t.name}</h3>
-                <p>{t.blurb}</p>
-                <a class="hm-feat-go" href={t.href}>Show product</a>
+                <h3 class="text-xl font-semibold tracking-tight text-ink">{t.name}</h3>
+                <p class="text-base leading-6 text-ink">{t.blurb}</p>
+                <a
+                  class="text-sm font-semibold text-steel hover:underline hover:underline-offset-[0.16em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel"
+                  href={t.href}
+                >
+                  Show product
+                </a>
               </article>
             ))
           }
         </div>
       </div>
     </section>
-    <script is:inline>
-      (function () {
-        var track = document.querySelector(".hm-feat-track");
-        var prev = document.querySelector(".hm-feat-prev");
-        var next = document.querySelector(".hm-feat-next");
-        if (!track || !prev || !next) return;
-        function step() {
-          var card = track.querySelector(".hm-feat-card");
-          if (!card) return 0;
-          var styles = getComputedStyle(track);
-          var gap = parseFloat(styles.columnGap || styles.gap) || 0;
-          return card.getBoundingClientRect().width + gap;
-        }
-        function sync() {
-          var max = track.scrollWidth - track.clientWidth - 4;
-          prev.disabled = track.scrollLeft <= 4;
-          next.disabled = track.scrollLeft >= max;
-        }
-        prev.addEventListener("click", function () {
-          track.scrollBy({ left: -step(), behavior: "smooth" });
-        });
-        next.addEventListener("click", function () {
-          track.scrollBy({ left: step(), behavior: "smooth" });
-        });
-        track.addEventListener("scroll", sync, { passive: true });
-        window.addEventListener("resize", sync);
-        sync();
-      })();
-    </script>
 
-    <section class="hm-news" aria-label="Latest news">
-      <div class="hm-wrap">
-        <h2>Latest news</h2>
-        <div class="hm-news-blocks">
+    <section class="bg-paper py-16 lg:py-24" aria-label="Latest news">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <p class="text-xs font-semibold uppercase tracking-widest text-mute">News</p>
+        <h2 class="mt-2 text-4xl font-semibold tracking-tight text-ink sm:text-5xl">Latest news</h2>
+        <div class="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
           {
             homeNews.map((item) => (
-              <article>
-                <time datetime={item.date}>{item.date}</time>
-                <h3>
-                  <a href={`/news/${item.slug}/`}>{item.title}</a>
+              <article class="flex flex-col bg-white p-8 ring-1 ring-black/5">
+                <time class="text-sm text-mute" datetime={item.date}>
+                  {item.date}
+                </time>
+                <h3 class="mt-3 text-xl font-semibold tracking-tight text-navy">
+                  <a
+                    class="hover:underline hover:underline-offset-[0.16em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+                    href={`/news/${item.slug}/`}
+                  >
+                    {item.title}
+                  </a>
                 </h3>
-                <p>{item.summary}</p>
+                <p class="mt-3 text-base leading-6 text-ink">{item.summary}</p>
               </article>
             ))
           }
@@ -169,4 +183,4 @@ const homeNews = news.slice(0, 2);
       </div>
     </section>
   </main>
-</Base>
+</Home>

@@ -10,7 +10,9 @@
     "audit": "node scripts/audit-mr.mjs"
   },
   "dependencies": {
-    "astro": "^5.13.2"
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^5.13.2",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "typescript": "^5.9.2"
