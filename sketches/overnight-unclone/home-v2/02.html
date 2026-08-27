@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Huaming · Tap changers for power transformers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#00428C; --steel:#0071A9; --ink:#262626; --canvas:#fff; --rule:#d1d1d1; --band:#eef1f4; }
+    * { box-sizing:border-box; }
+    html, body { margin:0; background:var(--canvas); color:var(--ink); font-family:"IBM Plex Sans",sans-serif; line-height:1.4; }
+    a { color:var(--steel); }
+    .note { margin:0; padding:.4rem 1.25rem; background:var(--band); font-size:.75rem; }
+    header { border-bottom:1px solid var(--rule); }
+    header .in { width:min(72rem, calc(100% - 2rem)); margin:0 auto; display:flex; align-items:center; min-height:3rem; gap:1.25rem; }
+    .logo img { height:1.5rem; width:auto; }
+    nav.p { display:flex; gap:1.1rem; }
+    nav.p a { color:var(--ink); text-decoration:none; font-size:.875rem; font-weight:500; }
+    .sp { flex:1; }
+    nav.u { display:flex; gap:.9rem; font-size:.75rem; }
+    nav.u a { color:#3a3a3a; text-decoration:none; }
+    .fold { width:min(72rem, calc(100% - 2rem)); margin:0 auto; padding:.85rem 0 .6rem; }
+    .top { display:flex; justify-content:space-between; gap:1.5rem; align-items:flex-end; margin-bottom:.75rem; }
+    h1 { margin:0; font-size:clamp(1.5rem, 2.4vw, 2rem); font-weight:600; letter-spacing:-.02em; line-height:1.1; }
+    .meta { margin:0; font-size:.8125rem; text-align:right; }
+    .stage { display:grid; grid-template-columns:minmax(0,1fr) 11rem; gap:1rem; align-items:stretch; }
+    figure { margin:0; aspect-ratio:3/2; max-height:28rem; background:var(--band); }
+    figure img { width:100%; height:100%; object-fit:contain; }
+    .names { display:flex; flex-direction:column; justify-content:space-between; border-left:1px solid var(--rule); padding-left:.85rem; }
+    .names a { color:var(--navy); font-weight:600; text-decoration:none; font-size:1.05rem; letter-spacing:.02em; }
+    .names a:hover { color:var(--steel); }
+    .chips { display:flex; flex-wrap:wrap; gap:.5rem 1.25rem; margin:.75rem 0 0; font-size:.8125rem; border-top:1px solid var(--rule); padding-top:.6rem; }
+    .news { background:var(--band); padding:1.5rem 0; }
+    .news .in, footer .in { width:min(72rem, calc(100% - 2rem)); margin:0 auto; }
+    .news ul { margin:0; padding:0; list-style:none; }
+    .news li { padding:.6rem 0; border-bottom:1px solid var(--rule); }
+    .news a { color:var(--navy); font-weight:600; text-decoration:none; }
+    footer { border-top:1px solid var(--rule); padding:1rem 0; font-size:.8125rem; display:block; }
+    footer .in { display:flex; justify-content:space-between; }
+    @media (max-width:800px){ .stage { grid-template-columns:1fr; } .names { flex-direction:row; flex-wrap:wrap; gap:.5rem 1rem; border-left:0; border-top:1px solid var(--rule); padding:.5rem 0 0; } }
+  </style>
+</head>
+<body>
+  <p class="note">v2-02 · Big still + six type names on the fold. Siemens product-family rail. Sketch only.</p>
+  <header>
+    <div class="in">
+      <a class="logo" href="/"><img src="logo.png" alt="Huaming" width="120" height="36" /></a>
+      <nav class="p"><a href="/products/">Products</a><a href="/about/">About</a><a href="/news/">News</a></nav>
+      <span class="sp"></span>
+      <nav class="u"><a href="/downloads/">Downloads</a><a href="/contact/">Contact</a></nav>
+    </div>
+  </header>
+  <main>
+    <section class="fold">
+      <div class="top">
+        <div>
+          <h1>Tap changers for power transformers</h1>
+          <p style="margin:.4rem 0 0;max-width:36rem;">On-load and de-energized. Vacuum and oil. Shanghai factory. Singapore headquarters.</p>
+        </div>
+        <p class="meta">Typical lead time 4–6 weeks<br /><a href="/downloads/">Technical data (PDF)</a><br /><a href="mailto:intl@huaming.com">intl@huaming.com</a></p>
+      </div>
+      <div class="stage">
+        <figure>
+          <img src="cv2.png" alt="CV2 vacuum on-load tap changer" width="600" height="414" />
+        </figure>
+        <nav class="names" aria-label="Types">
+          <a href="/products/cv2/">CV2</a>
+          <a href="/products/cm2/">CM2</a>
+          <a href="/products/shzv/">SHZV</a>
+          <a href="/products/hwv/">HWV</a>
+          <a href="/products/wsl/">WSL</a>
+          <a href="/products/cma7/">CMA7</a>
+        </nav>
+      </div>
+      <p class="chips">
+        <span>Type CV2 · vacuum OLTC</span>
+        <span>Shanghai factory</span>
+        <span>Singapore HQ</span>
+      </p>
+    </section>
+    <section class="news">
+      <div class="in">
+        <h2 style="margin:0 0 .5rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#3a3a3a;">News</h2>
+        <ul>
+          <li><a href="/news/chvt-longdong-800kv/">CHVT in service at Longdong ±800 kV</a> · 28 May 2025</li>
+          <li><a href="/news/singapore-international-hq/">International headquarters, Singapore</a> · 29 Apr 2025</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer><div class="in"><p>Shanghai Huaming Power Equipment Co., Ltd.</p><p><a href="/downloads/">Downloads</a> · <a href="/contact/">Contact</a></p></div></footer>
+</body>
+</html>
