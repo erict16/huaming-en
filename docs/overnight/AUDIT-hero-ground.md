@@ -8,7 +8,7 @@ Shots: `sketches/overnight-unclone/hero-ground/01.png` … `05.png` at 1280. Sam
 
 Wave math is the live ribbon (16 strokes, `flow`, rotate −6°). No gold, no VACUTAP, no 100-years copy. IBM Plex. Factory still under the stage.
 
-Live `/` still sits on `#001a3d`. These files are sketches.
+Eric picked **02 — light steel**. It is live on `/`: ground `#eef1f4`, navy/steel strokes (`data-palette="steel"`), kicker mute / h1 `#00428C` / lede `#262626` / acts `#0071A9`. Header stays the navy bar. Factory still sits under the stage. 01 / 03 / 04 / 05 stay sketches.
 
 Live ribbon polish (on `/`, not a new motion): ends taper, stroke scaled by DPR, speed 0.36 → 0.26, `prefers-reduced-motion` listens for change and holds a still.
 
@@ -18,7 +18,7 @@ Live ribbon polish (on `/`, not a new motion): ends taper, stroke scaled by DPR,
 
 **02 — light steel / #eef1f4.** Pass. Same type and ribbon as 01, cooler industrial paper, not cream. Closest pair to 01 (hero mean RGB distance ~23). Pick this if 01 feels like a blank website and you still want paper. Do not pick both; they are one idea with different stock.
 
-**03 — current deep navy.** Control. `#001a3d`, white type, light ribbon. This is live, with the taper polish only. Do not pick it if “too dark” is the brief. Keep it as the before.
+**03 — current deep navy.** Control. `#001a3d`, white type, light ribbon. Was live before 02. Keep it as the before.
 
 **04 — softer navy.** Pass as a compromise. Field lifted to `#15548c` (near brand `#00428C`), white type kept. Header and stage sit closer, so the fold is less of a hole. Waves still show. Pick this only if you want to keep the night-theatre layout and just raise the lights. It will not feel like paper.
 
@@ -30,12 +30,4 @@ No MR webm, no gold strip, no anniversary copy. Stills are the Putuo factory pho
 
 ## What to pick
 
-If the page feels too dark: **01**. Runner-up **05** if you want the motion to keep its navy field.
-
-If white feels cheap: **02**.
-
-If you only wanted the lights up, not a paper site: **04**.
-
-Do not pick **03** unless you decide the dark fold was fine.
-
-Do not ship two. Wire one into `src/` after Eric says which.
+Eric picked **02**. Live `/` is 02. Shot: `docs/overnight/shots/hero-ground-02-live-1280.png`.

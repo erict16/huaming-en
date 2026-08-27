@@ -369,8 +369,8 @@ main{
 .hm-stage{
   position:relative;
   overflow:hidden;
-  background:#001a3d;
-  color:#fff;
+  background:#eef1f4;
+  color:#262626;
   min-height:28rem;
 }
 .hm-stage::after{
@@ -378,7 +378,7 @@ main{
   position:absolute;
   inset:0 auto 0 0;
   width:min(46rem,62%);
-  background:linear-gradient(90deg,#001a3d 0%,rgba(0,26,61,.88) 52%,transparent 100%);
+  background:linear-gradient(90deg,#eef1f4 0%,rgba(238,241,244,.94) 50%,transparent 100%);
   z-index:1;
   pointer-events:none;
 }
@@ -399,10 +399,10 @@ main{
 }
 @media (max-width:800px){
   .hm-stage{min-height:22rem;}
-  .hm-stage::after{width:100%;background:linear-gradient(180deg,#001a3d 0%,rgba(0,26,61,.78) 55%,rgba(0,26,61,.35) 100%);}
+  .hm-stage::after{width:100%;background:linear-gradient(180deg,#eef1f4 0%,rgba(238,241,244,.94) 55%,rgba(238,241,244,.35) 100%);}
   .hm-stage-copy{padding:2.25rem 0 2rem;}
 }
-.hm-stage .hm-kicker{color:rgba(255,255,255,.78);}
+.hm-stage .hm-kicker{color:#3a3a3a;}
 .hm-stage h1{
   margin:.4rem 0 0;
   font-size:clamp(2rem,3.4vw,2.75rem);
@@ -410,10 +410,10 @@ main{
   letter-spacing:-.03em;
   line-height:1.08;
   max-width:12ch;
-  color:#fff;
+  color:#00428C;
 }
-.hm-stage .hm-lede{color:rgba(255,255,255,.92);max-width:34rem;}
-.hm-stage .hm-acts a{color:#fff;}
+.hm-stage .hm-lede{color:#262626;max-width:34rem;}
+.hm-stage .hm-acts a{color:#0071A9;}
 .hm-kicker{
   margin:0;
   font-size:.6875rem;
@@ -436,7 +436,7 @@ main{
   font-size:clamp(2rem,3.4vw,2.75rem);
   letter-spacing:-.03em;
   line-height:1.08;
-  color:#fff;
+  color:#00428C;
 }
 .hm-lede{margin:.8rem 0 0;color:#262626;max-width:36rem;font-size:1.05rem;line-height:1.45;font-weight:400;}
 .hm-acts{

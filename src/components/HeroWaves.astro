@@ -1,4 +1,4 @@
-<canvas class="hm-waves" aria-hidden="true"></canvas>
+<canvas class="hm-waves" aria-hidden="true" data-palette="steel"></canvas>
 <script is:inline>
   (function () {
     var canvas = document.querySelector(".hm-waves");
@@ -12,6 +12,16 @@
     var palKey = "";
     var dpr = 1;
     var REST = 1.15;
+    var palettes = {
+      steel: {
+        gradientStart: "#00428C",
+        gradientEnd: "#3d86b3",
+        opacity: 0.76,
+        strokeWidth: 1.16,
+        edgeFade: 0.16,
+      },
+    };
+    var named = palettes[canvas.getAttribute("data-palette") || "steel"] || palettes.steel;
 
     var settings = {
       count: 16,
@@ -25,11 +35,11 @@
       morph: 0.22,
       speed: 0.26,
       anim: "flow",
-      strokeWidth: 1.22,
-      opacity: 0.9,
-      gradientStart: "#7eb8d9",
-      gradientEnd: "#e4f1fa",
-      edgeFade: 0.15,
+      strokeWidth: named.strokeWidth,
+      opacity: named.opacity,
+      gradientStart: named.gradientStart,
+      gradientEnd: named.gradientEnd,
+      edgeFade: named.edgeFade,
       rotate: -6,
       designW: 1600,
       designH: 480,
