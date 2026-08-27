@@ -19,4 +19,4 @@ Header still has News once (primary only). Footer still lists Shanghai, Singapor
 
 ## Merge SHA
 
-Written after push. See git log on `origin/main`.
+`02e4d27` on `origin/main` (fast-forward from `overnight-unclone`). Message: Implement homepage as Welcome plus Shanghai | Singapore.
