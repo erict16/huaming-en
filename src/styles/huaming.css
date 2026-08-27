@@ -366,16 +366,54 @@ main{
 .hm-home{background:#fff;color:#262626;}
 .hm-home a::before,
 .hm-home a::after{content:none!important;display:none!important;background:none!important;}
-.hm-welcome{
-  width:var(--hm-page);
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-  gap:2rem 2.5rem;
-  align-items:start;
-  padding:2rem 0 1.75rem;
+.hm-stage{
+  position:relative;
+  overflow:hidden;
+  background:#001a3d;
+  color:#fff;
+  min-height:28rem;
 }
-@media (max-width:800px){.hm-welcome{grid-template-columns:1fr;padding:1.35rem 0 1.15rem;gap:1.25rem;}}
+.hm-stage::after{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:min(46rem,62%);
+  background:linear-gradient(90deg,#001a3d 0%,rgba(0,26,61,.88) 52%,transparent 100%);
+  z-index:1;
+  pointer-events:none;
+}
+.hm-waves{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  pointer-events:none;
+  z-index:0;
+}
+.hm-stage-copy{
+  position:relative;
+  z-index:2;
+  padding:3.75rem 0 3.5rem;
+  max-width:36rem;
+}
+@media (max-width:800px){
+  .hm-stage{min-height:22rem;}
+  .hm-stage::after{width:100%;background:linear-gradient(180deg,#001a3d 0%,rgba(0,26,61,.78) 55%,rgba(0,26,61,.35) 100%);}
+  .hm-stage-copy{padding:2.25rem 0 2rem;}
+}
+.hm-stage .hm-kicker{color:rgba(255,255,255,.78);}
+.hm-stage h1{
+  margin:.4rem 0 0;
+  font-size:clamp(2rem,3.4vw,2.75rem);
+  font-weight:600;
+  letter-spacing:-.03em;
+  line-height:1.08;
+  max-width:12ch;
+  color:#fff;
+}
+.hm-stage .hm-lede{color:rgba(255,255,255,.92);max-width:34rem;}
+.hm-stage .hm-acts a{color:#fff;}
 .hm-kicker{
   margin:0;
   font-size:.6875rem;
@@ -392,6 +430,13 @@ main{
   line-height:1.1;
   max-width:12ch;
   color:#262626;
+}
+.hm-home .hm-stage h1{
+  margin:.4rem 0 0;
+  font-size:clamp(2rem,3.4vw,2.75rem);
+  letter-spacing:-.03em;
+  line-height:1.08;
+  color:#fff;
 }
 .hm-lede{margin:.8rem 0 0;color:#262626;max-width:36rem;font-size:1.05rem;line-height:1.45;font-weight:400;}
 .hm-acts{
@@ -417,9 +462,27 @@ main{
 @media (max-width:800px){
   .hm-acts{flex-direction:column;align-items:flex-start;gap:.4rem;}
 }
-.hm-welcome figure{margin:0;background:#eef1f4;}
-.hm-welcome img{display:block;width:100%;height:auto;max-height:22rem;object-fit:cover;object-position:center;}
-.hm-welcome figcaption{font-size:.75rem;color:#3a3a3a;padding:.4rem 0 0;font-weight:400;}
+.hm-stage-photo{
+  width:var(--hm-page);
+  margin:0 auto;
+  padding:1.35rem 0 0;
+  background:#fff;
+}
+.hm-stage-photo img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:22rem;
+  object-fit:cover;
+  object-position:center;
+  background:#eef1f4;
+}
+.hm-stage-photo figcaption{
+  font-size:.75rem;
+  color:#3a3a3a;
+  padding:.4rem 0 1.25rem;
+  font-weight:400;
+}
 
 .hm-homes{
   width:var(--hm-page);

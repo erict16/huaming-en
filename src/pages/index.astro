@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import HeroWaves from "../components/HeroWaves.astro";
 import { offices, productBySlug } from "../lib/catalog";
 import { news } from "../lib/news";
 import { productImageSrc } from "../lib/product-image";
@@ -26,28 +27,31 @@ const homeNews = news.slice(0, 2);
 
 <Base title="Huaming — tap changers for power transformers">
   <main id="main" class="hm-home">
-    <section class="hm-welcome">
-      <div>
-        <p class="hm-kicker">Shanghai Huaming Power Equipment</p>
-        <h1>Welcome to Huaming</h1>
-        <p class="hm-lede">
-          We make tap changers for power transformers. The factory is in Putuo, Shanghai. International
-          headquarters opened in Singapore in 2025.
-        </p>
-        <p class="hm-acts">
-          <a href="/about/">Company</a>
-          <a href="mailto:intl@huaming.com">intl@huaming.com</a>
-          <a href="/downloads/">Technical data (PDF)</a>
-        </p>
+    <section class="hm-stage">
+      <HeroWaves />
+      <div class="hm-wrap">
+        <div class="hm-stage-copy">
+          <p class="hm-kicker">Shanghai Huaming Power Equipment</p>
+          <h1>Welcome to Huaming</h1>
+          <p class="hm-lede">
+            We make tap changers for power transformers. The factory is in Putuo, Shanghai. International
+            headquarters opened in Singapore in 2025.
+          </p>
+          <p class="hm-acts">
+            <a href="/products/">Products</a>
+            <a href="/downloads/">Downloads</a>
+            <a href="/contact/">Contact</a>
+          </p>
+        </div>
       </div>
-      <figure>
-        <img
-          src="/images/00_HuaMing/about/about-photo.jpg"
-          alt="Shanghai factory, Putuo."
-        />
-        <figcaption>Shanghai factory, No. 977 Tongpu Road, Putuo.</figcaption>
-      </figure>
     </section>
+    <figure class="hm-stage-photo">
+      <img
+        src="/images/00_HuaMing/about/about-photo.jpg"
+        alt="Shanghai factory, Putuo."
+      />
+      <figcaption>Shanghai factory, No. 977 Tongpu Road, Putuo.</figcaption>
+    </figure>
 
     <section class="hm-homes" aria-label="Factory and headquarters">
       <article class="hm-home-factory">
