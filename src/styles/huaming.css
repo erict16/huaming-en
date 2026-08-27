@@ -235,16 +235,21 @@ body{
 .hm-bar-inner{
   display:flex;
   align-items:center;
-  min-height:5.25rem;
-  gap:1.5rem 2rem;
-  padding:.55rem 0;
+  height:4.75rem;
+  min-height:4.75rem;
+  padding:0;
+  gap:1.75rem;
 }
+.hm-bar-inner > *{margin:0;}
 .hm-logo{
   display:flex;
   align-items:center;
   text-decoration:none;
   color:#fff;
   flex:0 0 auto;
+  height:3rem;
+  margin:0;
+  font-size:0;
   line-height:0;
 }
 header.hm-bar .hm-logo img,
@@ -260,43 +265,59 @@ header.hm-bar .hm-logo img,
   object-fit:contain;
   filter:brightness(0) invert(1);
 }
-.hm-primary{display:flex;align-items:center;gap:1.85rem;}
-.hm-primary a{
-  color:#fff;
-  text-decoration:none;
-  font-size:1rem;
-  font-weight:600;
-  letter-spacing:.02em;
-  padding:.2rem 0;
+.hm-primary,
+.hm-util{
+  display:flex;
+  align-items:center;
+  gap:1.75rem;
+  height:3rem;
 }
-.hm-primary a[aria-current="page"]{
-  box-shadow:inset 0 -2px 0 #fff;
-  padding-bottom:.2rem;
-}
-.hm-spacer{flex:1;}
-.hm-util{display:flex;align-items:center;gap:1.35rem;font-size:.8125rem;font-weight:500;}
-.hm-util a{color:rgba(255,255,255,.82);text-decoration:none;}
-.hm-util a:hover,.hm-primary a:hover{color:#fff;}
+.hm-primary a,
+.hm-util a,
 .hm-search{
   display:inline-flex;
   align-items:center;
   justify-content:center;
+  height:3rem;
+  padding:0;
+  margin:0;
+  line-height:1;
+  text-decoration:none;
+}
+.hm-primary a{
   color:#fff;
-  width:2.5rem;
-  height:2.5rem;
+  font-size:.9375rem;
+  font-weight:600;
+  letter-spacing:.02em;
+}
+.hm-primary a[aria-current="page"]{
+  box-shadow:inset 0 -2px 0 #fff;
+}
+.hm-spacer{flex:1;min-width:1.5rem;}
+.hm-util{font-size:.8125rem;font-weight:500;}
+.hm-util a{color:rgba(255,255,255,.82);}
+.hm-util a:hover,.hm-primary a:hover{color:#fff;}
+.hm-search{
+  color:#fff;
+  width:auto;
   flex:0 0 auto;
 }
+.hm-search svg{display:block;}
 .hm-search:hover{color:#fff;}
 .hm-menu{display:none;position:relative;}
 .hm-menu summary{
   list-style:none;
   cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  height:2.25rem;
   font-size:.75rem;
   font-weight:600;
   letter-spacing:.08em;
   text-transform:uppercase;
+  line-height:1;
   border:1px solid rgba(255,255,255,.5);
-  padding:.5rem .75rem;
+  padding:0 .7rem;
 }
 .hm-menu summary::-webkit-details-marker{display:none;}
 .hm-menu nav{
@@ -315,12 +336,14 @@ header.hm-bar .hm-logo img,
   text-decoration:none;
   padding:.5rem .9rem;
   font-size:.875rem;
+  line-height:1.3;
+  height:auto;
 }
 .hm-menu nav a:hover{background:#00356f;}
 @media (max-width:900px){
   .hm-primary,.hm-util{display:none;}
   .hm-menu{display:block;}
-  .hm-bar-inner{min-height:4.75rem;gap:1rem;}
+  .hm-bar-inner{height:4.5rem;min-height:4.5rem;gap:1rem;}
 }
 
 main#main,
@@ -569,30 +592,50 @@ main{
   background:#00428C;
   color:#fff;
   border-top:3px solid #0071A9;
-  padding:2.75rem 0 2.25rem;
+  padding:2rem 0 1.75rem;
   font-size:.875rem;
-  line-height:1.5;
+  line-height:1.45;
 }
 .hm-foot-grid{
   display:grid;
   grid-template-columns:minmax(0,1.2fr) minmax(0,1.2fr) minmax(9.5rem,.75fr);
-  gap:2rem 2.75rem;
+  gap:1.75rem 2.5rem;
   align-items:start;
 }
 @media (max-width:800px){
   .hm-foot-grid{grid-template-columns:1fr;gap:1.5rem;}
 }
+.hm-foot-grid > div{
+  display:flex;
+  flex-direction:column;
+  gap:.35rem;
+  min-width:0;
+}
 .hm-foot-label{
-  margin:0 0 .55rem;
+  margin:0 0 .2rem!important;
   font-size:.6875rem;
   letter-spacing:.12em;
   text-transform:uppercase;
   font-weight:500;
+  line-height:1.2;
   color:rgba(255,255,255,.78);
 }
-.hm-foot p{margin:.3rem 0 0;font-weight:400;color:#fff;}
-.hm-foot-grid > div > p:nth-child(2){font-weight:600;margin-top:0;}
-.hm-foot a{color:#fff;text-decoration:none;font-weight:500;}
+.hm-foot p{
+  margin:0!important;
+  font-weight:400;
+  color:#fff;
+  line-height:1.45;
+}
+.hm-foot-grid > div > p:nth-child(2){font-weight:600;}
+.hm-foot a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:500;
+  margin:0;
+  padding-left:0!important;
+  max-width:none!important;
+  position:static!important;
+}
 .hm-foot a::before,
 .hm-foot a::after{
   content:none!important;
@@ -600,11 +643,11 @@ main{
   background:none!important;
 }
 .hm-foot a:hover{text-decoration:underline;text-underline-offset:.16em;}
-.hm-foot-legal{display:flex;flex-wrap:wrap;gap:.35rem .9rem;}
-.hm-foot a{
-  padding-left:0!important;
-  max-width:none!important;
-  position:static!important;
+.hm-foot-legal{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.35rem .9rem;
+  margin-top:.25rem!important;
 }
 
 /* InnerTeaser and leftover Reinhausen gold → navy/steel. Layout unchanged. */
