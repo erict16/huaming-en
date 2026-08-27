@@ -1,4 +1,4 @@
-<canvas class="hm-waves absolute inset-0 z-0 block size-full pointer-events-none" aria-hidden="true" data-palette="steel"></canvas>
+<canvas class="hm-waves absolute inset-0 z-0 block size-full pointer-events-none contain-paint" aria-hidden="true" data-palette="steel"></canvas>
 <script is:inline>
   (function () {
     var canvas = document.querySelector(".hm-waves");
@@ -221,6 +221,8 @@
     var running = false;
     var pausedAt = 0;
     var visible = true;
+    var scrolling = false;
+    var scrollTimer = 0;
 
     function nowTime() {
       if (!start) return REST;
@@ -234,7 +236,7 @@
     }
 
     function play() {
-      if (reduce || !visible || document.hidden) return;
+      if (reduce || !visible || scrolling || document.hidden) return;
       if (running) return;
       running = true;
       if (pausedAt) {
@@ -248,6 +250,18 @@
       running = false;
       cancelAnimationFrame(raf);
       pausedAt = performance.now();
+    }
+
+    function onScroll() {
+      if (!scrolling) {
+        scrolling = true;
+        stop();
+      }
+      if (scrollTimer) clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function () {
+        scrolling = false;
+        play();
+      }, 120);
     }
 
     function still() {
@@ -289,5 +303,9 @@
       if (document.hidden) stop();
       else play();
     });
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("wheel", onScroll, { passive: true });
+    window.addEventListener("touchmove", onScroll, { passive: true });
   })();
 </script>
