@@ -4,10 +4,14 @@
     var canvas = document.querySelector(".hm-waves");
     if (!canvas || !canvas.getContext) return;
     var ctx = canvas.getContext("2d");
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var reduce = mq.matches;
     var buffers = [];
+    var normalsBuf = [];
     var palette = [];
     var palKey = "";
+    var dpr = 1;
+    var REST = 1.15;
 
     var settings = {
       count: 16,
@@ -19,13 +23,13 @@
       twist: 0.36,
       bulge: 0.78,
       morph: 0.22,
-      speed: 0.36,
+      speed: 0.26,
       anim: "flow",
-      strokeWidth: 1.7,
-      opacity: 0.92,
+      strokeWidth: 1.22,
+      opacity: 0.9,
       gradientStart: "#7eb8d9",
       gradientEnd: "#e4f1fa",
-      edgeFade: 0.12,
+      edgeFade: 0.15,
       rotate: -6,
       designW: 1600,
       designH: 480,
@@ -91,6 +95,35 @@
       return buf;
     }
 
+    function normals(pts, line) {
+      var n = pts.length;
+      var buf = normalsBuf[line];
+      if (!buf || buf.length !== n) {
+        buf = Array.from({ length: n }, function () { return { x: 0, y: 1 }; });
+        normalsBuf[line] = buf;
+      }
+      for (var i = 0; i < n; i++) {
+        var a = pts[Math.max(0, i - 1)];
+        var b = pts[Math.min(n - 1, i + 1)];
+        var dx = b.x - a.x;
+        var dy = b.y - a.y;
+        var len = Math.hypot(dx, dy) || 1;
+        buf[i].x = -dy / len;
+        buf[i].y = dx / len;
+      }
+      return buf;
+    }
+
+    /* Half-width in canvas px. Ends taper; outer ribbons a hair thinner. */
+    function halfWidth(u, line) {
+      var s = Math.sin(Math.PI * u);
+      var belly = s * s;
+      var n = settings.count;
+      var t = n <= 1 ? 0.5 : line / (n - 1);
+      var ring = 0.76 + 0.24 * Math.sin(t * Math.PI);
+      return (settings.strokeWidth * dpr * (0.2 + 0.8 * belly) * ring) / 2;
+    }
+
     function colors() {
       var key = settings.gradientStart + settings.gradientEnd + settings.count + settings.opacity;
       if (key === palKey) return palette;
@@ -118,7 +151,6 @@
       ctx.clearRect(0, 0, w, h);
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
-      ctx.lineWidth = settings.strokeWidth;
       var pal = colors();
       var fade = Math.min(0.5, Math.max(0, settings.edgeFade));
       for (var i = 0; i < settings.count; i++) {
@@ -134,23 +166,29 @@
           grad.addColorStop(fade, col.full);
           grad.addColorStop(1 - fade, col.full);
           grad.addColorStop(1, col.clear);
-          ctx.strokeStyle = grad;
-          ctx.globalAlpha = 1;
+          ctx.fillStyle = grad;
         } else {
-          ctx.strokeStyle = col.solid;
-          ctx.globalAlpha = settings.opacity;
+          ctx.fillStyle = col.full;
         }
+        var nrm = normals(pts, i);
+        var n = pts.length;
         ctx.beginPath();
-        ctx.moveTo(first.x, first.y);
-        for (var j = 1; j < pts.length - 1; j++) {
-          var p = pts[j];
-          var n = pts[j + 1];
-          if (p && n) ctx.quadraticCurveTo(p.x, p.y, (p.x + n.x) / 2, (p.y + n.y) / 2);
+        for (var j = 0; j < n; j++) {
+          var u = j / (n - 1);
+          var hw = halfWidth(u, i);
+          var x = pts[j].x + nrm[j].x * hw;
+          var y = pts[j].y + nrm[j].y * hw;
+          if (j === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
         }
-        if (last) ctx.lineTo(last.x, last.y);
-        ctx.stroke();
+        for (var k = n - 1; k >= 0; k--) {
+          var u2 = k / (n - 1);
+          var hw2 = halfWidth(u2, i);
+          ctx.lineTo(pts[k].x - nrm[k].x * hw2, pts[k].y - nrm[k].y * hw2);
+        }
+        ctx.closePath();
+        ctx.fill();
       }
-      ctx.globalAlpha = 1;
     }
 
     function frame(time) {
@@ -162,26 +200,22 @@
     }
 
     function resize() {
-      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
       var box = canvas.getBoundingClientRect();
       canvas.width = Math.max(1, Math.round(box.width * dpr));
       canvas.height = Math.max(1, Math.round(box.height * dpr));
-    }
-
-    resize();
-    if (reduce) {
-      frame(0);
-      window.addEventListener("resize", function () {
-        resize();
-        frame(0);
-      });
-      return;
     }
 
     var start = 0;
     var raf = 0;
     var running = false;
     var pausedAt = 0;
+    var visible = true;
+
+    function nowTime() {
+      if (!start) return REST;
+      return ((performance.now() - start) / 1000) * settings.speed;
+    }
 
     function tick(now) {
       if (!start) start = now;
@@ -190,11 +224,11 @@
     }
 
     function play() {
+      if (reduce || !visible || document.hidden) return;
       if (running) return;
       running = true;
       if (pausedAt) {
-        var dt = performance.now() - pausedAt;
-        start += dt;
+        start += performance.now() - pausedAt;
       }
       raf = requestAnimationFrame(tick);
     }
@@ -206,19 +240,44 @@
       pausedAt = performance.now();
     }
 
+    function still() {
+      stop();
+      frame(REST);
+    }
+
+    function onReduceChange() {
+      reduce = mq.matches;
+      if (reduce) still();
+      else play();
+    }
+
+    resize();
+    if (reduce) {
+      still();
+    }
+
+    if (mq.addEventListener) mq.addEventListener("change", onReduceChange);
+    else if (mq.addListener) mq.addListener(onReduceChange);
+
     var ro = new ResizeObserver(function () {
       resize();
-      if (!running) frame(start ? ((performance.now() - start) / 1000) * settings.speed : 0);
+      if (!running) frame(reduce ? REST : nowTime());
     });
     ro.observe(canvas);
 
     var io = new IntersectionObserver(
       function (entries) {
-        if (entries[0] && entries[0].isIntersecting) play();
+        visible = !!(entries[0] && entries[0].isIntersecting);
+        if (visible) play();
         else stop();
       },
       { rootMargin: "10% 0px" }
     );
     io.observe(canvas);
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stop();
+      else play();
+    });
   })();
 </script>

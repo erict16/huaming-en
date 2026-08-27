@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>05 — split</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="ground.css" />
+</head>
+<body class="g-split">
+  <p class="note">05 — split. White paper left for type, navy field only under the waves.</p>
+  <header class="hm-bar">
+    <div class="hm-bar-inner">
+      <a class="hm-logo" href="/"><img src="logo.png" alt="Huaming" width="200" height="85" /></a>
+      <nav class="hm-primary"><a href="/products/">Products</a><a href="/about/">About</a><a href="/news/">News</a></nav>
+      <span class="hm-spacer"></span>
+      <nav class="hm-util"><a href="/downloads/">Downloads</a><a href="/contact/">Contact</a></nav>
+      <a class="hm-search" href="/search/" aria-label="Search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+      </a>
+    </div>
+  </header>
+  <section class="stage">
+    <div class="wave-field"></div>
+    <canvas class="hm-waves" aria-hidden="true" data-palette="navy" data-time="2.1"></canvas>
+    <div class="scrim"></div>
+    <div class="wrap">
+      <div class="copy">
+        <p class="kicker">Shanghai Huaming Power Equipment</p>
+        <h1>Welcome to Huaming</h1>
+        <p class="lede">We make tap changers for power transformers. The factory is in Putuo, Shanghai. International headquarters opened in Singapore in 2025.</p>
+        <p class="acts"><a href="/products/">Products</a><a href="/downloads/">Downloads</a><a href="/contact/">Contact</a></p>
+      </div>
+    </div>
+  </section>
+  <figure class="photo">
+    <img src="factory.jpg" alt="Shanghai factory, Putuo." />
+    <figcaption>Shanghai factory, No. 977 Tongpu Road, Putuo.</figcaption>
+  </figure>
+  <script src="waves.js"></script>
+</body>
+</html>

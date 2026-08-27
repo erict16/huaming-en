@@ -18,6 +18,8 @@ No MR webm. No anniversary/100-years copy.
 
 Playwright 1280: 0 `<video>`, 1 canvas, ~45k stroke pixels avg `rgb(177,212,233)`, H1 white.
 
+Later polish, same ribbon: ends taper, stroke scaled by DPR (~1.22 CSS px at the belly), speed 0.36 → 0.26, `prefers-reduced-motion` listens for change. Ground on `/` is still `#001a3d`. Five other grounds are sketches; see `AUDIT-hero-ground.md`.
+
 ## Shots
 
 - `docs/overnight/shots/hero-1280.png`
