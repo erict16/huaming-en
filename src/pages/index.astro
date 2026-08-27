@@ -103,23 +103,22 @@ const homeNews = news.slice(0, 2);
       </div>
     </section>
 
-    <section class="hm-news" aria-label="News">
+    <section class="hm-news" aria-label="Latest news">
       <div class="hm-wrap">
-        <h2>News</h2>
-        <ul>
+        <h2>Latest news</h2>
+        <div class="hm-news-blocks">
           {
-            homeNews.map((item, i) => (
-              <li>
-                <span class="hm-n">{String(i + 1).padStart(2, "0")}</span>
-                <div>
-                  <a href={`/news/${item.slug}/`}>{item.title}</a>
-                  <p>{item.summary}</p>
-                </div>
+            homeNews.map((item) => (
+              <article>
                 <time datetime={item.date}>{item.date}</time>
-              </li>
+                <h3>
+                  <a href={`/news/${item.slug}/`}>{item.title}</a>
+                </h3>
+                <p>{item.summary}</p>
+              </article>
             ))
           }
-        </ul>
+        </div>
       </div>
     </section>
   </main>

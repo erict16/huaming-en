@@ -587,6 +587,57 @@ main{
   .hm-news li{grid-template-columns:2.5rem minmax(0,1fr);}
   .hm-news time{grid-column:2;text-align:left;}
 }
+.hm-home .hm-news-blocks{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  align-items:stretch;
+}
+@media (max-width:800px){
+  .hm-home .hm-news-blocks{grid-template-columns:1fr;}
+}
+.hm-home .hm-news-blocks article{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  gap:.45rem;
+  min-width:0;
+  background:#fff;
+  padding:1.25rem 1.35rem 1.3rem;
+}
+.hm-home .hm-news-blocks time{
+  margin:0;
+  font-size:.8125rem;
+  color:#3a3a3a;
+  font-variant-numeric:tabular-nums;
+  font-weight:400;
+  text-align:left;
+  line-height:1.3;
+}
+.hm-home .hm-news-blocks h3{
+  margin:0!important;
+  font-size:1.05rem;
+  font-weight:600;
+  letter-spacing:-.015em;
+  line-height:1.3;
+  color:#262626;
+}
+.hm-home .hm-news-blocks a{
+  color:#00428C;
+  font-weight:600;
+  text-decoration:none;
+  display:inline!important;
+  padding:0!important;
+  margin:0!important;
+}
+.hm-home .hm-news-blocks a:hover{text-decoration:underline;text-underline-offset:.16em;}
+.hm-home .hm-news-blocks p{
+  margin:0!important;
+  font-size:.875rem;
+  color:#262626!important;
+  font-weight:400!important;
+  line-height:1.45;
+}
 
 .hm-foot{
   background:#00428C;
@@ -650,7 +701,58 @@ main{
   margin-top:.25rem!important;
 }
 
-/* InnerTeaser and leftover Reinhausen gold → navy/steel. Layout unchanged. */
+/* InnerTeaser: navy tiles. Padding and white links beat leftover MR rim layout. */
+.hm-teasers{padding:2rem 0 2.25rem;background:#fff;}
+.hm-teaser-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+  align-items:stretch;
+}
+@media (max-width:800px){
+  .hm-teaser-grid{grid-template-columns:1fr;}
+}
+.hm-tile{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  gap:1rem;
+  min-height:9.5rem;
+  box-sizing:border-box;
+  padding:1.5rem 1.6rem 1.4rem;
+  background:#00428C;
+  color:#fff;
+}
+.hm-tile-h{
+  margin:0!important;
+  font-size:1.15rem;
+  font-weight:600;
+  letter-spacing:-.015em;
+  line-height:1.35;
+  color:#fff!important;
+  font-family:"IBM Plex Sans",sans-serif;
+}
+.hm-tile a{
+  color:#fff!important;
+  font-weight:600;
+  text-decoration:none;
+  margin:0!important;
+  padding:0!important;
+  max-width:none!important;
+  position:static!important;
+  display:inline!important;
+  font-family:"IBM Plex Sans",sans-serif;
+}
+.hm-tile a::before,
+.hm-tile a::after{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+}
+.hm-tile a:hover{text-decoration:underline;text-underline-offset:.16em;color:#fff!important;}
+.hm-tile:hover{background:#00356f;}
+
+/* Leftover Reinhausen gold → navy/steel on inner MR chrome. */
 .textteaser.textteaser-gradient-bg,
 .textteaser.textteaser-gradient-bg:hover{
   background-image:none!important;
