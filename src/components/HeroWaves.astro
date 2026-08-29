@@ -1,16 +1,29 @@
-<canvas class="hm-waves absolute inset-0 z-0 block size-full pointer-events-none" aria-hidden="true" data-palette="steel"></canvas>
+<canvas
+  class="hm-waves absolute inset-0 z-0 block size-full pointer-events-none contain-paint transform-gpu will-change-transform"
+  aria-hidden="true"
+  data-palette="steel"
+></canvas>
+<style>
+  .hm-waves {
+    /* Screen-space fade. Same 16% as the old per-ribbon canvas gradient, one compositor mask. */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 16%, #000 84%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 16%, #000 84%, transparent);
+  }
+</style>
 <script is:inline>
   (function () {
     var canvas = document.querySelector(".hm-waves");
     if (!canvas || !canvas.getContext) return;
-    var ctx = canvas.getContext("2d");
+    var ctx = canvas.getContext("2d", { alpha: true, desynchronized: true }) || canvas.getContext("2d");
+    if (!ctx) return;
     var mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     var reduce = mq.matches;
     var buffers = [];
     var normalsBuf = [];
+    var hwCache = [];
     var palette = [];
     var palKey = "";
-    var dpr = 1;
+    var backingScale = 1;
     var REST = 1.15;
     var palettes = {
       steel: {
@@ -25,7 +38,7 @@
 
     var settings = {
       count: 16,
-      resolution: 80,
+      resolution: 48,
       spacing: 9.5,
       amplitude: 120,
       frequency: 0.55,
@@ -131,7 +144,19 @@
       var n = settings.count;
       var t = n <= 1 ? 0.5 : line / (n - 1);
       var ring = 0.76 + 0.24 * Math.sin(t * Math.PI);
-      return (settings.strokeWidth * dpr * (0.2 + 0.8 * belly) * ring) / 2;
+      return (settings.strokeWidth * backingScale * (0.2 + 0.8 * belly) * ring) / 2;
+    }
+
+    function rebuildHw() {
+      var n = Math.max(2, settings.resolution);
+      hwCache = [];
+      for (var line = 0; line < settings.count; line++) {
+        var row = new Array(n);
+        for (var j = 0; j < n; j++) {
+          row[j] = halfWidth(n <= 1 ? 0.5 : j / (n - 1), line);
+        }
+        hwCache[line] = row;
+      }
     }
 
     function colors() {
@@ -147,8 +172,6 @@
         var g = Math.round(a[1] + (b[1] - a[1]) * t);
         var bl = Math.round(a[2] + (b[2] - a[2]) * t);
         palette.push({
-          solid: "rgb(" + r + "," + g + "," + bl + ")",
-          clear: "rgba(" + r + "," + g + "," + bl + ",0)",
           full: "rgba(" + r + "," + g + "," + bl + "," + settings.opacity + ")",
         });
       }
@@ -159,42 +182,27 @@
       var w = settings.designW;
       var h = settings.designH;
       ctx.clearRect(0, 0, w, h);
-      ctx.lineJoin = "round";
-      ctx.lineCap = "round";
       var pal = colors();
-      var fade = Math.min(0.5, Math.max(0, settings.edgeFade));
+      var nPts = Math.max(2, settings.resolution);
+      if (!hwCache.length || hwCache[0].length !== nPts) rebuildHw();
       for (var i = 0; i < settings.count; i++) {
         var pts = points(i, time);
         if (pts.length < 2) continue;
-        var first = pts[0];
-        var last = pts[pts.length - 1];
         var col = pal[i];
-        if (!first || !col) continue;
-        if (fade > 0 && last) {
-          var grad = ctx.createLinearGradient(first.x, first.y, last.x, last.y);
-          grad.addColorStop(0, col.clear);
-          grad.addColorStop(fade, col.full);
-          grad.addColorStop(1 - fade, col.full);
-          grad.addColorStop(1, col.clear);
-          ctx.fillStyle = grad;
-        } else {
-          ctx.fillStyle = col.full;
-        }
+        if (!col) continue;
+        ctx.fillStyle = col.full;
         var nrm = normals(pts, i);
         var n = pts.length;
+        var hw = hwCache[i];
         ctx.beginPath();
         for (var j = 0; j < n; j++) {
-          var u = j / (n - 1);
-          var hw = halfWidth(u, i);
-          var x = pts[j].x + nrm[j].x * hw;
-          var y = pts[j].y + nrm[j].y * hw;
+          var x = pts[j].x + nrm[j].x * hw[j];
+          var y = pts[j].y + nrm[j].y * hw[j];
           if (j === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         }
         for (var k = n - 1; k >= 0; k--) {
-          var u2 = k / (n - 1);
-          var hw2 = halfWidth(u2, i);
-          ctx.lineTo(pts[k].x - nrm[k].x * hw2, pts[k].y - nrm[k].y * hw2);
+          ctx.lineTo(pts[k].x - nrm[k].x * hw[k], pts[k].y - nrm[k].y * hw[k]);
         }
         ctx.closePath();
         ctx.fill();
@@ -202,18 +210,24 @@
     }
 
     function frame(time) {
-      settings.designW = canvas.width;
-      settings.designH = canvas.height;
-      settings.amplitude = Math.max(70, canvas.height * 0.28);
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
       draw(time);
     }
 
     function resize() {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
       var box = canvas.getBoundingClientRect();
-      canvas.width = Math.max(1, Math.round(box.width * dpr));
-      canvas.height = Math.max(1, Math.round(box.height * dpr));
+      var cssW = Math.max(1, box.width);
+      var cssH = Math.max(1, box.height);
+      /* 1× CSS, width capped at 1280. Old path was DPR 2 (2560×1152 at this viewport). */
+      backingScale = Math.min(1, 1280 / cssW);
+      var w = Math.max(1, Math.round(cssW * backingScale));
+      var h = Math.max(1, Math.round(cssH * backingScale));
+      if (canvas.width === w && canvas.height === h) return;
+      canvas.width = w;
+      canvas.height = h;
+      settings.designW = w;
+      settings.designH = h;
+      settings.amplitude = Math.max(70, h * 0.28);
+      rebuildHw();
     }
 
     var start = 0;
@@ -221,7 +235,6 @@
     var running = false;
     var pausedAt = 0;
     var visible = true;
-
     function nowTime() {
       if (!start) return REST;
       return ((performance.now() - start) / 1000) * settings.speed;
