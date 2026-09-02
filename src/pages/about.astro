@@ -1,131 +1,61 @@
 ---
 import Base from "../layouts/Base.astro";
 import InnerTeaser from "../components/InnerTeaser.astro";
-import { offices } from "../lib/catalog";
-import { news } from "../lib/news";
 ---
 
-<Base title="About · Huaming" description="Shanghai Huaming Power Equipment Co., Ltd. makes tap changers for power transformers.">
+<Base
+  title="About · Huaming"
+  description="Shanghai Huaming Power Equipment makes tap changers for power transformers. Standard lead time about 4–6 weeks. International mail goes to Singapore."
+>
   <main id="main" class="hm-list hm-about">
     <div class="hm-wrap hm-list-intro">
-      <h1>About Huaming</h1>
+      <p class="hm-kicker">About</p>
+      <h1>Why buyers choose Huaming</h1>
       <p class="hm-list-lede">
-        Shanghai factory. Singapore international headquarters. Tap changers for power transformers:
-        on-load and de-energized, vacuum and oil, plus the motor drive.
+        Full range. A standing export desk in Singapore. A factory that has been in Putuo since 1989.
       </p>
     </div>
 
-    <div class="hm-wrap hm-about-split">
-      <h2>Shanghai factory. Singapore headquarters.</h2>
+    <section class="hm-wrap hm-why" aria-label="Why Huaming">
+      <article>
+        <p class="hm-why-n">4–6 weeks</p>
+        <p>Standard lead time. Shorter on inquiry.</p>
+      </article>
+      <article>
+        <p class="hm-why-n">150+</p>
+        <p>Countries with Huaming tap changers, from the chairman letter.</p>
+      </article>
+      <article>
+        <p class="hm-why-n">CNAS</p>
+        <p>Laboratory accreditation, 2009. Public pages list ISO 9001, 14001, and 18001.</p>
+      </article>
+    </section>
+
+    <div class="hm-wrap hm-about-company">
       <div>
+        <h2>The company</h2>
         <p>
-          Legal name: Shanghai Huaming Power Equipment Co., Ltd. Credit code 913101076076323035. Factory
-          at No. 977 Tongpu Road, Putuo District, Shanghai 200333. International mail:{" "}
+          Shanghai Huaming Power Equipment Co., Ltd. Factory at No. 977 Tongpu Road, Putuo. Listed
+          Shenzhen 002270.SZ in 2015. International headquarters: Huaming Power Equipment Singapore
+          Pte. Ltd, Tai Seng Exchange, 1 Tai Seng Ave. Opened 29 April 2025. International mail:{" "}
           <a href="mailto:intl@huaming.com">intl@huaming.com</a>.
         </p>
         <p>
-          International headquarters: Huaming Power Equipment Singapore Pte. Ltd, Tai Seng Exchange (TSX)
-          Tower A #03-13, 1 Tai Seng Ave, Singapore 536464. The company announced that office on 29 April
-          2025.
+          Xiao Yi (肖毅) has been general manager since 1995. Türkiye plant 2016. Brazil and USA
+          outlets 2019. Indonesia plant 2025. CHVT at Longdong ±800 kV HVDC, commissioned 28 May 2025.
         </p>
-      </div>
-    </div>
-
-    <dl class="hm-wrap hm-facts">
-      <div>
-        <dt>Founded</dt>
-        <dd>1989. History page starts the listed subsidiary in 1995.</dd>
-      </div>
-      <div>
-        <dt>Countries</dt>
-        <dd>Tap changers in 150+ countries (chairman letter).</dd>
-      </div>
-      <div>
-        <dt>Lead time</dt>
-        <dd>About 4–6 weeks, standard.</dd>
-      </div>
-      <div>
-        <dt>Listed</dt>
-        <dd>Shenzhen 002270.SZ, 2015. Changzheng Electric 2018.</dd>
-      </div>
-    </dl>
-
-    <div class="hm-wrap hm-about-media">
-      <div>
-        <h2>Management</h2>
-        <p><strong>Xiao Yi (肖毅)</strong><br />General manager since 1995.</p>
-      </div>
-      <figure>
-        <img src="/images/00_HuaMing/about/chariman-raw.png" alt="Xiao Yi. General manager since 1995." />
-        <figcaption>Xiao Yi. General manager since 1995.</figcaption>
-      </figure>
-    </div>
-    <div class="hm-wrap hm-about-media">
-      <div>
-        <h2>History</h2>
-        <p>
-          Shanghai Huaming Power Equipment Co., Ltd. History page starts the listed subsidiary in 1995.
-          Factory work from 1989. Listed Shenzhen 002270.SZ, 2015.
-        </p>
-        <p>Turkey plant 2016. Brazil and USA outlets 2019. Singapore subsidiary 2022. Indonesia plant 2025.</p>
-      </div>
-      <figure>
-        <img src="/images/00_HuaMing/about/about-photo.jpg" alt="Shanghai factory, Putuo." />
-        <figcaption>Shanghai factory, Putuo.</figcaption>
-      </figure>
-    </div>
-    <div class="hm-wrap hm-about-media">
-      <div>
-        <h2>Laboratory</h2>
-        <p>CNAS laboratory accreditation, 2009. Public pages list ISO 9001, ISO 14001, and ISO 18001.</p>
-        <p>CHVT at Longdong ±800 kV HVDC, commissioned 28 May 2025.</p>
+        <p class="hm-about-write"><a href="/contact/">Write Singapore</a></p>
       </div>
       <figure>
         <img
-          src="/images/00_HuaMing/home/engineers-helmets-standing-by-factory.png"
-          alt="Shanghai factory. CNAS laboratory accreditation, 2009."
+          src="/images/00_HuaMing/about/chariman-raw.png"
+          alt="Xiao Yi. General manager since 1995."
+          width="536"
+          height="468"
         />
-        <figcaption>Shanghai factory. CNAS laboratory accreditation, 2009.</figcaption>
+        <figcaption>Xiao Yi. General manager since 1995.</figcaption>
       </figure>
     </div>
-
-    <div class="hm-wrap">
-      <h2 class="hm-more-h">Offices</h2>
-      <div class="hm-offices">
-        {
-          offices.map((o) => (
-            <article>
-              <p class="hm-place">{o.role}</p>
-              <h2>{o.name}</h2>
-              {o.lines.map((line) => (
-                <p>{line}</p>
-              ))}
-            </article>
-          ))
-        }
-      </div>
-    </div>
-
-    <section class="hm-news hm-about-news" aria-label="News">
-      <div class="hm-wrap">
-        <h2>News</h2>
-        <ul>
-          {
-            news.slice(0, 4).map((item, i) => (
-              <li>
-                <span class="hm-n">{String(i + 1).padStart(2, "0")}</span>
-                <div>
-                  <a href={`/news/${item.slug}/`}>{item.title}</a>
-                  <p>{item.summary}</p>
-                </div>
-                <time datetime={item.date}>{item.date}</time>
-              </li>
-            ))
-          }
-        </ul>
-        <p class="hm-list-pdf"><a href="/news/">All news</a></p>
-      </div>
-    </section>
     <InnerTeaser />
   </main>
 </Base>

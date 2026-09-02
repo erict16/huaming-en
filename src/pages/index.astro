@@ -27,29 +27,37 @@ const homeNews = news.slice(0, 2);
 
 <Home title="Huaming — tap changers for power transformers">
   <main id="main">
-    <section class="relative min-h-[32rem] overflow-hidden bg-paper text-ink lg:min-h-[36rem]">
+    <section class="relative overflow-hidden bg-paper text-ink lg:min-h-[36rem]">
       <HeroWaves />
       <div
-        class="pointer-events-none absolute inset-y-0 left-0 z-[1] w-[min(46rem,62%)] bg-gradient-to-r from-paper via-paper/95 to-transparent max-[800px]:w-full max-[800px]:bg-gradient-to-b"
+        class="pointer-events-none absolute inset-y-0 left-0 z-[1] w-[min(46rem,62%)] bg-gradient-to-r from-paper via-paper/95 to-transparent max-[800px]:w-[min(22.5rem,78%)]"
         aria-hidden="true"
       >
       </div>
       <div class="relative z-[2] mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="max-w-xl py-16 sm:py-20 lg:py-24">
+        <div class="max-w-xl py-12 sm:py-20 lg:py-24">
           <p class="text-xs font-medium uppercase tracking-[0.12em] text-mute">
             Shanghai Huaming Power Equipment
           </p>
-          <h1 class="mt-2 max-w-[12ch] text-5xl font-semibold tracking-tight text-navy sm:text-6xl sm:leading-[1.08]">
-            Welcome to Huaming
+          <h1 class="mt-2 max-w-[16ch] text-[1.85rem] font-semibold leading-[1.12] tracking-tight text-navy text-pretty sm:text-5xl sm:leading-[1.08] lg:text-6xl">
+            Tap changers for power transformers
           </h1>
-          <p class="mt-5 max-w-xl text-lg leading-7 text-ink sm:text-xl sm:leading-8">
-            We make tap changers for power transformers. The factory is in Putuo, Shanghai. International
-            headquarters opened in Singapore in 2025.
+          <p class="mt-5 max-w-xl text-base leading-7 text-ink sm:text-xl sm:leading-8">
+            Vacuum and oil. Technical data as PDF. Lead time about 4–6 weeks.
           </p>
-          <p class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-steel">
-            <a class="hover:underline hover:underline-offset-[0.16em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel" href="/products/">Products</a>
-            <a class="hover:underline hover:underline-offset-[0.16em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel" href="/downloads/">Downloads</a>
-            <a class="hover:underline hover:underline-offset-[0.16em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel" href="/contact/">Contact</a>
+          <p class="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-x-6">
+            <a
+              class="inline-flex min-h-11 items-center bg-navy px-4 text-sm font-semibold text-white hover:bg-[#00356f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+              href="/products/"
+            >
+              Find a type
+            </a>
+            <a
+              class="inline-flex min-h-11 items-center text-sm font-semibold text-steel hover:underline hover:underline-offset-[0.16em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel"
+              href="/downloads/"
+            >
+              Downloads
+            </a>
           </p>
         </div>
       </div>
@@ -60,6 +68,9 @@ const homeNews = news.slice(0, 2);
         class="block h-auto max-h-[28rem] w-full bg-paper object-cover object-center"
         src="/images/00_HuaMing/about/about-photo.jpg"
         alt="Shanghai factory, Putuo."
+        width="1227"
+        height="765"
+        decoding="async"
       />
       <figcaption class="pt-3 pb-2 text-xs text-mute">
         Shanghai factory, No. 977 Tongpu Road, Putuo.

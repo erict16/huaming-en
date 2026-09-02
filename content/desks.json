@@ -1,0 +1,62 @@
+[
+  {
+    "id": "hq",
+    "label": "Singapore HQ",
+    "name": "Singapore headquarters",
+    "role": "International inquiries",
+    "mail": "intl@huaming.com",
+    "place": "Tai Seng Exchange",
+    "covers": "All other countries",
+    "note": null
+  },
+  {
+    "id": "sea",
+    "label": "Southeast Asia — Eric Tan",
+    "name": "Eric Tan",
+    "role": "Southeast Regional Sales",
+    "mail": "eric.tan@huaming.com",
+    "place": "Singapore desk",
+    "covers": "Malaysia, Thailand, Vietnam, Philippines, Cambodia, Laos, Myanmar, Brunei",
+    "note": null
+  },
+  {
+    "id": "indonesia",
+    "label": "Indonesia",
+    "name": "PT Huaming Power Indonesia",
+    "role": "Sales / service",
+    "mail": "sujicheng@huaming.com",
+    "place": "Bekasi",
+    "covers": "Indonesia",
+    "note": null
+  },
+  {
+    "id": "turkey",
+    "label": "Türkiye",
+    "name": "Huaming Turkey",
+    "role": "Plant / office",
+    "mail": "info@huaming.com.tr",
+    "place": "Balıkesir",
+    "covers": "Türkiye",
+    "note": null
+  },
+  {
+    "id": "americas",
+    "label": "Americas",
+    "name": "Americas office",
+    "role": "USA and Brazil",
+    "mail": "intl@huaming.com",
+    "place": "Routed by Singapore HQ",
+    "covers": "United States, Brazil, rest of the Americas",
+    "note": "Named sales contact not on the site yet. Singapore will pass it on."
+  },
+  {
+    "id": "china",
+    "label": "China",
+    "name": "Shanghai Huaming Power Equipment Co., Ltd.",
+    "role": "Factory",
+    "mail": "intl@huaming.com",
+    "place": "Putuo, Shanghai",
+    "covers": "China",
+    "note": "International inquiries still go through Singapore."
+  }
+]

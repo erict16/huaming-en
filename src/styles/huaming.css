@@ -997,6 +997,7 @@ a.show-all:not(:focus):hover,
 .hm-list-pdf a::after{content:none!important;display:none!important;background:none!important;}
 .hm-list-family{padding-bottom:0;}
 .hm-list-intro{padding-top:.5rem;}
+.hm-list-intro .hm-kicker{margin:0 0 .3rem;}
 .hm-spec-intro{padding:1.25rem 0 .5rem;}
 .hm-spec-intro h2,
 .hm-spec h3{
@@ -1180,10 +1181,12 @@ a.show-all:not(:focus):hover,
   color:#262626;
   background:#fff;
 }
-.hm-field:focus{border-color:#0071A9;outline:2px solid color-mix(in srgb,#0071A9 35%,transparent);}
+.hm-field:focus-visible{border-color:#0071A9;outline:2px solid color-mix(in srgb,#0071A9 35%,transparent);outline-offset:1px;}
 .hm-form{max-width:36rem;padding:0 0 2.5rem;}
 .hm-form h2{font-size:1.05rem;font-weight:600;margin:0 0 1rem;}
-.hm-check{display:flex;gap:.5rem;align-items:flex-start;font-size:.875rem;margin:0 0 1rem;}
+.hm-check{display:flex;gap:.5rem;align-items:flex-start;font-size:.875rem;margin:1rem 0;}
+.hm-check input{margin-top:.2rem;flex:none;width:1.15rem;height:1.15rem;}
+.hm-check input:focus-visible{outline:2px solid #00428C;outline-offset:2px;}
 .hm-submit{
   display:inline-flex;
   align-items:center;
@@ -1196,8 +1199,10 @@ a.show-all:not(:focus):hover,
   font:inherit;
   font-weight:600;
   cursor:pointer;
+  touch-action:manipulation;
 }
 .hm-submit:hover{background:#00356f;}
+.hm-submit:focus-visible{outline:2px solid #00428C;outline-offset:3px;}
 .hm-form-note{margin:.75rem 0 0;font-size:.8125rem;color:#3a3a3a;}
 .hm-offices{
   display:grid;
@@ -1211,9 +1216,50 @@ a.show-all:not(:focus):hover,
 .hm-offices p{margin:.25rem 0 0;font-size:.875rem;}
 .hm-place{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:#3a3a3a;}
 .hm-more-h{font-size:1.05rem;font-weight:600;margin:0 0 1rem;}
+.hm-contact h1,
+.hm-about h1{
+  color:#00428C;
+  text-wrap:balance;
+}
 .hm-contact a{color:#0071A9;}
 .hm-contact a::before,
 .hm-contact a::after{content:none!important;display:none!important;background:none!important;}
+.hm-inquiry{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(16rem,.8fr);
+  gap:1.6rem 2rem;
+  align-items:start;
+  padding-bottom:2rem;
+}
+.hm-inquiry .hm-form{max-width:none;padding:0;}
+.hm-form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 1rem;
+}
+.hm-span-2{grid-column:1 / -1;}
+.hm-desk-rail{
+  background:#eef1f4;
+  padding:1rem 1.05rem 1.15rem;
+  min-width:0;
+}
+.hm-desk-rail h2{
+  margin:.2rem 0 0!important;
+  font-size:1.2rem;
+  font-weight:600;
+  letter-spacing:-.02em;
+  overflow-wrap:anywhere;
+}
+.hm-rail-role{margin:.15rem 0 0!important;font-size:.875rem;color:#3a3a3a;}
+.hm-desk-rail p{margin:.45rem 0 0!important;font-size:.875rem;}
+.hm-desk-rail .hm-place{margin:0!important;}
+.hm-rail-always{font-weight:600;}
+.hm-rail-rule{border:0;border-top:1px solid #d1d1d1;margin:1rem 0;}
+@media (max-width:800px){
+  .hm-inquiry{grid-template-columns:1fr;}
+  .hm-form-grid{grid-template-columns:1fr;}
+  .hm-span-2{grid-column:auto;}
+}
 
 .hm-about-split{
   display:grid;
@@ -1224,6 +1270,54 @@ a.show-all:not(:focus):hover,
 }
 @media (max-width:800px){.hm-about-split{grid-template-columns:1fr;}}
 .hm-about-split h2{margin:0;font-size:1.25rem;font-weight:600;letter-spacing:-.02em;}
+.hm-why{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:.8rem 1.25rem;
+  padding:0 0 1.75rem;
+}
+.hm-why article{
+  border-top:3px solid #00428C;
+  padding:.7rem 0 0;
+  min-width:0;
+}
+.hm-why-n{
+  margin:0;
+  font-size:1.35rem;
+  font-weight:600;
+  letter-spacing:-.02em;
+  color:#00428C;
+  font-variant-numeric:tabular-nums;
+}
+.hm-why p{margin:.35rem 0 0;font-size:.9375rem;}
+@media (max-width:800px){.hm-why{grid-template-columns:1fr;}}
+.hm-about-company{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+  gap:1.4rem 2rem;
+  align-items:start;
+  padding:0 0 2rem;
+}
+.hm-about-company h2{
+  margin:0 0 .5rem;
+  font-size:1.15rem;
+  font-weight:600;
+  color:#00428C;
+}
+.hm-about-company p{margin:0 0 1rem;}
+.hm-about-write{margin:0;}
+.hm-about-write a{font-weight:600;}
+.hm-about-company figure{margin:0;background:#eef1f4;}
+.hm-about-company img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:18rem;
+  object-fit:contain;
+  object-position:top;
+}
+.hm-about-company figcaption{font-size:.75rem;color:#3a3a3a;padding:.4rem .1rem 0;}
+@media (max-width:800px){.hm-about-company{grid-template-columns:1fr;}}
 .hm-facts{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));

@@ -1,114 +1,146 @@
 ---
 import Base from "../layouts/Base.astro";
 import InnerTeaser from "../components/InnerTeaser.astro";
-import { offices } from "../lib/catalog";
+import { desks, defaultDeskId, deskById } from "../lib/desks";
 
-const shanghai = offices.find((o) => o.id === "shanghai");
-const singapore = offices.find((o) => o.id === "singapore");
-const others = offices.filter((o) => o.id !== "shanghai" && o.id !== "singapore");
+const initial = deskById(defaultDeskId);
 ---
 
-<Base title="Contact · Huaming" description="International inquiries: intl@huaming.com. Singapore is the international headquarters. Shanghai is the factory.">
+<Base title="Contact · Huaming" description="Write Singapore. International inquiries: intl@huaming.com. Pick a desk if you already know who covers you.">
   <main id="main" class="hm-list hm-contact">
     <div class="hm-wrap hm-list-intro">
-      <h1>Contact</h1>
+      <p class="hm-kicker">Contact</p>
+      <h1>Write Singapore</h1>
       <p class="hm-list-lede">
-        International inquiries:{" "}
-        <a href="mailto:intl@huaming.com">intl@huaming.com</a>. Singapore is the international
-        headquarters. Shanghai is the factory.
+        The form is the page. Pick a desk if you already know who covers you.
       </p>
     </div>
 
-    <div class="hm-wrap hm-offices">
-      {
-        [singapore, shanghai].filter(Boolean).map((o) => (
-          <article>
-            <p class="hm-place">{o!.role}</p>
-            <h2>{o!.name}</h2>
-            {o!.lines.map((line) => (
-              <p>{line}</p>
-            ))}
-            {"email" in o! && o!.email ? (
-              <p>
-                <a href={`mailto:${o!.email}`}>{o!.email}</a>
-              </p>
-            ) : null}
-          </article>
-        ))
-      }
-    </div>
-
-    <form class="hm-wrap hm-form" method="post" action="mailto:intl@huaming.com" enctype="text/plain">
-      <h2>Write Singapore</h2>
-      <label class="hm-label">
-        Name
-        <input class="hm-field" required name="name" autocomplete="name" />
-      </label>
-      <label class="hm-label">
-        Email
-        <input class="hm-field" required type="email" name="email" autocomplete="email" />
-      </label>
-      <label class="hm-label">
-        About
-        <select class="hm-field" name="about">
-          <option value="OLTC">On-load tap changer</option>
-          <option value="OCTC">De-energized tap changer</option>
-          <option value="Accessories">Motor drive / monitor</option>
-          <option value="Brochure">Brochure</option>
-          <option value="Other">Other</option>
-        </select>
-      </label>
-      <label class="hm-label">
-        Office
-        <select class="hm-field" name="office">
-          <option value="Singapore">Singapore HQ</option>
-          <option value="Shanghai">Shanghai factory</option>
-          <option value="Other">Other</option>
-        </select>
-      </label>
-      <label class="hm-label">
-        Company
-        <input class="hm-field" name="company" autocomplete="organization" />
-      </label>
-      <label class="hm-label">
-        Telephone
-        <input class="hm-field" type="tel" name="phone" autocomplete="tel" />
-      </label>
-      <label class="hm-label">
-        Message
-        <textarea class="hm-field" required name="message" rows="5"></textarea>
-      </label>
-      <label class="hm-check">
-        <input required type="checkbox" name="privacy" value="ok" />
-        I have read the <a href="/legal/privacy/">Privacy</a> page.
-      </label>
-      <button class="hm-submit" type="submit">Send to intl@huaming.com</button>
-      <p class="hm-form-note">This form opens your mail app. It does not post to a server.</p>
-    </form>
-
-    {
-      others.length ? (
-        <div class="hm-wrap">
-          <h2 class="hm-more-h">Other offices</h2>
-          <div class="hm-offices">
-            {others.map((o) => (
-              <article>
-                <p class="hm-place">{o.role}</p>
-                <h2>{o.name}</h2>
-                {o.lines.map((line) => (
-                  <p>{line}</p>
-                ))}
-                {"email" in o && o.email ? (
-                  <p>
-                    <a href={`mailto:${o.email}`}>{o.email}</a>
-                  </p>
-                ) : null}
-              </article>
-            ))}
-          </div>
+    <div class="hm-wrap hm-inquiry">
+      <form
+        id="hm-write"
+        class="hm-form"
+        method="post"
+        action={`mailto:${initial.mail}`}
+        enctype="text/plain"
+        data-desks={JSON.stringify(desks)}
+      >
+        <div class="hm-form-grid">
+          <label class="hm-label">
+            Name
+            <input class="hm-field" required name="name" autocomplete="name" />
+          </label>
+          <label class="hm-label">
+            Email
+            <input class="hm-field" required type="email" name="email" autocomplete="email" spellcheck="false" />
+          </label>
+          <label class="hm-label">
+            Company
+            <input class="hm-field" name="company" autocomplete="organization" />
+          </label>
+          <label class="hm-label">
+            Telephone
+            <input class="hm-field" type="tel" name="phone" autocomplete="tel" />
+          </label>
+          <label class="hm-label">
+            About
+            <select class="hm-field" name="about">
+              <option value="OLTC">On-load tap changer</option>
+              <option value="OCTC">De-energized tap changer</option>
+              <option value="Accessories">Motor drive / monitor</option>
+              <option value="Brochure">Brochure</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+          <label class="hm-label">
+            Desk
+            <select class="hm-field" id="hm-desk" name="desk">
+              {
+                desks.map((d) => (
+                  <option value={d.id} selected={d.id === initial.id}>
+                    {d.label}
+                  </option>
+                ))
+              }
+            </select>
+          </label>
+          <label class="hm-label hm-span-2">
+            Message
+            <textarea
+              class="hm-field"
+              required
+              name="message"
+              rows="5"
+              placeholder="Type, voltage, quantity…"
+            ></textarea>
+          </label>
         </div>
-      ) : null
-    }
+        <label class="hm-check">
+          <input required type="checkbox" name="privacy" value="ok" />
+          I have read the <a href="/legal/privacy/">Privacy</a> page.
+        </label>
+        <button class="hm-submit" id="hm-send" type="submit">Send to {initial.mail}</button>
+        <p class="hm-form-note">This form opens your mail app. It does not post to a server.</p>
+      </form>
+
+      <aside class="hm-desk-rail" aria-live="polite">
+        <p class="hm-place">This note goes to</p>
+        <h2 id="hm-rail-name">{initial.name}</h2>
+        <p class="hm-rail-role" id="hm-rail-role">{initial.role}</p>
+        <p id="hm-rail-covers">{initial.covers}</p>
+        <p>
+          <a id="hm-rail-mail" href={`mailto:${initial.mail}`}>{initial.mail}</a>
+        </p>
+        <p class="hm-form-note" id="hm-rail-note" hidden={!initial.note}>{initial.note}</p>
+        <p class="hm-form-note">Change desk if this is not your region.</p>
+        <hr class="hm-rail-rule" />
+        <p class="hm-place">Always</p>
+        <p class="hm-rail-always">
+          <a href="mailto:intl@huaming.com">intl@huaming.com</a>
+        </p>
+        <p class="hm-form-note">Singapore headquarters. Fallback for unnamed regions.</p>
+      </aside>
+    </div>
     <InnerTeaser />
   </main>
+  <script is:inline>
+    (function () {
+      var form = document.getElementById("hm-write");
+      var select = document.getElementById("hm-desk");
+      var send = document.getElementById("hm-send");
+      var nameEl = document.getElementById("hm-rail-name");
+      var roleEl = document.getElementById("hm-rail-role");
+      var coversEl = document.getElementById("hm-rail-covers");
+      var mailEl = document.getElementById("hm-rail-mail");
+      var noteEl = document.getElementById("hm-rail-note");
+      if (!form || !select || !send) return;
+      var desks = JSON.parse(form.getAttribute("data-desks") || "[]");
+      var byId = {};
+      for (var i = 0; i < desks.length; i++) byId[desks[i].id] = desks[i];
+
+      function paint() {
+        var desk = byId[select.value] || desks[0];
+        form.setAttribute("action", "mailto:" + desk.mail);
+        send.textContent = "Send to " + desk.mail;
+        if (nameEl) nameEl.textContent = desk.name;
+        if (roleEl) roleEl.textContent = desk.role;
+        if (coversEl) coversEl.textContent = desk.covers;
+        if (mailEl) {
+          mailEl.textContent = desk.mail;
+          mailEl.setAttribute("href", "mailto:" + desk.mail);
+        }
+        if (noteEl) {
+          if (desk.note) {
+            noteEl.textContent = desk.note;
+            noteEl.hidden = false;
+          } else {
+            noteEl.textContent = "";
+            noteEl.hidden = true;
+          }
+        }
+      }
+
+      select.addEventListener("change", paint);
+    })();
+  </script>
 </Base>
