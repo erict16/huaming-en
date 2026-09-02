@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "audit": "node scripts/audit-mr.mjs"
+    "audit": "node scripts/audit-mr.mjs",
+    "shot": "node scripts/shot.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -15,6 +16,7 @@
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
+    "playwright-core": "^1.62.1",
     "typescript": "^5.9.2"
   }
 }
