@@ -1,68 +1,177 @@
 ---
-import Base from "../layouts/Base.astro";
-import InnerTeaser from "../components/InnerTeaser.astro";
-import ProductDownloadRows from "../components/ProductDownloadRows.astro";
+import Home from "../layouts/Home.astro";
 import { allDownloads } from "../lib/downloads";
-import { formatKind } from "../lib/doc-meta";
+import { formatKind, parseDocMeta } from "../lib/doc-meta";
+import { formatBytes } from "../lib/format";
+import type { Download } from "../lib/catalog";
 
 const files = allDownloads();
 const kinds = [...new Set(files.map((d) => d.kind))];
+const byKind = new Map<string, Download[]>();
+for (const d of files) {
+  const list = byKind.get(d.kind) ?? [];
+  list.push(d);
+  byKind.set(d.kind, list);
+}
+
+function kindLabel(kind: string): string {
+  const raw = formatKind(kind);
+  return raw.charAt(0).toUpperCase() + raw.slice(1);
+}
+
+function fileMeta(d: Download): string {
+  const meta = parseDocMeta(d.file, d.title);
+  return [meta.year, meta.docNo, formatBytes(d.bytes ?? 0)].filter(Boolean).join(" · ");
+}
+
+const tabClass =
+  "border-b-2 border-transparent pb-3 text-sm font-medium text-ink hover:text-steel focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel";
+const tabOnClass =
+  "border-b-2 border-navy pb-3 text-sm font-semibold text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy";
+const linkClass =
+  "font-semibold text-steel hover:underline hover:underline-offset-[0.16em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel";
 ---
 
-<Base title="Downloads · Huaming" description="Technical data, leaflets, operating instructions, and type-test reports. No email gate.">
-  <main id="main" class="hm-list hm-docs">
-    <div class="hm-wrap hm-list-intro">
-      <h1>Downloads</h1>
-      <p class="hm-list-lede">
-        Technical data, leaflets, operating instructions, and type-test reports. No email gate.
-      </p>
-      <nav class="hm-tabs" id="downloadTabs" aria-label="Document kind">
-        <a class="is-on" href="#all" data-kind="">All</a>
+<Home title="Downloads · Huaming" description="Technical data, leaflets, operating instructions, and type-test reports. No email gate.">
+  <main id="main">
+    <section class="bg-white">
+      <div class="mx-auto max-w-7xl px-6 pt-16 pb-8 lg:px-8 lg:pt-24 lg:pb-10">
+        <p class="text-xs font-medium uppercase tracking-[0.12em] text-mute">Catalogue</p>
+        <h1 class="mt-2 text-5xl font-semibold tracking-tight text-navy sm:text-6xl sm:leading-[1.08]">
+          Downloads
+        </h1>
+        <p class="mt-5 max-w-xl text-lg leading-7 text-ink sm:text-xl sm:leading-8">
+          Technical data, leaflets, operating instructions, and type-test reports. No email gate.
+        </p>
+        <nav
+          class="mt-10 flex flex-wrap gap-x-8 gap-y-2 border-b border-black/10"
+          id="downloadTabs"
+          aria-label="Document kind"
+        >
+          <a class={tabOnClass} href="#all" data-kind="" aria-current="page">All</a>
+          {
+            kinds.map((k) => (
+              <a class={tabClass} href={`#${k}`} data-kind={k}>
+                {kindLabel(k)}
+              </a>
+            ))
+          }
+          <a class={tabClass} href="#search" data-kind="search">Search</a>
+        </nav>
+        <form class="mt-8 max-w-md" id="downloadSearch" hidden>
+          <label class="block text-sm font-medium text-ink" for="ke_search_sword">
+            Search
+            <input
+              class="mt-2 block w-full border border-black/15 bg-white px-3 py-2.5 text-base text-ink focus:border-steel focus:outline-none focus:ring-2 focus:ring-steel/35"
+              type="search"
+              id="ke_search_sword"
+              name="q"
+              placeholder="CM2, SHZV, IEC…"
+            />
+          </label>
+        </form>
+      </div>
+    </section>
+
+    <section class="bg-white pb-16 lg:pb-24" aria-label="Files">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
         {
-          kinds.map((k) => (
-            <a href={`#${k}`} data-kind={k}>
-              {formatKind(k)}
-            </a>
+          [...byKind.entries()].map(([kind, rows]) => (
+            <div class="download-kind pt-10 first:pt-0" data-filter-category={kind}>
+              <h2 class="text-xs font-medium uppercase tracking-[0.12em] text-mute">{kindLabel(kind)}</h2>
+              <ul class="mt-4 divide-y divide-black/10 border-y border-black/10" role="list">
+                {rows.map((d) => {
+                  const meta = parseDocMeta(d.file, d.title);
+                  return (
+                    <li
+                      class="download-file"
+                      data-kind={kind}
+                      data-search={`${d.title} ${d.file} ${meta.docNo ?? ""}`.toLowerCase()}
+                    >
+                      <a
+                        class="group flex min-w-0 flex-col gap-2 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-8"
+                        href={`/downloads/${d.file}`}
+                      >
+                        <span class="min-w-0">
+                          <span class="block text-base font-semibold tracking-tight text-navy break-words group-hover:underline group-hover:underline-offset-[0.16em]">
+                            {d.title}
+                          </span>
+                          <span class="mt-1 block text-sm text-mute">{fileMeta(d)}</span>
+                        </span>
+                        <span class={`shrink-0 text-sm ${linkClass}`}>Download</span>
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           ))
         }
-        <a href="#search" data-kind="search">Search</a>
-      </nav>
-      <form class="hm-docs-search" id="downloadSearch" hidden>
-        <label class="hm-label" for="ke_search_sword">
-          Search
-          <input class="hm-field" type="search" id="ke_search_sword" name="q" placeholder="CM2, SHZV, IEC…" />
-        </label>
-      </form>
-    </div>
-    <div class="hm-wrap">
-      <ProductDownloadRows id="center" files={files} wrapCenter={false} />
-    </div>
-    <InnerTeaser />
+        <p class="download-empty mt-10 hidden text-base text-mute" id="downloadEmpty">No files match.</p>
+      </div>
+    </section>
+
+    <section class="bg-paper py-16 lg:py-24" aria-label="Catalogue">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-10 sm:grid-cols-3">
+          <article>
+            <h2 class="text-xl font-semibold tracking-tight text-ink">Need a type PDF?</h2>
+            <p class="mt-3">
+              <a class={`text-sm ${linkClass}`} href="/downloads/">Downloads</a>
+            </p>
+          </article>
+          <article>
+            <h2 class="text-xl font-semibold tracking-tight text-ink">The catalogue</h2>
+            <p class="mt-3">
+              <a class={`text-sm ${linkClass}`} href="/products/">Products</a>
+            </p>
+          </article>
+          <article>
+            <h2 class="text-xl font-semibold tracking-tight text-ink">International headquarters, Singapore</h2>
+            <p class="mt-3">
+              <a class={`text-sm ${linkClass}`} href="/contact/">Contact</a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
-</Base>
+</Home>
 
 <script is:inline>
   (function () {
     var tabs = document.querySelectorAll("#downloadTabs a[data-kind]");
-    var rows = document.querySelectorAll(".downloadcenter-row");
-    var items = document.querySelectorAll(".downloadItem-link");
+    var groups = document.querySelectorAll(".download-kind");
+    var items = document.querySelectorAll(".download-file");
     var searchWrap = document.getElementById("downloadSearch");
+    var emptyEl = document.getElementById("downloadEmpty");
     var input = document.getElementById("ke_search_sword");
+    var tabOn =
+      "border-b-2 border-navy pb-3 text-sm font-semibold text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy";
+    var tabOff =
+      "border-b-2 border-transparent pb-3 text-sm font-medium text-ink hover:text-steel focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel";
     function apply(kind, q) {
       var searching = kind === "search";
       var needle = (q || "").trim().toLowerCase();
+      var shown = 0;
       items.forEach(function (el) {
         var hay = el.getAttribute("data-search") || "";
-        var row = el.closest(".downloadcenter-row");
-        var kindOk = !kind || searching || (row && row.getAttribute("data-filter-category") === kind);
+        var itemKind = el.getAttribute("data-kind") || "";
+        var kindOk = !kind || searching || itemKind === kind;
         var textOk = !searching || needle.length < 1 || hay.indexOf(needle) !== -1;
-        el.hidden = !(kindOk && textOk);
+        var on = kindOk && textOk;
+        el.hidden = !on;
+        if (on) shown += 1;
       });
-      rows.forEach(function (r) {
-        r.hidden = !r.querySelector(".downloadItem-link:not([hidden])");
+      groups.forEach(function (g) {
+        g.hidden = !g.querySelector(".download-file:not([hidden])");
       });
+      if (emptyEl) emptyEl.classList.toggle("hidden", shown > 0);
       tabs.forEach(function (a) {
-        a.classList.toggle("is-on", a.getAttribute("data-kind") === kind);
+        var onTab = a.getAttribute("data-kind") === kind;
+        a.className = onTab ? tabOn : tabOff;
+        if (onTab) a.setAttribute("aria-current", "page");
+        else a.removeAttribute("aria-current");
       });
       if (searchWrap) searchWrap.hidden = !searching;
     }
