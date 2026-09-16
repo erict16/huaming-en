@@ -1,0 +1,3 @@
+scripts/** linguist-vendored
+*.py linguist-vendored
+astro.config.mjs linguist-vendored
