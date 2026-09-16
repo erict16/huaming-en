@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 import InnerTeaser from "../components/InnerTeaser.astro";
 import { products } from "../lib/catalog";
-import { allDownloads } from "../lib/downloads";
+import { allDownloads, pdfHref } from "../lib/downloads";
 import { news } from "../lib/news";
 
 const rows = [
@@ -13,7 +13,7 @@ const rows = [
     type: "page" as const,
   })),
   ...allDownloads().map((d) => ({
-    href: `/downloads/${d.file}`,
+    href: pdfHref(d.file),
     title: d.title,
     teaser: d.file,
     type: "file" as const,

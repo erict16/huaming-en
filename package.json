@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/strip-preview-pdfs.mjs",
     "preview": "astro preview",
     "audit": "node scripts/audit-mr.mjs"
   },

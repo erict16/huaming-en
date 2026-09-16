@@ -1,6 +1,7 @@
 ---
 import type { Download } from "../lib/catalog";
 import { formatKind, parseDocMeta } from "../lib/doc-meta";
+import { pdfHref } from "../lib/downloads";
 import { formatBytes } from "../lib/format";
 
 interface Props {
@@ -39,7 +40,7 @@ for (const d of files) {
                     return (
                       <div class="download-set">
                         <a
-                          href={`/downloads/${d.file}`}
+                          href={pdfHref(d.file)}
                           class="downloadItem-link"
                           data-lang-code="en"
                           data-search={`${d.title} ${d.file} ${meta.docNo ?? ""}`.toLowerCase()}
