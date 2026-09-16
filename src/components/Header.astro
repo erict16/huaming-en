@@ -1,7 +1,8 @@
 ---
+import { pagePath } from "../lib/base";
 import { productBySlug } from "../lib/catalog";
 
-const path = Astro.url.pathname;
+const path = pagePath(Astro.url.pathname);
 const slug = path.match(/^\/products\/([^/]+)\/?$/)?.[1];
 const product = slug ? productBySlug(slug) : undefined;
 ---
